@@ -1,7 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import logo from '../img/logo.png'
-import NavLinks from './NavLinks'
 
 
 const HeaderWrap =  styled.header`
@@ -27,14 +27,36 @@ const Nav = styled.nav`
   > img {
     margin-right: 4%;
   }
+  > ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5.1%;
+  }
 `;
+
 
 const Header = () => {
   return (
     <HeaderWrap>
       <Nav>
         <img src={logo} alt="아이티엑스마케팅"/>
-        <NavLinks />
+        <ul>
+          <li>
+            ITX Marketing
+            <ul>
+              <li><Link to='/summary'>개요</Link></li>
+              <li><Link to='/partners'>제휴사</Link></li>
+              <li><Link to='/recruit'>채용</Link></li>
+              <li><Link to='/contact'>Contact us</Link></li>
+            </ul>
+          </li>
+          <li>Business</li>
+          <li>상속증여연구소</li>
+          <li>기업컨설팅</li>
+          <li>러닝센터</li>
+          <li>지점 찾기</li>
+        </ul>
       </Nav>
     </HeaderWrap>
   )
