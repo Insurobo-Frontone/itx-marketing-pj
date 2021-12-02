@@ -32,6 +32,11 @@ const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
     margin-left: 5.1%;
+    & > li {
+    position: relative;
+    > ul {
+
+    }
   }
 `;
 
@@ -51,11 +56,51 @@ const Header = () => {
               <li><Link to='/contact'>Contact us</Link></li>
             </ul>
           </li>
-          <li>Business</li>
-          <li>상속증여연구소</li>
-          <li>기업컨설팅</li>
-          <li>러닝센터</li>
-          <li>지점 찾기</li>
+          <li>
+            Business
+            <ul>
+              <li>
+              <Link to='/platform'>플랫폼</Link>
+                <ul>
+                  <li>병원라운지</li>
+                  <li>보험플러스</li>
+                  <li>Market</li>
+                </ul>
+              </li>
+              <li>
+                <Link to='/?service=busi'>서비스</Link>
+                <ul>
+                  <li>보장분석</li>
+                  <li>보험비교</li>
+                  <li>기업컨설팅</li>
+                </ul>
+              </li>
+              <li><Link to='/invest'>3분 재태크</Link></li>
+              <li><Link to='/?apply=busi'>상담신청</Link></li>
+            </ul>
+          </li>
+          <li>
+            상속증여연구소
+            <ul>
+              <li><Link to='/inherit'>연구소 소개</Link></li>
+              <li><Link to='/?service=inherit'>서비스</Link></li>
+              <li><Link to='/?experts=inherit'>전문가 그룹</Link></li>
+              <li><Link to='/?process=inherit'>프로세스</Link></li>
+              <li><Link to='/?apply=inherit'>상담신청</Link></li>
+            </ul>
+          </li>
+          <li>
+            기업컨설팅
+            <ul>
+              <li><Link to='/consulting'>컨설팅 소개</Link></li>
+              <li><Link to='/?service=consult'>서비스</Link></li>
+              <li><Link to='/?experts=consult'>전문가 그룹</Link></li>
+              <li><Link to='/?process=consult'>프로세스</Link></li>
+              <li><Link to='/?apply=consult'>상담신청</Link></li>
+            </ul>
+          </li>
+          <li><Link to='/runnig'>러닝센터</Link></li>
+          <li><Link to='/store'>지점 찾기</Link></li>
         </ul>
       </Nav>
     </HeaderWrap>
