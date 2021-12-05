@@ -1,6 +1,6 @@
 const size = {
   desktop: "1920px",
-  mobile: "500px",
+  mobile: "700px",
   Tablet: "1261px",
   SmaillMobile: "270px"
 };
@@ -11,5 +11,7 @@ const theme = {
   Tablet: `(max-width: ${size.Tablet})`,
   SmaillMobile: `(max-width: ${size.desktop})`,
 };
+
+
 
 export default theme;

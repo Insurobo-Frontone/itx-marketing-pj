@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import '../style/Header.css';
-// import whitelogo from '../img/whitelogo.svg';
-// import listicon from '../img/listIcon.svg';
-// import blacklogo from '../img/blacklogo.svg';
+import _ from 'lodash';
+import { Desktop, Tablat, Mobile } from '../components/MediaQuery';
+
+import whitelogo from '../img/whitelogo.svg';
+import listicon from '../img/listIcon.svg';
+import blacklogo from '../img/blacklogo.svg';
+import togglebtn from '../img/toggle_btn.svg';
+import togglebtnblack from '../img/toggle_btn_black.svg';
+import closebtn from '../img/closebtn.svg';
 
 const Headers =  styled.header`
   position: fixed;
@@ -14,8 +19,13 @@ const Headers =  styled.header`
   font-size: 1rem;
   width: 100%;
   height: 100px;
-  color: ${props => (props.className ? '#444444' : '#FFFFFF')};
-  background: ${props => (props.className ? '#FFFFFF' : 'transparent')};
+  background-color: ${props => (props.isOpen ? '#FFFFFF' : 'transparent')};
+  color: ${props => (props.isOpen ? '#444444' : '#FFFFFF')};
+  &.change_header{
+    color:${props => (props.className ? '#444444' : '#FFFFFF')};
+    background-color: ${props => (props.className ? '#FFFFFF' : 'transparent')};
+  }
+  
 ::after{
     width: 100%;
     content: "";
@@ -34,50 +44,231 @@ const Inner = styled.div`
   height: 100px;
   padding: 0 7.8125%;
   align-items: center;
+
+  @media (max-width: 700px) {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+`;
+const Logo = styled.h2`
+  display: flex;
+  height: 100%;
+  padding-right: 18.51851851851852%;
+  margin-right: 3.5%;
+  z-index: 31;
+  background-image: url(${whitelogo});
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+  @media (max-width: 700px) {
+    padding-right: 0;
+    margin-right: 0;
+    width: 124px;
+    order: 1;
+    background-image: url(${props => props.isOpen ? blacklogo : whitelogo});
+  }
+  &.change_header{
+    background-image: url(${props => props.className ? blacklogo : whitelogo});
+  }
+  &.show {
+    background-image: url(${blacklogo});
+  }
+
+
 `;
 
-const logoChange = document.getElementById('logo');
+const Lnb = styled.div`
+  width: 100%;
+  @media (max-width: 700px) {
+    display: ${props => (props.isOpen ? 'block' : 'none')};
+    order: 3;
+  }
+  
+> nav {
+  position: relative;
+  z-index: 30;
+}
+> nav:hover + div {
+  height: 610px;
+  opacity: 1;
+  @media (max-width: 700px){
+    height: 100%;
+  }
+}
+ > nav + div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  background: #FFFFFF;
+  transition: all 0.3s;
+  z-index: 29;
+  @media (max-width: 700px){
+    position: fixed;
+    height: 100%;
+    opacity: 1;
+  }
+}
+> nav > .main-menu {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  overflow: hidden;
+
+  @media (max-width: 700px){
+    display: block;
+    overflow: visible;
+  }
+}
+
+ > nav > .main-menu:hover{
+  color: #444444;
+  overflow: visible;
+}
+
+ > nav > .main-menu > li{
+  position: relative;
+  width: 14%;
+  text-align: center;
+  line-height: 100px;
+  white-space: nowrap;
+  flex-grow: 1;
+  cursor: pointer;
+  @media (max-width: 700px){
+    line-height: 85px;
+  }
+}
+> nav > .main-menu > li:hover::after {
+  width: 100%;
+}
+ > nav > .main-menu > li::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 100%;
+  width: 0;
+  height: 3px;
+  background-color: #C22229;
+  transition: all 0.4s;
+  margin-top: 1px;
+  @media (max-width: 700px){
+    display: none;
+  }
+}
+ > nav > .main-menu > li > .sub-menu {
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+  opacity: 0;
+  transition: all 0.3s;
+}
+ > nav > .main-menu:hover > li > .sub-menu {
+  opacity: 1;
+  @media (max-width: 700px){
+    display: none;
+  }
+}
+ > nav > .main-menu > li > .sub-menu > li {
+  line-height: 22.26px;
+  padding: 1.5rem 0;
+  position: relative;
+}
+.sub-menu-dropdown {
+  text-align: start;
+  line-height: 30px;
+  font-size: 15px;
+  padding-left: 35%;
+  
+}
+.sub-menu-dropdown > li {
+  display: flex;
+  align-items: center;
+}
+.sub-menu-dropdown > li::before {
+  content: '';
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 11px;
+  width: 8px;
+  height: 8px;
+  background-image: url(${listicon});
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+}
+`;
+const ToggleBtn = styled.div`
+  width: 17px;
+  height: 14px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+  cursor: pointer;
+  display: none;
+  z-index: 30;
+  &.change_header{
+    background-image: url(${props => props.isOpen ? closebtn : togglebtnblack});
+  }
+  @media (max-width: 700px) {
+    order: 2;
+    display: block;
+    background-image: url(${props => props.isOpen ? closebtn : togglebtn});
+    
+  }
+`;
  
 const Header = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [isToggleOn, setToggleOn] = useState(false);
 
+  const handleClick = () => {
+    setToggleOn(!isToggleOn);
+  }
 
   // 스크롤 EVENT
   const updeateScroll = () => {
     setScrollPosition(window.scrollY);
-
   }
   useEffect(() => {
     window.addEventListener('scroll', updeateScroll);
   });
 
-  // 마우스 호버시 로고 클레스 추가
   const handleMouseOver = () => {
-    // const dropDownBg = document.getElementById('dropdown_bg');
+    const logoChange = document.getElementById('logo');
     logoChange.classList.add('show');
-    // dropDownBg.classList.add('show');
   }
-  // 마우스 호버시 로고 클레스 제거
   const handleMouseOut = () => {
+    const logoChange = document.getElementById('logo');
     logoChange.classList.remove('show');
-  
   }
-          
+ 
   return (
-    <Headers className={scrollPosition > 1080 ? 'change_header': null}>
+    <Headers
+      className={scrollPosition > 300 ? 'change_header': null}
+      isOpen={isToggleOn}
+    >
       <Inner>
-        <div 
-          id="logo" 
-          className={scrollPosition > 1080 ? 'change_header': null}>
-        </div>
-        <div className="lnb">
+        <Logo
+          id="logo"
+          className=
+          {scrollPosition > 300 ? 'change_header': null}
+          isOpen={isToggleOn}
+        >
+        </Logo>
+        <Lnb isOpen={isToggleOn}
+        >
           <nav>
             <ul
-              className="main-menu toggle"
+              className="main-menu"
               onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}
+              isOpen={isToggleOn}              
             >
-              <li>ITX Marketing
+              <li
+                // onClick={}
+              >ITX Marketing
                 <ul className="sub-menu">
                   <li><Link to='/summary'>개요</Link></li>
                   <li><Link to='/partners'>제휴사</Link></li>
@@ -128,9 +319,13 @@ const Header = () => {
             </ul>
           </nav>
           <div></div>
-        </div>
-         
-          <h2 className="toggle-btn"></h2>        
+        </Lnb>
+        <ToggleBtn
+          className={scrollPosition > 300 ? 'change_header': null}
+          onClick={handleClick}
+          isOpen={isToggleOn}
+        >
+        </ToggleBtn>        
       </Inner>
     </Headers>
   )

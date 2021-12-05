@@ -1,5 +1,5 @@
 import { ThemeProvider } from "styled-components";
-import theme from "./components/Theme";
+import theme from "./components/theme";
 import GlobalStyle from './components/GlobalStyle'
 import { Route } from 'react-router-dom'
 
