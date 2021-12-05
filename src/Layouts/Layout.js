@@ -6,19 +6,17 @@ import Header from './Header'
 const Wrap = styled.div`
   position: relative;
   width: 100%;
+  height: 100%;
   margin: 0 auto;
 `;
 const Layout = ({children}) => {
   return (
-    <Wrap>
+    <Wrap className="wrap">
       <Header />
         {children}
       <Footer />
     </Wrap>
-    
-      
-   
-  )
+  );
 }
 
 export default Layout

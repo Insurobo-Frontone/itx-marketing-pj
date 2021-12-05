@@ -5,8 +5,12 @@ const Desktop = ({children}) => {
   return isDesktop ? children : null
 }
 const Mobile = ({children}) => {
-  const isMobile = useMediaQuery({ maxWidth: 375 });
+  const isMobile = useMediaQuery({ maxWidth: 700 });
   return isMobile ? children : null
+}
+const Tablet = ({children}) => {
+  const isTablet = useMediaQuery({ maxWidth: 1261 });
+  return isTablet ? children : null
 }
 const SmaillMobile = ({children}) => {
   const isSmaillMobile = useMediaQuery({ maxWidth: 270 });
@@ -17,4 +21,4 @@ const Default = ({children}) => {
   return isDesktop ? children : null
 }
 
-export {Desktop, Mobile, SmaillMobile, Default};
+export {Desktop, Tablet, Mobile, SmaillMobile, Default};

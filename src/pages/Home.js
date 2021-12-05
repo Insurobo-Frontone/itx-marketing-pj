@@ -6,6 +6,8 @@ const Home = () => {
   return (
     <Layout>
       <MainBanner />
+      <MainBanner />
+      <MainBanner />
     </Layout>
   )
 }
