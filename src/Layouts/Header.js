@@ -1,14 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-// import useOnClickOutside from "../hooks/useOnClickOutside";
 
-import whitelogo from '../img/whitelogo.svg';
-import listicon from '../img/listIcon.svg';
-import blacklogo from '../img/blacklogo.svg';
-import togglebtn from '../img/toggle_btn.svg';
-import togglebtnblack from '../img/toggle_btn_black.svg';
-import closebtn from '../img/closebtn.svg';
+import whitelogo from '../img/common/whitelogo.svg';
+import listicon from '../img/common/listIcon.svg';
+import blacklogo from '../img/common/blacklogo.svg';
+import togglebtn from '../img/common/toggle_btn.svg';
+import togglebtnblack from '../img/common/toggle_btn_black.svg';
+import closebtn from '../img/common/closebtn.svg';
 
 const Headers =  styled.header`
   position: fixed;
@@ -47,6 +46,7 @@ const Inner = styled.div`
   @media (max-width: 700px) {
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 0 20px;
   }
 `;
 const Logo = styled.h2`
@@ -226,11 +226,10 @@ const Lnb = styled.div`
 }
 `;
 const ToggleBtn = styled.div`
-  width: 17px;
-  height: 14px;
+  width: 40px;
+  height: 70px;
   background-repeat: no-repeat;
-  background-position: left center;
-  background-size: contain;
+  background-position: center;
   cursor: pointer;
   display: none;
   z-index: 30;

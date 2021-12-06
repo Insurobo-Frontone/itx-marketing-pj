@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Frame from "../img/foot_logo.png";
+import Frame from "../img/common/foot_logo.png";
 
 const Footer = () => {
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
-
+// import {} from 'MediaQuery';
 import "../style/Swiper.css";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
@@ -9,9 +9,9 @@ import "swiper/components/effect-fade/effect-fade.min.css";
 import SwiperCore, {  Autoplay, Pagination, EffectFade } from "swiper";
 import styled from 'styled-components';
 
-import banner1 from "../img/mbSlide1.png"
-import banner2 from "../img/mbSlide2.png"
-import banner3 from "../img/mbSlide3.png"
+import banner1 from "../img/main/mbSlide1.png"
+import banner2 from "../img/main/mbSlide2.png"
+import banner3 from "../img/main/mbSlide3.png"
 
 const data = [
   {
@@ -45,7 +45,11 @@ const Page = styled.div`
   line-height: 22.56px;
   left: 9.270833333333333%;
   font-family: "GoyangDeogyang B";
-  
+  @media (max-width: 700px) {
+    font-size: 0.625rem;
+    line-height: 11.28px;
+    top: 84.33098591549296%;
+  }
 `;
 const Overay = styled.div`
   width: 100%;
@@ -92,9 +96,7 @@ const MainBanner = () => {
         >
           <div
             className="slide-img"
-            style={{
-              backgroundImage:`url(${dt.image})`
-            }}
+            style={{backgroundImage:`url(${dt.image})`}}
           >
             <Overay />
             
