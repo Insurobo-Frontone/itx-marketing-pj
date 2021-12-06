@@ -8,6 +8,7 @@ const Home = () => {
       <MainBanner />
       <MainBanner />
       <MainBanner />
+      <MainBanner />
     </Layout>
   )
 }

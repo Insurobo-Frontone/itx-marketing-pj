@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import _ from 'lodash';
-import { Desktop, Tablat, Mobile } from '../components/MediaQuery';
+// import useOnClickOutside from "../hooks/useOnClickOutside";
 
 import whitelogo from '../img/whitelogo.svg';
 import listicon from '../img/listIcon.svg';
@@ -20,9 +19,9 @@ const Headers =  styled.header`
   width: 100%;
   height: 100px;
   background-color: ${props => (props.isOpen ? '#FFFFFF' : 'transparent')};
-  color: ${props => (props.isOpen ? '#444444' : '#FFFFFF')};
+  color: ${props => (props.isOpen ? '#323232' : '#FFFFFF')};
   &.change_header{
-    color:${props => (props.className ? '#444444' : '#FFFFFF')};
+    color:${props => (props.className ? '#323232' : '#FFFFFF')};
     background-color: ${props => (props.className ? '#FFFFFF' : 'transparent')};
   }
   
@@ -87,6 +86,7 @@ const Lnb = styled.div`
 > nav {
   position: relative;
   z-index: 30;
+  /* overflow: scroll; */
 }
 > nav:hover + div {
   height: 610px;
@@ -119,12 +119,12 @@ const Lnb = styled.div`
 
   @media (max-width: 700px){
     display: block;
-    overflow: visible;
+    height: 100%;
   }
 }
 
  > nav > .main-menu:hover{
-  color: #444444;
+  color: #323232;
   overflow: visible;
 }
 
@@ -136,12 +136,23 @@ const Lnb = styled.div`
   white-space: nowrap;
   flex-grow: 1;
   cursor: pointer;
+
   @media (max-width: 700px){
-    line-height: 85px;
+    line-height: 22.26px;
+    padding: 29px 0;
+    color: #323232;
+    font-size: 1.25rem;
+
+    &.active > .sub-menu{
+      display: block;
+    }
   }
 }
 > nav > .main-menu > li:hover::after {
   width: 100%;
+  @media (max-width: 700px) {
+    content: none;
+  }
 }
  > nav > .main-menu > li::after {
   content: "";
@@ -161,26 +172,41 @@ const Lnb = styled.div`
   position: absolute;
   width: 100%;
   z-index: 99;
-  opacity: 0;
+  opacity: 1;
   transition: all 0.3s;
+  color: #444444;
+
+  @media (max-width: 700px){
+    position: relative;
+    text-align: start;
+    width: 100%;
+    transition: max-height 0.6s ease;
+    padding-top: 26px;
+    display: none;
+  }
 }
  > nav > .main-menu:hover > li > .sub-menu {
   opacity: 1;
   @media (max-width: 700px){
-    display: none;
+    
   }
 }
  > nav > .main-menu > li > .sub-menu > li {
   line-height: 22.26px;
   padding: 1.5rem 0;
   position: relative;
+
+  @media (max-width: 700px) {
+    line-height: 15px;
+    padding: 10px 0;
+    font-size: 0.9375rem;
+  }
 }
 .sub-menu-dropdown {
   text-align: start;
   line-height: 30px;
   font-size: 15px;
   padding-left: 35%;
-  
 }
 .sub-menu-dropdown > li {
   display: flex;
@@ -219,10 +245,10 @@ const ToggleBtn = styled.div`
   }
 `;
  
-const Header = () => {
+const Header = ({ item }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isToggleOn, setToggleOn] = useState(false);
-
+  
   const handleClick = () => {
     setToggleOn(!isToggleOn);
   }
@@ -243,7 +269,27 @@ const Header = () => {
     const logoChange = document.getElementById('logo');
     logoChange.classList.remove('show');
   }
- 
+  
+
+ const activeMethod = (event) => {
+   const current = event.currentTarget;
+   const chkActive = current.classList.value.indexOf('active');
+   console.log(current);
+   closeMothodAll();
+
+   if (chkActive === -1) {
+     current.classList.add('active');
+   }
+ }
+
+ const closeMothodAll = () => {
+  let bx = document.getElementsByClassName('main-menu');
+
+  for (let i = 0; i < bx[0].children.length; i++) {
+    bx[0].children[i].classList.remove('active');
+  }
+ }
+
   return (
     <Headers
       className={scrollPosition > 300 ? 'change_header': null}
@@ -264,19 +310,18 @@ const Header = () => {
               className="main-menu"
               onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}
-              isOpen={isToggleOn}              
+              isOpen={isToggleOn}           
             >
-              <li
-                // onClick={}
-              >ITX Marketing
-                <ul className="sub-menu">
+              <li onClick={activeMethod}>ITX Marketing 
+                <ul 
+                  className="sub-menu">
                   <li><Link to='/summary'>개요</Link></li>
                   <li><Link to='/partners'>제휴사</Link></li>
                   <li><Link to='/recruit'>채용</Link></li>
                   <li><Link to='/contact'>Contact us</Link></li>
                 </ul>
-              </li> 
-              <li>Business
+              </li>
+              <li onClick={activeMethod}>Business
                 <ul className="sub-menu">
                   <li><Link to='/platform'>플랫폼</Link>
                     <ul className="sub-menu-dropdown">
@@ -296,7 +341,7 @@ const Header = () => {
                   <li><Link to='/?apply=busi'>상담신청</Link></li>
                 </ul>
               </li>
-              <li>상속증여연구소
+              <li onClick={activeMethod}>상속증여연구소
                 <ul className="sub-menu">
                   <li><Link to='/inherit'>연구소 소개</Link></li>
                   <li><Link to='/?service=inherit'>서비스</Link></li>
@@ -305,7 +350,7 @@ const Header = () => {
                   <li><Link to='/?apply=inherit'>상담신청</Link></li>
                 </ul>
               </li>
-              <li>기업컨설팅
+              <li onClick={activeMethod}>기업컨설팅
                 <ul className="sub-menu">
                   <li><Link to='/consulting'>컨설팅 소개</Link></li>
                   <li><Link to='/?service=consult'>서비스</Link></li>
