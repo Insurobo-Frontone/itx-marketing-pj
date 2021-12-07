@@ -69,18 +69,27 @@ const TitleBox = styled.div`
 const StyleSwiper = styled(Swiper)`
   width: 100%;
   flex-direction: row nowrap;
-  padding: 13.6% 0 12.3% 0;
+  padding: 13.6% 7.5% 12.3% 7.5%;
   display: flex;
   justify-content: space-between;
   & .swiper-pagination-bullet{
     display: none;
   }
+
   @media (max-width: 700px) {
-    padding: 88px 7.5% 59px 7.5%;  
+    padding: 88px 7.5% 59px 7.5%;
+    .swiper-slide-duplicate,
+    .swiper-slide{
+      transition: all .3s;
+      transform: scale(0.8);
+    }
     .swiper-slide-active,
     .swiper-slide-duplicate-active{
       box-shadow: 0px 22px 29px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
       border-radius: 21px;
+      transform: scale(1);
+
     }
     .swiper-pagination-bullet {
       display: inline-block;
@@ -89,6 +98,7 @@ const StyleSwiper = styled(Swiper)`
       margin: 0 5px !important;
       background-color: #C4C4C4 !important;
       opacity: 1 !important;
+      cursor: pointer;
     }
     .swiper-pagination-bullet-active {
       background-color: #C22229 !important;
@@ -106,8 +116,9 @@ const CardBox = styled.ul`
   }
   @media (max-width: 1261px) {
     font-size: 1.125rem;
-    padding: 32px;
+    padding: 31px 23px 31px 30px;
   }
+  
   
   > .card-icon {
     width: 100px;
@@ -174,18 +185,24 @@ const Rectangle = styled.div`
   }
   > img{
     width: 100%;
-    z-index: 30;
+    z-index: 10;
     position: absolute;
   }
   .rectangle {
     display: flex;
-    width: 13.93px;
-    height: 13.93px;
+    width: 41.08px;
+    height: 41.08px;
     background-color: #313131;
     box-shadow: 17px 9px 18px rgba(0, 0, 0, 0.3);
     transform: rotate(76.29deg);
-    margin-bottom: 32.97px;
+    margin-bottom: 133.82px;
     margin-left: calc(100% - 13.93px);
+
+    @media (max-width: 700px) {
+      width: 13.93px;
+      height: 13.93px;
+      margin-bottom: 32.97px;
+    }
   }
    
 `;
@@ -206,7 +223,7 @@ const Business = () => {
       <StyleSwiper
         {...swiperParams}
         loop={true}
-        spaceBetween={20}
+        spaceBetween={0}
         slidesPerView={1.2}
         centeredSlides={true}
         breakpoints={{

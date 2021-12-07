@@ -1,7 +1,5 @@
-import React from "react";
-
+import React from "react";             
 import styled from "styled-components";
-// import RecruitLogo from "../../public/images/Recruit.png";
 import visual from "../img/main/recruitVisual.png";
 
 const Recruit = () => {
@@ -10,11 +8,10 @@ const Recruit = () => {
       <Container>
         <Center>
           <h2 className="section-title">
-            <span>
-              <strong>R</strong>e
-              <strong>C</strong>r
-              UIT ITX Marketing 
-            </span>
+            <strong style={{color:"#C22229"}}>R</strong>
+            e<strong>C</strong>
+            r<strong>UIT</strong> 
+            <span>&nbsp;ITX Marketing</span>
           </h2>
           <Line></Line>
           <P_TAG>ITX 마케팅과 함께할 다양한 분야의 전문가를 기다립니다.</P_TAG>
@@ -39,6 +36,17 @@ const Center = styled.div`
   padding-top: 15.6%;
   padding-left: 7.8%;
   padding-bottom: 25px;
+
+  > .section-title{
+    font-size: 3rem;
+    font-family: 'GoyangDeogyang';
+    color: #1A1A1A;
+    > span {
+      font-family: 'GoyangIlsan';
+      display: inline-block;
+      font-weight: 300;
+    }
+  }
 `;
 
 const Line = styled.div`

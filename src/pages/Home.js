@@ -2,7 +2,7 @@ import React from 'react';
 import Business from '../components/Business';
 import MainBanner from '../components/MainBanner';
 import Layout from '../Layouts/Layout';
-// import Recruit from '../components/Recruit'
+import Recruit from '../components/Recruit'
 // import NewsMarketing from '../components/NewsMarketing';
 // import NewsSinhan from '../components/NewsSinhan';
 
@@ -12,7 +12,7 @@ const Home = () => {
     <Layout>
       <MainBanner />
       <Business />
-      {/* <Recruit /> */}
+      <Recruit />
       {/* <NewsMarketing />
       <NewsSinhan /> */}
     </Layout>
