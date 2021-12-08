@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import sinhansimbol from "../img/sinhanSimbol.png";
+import sinhansimbol from "../img/main/sinhanSimbol.png";
 
 const NewSinhan = () => {
   return (

@@ -35,22 +35,19 @@ const Recruit = () => {
             r<strong>UIT</strong> 
             <span>&nbsp;ITX Marketing</span>
           </h2>
+          <p>ITX 마케팅과 함께할 다양한 분야의 전문가를 기다립니다.</p> 
         </SectionTitle>
-        <p>ITX 마케팅과 함께할 다양한 분야의 전문가를 기다립니다.</p> 
+        
         <VisualBox />
+        <SlideContainer>
         <StyleSwiper
         loop={true}
-        spaceBetween={0}
-        slidesPerView={4.5}
+        spaceBetween={6}
+        slidesPerView={3.5}
         breakpoints={{
-          "700": {
-            "slidesPerView": 2.5,
-            "spaceBetween": 0,
-            "pagination": false
-          },
           "1261": {
-            "slidesPerView": 4.5,
-            "spaceBetween": 0
+            "slidesPerView": 3.9,
+            "spaceBetween": 55
           }
         }}
       > 
@@ -63,6 +60,7 @@ const Recruit = () => {
           </SwiperSlide>
         ))} 
         </StyleSwiper> 
+        </SlideContainer>
       </SectionContainer>
   );
 };
@@ -72,57 +70,131 @@ export default Recruit;
 const SectionContainer = styled.div`
   position: relative;
   width: 100%;
-  padding: 13.9% 0 0 7.8125%;
-
-  > p {
-    position: absolute;
-    font-size: 1.25rem;
-    color: #444444;
-    padding-top: 1.1%
-
+  padding: 15.7% 0 7.8125%;
+  overflow: hidden;
+ 
+  @media (max-width: 700px) {
+    padding: 28% 0 0 0;
+   
   }
 `;
 
 const SectionTitle = styled.div`
-  border-bottom: 3px solid #1A1A1A;
-  /* padding-top: 15.6%;
-  padding-left: 7.8%;
-  padding-bottom: 25px; */
-
+  margin-left: 5.333333333333333%;
   > h2 {
     font-size: 3rem;
     font-family: 'GoyangDeogyang';
     color: #1A1A1A;
-    padding-bottom: 1.1%;
+    padding-bottom: 1.4%;
+    border-bottom: 3px solid #1A1A1A;
     > span {
       font-family: 'GoyangIlsan';
       display: inline-block;
       font-weight: 300;
     }
   }
+ > p {
+    position: absolute;
+    font-size: 1.25rem;
+    color: #444444;
+    padding-top: 1.1%
+  }
+@media (max-width: 700px) {
+  > h2 {
+      font-size: 1.25rem;
+      border-bottom: 2px solid #1A1A1A;
+    }
+  > p {
+      font-size: 0.8125rem;
+      line-height: 14.47px;
+    }
+  }
+  
 `;
-
-
-
 
 const VisualBox = styled.div`
+  margin-left: 29.5%;
+  padding-top: 79.2%;
   background-image: url(${visual});
   background-repeat: no-repeat;
-  background-position: 24% 1%;
-  margin-left: 32.1%;
-  padding-top: 70%;
+  background-position: 18% 1%;
+  background-size: cover;
+
+  @media (max-width: 700px){
+    padding-top: 125%;
+    margin-left: 0;
+    background-size: 230%;
+    background-position: 30% -40%;
+  }
 `;
 
-const StyleSwiper = styled(Swiper)`
+const SlideContainer = styled.div`
+  padding: 6% 0% 9.5% 1%;
+  background-color: #F8F8F8;
+  border-radius: 366.5px 0 0 366.5px;
+  margin-left: 233px;
+  width: 116%;
+  height: 33.9%;
   position: absolute;
-  bottom: 0;
-  padding: 117px 0 116px 36px;
-  background-color: aqua;
-  border-radius: 366.5px;
+  bottom: 64px;
+  @media (max-width: 700px) {
+    margin-left: 20px;
+  }
+`;
+const StyleSwiper = styled(Swiper)`
+
    .swiper-slide{
-    border: 46px;
-    background: #cccccc;
-    margin-right: 55px;
+    border-radius: 46px;
+    background-color: #FFFFFF;
+    padding: 68px 42px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 30;
+    height: 400px;
+    width: 17.9%;
+    > p {
+      font-size: 1.5rem;
+      font-family: "GoyangDeogyang";
+    }
+    > div {
+      position: relative;
+      width: 45px;
+      height: 45px;
+      ::after {
+        position: absolute;
+        top: calc(50% - 2px);
+        content: "";
+        width: 100%;
+        height: 3px;
+        background-color: #1a1a1a;
+      }
+      ::before {
+        position: absolute;
+        left: calc(50% - 2px);
+        content: "";
+        width: 3px;
+        height: 100%;
+        background-color: #1a1a1a;
+      }
+    }
+    @media (max-width: 700px) {
+      width: 35.7%;
+      height: 150px;
+    }
+  }
+  .swiper-slide-active,
+  .swiper-slide-duplicate-active{
+    background-color: #B8292D;
+    color: #FFFFFF;
+    height: 500px;
+    > div {
+      ::after {
+        background-color: #FFFFFF;
+      }
+      ::before {
+        background-color: #FFFFFF;
+      }
+    }
   }
 `;
 
