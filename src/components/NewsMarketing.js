@@ -132,16 +132,17 @@ const StyledLink = styled(Link)`
   }
 `;
 const NewsContainer = styled.div`
+  width: 100%;
   padding-left: 87px;
-  overflow: hidden;
   align-self: flex-start;
   @media (max-width: 700px) {
     padding-left:0;
   } 
 `;
 const StyleSwiper = styled(Swiper)`
-  padding: 64px 0 34px 2px;
   overflow: hidden;
+  padding: 64px 0 34px 2px;
+
 @media (max-width: 700px) {
   .swiper-slide-duplicate,
   .swiper-slide {
@@ -300,13 +301,15 @@ const NewsMarketing = () => {
               {...swiperParams}
               ref={setSwiper}
               // centeredSlides={true}
+              debugger={true}
               slidesPerView={'auto'}
+              loopedSlides={4}
               slidesBetween={0}
               navigation={true}
               speed={1000}
               autoplay={{
-                "delay": 5000,
-                "disableOnInteraction": false
+                delay: 5000,
+                disableOnInteraction: false,
               }}
               breakpoints={{
                 1261: {
