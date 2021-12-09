@@ -5,7 +5,7 @@ const size = {
   SmaillMobile: "270px"
 };
 
-const theme = {
+const Theme = {
   desktop: `(max-width: ${size.desktop})`,
   mobile: `(max-width: ${size.mobile})`,
   Tablet: `(max-width: ${size.Tablet})`,
@@ -14,4 +14,4 @@ const theme = {
 
 
 
-export default theme;
+export default Theme;
