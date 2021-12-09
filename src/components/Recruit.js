@@ -1,11 +1,14 @@
-import React from "react";             
+import React from "react";
+import { Link } from 'react-router-dom';
+import { Swiper, SwiperSlide } from "swiper/react";       
 import styled from "styled-components";
-import visual from "../img/main/recruitVisual.png";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Link } from 'react-router-dom'
-;
-import "../style/Swiper.css";
 import "swiper/swiper.min.css";
+
+import visual from "../img/main/recruitVisual.png";
+import plusbtn from "../img/main/plusBtnBlack.svg";
+import plusbtnreverse from "../img/main/plusBtnWhite.svg";
+
+
 const Card = [
   {
     id: 0,
@@ -26,6 +29,7 @@ const Card = [
 ]
 
 const Recruit = () => {
+
   return (
       <SectionContainer>
         <SectionTitle>
@@ -40,13 +44,15 @@ const Recruit = () => {
         
         <VisualBox />
         <SlideContainer>
-        <StyleSwiper
-        loop={true}
-        spaceBetween={6}
-        slidesPerView={4}
-        breakpoints={{
-          "1261": {
-            "spaceBetween": 55
+          <StyleSwiper
+          loop={true}
+          spaceBetween={6}
+          slidesPerView={3.6}
+          breakpoints={{
+          700: {
+            spaceBetween: 55,
+            slidesPerView: 5
+            // "slidePerView": auto
           }
         }}
       > 
@@ -54,7 +60,7 @@ const Recruit = () => {
           <SwiperSlide 
             key={dt.id}
           >
-            <p>{dt.title}</p>
+            <p>{dt.title}<Link to='#'></Link></p>
             <div></div>
           </SwiperSlide>
         ))} 
@@ -134,18 +140,20 @@ const SlideContainer = styled.div`
   background-color: #F8F8F8;
   border-radius: 366.5px 0 0 366.5px;
   margin-left: 233px;
-  height: 33.9%;
+  height: 32.65%;
   position: absolute;
   bottom: 2.9657%;
+  z-index: 29;
   @media (max-width: 700px) {
     margin-left: 20px;
     width: 151.68%;
-    padding: 5.26% 0% 9.7% 3%;
-    bottom: 0;
+    padding: 9.5% 0% 9.7% 3%;
+    bottom: 0%;
   }
 `;
 const StyleSwiper = styled(Swiper)`
-  /* box-sizing: border-box; */
+    /* height: 100%; */
+    align-items: center;
    .swiper-slide{
     border-radius: 46px;
     background-color: #FFFFFF;
@@ -166,36 +174,15 @@ const StyleSwiper = styled(Swiper)`
       }
     }
     > div {
-      position: relative;
       width: 45px;
       height: 45px;
-      ::after {
-        position: absolute;
-        top: calc(50% - 3px);
-        content: "";
-        width: 100%;
-        height: 3px;
-        background-color: #1a1a1a;
-      }
-      ::before {
-        position: absolute;
-        left: calc(50% - 3px);
-        content: "";
-        width: 3px;
-        height: 100%;
-        background-color: #1a1a1a;
-      }
+      background-image: url(${plusbtn});
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
       @media (max-width: 700px) {
         width: 15px;
         height: 15px;
-        ::after {
-          top: calc(50% - 2px);
-          height: 2px;
-        }
-        ::before {
-          left: calc(50% - 2px);
-          width: 2px;
-        }
       }
     }
   }
@@ -205,12 +192,7 @@ const StyleSwiper = styled(Swiper)`
     color: #FFFFFF;
     padding: 75px 47px 380px 35px;
     > div {
-      ::after {
-        background-color: #FFFFFF;
-      }
-      ::before {
-        background-color: #FFFFFF;
-      }
+      background-image: url(${plusbtnreverse});
     }
     @media (max-width: 700px) {
       padding: 26px 18px 168px;

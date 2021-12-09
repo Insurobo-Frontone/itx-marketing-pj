@@ -3,6 +3,7 @@ import theme from "./components/Theme";
 import GlobalStyle from './components/GlobalStyle'
 import { Route } from 'react-router-dom'
 
+
 import Home from './pages/Home';
 import Summary from './pages/Summary';
 // import Partners from './pages/Partners';

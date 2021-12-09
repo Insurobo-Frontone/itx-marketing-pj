@@ -1,19 +1,17 @@
 import React from 'react'
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from 'react-router-dom';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper.min.css";
+import "swiper/components/pagination/pagination.min.css";
+import SwiperCore, { Pagination } from "swiper";
 
 import icon1 from "../img/main/insurancePlus.svg";
 import icon2 from "../img/main/corporateConsulting.svg";
 import icon3 from "../img/main/inheritanceResearch.svg";
 import rectangle from "../img/main/bigRectangle.svg";
 
-import "../style/Swiper.css";
-import "swiper/swiper.min.css";
-import "swiper/components/pagination/pagination.min.css";
-
-import SwiperCore, { Pagination } from "swiper";
 import styled from 'styled-components';
-
+import "../style/Swiper.css";
 const card = [
   {
     id: 0,
@@ -36,7 +34,7 @@ const card = [
 ]
 const SectionContainer = styled.div`
   width: 100%;
-  padding: 14% 0 17% 0;
+  padding: 12.85% 0 15.55% 0;
   background-color: #F8F8F8;
   position: relative;
   @media(max-width: 700px) {
@@ -47,9 +45,9 @@ const TitleBox = styled.div`
   text-align: center;
   > h3 {
     font-size: 3rem;
+    line-height: 3.4rem;
     font-family: 'GoyangDeogyang';
     color: #323232;
-
     @media (max-width: 700px) {
     font-size: 1.25rem;
     line-height: 22.56px;
@@ -69,16 +67,13 @@ const TitleBox = styled.div`
 const StyleSwiper = styled(Swiper)`
   width: 100%;
   flex-direction: row nowrap;
-  padding: 13.6% 7.5% 12.3% 7.5%;
+  padding: 12.1% 7.5% 11% 7.5%;
   display: flex;
   justify-content: space-between;
   & .swiper-pagination-bullet{
     display: none;
   }
-  .swiper-slide-active,
-  .swiper-slide-duplicate-active {
-   
-  }
+ 
   @media (max-width: 700px) {
     padding: 88px 7.5% 59px 7.5%;
     .swiper-slide-duplicate,
@@ -114,6 +109,7 @@ const CardBox = styled.ul`
   padding: 10% 11% 8.3% 14.2%;
   transition: all 0.3s;
   max-width: 500px;
+  background-color: #FFFFFF;
   :hover {
     box-shadow: -30px 49px 82px rgba(0, 0, 0, 0.15);
   }
@@ -121,8 +117,6 @@ const CardBox = styled.ul`
     font-size: 1.125rem;
     padding: 31px 23px 31px 30px;
   }
-  
-  
   > .card-icon {
     width: 100px;
     height: 100px;
@@ -214,9 +208,6 @@ const Business = () => {
 
   SwiperCore.use([Pagination]);
 
-  const swiperParams = {
-    pagination: true
-  }
   return (
     <SectionContainer>
       <TitleBox>
@@ -224,19 +215,17 @@ const Business = () => {
         <p>ITX마케팅의 다양한 비지니스를 경험해 보세요.</p>
       </TitleBox>
       <StyleSwiper
-        {...swiperParams}
-        spaceBetween={0}
-        slidesPerView={1.2}
         centeredSlides={true}
+        pagination={{
+          clickable: true,
+        }}
+        slidesPerView={1.2}
+        spaceBetween={22}
         breakpoints={{
-          "700": {
-            "slidesPerView": 3,
-            "spaceBetween": 70,
-            "pagination": false
-          },
-          "1261": {
-            "slidesPerView": 3,
-            "spaceBetween": 70
+          700: {
+            slidesPerView: 3,
+            spaceBetween: 66,
+            centeredSlides: false
           }
         }}
       > 

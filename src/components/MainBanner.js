@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
-// import {} from 'MediaQuery';
-import "../style/Swiper.css";
-import "swiper/swiper.min.css";
+
+import {Swiper, SwiperSlide} from 'swiper/react';
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/effect-fade/effect-fade.min.css";
-
 import SwiperCore, {  Autoplay, Pagination, EffectFade } from "swiper";
-import styled from 'styled-components';
 
 import banner1 from "../img/main/mbSlide1.png"
 import banner2 from "../img/main/mbSlide2.png"
 import banner3 from "../img/main/mbSlide3.png"
-
+import styled from 'styled-components';
 const data = [
   {
     id: 0,
@@ -86,7 +82,7 @@ const MainBanner = () => {
         }
       }
       autoplay={{
-        "delay": 7000,
+        "delay": 4000,
         "disableOnInteraction": false
       }}
     >
@@ -114,6 +110,6 @@ const MainBanner = () => {
   );
 }
 
-export default MainBanner
+export default MainBanner;
 
 

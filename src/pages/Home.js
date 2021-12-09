@@ -4,7 +4,6 @@ import MainBanner from '../components/MainBanner';
 import Layout from '../Layouts/Layout';
 import Recruit from '../components/Recruit'
 import NewsMarketing from '../components/NewsMarketing';
-import NewsSinhan from '../components/NewsSinhan';
 
 
 const Home = () => {
@@ -13,8 +12,7 @@ const Home = () => {
       <MainBanner />
       <Business />
       <Recruit />
-      {/* <NewsMarketing />
-      <NewsSinhan /> */}
+      <NewsMarketing />
     </Layout>
   )
 }

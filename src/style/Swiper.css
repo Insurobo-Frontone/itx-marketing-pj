@@ -24,7 +24,7 @@
   .slide-img{
     background-position:45% center;
     transform: perspective(150px) translateZ(30px);
-    transition: transform 5s ease;
+    transition: transform 3s ease;
   }
   
 }
