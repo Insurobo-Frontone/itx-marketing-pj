@@ -75,7 +75,10 @@ const StyleSwiper = styled(Swiper)`
   & .swiper-pagination-bullet{
     display: none;
   }
-
+  .swiper-slide-active,
+  .swiper-slide-duplicate-active {
+   
+  }
   @media (max-width: 700px) {
     padding: 88px 7.5% 59px 7.5%;
     .swiper-slide-duplicate,
@@ -222,7 +225,6 @@ const Business = () => {
       </TitleBox>
       <StyleSwiper
         {...swiperParams}
-        loop={true}
         spaceBetween={0}
         slidesPerView={1.2}
         centeredSlides={true}

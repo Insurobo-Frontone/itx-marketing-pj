@@ -43,10 +43,9 @@ const Recruit = () => {
         <StyleSwiper
         loop={true}
         spaceBetween={6}
-        slidesPerView={3.5}
+        slidesPerView={4}
         breakpoints={{
           "1261": {
-            "slidesPerView": 3.9,
             "spaceBetween": 55
           }
         }}
@@ -70,11 +69,11 @@ export default Recruit;
 const SectionContainer = styled.div`
   position: relative;
   width: 100%;
-  padding: 15.7% 0 7.8125%;
+  padding: 15.7% 0 10%;
   overflow: hidden;
  
   @media (max-width: 700px) {
-    padding: 28% 0 0 0;
+    padding: 39.6% 0 57% 0;
    
   }
 `;
@@ -113,6 +112,7 @@ const SectionTitle = styled.div`
 `;
 
 const VisualBox = styled.div`
+  width: 100%;
   margin-left: 29.5%;
   padding-top: 79.2%;
   background-image: url(${visual});
@@ -129,32 +129,41 @@ const VisualBox = styled.div`
 `;
 
 const SlideContainer = styled.div`
-  padding: 6% 0% 9.5% 1%;
+  padding: 5.26% 0% 9.7% 1.4%;
+  width: 116.35%;
   background-color: #F8F8F8;
   border-radius: 366.5px 0 0 366.5px;
   margin-left: 233px;
-  width: 116%;
   height: 33.9%;
   position: absolute;
-  bottom: 64px;
+  bottom: 2.9657%;
   @media (max-width: 700px) {
     margin-left: 20px;
+    width: 151.68%;
+    padding: 5.26% 0% 9.7% 3%;
+    bottom: 0;
   }
 `;
 const StyleSwiper = styled(Swiper)`
-
+  /* box-sizing: border-box; */
    .swiper-slide{
     border-radius: 46px;
     background-color: #FFFFFF;
-    padding: 68px 42px;
+    padding: 68px 42px 287px 42px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     z-index: 30;
-    height: 400px;
-    width: 17.9%;
+    @media (max-width: 700px) {
+      padding: 26px 18px 109px;
+      border-radius: 15px;
+    }
     > p {
       font-size: 1.5rem;
       font-family: "GoyangDeogyang";
+      @media (max-width: 700px) {
+        font-size: 0.8125rem;
+      }
     }
     > div {
       position: relative;
@@ -162,7 +171,7 @@ const StyleSwiper = styled(Swiper)`
       height: 45px;
       ::after {
         position: absolute;
-        top: calc(50% - 2px);
+        top: calc(50% - 3px);
         content: "";
         width: 100%;
         height: 3px;
@@ -170,23 +179,31 @@ const StyleSwiper = styled(Swiper)`
       }
       ::before {
         position: absolute;
-        left: calc(50% - 2px);
+        left: calc(50% - 3px);
         content: "";
         width: 3px;
         height: 100%;
         background-color: #1a1a1a;
       }
-    }
-    @media (max-width: 700px) {
-      width: 35.7%;
-      height: 150px;
+      @media (max-width: 700px) {
+        width: 15px;
+        height: 15px;
+        ::after {
+          top: calc(50% - 2px);
+          height: 2px;
+        }
+        ::before {
+          left: calc(50% - 2px);
+          width: 2px;
+        }
+      }
     }
   }
   .swiper-slide-active,
   .swiper-slide-duplicate-active{
     background-color: #B8292D;
     color: #FFFFFF;
-    height: 500px;
+    padding: 75px 47px 380px 35px;
     > div {
       ::after {
         background-color: #FFFFFF;
@@ -195,16 +212,11 @@ const StyleSwiper = styled(Swiper)`
         background-color: #FFFFFF;
       }
     }
+    @media (max-width: 700px) {
+      padding: 26px 18px 168px;
+    }
   }
 `;
 
 
-// const BoxContainer = styled.div`
-//   position: relative;
-//   top: 45.5rem;
-//   left: 8.45rem;
-//   background-color: #f8f8f8;
-//   height: 733px;
-//   border-top-left-radius: 18.325rem;
-//   border-bottom-left-radius: 18.325rem;
-// `;
+

@@ -13,8 +13,8 @@ const Home = () => {
       <MainBanner />
       <Business />
       <Recruit />
-      <NewsMarketing />
-      <NewsSinhan />
+      {/* <NewsMarketing />
+      <NewsSinhan /> */}
     </Layout>
   )
 }
