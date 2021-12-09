@@ -132,11 +132,13 @@ const StyledLink = styled(Link)`
   }
 `;
 const NewsContainer = styled.div`
-  width: 100%;
   padding-left: 87px;
   align-self: flex-start;
+  overflow: hidden;
+
   @media (max-width: 700px) {
     padding-left:0;
+    width: 100%;
   } 
 `;
 const StyleSwiper = styled(Swiper)`
@@ -159,6 +161,7 @@ const StyleSwiper = styled(Swiper)`
       display: none;
     }
   .swiper-button-next {
+    position: absolute;
     width: 107.5px;
     height: 19px;
     right: 0;
@@ -179,9 +182,10 @@ const StyleSwiper = styled(Swiper)`
   }
   .swiper-slide {
     padding-top: 22px;
-    padding-right: 238px;
+    /* padding-right: 238px; */
+    /* width: 80%; */
+    overflow: hidden;
     padding-bottom: 18px;
-    background-color: #fff;
 
     @media (max-width: 700px) {
     padding: 20px 10px 29px 8px;
@@ -205,6 +209,7 @@ const StyleSwiper = styled(Swiper)`
     > div {
       padding-top: 62px;
       height: 289px;
+      width: 793px;
       > p {
       font-size: 1.25rem;
       font-weight: 400;
