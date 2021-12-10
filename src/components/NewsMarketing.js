@@ -144,7 +144,7 @@ const NewsContainer = styled.div`
 const StyleSwiper = styled(Swiper)`
   overflow: hidden;
   padding: 64px 0 34px 2px;
-
+  
 @media (max-width: 700px) {
   .swiper-slide-duplicate,
   .swiper-slide {
@@ -182,7 +182,7 @@ const StyleSwiper = styled(Swiper)`
   }
   .swiper-slide {
     padding-top: 22px;
-    /* padding-right: 238px; */
+    padding-right: 238px;
     /* width: 80%; */
     overflow: hidden;
     padding-bottom: 18px;
@@ -209,7 +209,6 @@ const StyleSwiper = styled(Swiper)`
     > div {
       padding-top: 62px;
       height: 289px;
-      width: 793px;
       > p {
       font-size: 1.25rem;
       font-weight: 400;
@@ -223,8 +222,6 @@ const StyleSwiper = styled(Swiper)`
       }
     }
   }
-   
-
 `;
 
 const AwardHistory = styled.div`
@@ -307,7 +304,7 @@ const NewsMarketing = () => {
               ref={setSwiper}
               // centeredSlides={true}
               debugger={true}
-              slidesPerView={'auto'}
+              // slidesPerView={'auto'}
               loopedSlides={4}
               slidesBetween={0}
               navigation={true}
@@ -317,9 +314,13 @@ const NewsMarketing = () => {
                 disableOnInteraction: false,
               }}
               breakpoints={{
+                700: {
+                  slidesPerView: 'auto',
+                  spaceBetween: 0,
+                },
                 1261: {
                   slidesPerView: 1,
-                  spaceBetween: 0,
+                  spaceBetween: 20,
                 }
               }}
             > 
