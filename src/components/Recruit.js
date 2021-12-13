@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";       
 import styled from "styled-components";
@@ -29,6 +29,8 @@ const Card = [
 ]
 
 const Recruit = () => {
+  
+ // const swiperRef = useRef(null);
 
   return (
       <SectionContainer>
@@ -40,25 +42,27 @@ const Recruit = () => {
             <span>&nbsp;ITX Marketing</span>
           </h2>
           <p>ITX 마케팅과 함께할 다양한 분야의 전문가를 기다립니다.</p> 
-        </SectionTitle>
-        
+        </SectionTitle> 
         <VisualBox />
         <SlideContainer>
           <StyleSwiper
-          loop={true}
-          spaceBetween={6}
-          slidesPerView={3.6}
-          breakpoints={{
-          700: {
-            spaceBetween: 55,
-            slidesPerView: 5
-            // "slidePerView": auto
-          }
-        }}
+            // ref={swiperRef}
+            loop={true}
+            slideToClickedSlide={true}
+            spaceBetween={6}
+            slidesPerView={3.6}
+            breakpoints={{
+            700: {
+              spaceBetween: 55,
+              slidesPerView: 5
+              // "slidePerView": auto
+              }
+            }}
       > 
         {Card.map((dt) => (
           <SwiperSlide 
             key={dt.id}
+            id={dt.id}
           >
             <p>{dt.title}<Link to='#'></Link></p>
             <div></div>
@@ -161,7 +165,9 @@ const StyleSwiper = styled(Swiper)`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
     z-index: 30;
+    
     @media (max-width: 700px) {
       padding: 26px 18px 109px;
       border-radius: 15px;

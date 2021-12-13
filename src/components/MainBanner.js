@@ -42,6 +42,7 @@ const Page = styled.div`
   left: 9.270833333333333%;
   font-family: "GoyangDeogyang B";
   @media (max-width: 700px) {
+    position: absolute;
     font-size: 0.625rem;
     line-height: 11.28px;
     top: 84.33098591549296%;
@@ -87,7 +88,8 @@ const MainBanner = () => {
       }}
     >
       {data.map((dt) => (
-        <SwiperSlide 
+        <>
+          <SwiperSlide 
           key={dt.id}
         >
           <div
@@ -105,7 +107,10 @@ const MainBanner = () => {
           </div>
           <Page>{dt.page}</Page>
         </SwiperSlide>
-      ))} 
+        
+        </>
+      ))}
+      
     </Swiper>
   );
 }

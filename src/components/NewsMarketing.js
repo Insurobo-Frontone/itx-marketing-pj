@@ -304,7 +304,7 @@ const NewsMarketing = () => {
               ref={setSwiper}
               // centeredSlides={true}
               debugger={true}
-              // slidesPerView={'auto'}
+              slidesPerView={'auto'}
               loopedSlides={4}
               slidesBetween={0}
               navigation={true}
