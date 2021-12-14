@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+// import { gsap } from "gsap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";

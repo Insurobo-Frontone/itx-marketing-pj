@@ -1,15 +1,11 @@
-import React, { useRef, useEffect } from "react";
-import { gsap } from "gsap";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";       
 import styled from "styled-components";
 import "swiper/swiper.min.css";
-
 import visual from "../img/main/recruitVisual.png";
-import plusbtn from "../img/main/plusBtnBlack.svg";
-import plusbtnreverse from "../img/main/plusBtnWhite.svg";
-
-
+import { AddSharp } from '@mui/icons-material';
+import SwiperCore, { Pagination } from "swiper";
 const Card = [
   {
     id: 0,
@@ -30,7 +26,16 @@ const Card = [
 ]
 
 const Recruit = () => {
- // const swiperRef = useRef(null);
+  SwiperCore.use([Pagination]);
+  const [mainImageIndex, setMainImageIndex] = useState(0);
+  const [swiper , setSwiper] = useState(null);
+
+  const swiperParams = {
+    onSwiper: setSwiper,
+
+    // loop: true,
+    onSlideChange: (e) => setMainImageIndex(e.activeIndex),
+  }
 
   return (
       <SectionContainer>
@@ -46,26 +51,34 @@ const Recruit = () => {
         <VisualBox />
         <SlideContainer>
           <StyleSwiper
-            // ref={swiperRef}
+            {...swiperParams}
+            pagination={{
+              clickable: true,
+            }}
             loop={true}
             slideToClickedSlide={true}
+            slidesPerView={2.35}
             spaceBetween={6}
-            slidesPerView={4.27}
+            // slidesPerView={'auto'}
             speed={1000}
             breakpoints={{
+            375: {
+              slidesPerView: 2.35,
+              slideBetween: 6,
+              },
             700: {
-              spaceBetween: 55,
-              // slidesPerView: 5
+              slidesPerView: 4.31,
+              slideBetween: 55,
               }
             }}
-      > 
+          > 
         {Card.map((dt) => (
           <SwiperSlide 
-            key={dt.id}
-            id={dt.id}
+          key={dt.id}
+          // onClick={toSlide}
           >
-            <p>{dt.title}<Link to='#'></Link></p>
-            <div></div>
+          <p>{dt.title}<Link to='#'></Link></p>
+          <AddSharp/>
           </SwiperSlide>
         ))} 
         </StyleSwiper> 
@@ -79,11 +92,10 @@ export default Recruit;
 const SectionContainer = styled.div`
   position: relative;
   width: 100%;
-  padding: 15.7% 0 10%;
+  padding: 20.56% 0 12.7%;
   overflow: hidden;
- 
   @media (max-width: 700px) {
-    padding: 39.6% 0 57% 0;
+    padding: 30% 0 79% 0;
   }
 `;
 
@@ -107,7 +119,8 @@ const SectionTitle = styled.div`
     color: #444444;
     padding-top: 1.1%
   }
-@media (max-width: 700px) {
+  @media (max-width: 700px) {
+    padding-bottom: 5.7%;
   > h2 {
       font-size: 1.25rem;
       border-bottom: 2px solid #1A1A1A;
@@ -115,9 +128,9 @@ const SectionTitle = styled.div`
   > p {
       font-size: 0.8125rem;
       line-height: 14.47px;
+      position: static;
     }
   }
-  
 `;
 
 const VisualBox = styled.div`
@@ -126,14 +139,14 @@ const VisualBox = styled.div`
   padding-top: 79.2%;
   background-image: url(${visual});
   background-repeat: no-repeat;
-  background-position: 18% 1%;
-  background-size: cover;
+  background-position: 33.5% 1%;
+  background-size: 133%;
 
   @media (max-width: 700px){
-    padding-top: 125%;
+    padding-top: 123%;
     margin-left: 0;
-    background-size: 230%;
-    background-position: 30% -40%;
+    background-size: 250%;
+    background-position: 30% 0;
   }
 `;
 
@@ -141,26 +154,23 @@ const SlideContainer = styled.div`
   position: relative;
   margin-left: 12.13541666666667%;
   width: 100%;
-  /* width: 116.3541666666667%; */
   align-items: center;
   position: absolute;
-  bottom: 5%;
+  bottom: 2.86%;
   background-color: #F8F8F8;
-  padding: 6.1% 0 6.1% 1.66%;
+  padding: 6.15% 0 6.1% 1.66%;
   border-radius: 366.5px 0 0 366.5px;
   align-items: center;
 
   @media (max-width: 700px) {
-    margin-left: 5.333333333333333%;
-    width: 151.68%;
-    /* padding: 9.5% 0% 9.7% 3%; */
-    bottom: 0%;
+    margin-left: 5.714285714285714%;
+    padding: 10% 0% 10.4% 3.1%;
+    bottom: 9.6%;
   }
 `;
 const StyleSwiper = styled(Swiper)`
-    /* height: 100%; */
    .swiper-slide{
-    border-radius: 46px;
+    border-radius: 11.5%;
     background-color: #FFFFFF;
     padding: 3.1% 2.12% 15.66% 2.12%;
     display: flex;
@@ -168,10 +178,9 @@ const StyleSwiper = styled(Swiper)`
     align-items: center;
     cursor: pointer;
     transition: background .3s;
-    
     @media (max-width: 700px) {
-      /* padding: 26px 18px 109px; */
-      border-radius: 15px;
+      padding: 6.9% 5.1% 27.8%;
+      border-radius: 10%;
     }
     > p {
       font-size: 1.5rem;
@@ -180,29 +189,14 @@ const StyleSwiper = styled(Swiper)`
         font-size: 0.8125rem;
       }
     }
-    > div {
-      width: 45px;
-      height: 45px;
-      background-image: url(${plusbtn});
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
-      @media (max-width: 700px) {
-        width: 15px;
-        height: 15px;
-      }
-    }
   }
   .swiper-slide-active,
   .swiper-slide-duplicate-active{
     background-color: #B8292D;
     color: #FFFFFF;
     padding: 3.9999% 2.5% 20.2% 1.9%;
-    > div {
-      background-image: url(${plusbtnreverse});
-    }
     @media (max-width: 700px) {
-      /* padding: 26px 18px 168px; */
+      padding: 7.6% 5.5% 43.6%;
     }
   }
 `;
