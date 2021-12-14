@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";       
 import styled from "styled-components";
@@ -29,7 +30,6 @@ const Card = [
 ]
 
 const Recruit = () => {
-  
  // const swiperRef = useRef(null);
 
   return (
@@ -50,12 +50,12 @@ const Recruit = () => {
             loop={true}
             slideToClickedSlide={true}
             spaceBetween={6}
-            slidesPerView={3.6}
+            slidesPerView={4.27}
+            speed={1000}
             breakpoints={{
             700: {
               spaceBetween: 55,
-              slidesPerView: 5
-              // "slidePerView": auto
+              // slidesPerView: 5
               }
             }}
       > 
@@ -84,7 +84,6 @@ const SectionContainer = styled.div`
  
   @media (max-width: 700px) {
     padding: 39.6% 0 57% 0;
-   
   }
 `;
 
@@ -139,37 +138,39 @@ const VisualBox = styled.div`
 `;
 
 const SlideContainer = styled.div`
-  padding: 5.26% 0% 9.7% 1.4%;
-  width: 116.35%;
-  background-color: #F8F8F8;
-  border-radius: 366.5px 0 0 366.5px;
-  margin-left: 233px;
-  height: 32.65%;
+  position: relative;
+  margin-left: 12.13541666666667%;
+  width: 100%;
+  /* width: 116.3541666666667%; */
+  align-items: center;
   position: absolute;
-  bottom: 2.9657%;
-  z-index: 29;
+  bottom: 5%;
+  background-color: #F8F8F8;
+  padding: 6.1% 0 6.1% 1.66%;
+  border-radius: 366.5px 0 0 366.5px;
+  align-items: center;
+
   @media (max-width: 700px) {
-    margin-left: 20px;
+    margin-left: 5.333333333333333%;
     width: 151.68%;
-    padding: 9.5% 0% 9.7% 3%;
+    /* padding: 9.5% 0% 9.7% 3%; */
     bottom: 0%;
   }
 `;
 const StyleSwiper = styled(Swiper)`
     /* height: 100%; */
-    align-items: center;
    .swiper-slide{
     border-radius: 46px;
     background-color: #FFFFFF;
-    padding: 68px 42px 287px 42px;
+    padding: 3.1% 2.12% 15.66% 2.12%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    z-index: 30;
+    transition: background .3s;
     
     @media (max-width: 700px) {
-      padding: 26px 18px 109px;
+      /* padding: 26px 18px 109px; */
       border-radius: 15px;
     }
     > p {
@@ -196,12 +197,12 @@ const StyleSwiper = styled(Swiper)`
   .swiper-slide-duplicate-active{
     background-color: #B8292D;
     color: #FFFFFF;
-    padding: 75px 47px 380px 35px;
+    padding: 3.9999% 2.5% 20.2% 1.9%;
     > div {
       background-image: url(${plusbtnreverse});
     }
     @media (max-width: 700px) {
-      padding: 26px 18px 168px;
+      /* padding: 26px 18px 168px; */
     }
   }
 `;
