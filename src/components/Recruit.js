@@ -5,7 +5,7 @@ import styled from "styled-components";
 import "swiper/swiper.min.css";
 import visual from "../img/main/recruitVisual.png";
 import { AddSharp } from '@mui/icons-material';
-import SwiperCore, { Pagination } from "swiper";
+
 const Card = [
   {
     id: 0,
@@ -26,14 +26,11 @@ const Card = [
 ]
 
 const Recruit = () => {
-  SwiperCore.use([Pagination]);
   const [mainImageIndex, setMainImageIndex] = useState(0);
   const [swiper , setSwiper] = useState(null);
 
   const swiperParams = {
     onSwiper: setSwiper,
-
-    // loop: true,
     onSlideChange: (e) => setMainImageIndex(e.activeIndex),
   }
 
@@ -52,9 +49,6 @@ const Recruit = () => {
         <SlideContainer>
           <StyleSwiper
             {...swiperParams}
-            pagination={{
-              clickable: true,
-            }}
             loop={true}
             slideToClickedSlide={true}
             slidesPerView={2.35}
