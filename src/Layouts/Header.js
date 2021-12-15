@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import '../style/Test.css';
 import whitelogo from '../img/common/whitelogo.svg';
 import listicon from '../img/common/listIcon.svg';
 import blacklogo from '../img/common/blacklogo.svg';
@@ -18,7 +18,8 @@ const Headers =  styled.header`
   width: 100%;
   height: 100px;
   background-color: ${props => (props.isOpen ? '#FFFFFF' : 'transparent')};
-  color: ${props => (props.isOpen ? '#323232' : '#FFFFFF')};
+  background-color: ${props => (props.isOpen ? '#FFFFFF' : 'transparent')};
+  color: ${props => (props.item ? '#323232' : '#FFFFFF')};
   &.change_header{
     color:${props => (props.className ? '#323232' : '#FFFFFF')};
     background-color: ${props => (props.className ? '#FFFFFF' : 'transparent')};
@@ -72,8 +73,6 @@ const Logo = styled.h2`
   &.show {
     background-image: url(${blacklogo});
   }
-
-
 `;
 
 const Lnb = styled.div`
@@ -244,10 +243,10 @@ const ToggleBtn = styled.div`
   }
 `;
  
-const Header = ({ item }) => {
+const Header = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isToggleOn, setToggleOn] = useState(false);
-  
+
   const handleClick = () => {
     setToggleOn(!isToggleOn);
   }

@@ -1,22 +1,22 @@
-import React, { Children } from 'react'
-import styled from 'styled-components'
-import Layout from '../Layouts/Layout'
-import Test from '../components/Test';
+import React from 'react';
+import styled from 'styled-components';
+import Layout from '../Layouts/Layout';
+import Visual from '../components/Visual';
+import History from '../components/Summary/History';
+import ManageIdea from '../components/Summary/ManageIdea';
 
-const Text = styled.p`
-  font-size: 50px;
-`;
-function Summary() {
+
+const Summary = () => {
+ 
   return (
-    <>
-    
     <Layout>
-      <Test />
+      <Visual />
+      <History />
+      <ManageIdea />
     </Layout>
-      
-    </>
-
   )
-}
+};
 
-export default Summary
+
+
+export default Summary;

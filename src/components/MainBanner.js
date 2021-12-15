@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../style/Swiper.css';
 
 import {Swiper, SwiperSlide} from 'swiper/react';
 import "swiper/components/pagination/pagination.min.css";
@@ -9,6 +10,7 @@ import banner1 from "../img/main/mbSlide1.png"
 import banner2 from "../img/main/mbSlide2.png"
 import banner3 from "../img/main/mbSlide3.png"
 import styled from 'styled-components';
+
 const data = [
   {
     id: 0,

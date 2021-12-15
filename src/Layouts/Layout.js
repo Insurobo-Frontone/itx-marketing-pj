@@ -9,7 +9,10 @@ const Wrap = styled.div`
   height: 100%;
   margin: 0 auto;
 `;
+
+
 const Layout = ({children}) => {
+  
   return (
     <Wrap className="wrap">
       <Header />

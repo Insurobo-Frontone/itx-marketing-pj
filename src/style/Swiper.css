@@ -17,12 +17,12 @@
     width: 100%;
     padding-top: 151.5%;
     overflow:hidden;
-    background-position:45% center;
+    background-position: 45% center;
     background-size: cover;
     transform: translateZ(0);
 }
   .slide-img{
-    background-position:45% center;
+ 
     transform: perspective(150px) translateZ(30px);
     transition: transform 3s ease;
   }
