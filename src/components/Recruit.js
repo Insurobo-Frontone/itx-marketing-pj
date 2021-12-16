@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";       
 import styled from "styled-components";
 import "swiper/swiper.min.css";
+// import "swiper/css/effect-creative.css";
+
 import visual from "../img/main/recruitVisual.png";
 import { AddSharp } from '@mui/icons-material';
 
+// import SwiperCore, { EffectCreative } from 'swiper';
 const Card = [
   {
     id: 0,
@@ -33,6 +36,7 @@ const Recruit = () => {
     onSwiper: setSwiper,
     onSlideChange: (e) => setMainImageIndex(e.activeIndex),
   }
+  // SwiperCore.use([EffectCreative]);
 
   return (
       <SectionContainer>
@@ -51,6 +55,25 @@ const Recruit = () => {
             {...swiperParams}
             loop={true}
             slideToClickedSlide={true}
+            grabCursor={true} effect={'creative'} 
+            creativeEffect={{
+              "prev": {
+                "shadow": true,
+                "translate": [
+                  "-120%",
+                  0,
+                  -500
+                ]
+              },
+              "next": {
+                "shadow": true,
+                "translate": [
+                  "120%",
+                  0,
+                  -500
+                ]
+              }
+            }}
             slidesPerView={2.35}
             spaceBetween={6}
             // slidesPerView={'auto'}
