@@ -7,119 +7,20 @@ import "swiper/swiper.min.css";
 
 import visual from "../img/main/recruitVisual.png";
 import { AddSharp } from '@mui/icons-material';
-
-// import SwiperCore, { EffectCreative } from 'swiper';
-const Card = [
-  {
-    id: 0,
-    title: '개인영업(FP)'
-  },
-  {
-    id: 1,
-    title: '법인컨설턴트'
-  },
-  {
-    id: 2,
-    title: '전문가그룹'
-  },
-  {
-    id: 3,
-    title: '정규직'
-  }
-]
-
-const Recruit = () => {
-  const [mainImageIndex, setMainImageIndex] = useState(0);
-  const [swiper , setSwiper] = useState(null);
-
-  const swiperParams = {
-    onSwiper: setSwiper,
-    onSlideChange: (e) => setMainImageIndex(e.activeIndex),
-  }
-  // SwiperCore.use([EffectCreative]);
-
-  return (
-      <SectionContainer>
-        <SectionTitle>
-          <h2>
-            <strong style={{color:"#C22229"}}>R</strong>
-            e<strong>C</strong>
-            r<strong>UIT</strong> 
-            <span>&nbsp;ITX Marketing</span>
-          </h2>
-          <p>ITX 마케팅과 함께할 다양한 분야의 전문가를 기다립니다.</p> 
-        </SectionTitle> 
-        <VisualBox />
-        <SlideContainer>
-          <StyleSwiper
-            {...swiperParams}
-            loop={true}
-            slideToClickedSlide={true}
-            grabCursor={true} effect={'creative'} 
-            creativeEffect={{
-              "prev": {
-                "shadow": true,
-                "translate": [
-                  "-120%",
-                  0,
-                  -500
-                ]
-              },
-              "next": {
-                "shadow": true,
-                "translate": [
-                  "120%",
-                  0,
-                  -500
-                ]
-              }
-            }}
-            slidesPerView={2.35}
-            spaceBetween={6}
-            // slidesPerView={'auto'}
-            speed={1000}
-            breakpoints={{
-            375: {
-              slidesPerView: 2.35,
-              slideBetween: 6,
-              },
-            700: {
-              slidesPerView: 4.31,
-              slideBetween: 55,
-              }
-            }}
-          > 
-        {Card.map((dt) => (
-          <SwiperSlide 
-          key={dt.id}
-          // onClick={toSlide}
-          >
-          <p>{dt.title}<Link to='#'></Link></p>
-          <AddSharp/>
-          </SwiperSlide>
-        ))} 
-        </StyleSwiper> 
-        </SlideContainer>
-      </SectionContainer>
-  );
-};
-
-export default Recruit;
-
 const SectionContainer = styled.div`
   position: relative;
   width: 100%;
   padding: 20.56% 0 12.7%;
   overflow: hidden;
   @media (max-width: 700px) {
-    padding: 30% 0 79% 0;
+    padding: 3vh 0 10vh 0;
   }
 `;
 
 const SectionTitle = styled.div`
   margin-left: 5.333333333333333%;
   > h2 {
-    font-size: 3rem;
+    font-size: 3.13vw;
     font-family: 'GoyangDeogyang';
     color: #1A1A1A;
     padding-bottom: 1.4%;
@@ -170,7 +71,8 @@ const VisualBox = styled.div`
 const SlideContainer = styled.div`
   position: relative;
   margin-left: 12.13541666666667%;
-  width: 100%;
+  width: 118vw;
+  height: 45vh;
   align-items: center;
   position: absolute;
   bottom: 2.86%;
@@ -181,18 +83,21 @@ const SlideContainer = styled.div`
 
   @media (max-width: 700px) {
     margin-left: 5.714285714285714%;
-    padding: 10% 0% 10.4% 3.1%;
+    /* padding: 10% 0% 10.4% 3.1%; */
     bottom: 9.6%;
   }
 `;
 const StyleSwiper = styled(Swiper)`
+   
+
    .swiper-slide{
     border-radius: 11.5%;
     background-color: #FFFFFF;
-    padding: 3.1% 2.12% 15.66% 2.12%;
+    padding: 6.36vh 2.2vw 26.9vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
+   
     cursor: pointer;
     transition: background .3s;
     @media (max-width: 700px) {
@@ -217,6 +122,78 @@ const StyleSwiper = styled(Swiper)`
     }
   }
 `;
+
+const Card = [
+  {
+    id: 0,
+    title: '개인영업(FP)'
+  },
+  {
+    id: 1,
+    title: '법인컨설턴트'
+  },
+  {
+    id: 2,
+    title: '전문가그룹'
+  },
+  {
+    id: 3,
+    title: '정규직'
+  }
+]
+
+const Recruit = () => {
+
+  // SwiperCore.use([EffectCreative]);
+
+  return (
+      <SectionContainer>
+        <SectionTitle>
+          <h2>
+            <strong style={{color:"#C22229"}}>R</strong>
+            e<strong>C</strong>
+            r<strong>UIT</strong> 
+            <span>&nbsp;ITX Marketing</span>
+          </h2>
+          <p>ITX 마케팅과 함께할 다양한 분야의 전문가를 기다립니다.</p> 
+        </SectionTitle> 
+        <VisualBox />
+        <SlideContainer>
+          <StyleSwiper
+            loop={true}
+            slideToClickedSlide={true}
+            // slidesPerView={2.35}
+            // spaceBetween={6}
+            // slidesPerView={'auto'}
+            speed={1000}
+            breakpoints={{
+            375: {
+              slidesPerView: 2.35,
+              slideBetween: 6,
+              },
+            700: {
+              slideBetween: 55,
+              }
+            }}
+          > 
+        {Card.map((dt) => (
+          <SwiperSlide 
+          key={dt.id}
+          // onClick={toSlide}
+          >
+          <p>{dt.title}<Link to='#'></Link></p>
+          <AddSharp/>
+          </SwiperSlide>
+        ))} 
+        </StyleSwiper> 
+        </SlideContainer>
+      </SectionContainer>
+  );
+};
+
+export default Recruit;
+
+
 
 
 

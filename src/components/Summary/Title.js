@@ -13,6 +13,18 @@ const TitleContainer = styled.div`
   > p {
     font-size: 1.5rem;
   }
+
+@media(max-width: 700px) {
+  h2 {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    padding-bottom: 4%;
+  }
+  > p {
+    font-size: 0.8125rem;
+  }
+}
+  
 `;
 
 const Title = (props) => {

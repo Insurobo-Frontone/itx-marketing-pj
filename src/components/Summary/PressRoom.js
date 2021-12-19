@@ -25,21 +25,21 @@ const News = [
     subCont: 'ITX마케팅 전병무 대표이사는 GA(General Agency)업을 추진하고 있으며, 국제의료본사단체···'
   },
   {
-    id: 1,
+    id: 2,
     date: '2021-07-15',
     title: '[뉴데일리경제] GA업체 ‘아이티엑스마케팅’, 오프라인 보험플랫폼 ‘보험플러스’ 오픈',
     content: '독립법인보험대리점(GA)인 아이티엑스마케팅과 이달부터 보험전문 방문형점포 ‘보험플러스’를 운영한다고 7일 밝혔다.',
     subCont: '보험플러스는 보험 컨설팅·보험금 청구 등의 서비스를 이용할 수 있으며 관련 전문가가 항시 대기 중이다.···'
   },
   {
-    id: 1,
+    id: 3,
     date: '2021-07-15',
     title: '[조이뉴스24] 인슈로보·아이티엑스마케팅, 인슈어테크 플랫폼과 오프라인 결합형 업무협약(MOU) 체결',
     content: 'AI기반의 차세대 지능형 인슈어테크 기업 (주)인슈로보(대표 서민)는 독립보험대리점(GA) (주)아이티엑스마케팅(대표 전병무)과 보험사업의 온오프라인 시너지 창출을 위한 전략적 업무 협약(MOU)을 체결했다고 밝혔다.',
     subCont: '이번 협약을 통해 양사는 상호 보험사업 성장동력을 확보하기 위한 전략적 협업을 본격적으로 진행해 나갈 방침이다.···'
   },
   {
-    id: 1,
+    id: 4,
     date: '2021-07-05',
     title: '흥국생명 계약담당자 변경안내',
     content: '영업양도양수계약의 체결로 인해 흥국생명의 아래의 계약을 관리하게 되었습니다,',
@@ -49,49 +49,81 @@ const News = [
 
 const ManageIdeaContainer = styled.section`
   width: 100%;
-  padding: 11.25% 7.8125% 5.3%;
+  padding: 5% 7.8125% 5.3%;
  
 `;
 
 const StyleSwiper = styled(Swiper)`
-   padding: 20% 3%;
+   padding: 10% 3%;
    margin: 3.5%;
    
    overflow: hidden;
   .swiper-slide-active,
   .swiper-slide-duplicate-active {
-    transform: scale(1.5);
+    /* transform: scale(1.5); */
   }
   .swiper-slide {
+    /* width: 30%;
     transform: scale(1);
     transition: transform 3s ease;
     box-shadow: 0px 5px 48px rgba(0, 0, 0, 0.2);
     border-radius: 45px;
     padding: 5% 3% 7%;
-    height: 640px;
+    height: 65vh;
+    overflow: hidden; */
+
+    @media (max-width: 700px) {
+    padding: 21px 8px 29px;
+    margin-right: 23px;
+    width: 61.33333333333333vw;
+    height: 204px;
+    border-radius: 9px;
+    box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.15);
     overflow: hidden;
-    font-family: 'GoyangDeogyang';
+  }
 
     > p {
       font-size: 0.9rem;
       color: #620406;
       border-bottom: 1px solid #620406;
       display: inline-block;
+      font-family: 'GoyangDeogyang';
+
+      @media (max-width: 700px) {
+        font-size: 0.625rem;
+        line-height: 0.6875rem;
+      }
     }
     > h3 {
       font-size: 1.5625rem;
+      height: 8vh;
       display: flex;
       align-items: flex-start;
       padding-top: 10%;
       color: #323232;
+      font-family: 'GoyangDeogyang';
+      color: #1A1A1A;
+
+      @media (max-width: 700px) {
+        font-size: 0.625rem;
+        line-height: 0.6875rem;
+      
+      }
     }
   }
 `;
 const TextContent = styled.div`
   font-size: 0.8rem;
- 
   > p {
     padding-bottom: 20px;
+  }
+  @media (max-width: 700px) {
+    font-size: 0.625rem;
+    line-height: 0.96875;
+    > p {
+      padding-bottom: 0;
+      line-height: 1rem;
+    }
   }
 `;
 
@@ -103,39 +135,58 @@ const StyleA = styled(Link)`
 `;
 
 const MoreBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 8.489583333333333vw;
+  color: #323232;
+  font-size: 1.25rem;
+  font-family: 'GoyangDeogyang';
+  margin-left: 91.51041666666667%;
+  cursor: pointer;
 
+  @media (max-width: 700px) {
+    display: none;
+  }
 `;
 
 const PressRoom = () => {
-  const [swiper , setSwiper] = useState(null);
-  const [mainImageIndex, setMainImageIndex] = useState(0);
-
   SwiperCore.use([Autoplay]);
 
+  const [isToggleOn, setToggleOn] = useState(false);
+  const [swiper, setSwiper] = useState(null);
+
   const swiperParams = {
-    onSwiper: setSwiper,
-    loop: true,
-    onSlideChange: (e) => setMainImageIndex(e.activeIndex),
+    onSwiper: setSwiper,    
+    slidesPerColumn: 2,
+    slidesPerColumnFill: 'row',
+    direction: 'horizontal'
+  }
+    
+  
+  const handleClick = () => {
+    setToggleOn(!isToggleOn);
+    console.log(setToggleOn)
   }
 
   return (
     <ManageIdeaContainer>
       <Title en={'Press Room'} ko={'프레스 룸'} />
-     
         <StyleSwiper
-          {...swiperParams}
           ref={setSwiper}
+          loop={true}
           autoplay={true}
-          centeredSlides={true}
-          slidesPerView={1.2}
-          spaceBetween={22}
           breakpoints={{
-          700: {
-            slidesPerView: 3,
-            spaceBetween: 100,
-            centeredSlides: false
-          }
-        }}
+            700: {
+              slidesPerView: 3,
+              spaceBetween: 100,
+              centeredSlides: false,
+              
+            }
+            
+          }}
+          {...swiperParams}
+        // isOpen={isToggleOn? {...swiperParams} : ''}
         >
         {News.map((nd) => (
           <SwiperSlide key={nd.id}>
@@ -149,12 +200,11 @@ const PressRoom = () => {
           </SwiperSlide>
           ))}
           </StyleSwiper>
-   
-      <MoreBtn>
-        <AddSharp/>
-        <span>더 보기</span>
-      </MoreBtn>
-    </ManageIdeaContainer>
+          <MoreBtn onClick={handleClick}>
+            <AddSharp/>
+            <span>더 보기</span>
+          </MoreBtn>
+      </ManageIdeaContainer>
   )
 }
 

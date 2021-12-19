@@ -46,24 +46,46 @@ const HistoryContainer = styled.section`
   padding: 9% 9.479166666666667% 0 7.8125%;
   display: flex;
   flex-direction: column;
+  @media (max-width: 700px) {
+    padding: 17.3% 7% 0 6.6%;
+  }
 `;
 const HistoryList = styled.ul`
   width: 85%;
-  padding: 5% 0 5% 6.12%;
+  padding: 5% 0 10% 6.12%;
   align-self: flex-end;
+  @media (max-width: 700px) {
+    width: 100%;
+    padding: 12.3% 0 12% 10.6%;
+  }
 `;
 const Items = styled.li`
   display: flex;
   white-space: pre;
+:nth-child(2) > span {
+  @media (max-width: 700px) {
+    padding-bottom: 21%;
+  }
+}
 :last-child > span {
   line-height: 2rem;
   padding-bottom: 3.6%;
+  @media (max-width: 700px) {
+    line-height: 1rem;
+    padding-bottom: 0%;
+  }
 }
+
 > p {
   width: 14.56%;
   font-size: 2.5rem;
   color: #B8292D;
   white-space: pre;
+  @media (max-width: 700px) {
+    font-size: 1.25rem;
+    width: 25%;
+    
+  }
 }
 > span {
   display: inline-block;
@@ -74,6 +96,12 @@ const Items = styled.li`
   border-left: 4px solid #B8292D;
   position: relative;
   z-index: 1;
+  @media (max-width: 700px) {
+    border-left: 1px solid #B8292D;
+    font-size: 0.625rem;
+    padding-left: 5.2%;
+    padding-bottom: 15.5%;
+  }
 
   ::before {
     content: "";
@@ -86,15 +114,30 @@ const Items = styled.li`
     top: 0;
     left: -8.5px;
     z-index: 2;
+    @media (max-width: 700px) {
+      width: 7px;
+      height: 7px;
+      left: -4px;
+    }
   }
 }
 `;
 const ScrollText = styled.div`
   > h3 {
     font-size: 6rem;
+    text-align: right;
     color: #F0F0F0;
     padding: 5.12% 0 5.4% 0;
+    font-weight: 300;
+    
+    @media (max-width: 700px) {
+    font-size: 2.5rem;
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: nowrap;
+    }
   }
+  
 `;
 const History = () => {
   

@@ -2,20 +2,27 @@ import React from 'react'
 import styled from 'styled-components';
 
 import introVisual from '../img/sub/summaryVisual.svg';
-
+import introVisualMb from '../img/sub/summaryVisualMb.svg';
 
 const VisualContainer = styled.section`
   width: 100%;
   padding: 11.25% 7.8125% 5.3%;
   background-color: #F8F8F8;
+  @media (max-width: 700px) {
+    padding: 50% 0 0 6.3%; 
+  }
 `;
 const ContentWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 700px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 const TextWrap = styled.div`
-  width: 50%;
+
   
   > h1 {
     font-size: 2rem;
@@ -23,6 +30,7 @@ const TextWrap = styled.div`
     line-height: 2.375rem;
     font-family: 'GoyangDeogyang';
     padding-bottom: 6.8%;
+   
     br {
     display: none;
     }
@@ -31,14 +39,42 @@ const TextWrap = styled.div`
     font-size: 1rem;
     line-height: 1.366666666666667rem;
   }
-  
+
+  @media (max-width: 700px) {
+   
+    > h1 {
+      font-size: 1.75rem;
+      padding-bottom: 12.8%;
+
+      br {
+        display: block;
+      }
+    }
+    > p {
+      font-size: 0.8125rem;
+    }
+  }
  
 `;
 const ImgWrap = styled.div`
-  width: 50%;
-  display: flex;
-  justify-content: flex-end;
-`;
+  padding: 50%;
+  background-image: url(${introVisual});
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media (max-width: 700px) {
+    background-image: url(${introVisualMb});
+    padding: 79% 90%;
+  } 
+  
+  @media (max-width: 700px) {
+   
+    flex-grow: 1;
+    
+  }`;
+
+
+
 const Visual = () => {
   return (
     <VisualContainer>
@@ -54,9 +90,7 @@ const Visual = () => {
             구축하고&nbsp;있습니다.
           </p>
         </TextWrap>
-        <ImgWrap>
-          <img src={introVisual} alt='ss'/>
-        </ImgWrap>
+        <ImgWrap />
       </ContentWrap>
     </VisualContainer>
   )

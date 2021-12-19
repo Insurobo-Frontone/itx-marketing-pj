@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import '../style/Test.css';
+import { useLocation } from "react-router-dom";
 import whitelogo from '../img/common/whitelogo.svg';
 import listicon from '../img/common/listIcon.svg';
 import blacklogo from '../img/common/blacklogo.svg';
 import togglebtn from '../img/common/toggle_btn.svg';
 import togglebtnblack from '../img/common/toggle_btn_black.svg';
 import closebtn from '../img/common/closebtn.svg';
+
 
 const Headers =  styled.header`
   position: fixed;
@@ -17,14 +19,23 @@ const Headers =  styled.header`
   font-size: 1rem;
   width: 100%;
   height: 100px;
-  background-color: ${props => (props.isOpen ? '#FFFFFF' : 'transparent')};
-  background-color: ${props => (props.isOpen ? '#FFFFFF' : 'transparent')};
-  color: ${props => (props.item ? '#323232' : '#FFFFFF')};
-  &.change_header{
-    color:${props => (props.className ? '#323232' : '#FFFFFF')};
-    background-color: ${props => (props.className ? '#FFFFFF' : 'transparent')};
+  /* #change {
+    background-color: #FFFFFF;
+    color: #323232;
+  } */
+  &.trsp_header{
+    background-color: 'transparent';
+    color: #FFFFFF;
   }
-  
+  &.white_header{
+     background-color: #FFFFFF;
+     color: #323232;
+  } 
+  &.uinque_header {
+    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.3));
+    background-color: #F8F8F8;
+    color: #323232;
+  }
 ::after{
     width: 100%;
     content: "";
@@ -35,7 +46,6 @@ const Headers =  styled.header`
     z-index: 30;
 }
 `;
-
 const Inner = styled.div`
   display: flex;
   position: relative;
@@ -48,31 +58,38 @@ const Inner = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 0 20px;
+    background-repeat: no-repeat;
   }
 `;
 const Logo = styled.h2`
+
+  &.trsp_header{
+    background-image: url(${whitelogo});
+  }
+  &.white_header{
+     background-image: url(${blacklogo});
+  }
+  &.uinque_header {
+    background-image: url(${blacklogo});
+  }
   display: flex;
   height: 100%;
-  padding-right: 18.51851851851852%;
-  margin-right: 3.5%;
+  justify-content: flex-start;
+  align-items: center;
   z-index: 31;
-  background-image: url(${whitelogo});
+  width: 19.2vw;
+  margin-right: 5.208333333333333%;
   background-repeat: no-repeat;
-  background-position: left center;
   background-size: contain;
+  background-position: center;
+
   @media (max-width: 700px) {
     padding-right: 0;
     margin-right: 0;
-    width: 124px;
+    width: 33.06666666666667vw;
     order: 1;
-    background-image: url(${props => props.isOpen ? blacklogo : whitelogo});
   }
-  &.change_header{
-    background-image: url(${props => props.className ? blacklogo : whitelogo});
-  }
-  &.show {
-    background-image: url(${blacklogo});
-  }
+  
 `;
 
 const Lnb = styled.div`
@@ -85,7 +102,6 @@ const Lnb = styled.div`
 > nav {
   position: relative;
   z-index: 30;
-  /* overflow: scroll; */
 }
 > nav:hover + div {
   height: 610px;
@@ -144,6 +160,7 @@ const Lnb = styled.div`
 
     &.active > .sub-menu{
       display: block;
+      height: 100%;
     }
   }
 }
@@ -179,16 +196,12 @@ const Lnb = styled.div`
     position: relative;
     text-align: start;
     width: 100%;
-    transition: max-height 0.6s ease;
     padding-top: 26px;
     display: none;
   }
 }
  > nav > .main-menu:hover > li > .sub-menu {
   opacity: 1;
-  @media (max-width: 700px){
-    
-  }
 }
  > nav > .main-menu > li > .sub-menu > li {
   line-height: 22.26px;
@@ -229,29 +242,32 @@ const ToggleBtn = styled.div`
   height: 70px;
   background-repeat: no-repeat;
   background-position: center;
+  
   cursor: pointer;
   display: none;
   z-index: 30;
-  &.change_header{
+  &.toggleblack {
+    background-image: url(${togglebtnblack});
     background-image: url(${props => props.isOpen ? closebtn : togglebtnblack});
   }
+  &.togglewhite {
+    background-image: url(${togglebtn});
+    background-image: url(${props => props.isOpen ? closebtn : togglebtn});
+  }
+  
   @media (max-width: 700px) {
     order: 2;
     display: block;
-    background-image: url(${props => props.isOpen ? closebtn : togglebtn});
-    
+        
   }
 `;
  
 const Header = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [isHovering, setIsHovering] = useState(0);
   const [isToggleOn, setToggleOn] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-  const handleClick = () => {
-    setToggleOn(!isToggleOn);
-  }
 
-  // 스크롤 EVENT
   const updeateScroll = () => {
     setScrollPosition(window.scrollY);
   }
@@ -259,102 +275,111 @@ const Header = () => {
     window.addEventListener('scroll', updeateScroll);
   });
 
-  const handleMouseOver = () => {
-    const logoChange = document.getElementById('logo');
-    logoChange.classList.add('show');
+  const activeMethod = (event) => {
+    const current = event.currentTarget;
+    const chkActive = current.classList.value.indexOf('active');
+    closeMothodAll();
+
+    if (chkActive === -1) {
+      current.classList.add('active');
+    }
   }
-  const handleMouseOut = () => {
-    const logoChange = document.getElementById('logo');
-    logoChange.classList.remove('show');
-  }
+  const closeMothodAll = () => {
+    let bx = document.getElementsByClassName('main-menu');
   
-
- const activeMethod = (event) => {
-   const current = event.currentTarget;
-   const chkActive = current.classList.value.indexOf('active');
-   console.log(current);
-   closeMothodAll();
-
-   if (chkActive === -1) {
-     current.classList.add('active');
+    for (let i = 0; i < bx[0].children.length; i++) {
+      bx[0].children[i].classList.remove('active');
+    }
    }
- }
 
- const closeMothodAll = () => {
-  let bx = document.getElementsByClassName('main-menu');
-
-  for (let i = 0; i < bx[0].children.length; i++) {
-    bx[0].children[i].classList.remove('active');
+  // togglebtn 
+  const handleClick = () => {
+    setToggleOn(!isToggleOn);
   }
- }
+
+  const location = useLocation();
 
   return (
+    
     <Headers
-      className={scrollPosition > 300 ? 'change_header': null}
-      isOpen={isToggleOn}
+      isOpen={isToggleOn} 
+      className={location.pathname === '/' ? 'trsp_header' : 'white_header'}
+      className={location.pathname === '/summary' ? 'uinque_header' : 'trsp_header'}
+     className={scrollPosition > 500 ? 'white_header': 'trsp_header'}
     >
       <Inner>
-        <Logo
-          id="logo"
-          className=
-          {scrollPosition > 300 ? 'change_header': null}
+        <Logo as="a" href="/"
           isOpen={isToggleOn}
+          isLogo={isHovering}
+          className={location.pathname === '/summary' ? 'uinque_header' : 'trsp_header'}
+          className={location.pathname === '/' ? 'trsp_header' : 'white_header'}
+          className={scrollPosition > 500 ? 'white_header': null}
         >
         </Logo>
-        <Lnb isOpen={isToggleOn}
+     
+        <Lnb isOpen={isToggleOn} 
         >
           <nav>
             <ul
-              className="main-menu"
-              onMouseOver={handleMouseOver}
-              onMouseOut={handleMouseOut}
-              isOpen={isToggleOn}           
+              className='main-menu'
+              onMouseOver={() => setIsHovering(true)}
+              onMouseOut={() => setIsHovering(false)}
+              isOpen={isToggleOn}
             >
-              <li onClick={activeMethod}>ITX Marketing 
-                <ul 
+              <li
+                onClick={activeMethod}
+              >
+                ITX Marketing 
+                <ul
                   className="sub-menu">
                   <li><Link to='/summary'>개요</Link></li>
-                  <li><Link to='/partners'>제휴사</Link></li>
-                  <li><Link to='/recruit'>채용</Link></li>
-                  <li><Link to='/contact'>Contact us</Link></li>
+                  <li><Link to='#'>제휴사</Link></li>
+                  <li><Link to='#'>채용</Link></li>
+                  <li><Link to='#'>Contact us</Link></li>
                 </ul>
               </li>
-              <li onClick={activeMethod}>Business
+              <li
+                onClick={activeMethod}
+              >Business
                 <ul className="sub-menu">
-                  <li><Link to='/platform'>플랫폼</Link>
+                  <li><Link to='#'>플랫폼</Link>
                     <ul className="sub-menu-dropdown">
                       <li>병원라운지</li>
                       <li>보험플러스</li>
                       <li>Market</li>
                     </ul>
                   </li>
-                  <li><Link to='/?service=busi'>서비스</Link>
+                  <li><Link to='#'>서비스</Link>
                     <ul className="sub-menu-dropdown">
                       <li>보장분석</li>
                       <li>보험비교</li>
                       <li>기업컨설팅</li>
                     </ul>
                   </li>
-                  <li><Link to='/invest'>3분 재태크</Link></li>
-                  <li><Link to='/?apply=busi'>상담신청</Link></li>
+                  <li><Link to='#'>3분 재태크</Link></li>
+                  <li><Link to='#'>상담신청</Link></li>
                 </ul>
               </li>
-              <li onClick={activeMethod}>상속증여연구소
+              <li 
+              onClick={activeMethod}
+              >상속증여연구소
                 <ul className="sub-menu">
-                  <li><Link to='/inherit'>연구소 소개</Link></li>
-                  <li><Link to='/?service=inherit'>서비스</Link></li>
-                  <li><Link to='/?experts=inherit'>전문가 그룹</Link></li>
-                  <li><Link to='/?process=inherit'>프로세스</Link></li>
-                  <li><Link to='/?apply=inherit'>상담신청</Link></li>
+                  <li><Link to='#'>연구소 소개</Link></li>
+                  <li><Link to='#'>서비스</Link></li>
+                  <li><Link to='#'>전문가 그룹</Link></li>
+                  <li><Link to='#'>프로세스</Link></li>
+                  <li><Link to='#'>상담신청</Link></li>
                 </ul>
               </li>
-              <li onClick={activeMethod}>기업컨설팅
+              <li
+                onClick={activeMethod}
+              >기업컨설팅
                 <ul className="sub-menu">
-                  <li><Link to='/consulting'>컨설팅 소개</Link></li>
-                  <li><Link to='/?service=consult'>서비스</Link></li>
-                  <li><Link to='/?experts=consult'>전문가 그룹</Link></li>
-                  <li><Link to='/?process=consult'>프로세스</Link></li>
-                  <li><Link to='/?apply=consult'>상담신청</Link></li>
+                  <li><Link to='#'>컨설팅 소개</Link></li>
+                  <li><Link to='#'>서비스</Link></li>
+                  <li><Link to='#'>전문가 그룹</Link></li>
+                  <li><Link to='#'>프로세스</Link></li>
+                  <li><Link to='#'>상담신청</Link></li>
                 </ul>
               </li>
               <li><Link to='/runnig'>러닝센터</Link></li>
@@ -363,12 +388,15 @@ const Header = () => {
           </nav>
           <div></div>
         </Lnb>
-        <ToggleBtn
-          className={scrollPosition > 300 ? 'change_header': null}
-          onClick={handleClick}
-          isOpen={isToggleOn}
-        >
-        </ToggleBtn>        
+           <ToggleBtn
+           onClick={handleClick}
+           isOpen={isToggleOn}
+           className={location.pathname === '/' ? 'togglewhite' : 'toggleblack' }
+           className={scrollPosition > 300 ? 'toggleblack': ''}
+          >
+          </ToggleBtn>
+         
+               
       </Inner>
     </Headers>
   )

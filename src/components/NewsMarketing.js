@@ -57,29 +57,33 @@ const AwardData = [
 const SectionContainer = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: column;
-  @media (max-width: 700px) {
-     
-  }
+  flex-flow: row wrap;
+  align-items: center;
+ 
   > .news-wrap {
     display: flex;
-    padding: 19.40% 7.942708333333333% 22.5% 7.8125%;
+    justify-content: space-between;
+    align-items: center;
     overflow: hidden;
+    
     @media (max-width: 700px) {
       padding: 55px 0 96px 20px;
       flex-direction: column;
+      background-color: #F8F8F8;
     }
   }
 `;
 
 const DirectNews =  styled.div`
-  width: 100%;
-  width: 33.85416666666667%;
-  padding-right: 138px;
-  align-self: center;
+  width:33.85416666666667%;
+  padding: 24.5% 6% 26.06% 7.8125%;
+  margin-bottom: 60px; 
+  background-color: #F8F8F8;
   position: relative;
+  display: flex;
+  flex-flow: column;
   > h2 {
-    font-size: 3rem;
+    font-size: 3.13vw;
     font-family: 'GoyangDeogyang';
     color: #1A1A1A;
     padding-bottom: 28px;
@@ -89,9 +93,11 @@ const DirectNews =  styled.div`
     }
   }
   @media (max-width: 700px) {
+    padding: 0%;
+    display: flex;
     align-self: flex-start;
     > h2 {
-      font-size: 1.25rem;
+      font-size: 1.25vw;
       padding-bottom: 0;
       > br {
         display: none;
@@ -132,24 +138,24 @@ const StyledLink = styled(Link)`
   }
 `;
 const NewsContainer = styled.div`
-  padding-left: 87px;
-  align-self: flex-start;
+  width: 100%;
+  margin: 0 7.916666666666667% 0 4.53125%;
   overflow: hidden;
 
   @media (max-width: 700px) {
-    padding-left:0;
+    padding:0;
     width: 100%;
   } 
 `;
 const StyleSwiper = styled(Swiper)`
   overflow: hidden;
-  padding: 64px 0 34px 2px;
   
 @media (max-width: 700px) {
   .swiper-slide-duplicate,
   .swiper-slide {
     transition: all .3s;
     transform: scale(1);
+    overflow: hidden;
   }
   .swiper-slide-active,
   .swiper-slide-duplicate-active {
@@ -163,9 +169,8 @@ const StyleSwiper = styled(Swiper)`
   .swiper-button-next {
     position: absolute;
     width: 107.5px;
-    height: 19px;
+    height: 16.5px;
     right: 0;
-    z-index: 99;
     margin-top: 0;
     @media (max-width: 700px) {
       display: none;
@@ -176,16 +181,15 @@ const StyleSwiper = styled(Swiper)`
     content: "" !important;
     background-image: url(${nextbtn});
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     width: 100%;
-    height: 100%; 
-  }
+    height: 100%;
+    }
+
   .swiper-slide {
-    padding-top: 22px;
-    padding-right: 238px;
-    /* width: 80%; */
+    padding: 22px 21.8% 18px 0;
     overflow: hidden;
-    padding-bottom: 18px;
+    width: 100%;
 
     @media (max-width: 700px) {
     padding: 20px 10px 29px 8px;
@@ -194,7 +198,7 @@ const StyleSwiper = styled(Swiper)`
     height: 204px;
     border-radius: 9px;
     box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.15);
-    /* overflow: hidden; */
+    overflow: hidden;
   }
     h3, h2 {
         font-size: 2rem;
@@ -221,6 +225,9 @@ const StyleSwiper = styled(Swiper)`
         }
       }
     }
+  }
+  @media (max-width: 700px) {
+    padding: 20px 0;
   }
 `;
 
@@ -316,9 +323,8 @@ const NewsMarketing = () => {
               breakpoints={{
                 700: {
                   slidesPerView: 'auto',
-                  spaceBetween: 0,
                 },
-                1261: {
+                1220: {
                   slidesPerView: 1,
                   spaceBetween: 20,
                 }
@@ -356,5 +362,3 @@ const NewsMarketing = () => {
 };
 
 export default NewsMarketing;
-
-

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 import { Link } from 'react-router-dom';
 // import { gsap } from "gsap";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,10 +9,11 @@ import SwiperCore, { Pagination } from "swiper";
 import icon1 from "../img/main/insurancePlus.svg";
 import icon2 from "../img/main/corporateConsulting.svg";
 import icon3 from "../img/main/inheritanceResearch.svg";
-import rectangle from "../img/main/bigRectangle.svg";
-
+import rectangle from "../img/main/Rectangle.svg";
+import { gsap } from "gsap"
 import styled from 'styled-components';
 import "../style/Swiper.css";
+
 const card = [
   {
     id: 0,
@@ -186,27 +187,31 @@ const Rectangle = styled.div`
     z-index: 10;
     position: absolute;
   }
-  .rectangle {
-    display: flex;
-    width: 41.08px;
-    height: 41.08px;
-    background-color: #313131;
-    box-shadow: 17px 9px 18px rgba(0, 0, 0, 0.3);
-    transform: rotate(76.29deg);
-    margin-bottom: 133.82px;
-    margin-left: calc(100% - 13.93px);
-
-    @media (max-width: 700px) {
-      width: 13.93px;
-      height: 13.93px;
-      margin-bottom: 32.97px;
-    }
-  }
+ 
    
 `;
 
 const Business = () => {
+  const recRef = useRef(null);
 
+  const random = (min, max) => {
+    return parseFloat((Math
+      .random() * (max - min) + min)
+      .toFixed(2))
+  }
+
+ useEffect(() => {
+   gsap.to(recRef.current, 1, {
+     transform: 'translateY(50px)',
+     delay: random(1, 15),
+     ease: 'Power1.easeInOut',
+    //  ease:"bounce.out",
+     repeat: -1,
+     yoyo: true
+   },[]);
+ }
+ 
+)
   SwiperCore.use([Pagination]);
 
   return (
@@ -226,7 +231,8 @@ const Business = () => {
           700: {
             slidesPerView: 3,
             spaceBetween: 66,
-            centeredSlides: false
+            centeredSlides: false,
+            allowTouchMove: false,
           }
         }}
       > 
@@ -246,12 +252,10 @@ const Business = () => {
         ))} 
       </StyleSwiper>
       <Rectangle>
-        <div className="rectangle"></div>
-        <img src={rectangle} alt="Rectangle" />
+        {/* <div ref={smRef} className="rectangle"></div> */}
+        <img ref={recRef} src={rectangle} alt="Rectangle" />
       </Rectangle>
     </SectionContainer>
-
-  )
-}
-
+  );
+      }
 export default Business;

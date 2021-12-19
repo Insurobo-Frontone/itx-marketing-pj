@@ -61,32 +61,23 @@ const Overay = styled.div`
 
 
 const MainBanner = () => {
-  const [swiper , setSwiper] = useState(null);
-  const [mainImageIndex, setMainImageIndex] = useState(0);
-
   SwiperCore.use([Autoplay, Pagination, EffectFade]);
-   
-  const swiperParams = {
-    onSwiper: setSwiper,
-    loop: true,
-    onSlideChange: (e) => setMainImageIndex(e.activeIndex),
-  }
+  
 
   return (
     <Swiper
-      {...swiperParams}
-      ref={setSwiper}
+      loof={true}
       slidsPerView={1}
       modules={[EffectFade]}
-      effect="fade"
+      effect={'fade'}
       pagination={
         true,{
-          "type": "progressbar"
+          type: "progressbar"
         }
       }
       autoplay={{
-        "delay": 4000,
-        "disableOnInteraction": false
+        delay: 4000,
+        disableOnInteraction: false
       }}
     >
       {data.map((dt) => (
@@ -99,7 +90,6 @@ const MainBanner = () => {
             style={{backgroundImage:`url(${dt.image})`}}
           >
             <Overay />
-            
             <div
               className="text-wrap"
             >

@@ -29,6 +29,12 @@ const GlobalStyle = createGlobalStyle`
     color: #444444;
     font-size: 1rem;
   }
+  #root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
   img {
     display: block;
     max-width: 100%;
@@ -39,6 +45,12 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     color: inherit;
+  }
+  button {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
   }
 `;
 
