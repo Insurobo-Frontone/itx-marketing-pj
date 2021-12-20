@@ -52,16 +52,16 @@ const TitleBox = styled.div`
     color: #323232;
     @media (max-width: 700px) {
     font-size: 1.25rem;
-    line-height: 22.56px;
+    line-height: 1.41rem;
     }
   }
   > p {
-    padding-top: 25px;
+    padding-top: 1.7vh;
     font-size: 1.25rem;
     white-space: nowrap;
     @media (max-width: 700px) {
     font-size: 0.8125rem;
-    line-height: 14.47px;
+    line-height: 0.904375rem;
     padding-top: 10px;
     }    
   }
@@ -77,7 +77,8 @@ const StyleSwiper = styled(Swiper)`
   }
  
   @media (max-width: 700px) {
-    padding: 88px 7.5% 59px 7.5%;
+    padding: 23.5vw 6vw 10vh;
+
     .swiper-slide-duplicate,
     .swiper-slide{
       transition: all .3s;
@@ -88,8 +89,9 @@ const StyleSwiper = styled(Swiper)`
       box-shadow: 0px 22px 29px rgba(0, 0, 0, 0.15);
       overflow: hidden;
       border-radius: 21px;
+      background-color: #FFFFFF;
       transform: scale(1);
-
+      transition-duration: .4s;
     }
     .swiper-pagination-bullet {
       display: inline-block;
@@ -110,14 +112,15 @@ const CardBox = styled.ul`
   border-radius: 30px;
   padding: 10% 11% 8.3% 14.2%;
   transition: all 0.3s;
-  max-width: 500px;
+  width: 26vw;
   background-color: #FFFFFF;
   :hover {
     box-shadow: -30px 49px 82px rgba(0, 0, 0, 0.15);
   }
   @media (max-width: 1261px) {
+    width: 100%;
     font-size: 1.125rem;
-    padding: 31px 23px 31px 30px;
+
   }
   > .card-icon {
     width: 100px;
@@ -131,23 +134,23 @@ const CardBox = styled.ul`
   }
   > .card-title {
     font-family: 'GoyangDeogyang';
-    padding: 151px 0 38px 0;
+    padding: 10vh 0 2.5vh 0;
     font-size: 1.5rem;
     color: #323232;
     @media (max-width: 1261px) {
     font-size: 1.125rem;
-    padding: 93px 0 18px 0;
-    line-height: 20px;
+    padding: 25vw 0 2.5vh 0;
+    line-height: 1.25rem;
     }
   }
   > .card-desc {
     font-size: 1rem;
     white-space: pre-wrap;
-    padding-bottom: 106px;
+    padding-bottom: 7vh;
     @media (max-width: 1261px) {
     font-size: 0.8125rem;
-    line-height: 17px;
-    padding-bottom: 148px;
+    line-height: 1.0625rem;
+    padding-bottom: 19.8vh;
     }
   }
   .more-btn {
@@ -155,11 +158,10 @@ const CardBox = styled.ul`
     justify-content: flex-end;
     align-items: center;
     font-size: 0.8rem;
-    line-height: 17.81px;
+    line-height: 0.8935rem;
     @media (max-width: 1261px) {
     font-size: 0.625rem;
-    line-height: 11.13px;
-    margin-right: 13px;
+    line-height: 1.113125rem;
     }
   }
   > .more-btn::before {
@@ -168,10 +170,7 @@ const CardBox = styled.ul`
     width: 100px;
     height: 2px;
     background: #C22229;
-    margin-right: 19px;
-    @media (max-width: 1261px) {
-    margin-right: 13px;
-    }
+    margin-right: 7%;
   }
 `;
 const Rectangle = styled.div`
@@ -180,12 +179,12 @@ const Rectangle = styled.div`
   right: 7.8125%;
   @media (max-width: 700px) {
     width: 27%;
+    bottom: 0;
     right: 10.4%;
   }
   > img{
     width: 100%;
     z-index: 10;
-    position: absolute;
   }
  
    
@@ -203,11 +202,11 @@ const Business = () => {
  useEffect(() => {
    gsap.to(recRef.current, 1, {
      transform: 'translateY(50px)',
-     delay: random(1, 15),
-     ease: 'Power1.easeInOut',
-    //  ease:"bounce.out",
+     delay: random(0, 1),
+     y: 15,
      repeat: -1,
-     yoyo: true
+     yoyo: true,
+     ease: 'Power1.easeInOut',
    },[]);
  }
  
@@ -222,17 +221,19 @@ const Business = () => {
       </TitleBox>
       <StyleSwiper
         centeredSlides={true}
+        loop={true}
         pagination={{
           clickable: true,
         }}
-        slidesPerView={1.2}
-        spaceBetween={22}
+        slidesPerView={1.35}
+        spaceBetween={0}
         breakpoints={{
           700: {
             slidesPerView: 3,
             spaceBetween: 66,
-            centeredSlides: false,
+            centeredSlides: true,
             allowTouchMove: false,
+            loop: false
           }
         }}
       > 

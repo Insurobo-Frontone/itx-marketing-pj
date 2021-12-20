@@ -67,7 +67,7 @@ const SectionContainer = styled.div`
     overflow: hidden;
     
     @media (max-width: 700px) {
-      padding: 55px 0 96px 20px;
+      padding: 7.4vh 0 10vh 20px;
       flex-direction: column;
       background-color: #F8F8F8;
     }
@@ -96,8 +96,9 @@ const DirectNews =  styled.div`
     padding: 0%;
     display: flex;
     align-self: flex-start;
+    margin-bottom: 0;
     > h2 {
-      font-size: 1.25vw;
+      font-size: 1.25rem;
       padding-bottom: 0;
       > br {
         display: none;
@@ -113,7 +114,7 @@ const StyledLink = styled(Link)`
   @media (max-width: 700px) {
      line-height: 31px;
      position: absolute;
-     top: 1355%;
+     top: 1065%;
      z-index: 20;
   }
   > p {
@@ -156,6 +157,7 @@ const StyleSwiper = styled(Swiper)`
     transition: all .3s;
     transform: scale(1);
     overflow: hidden;
+    background-color: #FFFFFF;
   }
   .swiper-slide-active,
   .swiper-slide-duplicate-active {
@@ -193,7 +195,7 @@ const StyleSwiper = styled(Swiper)`
 
     @media (max-width: 700px) {
     padding: 20px 10px 29px 8px;
-    margin-right: 21px;
+    margin-right: 20px;
     width: 203px;
     height: 204px;
     border-radius: 9px;
@@ -281,15 +283,30 @@ const AwradList = styled.ul`
 `;
 const NewsMarketing = () => {
   const [swiper , setSwiper] = useState(null);
-  const [mainImageIndex, setMainImageIndex] = useState(0);
-
+  
   SwiperCore.use([Autoplay, Navigation]);
 
   const swiperParams = {
     onSwiper: setSwiper,
     loop: true,
-    onSlideChange: (e) => setMainImageIndex(e.activeIndex),
+    slidesPerView: 'auto',
+    loopedSlides: 4,
+    slidesBetween:0,
+    navigation: true,
+    speed: 1000,
+    autoplay : {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    breakpoints : {
+      700: {slidesPerView:'auto'},
+      1220: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      }
+    }
   }
+
   return (
     <SectionContainer>
       <div className="news-wrap">
@@ -306,32 +323,9 @@ const NewsMarketing = () => {
           
         </DirectNews>
         <NewsContainer>
-          <StyleSwiper
-              {...swiperParams}
-              ref={setSwiper}
-              // centeredSlides={true}
-              debugger={true}
-              slidesPerView={'auto'}
-              loopedSlides={4}
-              slidesBetween={0}
-              navigation={true}
-              speed={1000}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-              }}
-              breakpoints={{
-                700: {
-                  slidesPerView: 'auto',
-                },
-                1220: {
-                  slidesPerView: 1,
-                  spaceBetween: 20,
-                }
-              }}
-            > 
+          <StyleSwiper {...swiperParams} ref={setSwiper}> 
             {NewsData.map((newDt) => (
-              <SwiperSlide
+            <SwiperSlide
                 key={newDt.id}
               >
                 <h3>{newDt.date}</h3>
@@ -358,7 +352,7 @@ const NewsMarketing = () => {
         </AwradList>
       </AwardHistory>
     </SectionContainer>
-  );
-};
+  )
+}
 
 export default NewsMarketing;

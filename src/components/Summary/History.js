@@ -1,7 +1,11 @@
-import React  from 'react'
+import React, { useEffect, useRef }  from 'react'
 import styled from 'styled-components';
 import Title from './Title';
+import classNames from 'classnames';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 
 const Item = [
   {
@@ -51,12 +55,15 @@ const HistoryContainer = styled.section`
   }
 `;
 const HistoryList = styled.ul`
-  width: 85%;
-  padding: 5% 0 10% 6.12%;
-  align-self: flex-end;
+  width: 100%;
+  padding: 5% 0 10% 15.8%;
+  transform: rotateY(-500px);
   @media (max-width: 700px) {
     width: 100%;
     padding: 12.3% 0 12% 10.6%;
+  }
+  &.active{
+    transform: rotate(0);
   }
 `;
 const Items = styled.li`
@@ -77,8 +84,9 @@ const Items = styled.li`
 }
 
 > p {
-  width: 14.56%;
-  font-size: 2.5rem;
+  width: 7.5vw;
+  margin-right: 3.2%;
+  font-size: 2.6vw;
   color: #B8292D;
   white-space: pre;
   @media (max-width: 700px) {
@@ -122,41 +130,63 @@ const Items = styled.li`
   }
 }
 `;
-const ScrollText = styled.div`
-  > h3 {
-    font-size: 6rem;
-    text-align: right;
-    color: #F0F0F0;
-    padding: 5.12% 0 5.4% 0;
-    font-weight: 300;
-    
-    @media (max-width: 700px) {
-    font-size: 2.5rem;
-    text-overflow: clip;
-    overflow: hidden;
-    white-space: nowrap;
+
+const BigTextScroll = styled.div`
+    > h2 {
+      width: 100%;
+      font-size: 6rem;
+      text-align: right;
+      font-weight: 300;
+      color: #F0F0F0;
     }
+  &.active{
+    
   }
   
+
+    @media (max-width: 700px) {
+    font-size: 2.5rem;
+    overflow: hidden;
+    text-overflow: initial;
+    white-space: nowrap;
+    }
+  
 `;
+
 const History = () => {
   
+  useEffect(() => {
+    gsap.to('.scroll-spy', {
+      scrollTrigger: {
+        trigger: '.spy__history',
+        toggleClass: "active",
+        ease: "",
+        
+      }
+  });
+});
+
   return (
-    <HistoryContainer>
+    <HistoryContainer className={classNames('scroll-spy')}>
       <Title en={'Company\nhistory'} ko={'회사 연혁'} />
-      <HistoryList>
-      {Item.map((hi) => (
-        <Items key={hi.id}>
-          <p>{hi.year}</p>
-          <span>{hi.result}</span>
-        </Items>
-      ))}
-      </HistoryList>
-      <ScrollText>
-        <h3>고객과 FP의 행복한 동행</h3>
-      </ScrollText>
+      <HistoryList 
+        className={classNames('spy__history')}
+      >
+        {Item.map((hi) => (
+          <Items 
+            key={hi.id}>
+            <p>{hi.year}</p>
+            <span>{hi.result}</span>
+          </Items>
+        ))}
+        </HistoryList>
+          <BigTextScroll >
+            <h2 className={classNames('spy__text')}>
+              고객과 FP의 행복한 동행
+            </h2>
+          </BigTextScroll>
     </HistoryContainer>
   )
 }
 
-export default History
+export default History;

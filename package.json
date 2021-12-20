@@ -11,6 +11,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "classnames": "^2.3.1",
     "gsap": "^3.8.0",
     "lodash": "^4.17.21",
     "react": "^17.0.2",
@@ -21,8 +22,7 @@
     "react-router": "^6.0.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "react-scrollmagic": "^2.3.0",
-    "scrollmagic": "^2.0.8",
+    "scrolltrigger": "^1.0.1",
     "styled-components": "^5.3.3",
     "swiper": "^6.8.4",
     "web-vitals": "^1.0.1"
@@ -30,7 +30,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "dev":   "react-scripts dev",
+    "dev": "react-scripts dev",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

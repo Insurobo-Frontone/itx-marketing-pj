@@ -1,19 +1,36 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";       
 import styled from "styled-components";
 import "swiper/swiper.min.css";
-// import "swiper/css/effect-creative.css";
-
+import "swiper/components/effect-fade/effect-fade.min.css";
 import visual from "../img/main/recruitVisual.png";
 import { AddSharp } from '@mui/icons-material';
+const Card = [
+  {
+    id: 0,
+    title: '개인영업(FP)'
+  },
+  {
+    id: 1,
+    title: '법인컨설턴트'
+  },
+  {
+    id: 2,
+    title: '전문가그룹'
+  },
+  {
+    id: 3,
+    title: '정규직'
+  }
+]
 const SectionContainer = styled.div`
   position: relative;
   width: 100%;
   padding: 20.56% 0 12.7%;
   overflow: hidden;
   @media (max-width: 700px) {
-    padding: 3vh 0 10vh 0;
+    padding: 14.1vh 0 0 0;
   }
 `;
 
@@ -70,39 +87,38 @@ const VisualBox = styled.div`
 
 const SlideContainer = styled.div`
   position: relative;
-  margin-left: 12.13541666666667%;
-  width: 118vw;
-  height: 45vh;
+  
+  width: 100%;
   align-items: center;
-  position: absolute;
-  bottom: 2.86%;
   background-color: #F8F8F8;
   padding: 6.15% 0 6.1% 1.66%;
   border-radius: 366.5px 0 0 366.5px;
   align-items: center;
-
+  
   @media (max-width: 700px) {
-    margin-left: 5.714285714285714%;
-    /* padding: 10% 0% 10.4% 3.1%; */
-    bottom: 9.6%;
+    padding: 10% 0% 10.4% 0%;
+    bottom: 7%;
+    left: 20px;
+    top: -100px;
   }
+  
 `;
 const StyleSwiper = styled(Swiper)`
-   
 
    .swiper-slide{
-    border-radius: 11.5%;
+    border-radius: 15px;
     background-color: #FFFFFF;
-    padding: 6.36vh 2.2vw 26.9vh;
+    padding: 6vh 2.2vw 26.9vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-   
     cursor: pointer;
-    transition: background .3s;
+
     @media (max-width: 700px) {
-      padding: 6.9% 5.1% 27.8%;
-      border-radius: 10%;
+      padding: 6.9% 4% 28%;
+      border-radius: 15px;
+      margin-right: 6px;
+      width: 200%;
     }
     > p {
       font-size: 1.5rem;
@@ -118,33 +134,15 @@ const StyleSwiper = styled(Swiper)`
     color: #FFFFFF;
     padding: 3.9999% 2.5% 20.2% 1.9%;
     @media (max-width: 700px) {
-      padding: 7.6% 5.5% 43.6%;
+      padding: 6% 4% 40%;
     }
   }
 `;
 
-const Card = [
-  {
-    id: 0,
-    title: '개인영업(FP)'
-  },
-  {
-    id: 1,
-    title: '법인컨설턴트'
-  },
-  {
-    id: 2,
-    title: '전문가그룹'
-  },
-  {
-    id: 3,
-    title: '정규직'
-  }
-]
-
 const Recruit = () => {
-
-  // SwiperCore.use([EffectCreative]);
+  const [swiper, setSwiper] = useState(null);
+  const slideTo = () => {}
+ 
 
   return (
       <SectionContainer>
@@ -160,26 +158,24 @@ const Recruit = () => {
         <VisualBox />
         <SlideContainer>
           <StyleSwiper
-            loop={true}
-            slideToClickedSlide={true}
-            // slidesPerView={2.35}
-            // spaceBetween={6}
-            // slidesPerView={'auto'}
+            // loop={true}
+            // slideToClickedSlide={true}
+            onSwiper={setSwiper}
+            slidesPerView={2.4}
+            slideBetween={6}
+            grabCursor={true}
             speed={1000}
             breakpoints={{
-            375: {
-              slidesPerView: 2.35,
-              slideBetween: 6,
-              },
             700: {
               slideBetween: 55,
+              slidesPerView: 4
               }
             }}
           > 
         {Card.map((dt) => (
           <SwiperSlide 
           key={dt.id}
-          // onClick={toSlide}
+          onClick={slideTo}
           >
           <p>{dt.title}<Link to='#'></Link></p>
           <AddSharp/>

@@ -8,12 +8,14 @@ const VisualContainer = styled.section`
   width: 100%;
   padding: 11.25% 7.8125% 5.3%;
   background-color: #F8F8F8;
+
   @media (max-width: 700px) {
     padding: 50% 0 0 6.3%; 
   }
 `;
 const ContentWrap = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   @media (max-width: 700px) {
@@ -22,7 +24,7 @@ const ContentWrap = styled.div`
   }
 `;
 const TextWrap = styled.div`
-
+    
   
   > h1 {
     font-size: 2rem;
@@ -57,22 +59,21 @@ const TextWrap = styled.div`
  
 `;
 const ImgWrap = styled.div`
-  padding: 50%;
+  width: 39.42708333333333vw;
+  height: 39.42708333333333vh;
+  padding: 23.55% 0; 
   background-image: url(${introVisual});
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: right;
 
   @media (max-width: 700px) {
     background-image: url(${introVisualMb});
+    background-position: left;
     padding: 79% 90%;
   } 
-  
-  @media (max-width: 700px) {
-   
-    flex-grow: 1;
-    
-  }`;
 
+`;
 
 
 const Visual = () => {

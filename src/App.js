@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import { Route } from 'react-router-dom'
-import theme from "./components/theme";
+import theme from "./components/Theme";
 import GlobalStyle from './components/GlobalStyle'
 import Home from './pages/Home';
 import Summary from './pages/Summary';

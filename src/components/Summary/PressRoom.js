@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from 'swiper';
+
 import "swiper/swiper.min.css";
 import Title from './Title';
 
 import { AddSharp } from '@mui/icons-material';
 import linkbtn from '../../img/sub/pressLinkBtn.svg';
+
 
 const News = [
   {
@@ -49,39 +51,60 @@ const News = [
 
 const ManageIdeaContainer = styled.section`
   width: 100%;
-  padding: 5% 7.8125% 5.3%;
- 
+  
+  
+  @media (max-width: 700px) {
+    padding: 15% 0 0 7%;
+    height: 65vh;
+    overflow: visible;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+  } 
 `;
 
 const StyleSwiper = styled(Swiper)`
-   padding: 10% 3%;
-   margin: 3.5%;
-   
-   overflow: hidden;
+/*  
+
+   margin: 4%;
+  
+   @media (max-width: 700px) {
+   position: absolute;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    transform: scale(1);
+    transition: all .3s;
+  }
   .swiper-slide-active,
   .swiper-slide-duplicate-active {
-    /* transform: scale(1.5); */
+    @media (max-width: 700px) {
+      transform: scale(0.97);
   }
+    
+  }
+ 
   .swiper-slide {
-    /* width: 30%;
+    width: 30%;
+    height: 65vh;
     transform: scale(1);
     transition: transform 3s ease;
     box-shadow: 0px 5px 48px rgba(0, 0, 0, 0.2);
     border-radius: 45px;
     padding: 5% 3% 7%;
-    height: 65vh;
-    overflow: hidden; */
+    overflow: hidden;
 
     @media (max-width: 700px) {
-    padding: 21px 8px 29px;
+    padding: 2.9vh 3vw;
     margin-right: 23px;
-    width: 61.33333333333333vw;
-    height: 204px;
-    border-radius: 9px;
+    width: 53vw;
+    height: 27vh;
     box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-  }
+    border-radius: 9px;
+    /* transform: scale(0.8); */
 
+  
+/*   
     > p {
       font-size: 0.9rem;
       color: #620406;
@@ -107,10 +130,10 @@ const StyleSwiper = styled(Swiper)`
       @media (max-width: 700px) {
         font-size: 0.625rem;
         line-height: 0.6875rem;
-      
+        
       }
     }
-  }
+  } */ 
 `;
 const TextContent = styled.div`
   font-size: 0.8rem;
@@ -120,6 +143,11 @@ const TextContent = styled.div`
   @media (max-width: 700px) {
     font-size: 0.625rem;
     line-height: 0.96875;
+    
+    height: 10vh;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     > p {
       padding-bottom: 0;
       line-height: 1rem;
@@ -128,10 +156,17 @@ const TextContent = styled.div`
 `;
 
 const StyleA = styled(Link)`
-  background-image: url(${linkbtn});
-  background-repeat: no-repeat;
-  width: 78.6px;
-  height: 12.05px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  > div {
+    width: 16.02040816326531%;
+    height: 12.05px;
+    background-image: url(${linkbtn});
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
 `;
 
 const MoreBtn = styled.button`
@@ -157,11 +192,27 @@ const PressRoom = () => {
   const [swiper, setSwiper] = useState(null);
 
   const swiperParams = {
-    onSwiper: setSwiper,    
-    slidesPerColumn: 2,
-    slidesPerColumnFill: 'row',
-    direction: 'horizontal'
+    onSwiper: setSwiper,
+    loop: true,
+    slidesPerView: 'auto',
+    loopedSlides: 5,
+    slidesBetween: 0,
+    speed: 1000,
+    autoplay : {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      700: {
+        slidesPerView: 3,
+        spaceBetween: 100,
+        slidesPerColumn: 2,
+        slidesPerColumnFill: 'row',
+        direction: 'horizontal',
+      }
+    }
   }
+  
     
   
   const handleClick = () => {
@@ -172,22 +223,10 @@ const PressRoom = () => {
   return (
     <ManageIdeaContainer>
       <Title en={'Press Room'} ko={'프레스 룸'} />
-        <StyleSwiper
-          ref={setSwiper}
-          loop={true}
-          autoplay={true}
-          breakpoints={{
-            700: {
-              slidesPerView: 3,
-              spaceBetween: 100,
-              centeredSlides: false,
-              
-            }
-            
-          }}
-          {...swiperParams}
+      <StyleSwiper {...swiperParams} ref={setSwiper}
         // isOpen={isToggleOn? {...swiperParams} : ''}
         >
+       
         {News.map((nd) => (
           <SwiperSlide key={nd.id}>
             <p>{nd.date}</p>
@@ -196,7 +235,9 @@ const PressRoom = () => {
               <p>{nd.content}</p>
               <p>{nd.subCont}</p>
             </TextContent>
-            <StyleA to="#"></StyleA>
+            <StyleA to="#">
+              <div></div>
+            </StyleA>
           </SwiperSlide>
           ))}
           </StyleSwiper>
