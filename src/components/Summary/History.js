@@ -2,8 +2,10 @@ import React, { useEffect, useRef }  from 'react'
 import styled from 'styled-components';
 import Title from './Title';
 import classNames from 'classnames';
-import { gsap } from "gsap";
+import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { repeat } from 'lodash';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,13 +60,15 @@ const HistoryList = styled.ul`
   width: 100%;
   padding: 5% 0 10% 15.8%;
   transform: rotateY(-500px);
+  /* transform: rotateY(1000px); */
+  &.active {
+    transform: rotateY(0);
+  }
   @media (max-width: 700px) {
     width: 100%;
     padding: 12.3% 0 12% 10.6%;
   }
-  &.active{
-    transform: rotate(0);
-  }
+
 `;
 const Items = styled.li`
   display: flex;
@@ -139,10 +143,6 @@ const BigTextScroll = styled.div`
       font-weight: 300;
       color: #F0F0F0;
     }
-  &.active{
-    
-  }
-  
 
     @media (max-width: 700px) {
     font-size: 2.5rem;
@@ -155,23 +155,24 @@ const BigTextScroll = styled.div`
 
 const History = () => {
   
-  useEffect(() => {
-    gsap.to('.scroll-spy', {
-      scrollTrigger: {
-        trigger: '.spy__history',
-        toggleClass: "active",
-        ease: "",
-        
-      }
+  const historyList = useRef(null);
+  const historyStart = useRef(null);
+  const bigText = useRef(null);
+
+
+  gsap.to(historyList.current,{
+    duration: 2,
+    y: 100,
+    ease: 'power2.out',
+    ScrollTrigger: {
+      trigger: historyList.current
+    }
   });
-});
 
   return (
-    <HistoryContainer className={classNames('scroll-spy')}>
+    <HistoryContainer ref={historyStart}>
       <Title en={'Company\nhistory'} ko={'회사 연혁'} />
-      <HistoryList 
-        className={classNames('spy__history')}
-      >
+      <HistoryList ref={historyList}>
         {Item.map((hi) => (
           <Items 
             key={hi.id}>
@@ -180,8 +181,8 @@ const History = () => {
           </Items>
         ))}
         </HistoryList>
-          <BigTextScroll >
-            <h2 className={classNames('spy__text')}>
+          <BigTextScroll ref={bigText}>
+            <h2>
               고객과 FP의 행복한 동행
             </h2>
           </BigTextScroll>

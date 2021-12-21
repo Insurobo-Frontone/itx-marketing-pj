@@ -4,8 +4,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import styled from "styled-components";
 import "swiper/swiper.min.css";
 import "swiper/components/effect-fade/effect-fade.min.css";
+
+
 import visual from "../img/main/recruitVisual.png";
-import { AddSharp } from '@mui/icons-material';
+import plusbtn from "../img/common/plusbtn.svg";
+import plusbtnActive from "../img/common/plusbtn_rev.svg";
+
 const Card = [
   {
     id: 0,
@@ -27,10 +31,11 @@ const Card = [
 const SectionContainer = styled.div`
   position: relative;
   width: 100%;
-  padding: 20.56% 0 12.7%;
+  padding: 20.56% 0 19%;
   overflow: hidden;
+
   @media (max-width: 700px) {
-    padding: 14.1vh 0 0 0;
+    padding: 28.5% 0 70%;
   }
 `;
 
@@ -86,43 +91,54 @@ const VisualBox = styled.div`
 `;
 
 const SlideContainer = styled.div`
-  position: relative;
-  
+  position: absolute;
+  bottom: 5%;
   width: 100%;
   align-items: center;
   background-color: #F8F8F8;
   padding: 6.15% 0 6.1% 1.66%;
   border-radius: 366.5px 0 0 366.5px;
   align-items: center;
-  
+  margin-left: 12.13541666666667%;
+
   @media (max-width: 700px) {
     padding: 10% 0% 10.4% 0%;
-    bottom: 7%;
-    left: 20px;
-    top: -100px;
+    bottom: 8%;
   }
-  
 `;
 const StyleSwiper = styled(Swiper)`
-
+    
    .swiper-slide{
-    border-radius: 15px;
+    border-radius: 46px;
     background-color: #FFFFFF;
-    padding: 6vh 2.2vw 26.9vh;
+    padding: 3.6% 2.26% 15.2%;
+    width: 20.83333333333333%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
 
+    > div {
+      width: 45px;
+      height: 45px;
+      background-image: url(${plusbtn});
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      @media (max-width: 700px) {
+        width: 15px;
+        height: 15px;
+      }
+    }
     @media (max-width: 700px) {
       padding: 6.9% 4% 28%;
       border-radius: 15px;
-      margin-right: 6px;
-      width: 200%;
     }
     > p {
       font-size: 1.5rem;
+      line-height: 2.25rem;
       font-family: "GoyangDeogyang";
+
       @media (max-width: 700px) {
         font-size: 0.8125rem;
       }
@@ -136,14 +152,30 @@ const StyleSwiper = styled(Swiper)`
     @media (max-width: 700px) {
       padding: 6% 4% 40%;
     }
+
+    > div {
+      background-image: url(${plusbtnActive});
+    }
   }
 `;
 
 const Recruit = () => {
   const [swiper, setSwiper] = useState(null);
-  const slideTo = () => {}
- 
-
+  
+  const swiperParams = {
+    onSwiper: setSwiper,
+    loop: true,
+    slidesPerView:2.6,
+    slideToClickedSlide: true,
+    slidesBetween: 10,
+    speed: 1000,
+    breakpoints: {
+      700: {
+        slidesPerView: 4.5,
+        spaceBetween: 55,
+      }
+    }
+  }
   return (
       <SectionContainer>
         <SectionTitle>
@@ -157,31 +189,15 @@ const Recruit = () => {
         </SectionTitle> 
         <VisualBox />
         <SlideContainer>
-          <StyleSwiper
-            // loop={true}
-            // slideToClickedSlide={true}
-            onSwiper={setSwiper}
-            slidesPerView={2.4}
-            slideBetween={6}
-            grabCursor={true}
-            speed={1000}
-            breakpoints={{
-            700: {
-              slideBetween: 55,
-              slidesPerView: 4
-              }
-            }}
-          > 
+          <StyleSwiper {...swiperParams}> 
         {Card.map((dt) => (
-          <SwiperSlide 
-          key={dt.id}
-          onClick={slideTo}
-          >
+          <SwiperSlide key={dt.id}>
           <p>{dt.title}<Link to='#'></Link></p>
-          <AddSharp/>
+          <div></div>
           </SwiperSlide>
         ))} 
         </StyleSwiper> 
+        
         </SlideContainer>
       </SectionContainer>
   );

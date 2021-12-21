@@ -1,6 +1,5 @@
 import React, {useRef, useEffect} from 'react'
 import { Link } from 'react-router-dom';
-// import { gsap } from "gsap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
@@ -36,11 +35,12 @@ const card = [
 ]
 const SectionContainer = styled.div`
   width: 100%;
-  padding: 12.85% 0 15.55% 0;
+  padding: 12.85% 7.5% 15.55% 7.5%;
   background-color: #F8F8F8;
   position: relative;
+
   @media(max-width: 700px) {
-    padding: 74px 0 90px 0;
+    padding: 19.8% 0 16% 0;
   }
 `;
 const TitleBox = styled.div`
@@ -50,6 +50,7 @@ const TitleBox = styled.div`
     line-height: 3.4rem;
     font-family: 'GoyangDeogyang';
     color: #323232;
+
     @media (max-width: 700px) {
     font-size: 1.25rem;
     line-height: 1.41rem;
@@ -59,6 +60,7 @@ const TitleBox = styled.div`
     padding-top: 1.7vh;
     font-size: 1.25rem;
     white-space: nowrap;
+
     @media (max-width: 700px) {
     font-size: 0.8125rem;
     line-height: 0.904375rem;
@@ -69,16 +71,16 @@ const TitleBox = styled.div`
 const StyleSwiper = styled(Swiper)`
   width: 100%;
   flex-direction: row nowrap;
-  padding: 12.1% 7.5% 11% 7.5%;
-  display: flex;
+  padding: 12.1% 0 11%;
   justify-content: space-between;
+
   & .swiper-pagination-bullet{
     display: none;
   }
  
   @media (max-width: 700px) {
-    padding: 23.5vw 6vw 10vh;
-
+    padding: 23.5% 6%;
+    
     .swiper-slide-duplicate,
     .swiper-slide{
       transition: all .3s;
@@ -108,11 +110,11 @@ const StyleSwiper = styled(Swiper)`
   }
 `;
 
+// 슬라이드 
 const CardBox = styled.ul`
   border-radius: 30px;
   padding: 10% 11% 8.3% 14.2%;
   transition: all 0.3s;
-  width: 26vw;
   background-color: #FFFFFF;
   :hover {
     box-shadow: -30px 49px 82px rgba(0, 0, 0, 0.15);
@@ -120,6 +122,7 @@ const CardBox = styled.ul`
   @media (max-width: 1261px) {
     width: 100%;
     font-size: 1.125rem;
+    padding: 10% 13.5% 8.3% 10%;
 
   }
   > .card-icon {
@@ -147,10 +150,11 @@ const CardBox = styled.ul`
     font-size: 1rem;
     white-space: pre-wrap;
     padding-bottom: 7vh;
+
     @media (max-width: 1261px) {
     font-size: 0.8125rem;
     line-height: 1.0625rem;
-    padding-bottom: 19.8vh;
+    padding-bottom: 79%;
     }
   }
   .more-btn {
@@ -186,8 +190,6 @@ const Rectangle = styled.div`
     width: 100%;
     z-index: 10;
   }
- 
-   
 `;
 
 const Business = () => {
@@ -230,8 +232,8 @@ const Business = () => {
         breakpoints={{
           700: {
             slidesPerView: 3,
+            centeredSlides: false,
             spaceBetween: 66,
-            centeredSlides: true,
             allowTouchMove: false,
             loop: false
           }
