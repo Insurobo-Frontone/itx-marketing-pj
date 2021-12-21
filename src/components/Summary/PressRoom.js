@@ -51,106 +51,105 @@ const News = [
 
 const ManageIdeaContainer = styled.section`
   width: 100%;
+  padding: 6.5% 7.8% 10%;
   
-  
-  @media (max-width: 700px) {
-    padding: 15% 0 0 7%;
-    height: 65vh;
-    overflow: visible;
-    width: 100%;
-    flex-direction: column;
-    display: flex;
-  } 
+@media (max-width: 700px) {
+  padding: 15% 0 0 7%;
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+} 
 `;
 
 const StyleSwiper = styled(Swiper)`
-/*  
+  padding: 8% 3% 10%;
+  margin: 0 1%;
+  overflow: hidden;
 
-   margin: 4%;
-  
-   @media (max-width: 700px) {
-   position: absolute;
-    margin: 0;
+@media (max-width: 700px) {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.swiper-slide {
+  width: 33%;
+  transform: scale(1);
+  transition: transform 3s ease;
+  box-shadow: 0px 5px 48px rgba(0, 0, 0, 0.2);
+  border-radius: 45px;
+  padding: 3.1% 2.5% 3.1%;
+  overflow: hidden;
+
+  @media (max-width: 700px) {
+    padding: 3% 3%;
+    margin-right: 23px;
+    width: 60%;
+    box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.15);
+    border-radius: 9px;
+    transform: scale(1);
+  }
+
+  > p {
+    font-size: 0.9rem;
+    line-height: 1rem;
+    color: #620406;
+    font-family: 'GoyangDeogyang';
+    border-bottom: 2px solid #620406;
+    display: inline-block;
+
+    @media (max-width: 700px) {
+      font-size: 0.625rem;
+      line-height: 0.6875rem;
+      
+    }
+  }
+  > h3 {
+    font-size: 1.25rem;
     display: flex;
     flex-direction: column;
-    transform: scale(1);
-    transition: all .3s;
+    justify-content: center;
+    height: 17vh;
+    color: #323232;
+    font-family: 'GoyangDeogyang';
+    color: #1A1A1A;
+
+    @media (max-width: 700px) {
+      font-size: 0.625rem;
+      line-height: 0.6875rem;
+      height: 60px;
+      white-space: pre;
+    }
   }
+}
   .swiper-slide-active,
   .swiper-slide-duplicate-active {
     @media (max-width: 700px) {
-      transform: scale(0.97);
-  }
-    
-  }
- 
-  .swiper-slide {
-    width: 30%;
-    height: 65vh;
-    transform: scale(1);
-    transition: transform 3s ease;
-    box-shadow: 0px 5px 48px rgba(0, 0, 0, 0.2);
-    border-radius: 45px;
-    padding: 5% 3% 7%;
-    overflow: hidden;
-
-    @media (max-width: 700px) {
-    padding: 2.9vh 3vw;
-    margin-right: 23px;
-    width: 53vw;
-    height: 27vh;
-    box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.15);
-    border-radius: 9px;
-    /* transform: scale(0.8); */
-
-  
-/*   
-    > p {
-      font-size: 0.9rem;
-      color: #620406;
-      border-bottom: 1px solid #620406;
-      display: inline-block;
-      font-family: 'GoyangDeogyang';
-
-      @media (max-width: 700px) {
-        font-size: 0.625rem;
-        line-height: 0.6875rem;
-      }
+      transform: scale(0.98);
     }
-    > h3 {
-      font-size: 1.5625rem;
-      height: 8vh;
-      display: flex;
-      align-items: flex-start;
-      padding-top: 10%;
-      color: #323232;
-      font-family: 'GoyangDeogyang';
-      color: #1A1A1A;
-
-      @media (max-width: 700px) {
-        font-size: 0.625rem;
-        line-height: 0.6875rem;
-        
-      }
-    }
-  } */ 
+  }
 `;
 const TextContent = styled.div`
   font-size: 0.8rem;
+  height: 24vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
   > p {
-    padding-bottom: 20px;
+    padding-bottom: 5.5%;
   }
   @media (max-width: 700px) {
     font-size: 0.625rem;
     line-height: 0.96875;
-    
-    height: 10vh;
-    overflow: hidden;
+    height: auto;
     text-overflow: ellipsis;
-
     > p {
       padding-bottom: 0;
       line-height: 1rem;
+      height: 62px;
+      overflow: hidden;
     }
   }
 `;
@@ -170,6 +169,8 @@ const StyleA = styled(Link)`
 `;
 
 const MoreBtn = styled.button`
+  position: absolute;
+  right: 7.8%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -190,12 +191,16 @@ const PressRoom = () => {
 
   const [isToggleOn, setToggleOn] = useState(false);
   const [swiper, setSwiper] = useState(null);
-
+  const handleClick = () => {
+    setToggleOn(!isToggleOn);
+    console.log(swiper)
+  }
   const swiperParams = {
     onSwiper: setSwiper,
     loop: true,
     slidesPerView: 'auto',
     loopedSlides: 5,
+    slidesPerColumn: 1,
     slidesBetween: 0,
     speed: 1000,
     autoplay : {
@@ -206,27 +211,24 @@ const PressRoom = () => {
       700: {
         slidesPerView: 3,
         spaceBetween: 100,
-        slidesPerColumn: 2,
+        slidesPerColumn: 1,
+        centeredSlides: true,
         slidesPerColumnFill: 'row',
         direction: 'horizontal',
+        allowTouchMove: false,
       }
     }
   }
   
-    
-  
-  const handleClick = () => {
-    setToggleOn(!isToggleOn);
-    console.log(setToggleOn)
-  }
-
   return (
     <ManageIdeaContainer>
       <Title en={'Press Room'} ko={'프레스 룸'} />
-      <StyleSwiper {...swiperParams} ref={setSwiper}
-        // isOpen={isToggleOn? {...swiperParams} : ''}
+      {!isToggleOn && (
+        <StyleSwiper 
+          {...swiperParams} 
+          ref={setSwiper}
+          id="original-slide"
         >
-       
         {News.map((nd) => (
           <SwiperSlide key={nd.id}>
             <p>{nd.date}</p>
@@ -241,10 +243,34 @@ const PressRoom = () => {
           </SwiperSlide>
           ))}
           </StyleSwiper>
-          <MoreBtn onClick={handleClick}>
-            <AddSharp/>
-            <span>더 보기</span>
-          </MoreBtn>
+        )}
+        {isToggleOn && (
+          <StyleSwiper id="more-slide" 
+            slidesPerView={3}
+            spaceBetween={100}
+            slidesPerColumn={2}
+            slidesPerColumnFill={'row'}
+          >
+          {News.map((nd) => (
+            <SwiperSlide key={nd.id}>
+              <p>{nd.date}</p>
+              <h3>{nd.title}</h3>
+              <TextContent>
+                <p>{nd.content}</p>
+                <p>{nd.subCont}</p>
+              </TextContent>
+              <StyleA to="#">
+                <div></div>
+              </StyleA>
+            </SwiperSlide>
+            ))}
+            </StyleSwiper>)}
+
+        <MoreBtn onClick={handleClick} isopen={isToggleOn}>
+          <AddSharp/>
+            {!isToggleOn && (<span>더 보기</span>)}
+            {isToggleOn && (<span>다시 접기</span>)}
+        </MoreBtn>
       </ManageIdeaContainer>
   )
 }

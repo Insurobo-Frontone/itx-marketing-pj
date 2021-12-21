@@ -9,7 +9,7 @@ import blacklogo from '../img/common/blacklogo.svg';
 import togglebtn from '../img/common/toggle_btn.svg';
 import togglebtnblack from '../img/common/toggle_btn_black.svg';
 import closebtn from '../img/common/closebtn.svg';
-
+// import classNames from 'classnames';
 
 const Headers =  styled.header`
   position: fixed;
@@ -19,10 +19,7 @@ const Headers =  styled.header`
   font-size: 1rem;
   width: 100%;
   height: 100px;
-  /* #change {
-    background-color: #FFFFFF;
-    color: #323232;
-  } */
+
   &.trsp_header{
     background-color: 'transparent';
     color: #FFFFFF;
@@ -95,7 +92,7 @@ const Logo = styled.h2`
 const Lnb = styled.div`
   width: 100%;
   @media (max-width: 700px) {
-    display: ${props => (props.isOpen ? 'block' : 'none')};
+    display: ${props => (props.isopen ? 'block' : 'none')};
     order: 3;
   }
   
@@ -248,11 +245,11 @@ const ToggleBtn = styled.div`
   z-index: 30;
   &.toggleblack {
     background-image: url(${togglebtnblack});
-    background-image: url(${props => props.isOpen ? closebtn : togglebtnblack});
+    background-image: url(${props => props.isopen ? closebtn : togglebtnblack});
   }
   &.togglewhite {
     background-image: url(${togglebtn});
-    background-image: url(${props => props.isOpen ? closebtn : togglebtn});
+    background-image: url(${props => props.isopen ? closebtn : togglebtn});
   }
   
   @media (max-width: 700px) {
@@ -302,29 +299,27 @@ const Header = () => {
   return (
     
     <Headers
-      isOpen={isToggleOn} 
+      isopen={isToggleOn} 
       className={location.pathname === '/' ? 'trsp_header' : 'white_header'}
       className={location.pathname === '/summary' ? 'uinque_header' : 'trsp_header'}
-     className={scrollPosition > 500 ? 'white_header': 'trsp_header'}
     >
       <Inner>
         <Logo as="a" href="/"
-          isOpen={isToggleOn}
-          isLogo={isHovering}
+          isopen={isToggleOn}
+          islogo={isHovering}
           className={location.pathname === '/summary' ? 'uinque_header' : 'trsp_header'}
           className={location.pathname === '/' ? 'trsp_header' : 'white_header'}
-          className={scrollPosition > 500 ? 'white_header': null}
         >
         </Logo>
      
-        <Lnb isOpen={isToggleOn} 
+        <Lnb isopen={isToggleOn} 
         >
           <nav>
             <ul
               className='main-menu'
               onMouseOver={() => setIsHovering(true)}
               onMouseOut={() => setIsHovering(false)}
-              isOpen={isToggleOn}
+              isopen={isToggleOn}
             >
               <li
                 onClick={activeMethod}
@@ -390,13 +385,10 @@ const Header = () => {
         </Lnb>
            <ToggleBtn
            onClick={handleClick}
-           isOpen={isToggleOn}
+           isopen={isToggleOn}
            className={location.pathname === '/' ? 'togglewhite' : 'toggleblack' }
-           className={scrollPosition > 300 ? 'toggleblack': ''}
           >
           </ToggleBtn>
-         
-               
       </Inner>
     </Headers>
   )

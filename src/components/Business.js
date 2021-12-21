@@ -35,7 +35,7 @@ const card = [
 ]
 const SectionContainer = styled.div`
   width: 100%;
-  padding: 12.85% 7.5% 15.55% 7.5%;
+  padding: 12.85% 0 15.55%;
   background-color: #F8F8F8;
   position: relative;
 
@@ -70,8 +70,9 @@ const TitleBox = styled.div`
 `;
 const StyleSwiper = styled(Swiper)`
   width: 100%;
+  
   flex-direction: row nowrap;
-  padding: 12.1% 0 11%;
+  padding: 12.1% 8.5% 11%;
   justify-content: space-between;
 
   & .swiper-pagination-bullet{
@@ -137,24 +138,23 @@ const CardBox = styled.ul`
   }
   > .card-title {
     font-family: 'GoyangDeogyang';
-    padding: 10vh 0 2.5vh 0;
     font-size: 1.5rem;
     color: #323232;
+    padding-top: 40.6%;
     @media (max-width: 1261px) {
     font-size: 1.125rem;
-    padding: 25vw 0 2.5vh 0;
     line-height: 1.25rem;
     }
   }
   > .card-desc {
     font-size: 1rem;
     white-space: pre-wrap;
-    padding-bottom: 7vh;
+    padding-top: 10.5%;
+    padding-bottom: 28.5%;
 
     @media (max-width: 1261px) {
     font-size: 0.8125rem;
     line-height: 1.0625rem;
-    padding-bottom: 79%;
     }
   }
   .more-btn {
@@ -223,7 +223,6 @@ const Business = () => {
       </TitleBox>
       <StyleSwiper
         centeredSlides={true}
-        loop={true}
         pagination={{
           clickable: true,
         }}
@@ -231,11 +230,11 @@ const Business = () => {
         spaceBetween={0}
         breakpoints={{
           700: {
+            loop: false,
             slidesPerView: 3,
             centeredSlides: false,
             spaceBetween: 66,
             allowTouchMove: false,
-            loop: false
           }
         }}
       > 

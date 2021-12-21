@@ -8,14 +8,12 @@ import PressRoom from '../components/Summary/PressRoom';
 
 const Summary = () => {
   return (
-    <>
-      <Layout>
+    <Layout>
       <Visual />
       <History />
       <ManageIdea />
       <PressRoom />
-      </Layout>
-    </>
+    </Layout>
   )
 };
 

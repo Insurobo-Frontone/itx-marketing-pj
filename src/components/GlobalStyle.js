@@ -51,6 +51,8 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     background: transparent;
     border: 0;
+    outline: none;
+    cursor: pointer;
   }
 `;
 

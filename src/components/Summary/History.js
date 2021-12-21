@@ -1,13 +1,8 @@
 import React, { useEffect, useRef }  from 'react'
 import styled from 'styled-components';
 import Title from './Title';
-import classNames from 'classnames';
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { repeat } from 'lodash';
-
-
-gsap.registerPlugin(ScrollTrigger);
+import ScrollMagic from "scrollmagic";
+import gsap from "gsap";
 
 const Item = [
   {
@@ -49,7 +44,7 @@ const Item = [
 
 const HistoryContainer = styled.section`
   width: 100%;
-  padding: 9% 9.479166666666667% 0 7.8125%;
+  padding: 9% 9.479166666666667% 5% 7.8125%;
   display: flex;
   flex-direction: column;
   @media (max-width: 700px) {
@@ -57,21 +52,26 @@ const HistoryContainer = styled.section`
   }
 `;
 const HistoryList = styled.ul`
-  width: 100%;
-  padding: 5% 0 10% 15.8%;
-  transform: rotateY(-500px);
-  /* transform: rotateY(1000px); */
-  &.active {
-    transform: rotateY(0);
-  }
+  padding: 5% 0 15% 15.6%;
+  display: flex;
+  flex-flow: column nowrap;
+  opacity: 0;
+  transition: 1s;
+  transform: translateY(500px);
+&.show{
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
   @media (max-width: 700px) {
     width: 100%;
-    padding: 12.3% 0 12% 10.6%;
+    padding: 6% 0 12% 10.6%;
   }
 
 `;
 const Items = styled.li`
   display: flex;
+  width: 100%;
   white-space: pre;
 :nth-child(2) > span {
   @media (max-width: 700px) {
@@ -88,11 +88,12 @@ const Items = styled.li`
 }
 
 > p {
-  width: 7.5vw;
-  margin-right: 3.2%;
-  font-size: 2.6vw;
+  width: 20.90%;
+  font-size: 2.5rem;
   color: #B8292D;
   white-space: pre;
+  text-align: center;
+
   @media (max-width: 700px) {
     font-size: 1.25rem;
     width: 25%;
@@ -142,37 +143,57 @@ const BigTextScroll = styled.div`
       text-align: right;
       font-weight: 300;
       color: #F0F0F0;
+      opacity: 0;
+      transform: translateX(-1000px);
+      transition: 3s;
+    
+    &.show{
+      opacity: 1;
+      transform: translateX(150px);
+      transition-delay: 0s;
+      animation-duration: 3s;
+      }
     }
 
     @media (max-width: 700px) {
-    font-size: 2.5rem;
-    overflow: hidden;
-    text-overflow: initial;
-    white-space: nowrap;
+     > h2 {
+      font-size: 2.5rem;
+      overflow: hidden;
+      text-overflow: initial;
+      white-space: nowrap;
+      }
     }
   
 `;
 
 const History = () => {
-  
-  const historyList = useRef(null);
-  const historyStart = useRef(null);
-  const bigText = useRef(null);
+  const hisRef = useRef(null);
+  const textRef = useRef(null);
 
+  useEffect(() => {
+    const controller = new ScrollMagic.Controller();
+    new ScrollMagic
+        .Scene({
+          triggerElement: hisRef.current,
+          triggerHook: .8
+        })
+        .setClassToggle(hisRef.current, 'show')
+        .addTo(controller);
 
-  gsap.to(historyList.current,{
-    duration: 2,
-    y: 100,
-    ease: 'power2.out',
-    ScrollTrigger: {
-      trigger: historyList.current
-    }
+        new ScrollMagic
+        .Scene({
+          triggerElement: textRef.current,
+          triggerHook: .8
+        })
+        .setClassToggle(textRef.current, 'show')
+        .addTo(controller);
   });
 
+
   return (
-    <HistoryContainer ref={historyStart}>
+    <HistoryContainer>
       <Title en={'Company\nhistory'} ko={'회사 연혁'} />
-      <HistoryList ref={historyList}>
+      <HistoryList ref={hisRef}>
         {Item.map((hi) => (
           <Items 
             key={hi.id}>
@@ -181,8 +202,8 @@ const History = () => {
           </Items>
         ))}
         </HistoryList>
-          <BigTextScroll ref={bigText}>
-            <h2>
+          <BigTextScroll>
+            <h2 ref={textRef}>
               고객과 FP의 행복한 동행
             </h2>
           </BigTextScroll>
