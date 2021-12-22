@@ -10,7 +10,6 @@ import Title from './Title';
 import { AddSharp } from '@mui/icons-material';
 import linkbtn from '../../img/sub/pressLinkBtn.svg';
 
-
 const News = [
   {
     id: 0,
@@ -52,41 +51,56 @@ const News = [
 const ManageIdeaContainer = styled.section`
   width: 100%;
   padding: 6.5% 7.8% 10%;
-  
+  position: relative;
 @media (max-width: 700px) {
-  padding: 15% 0 0 7%;
+  padding: 15% 0 30% 7.8%;
   width: 100%;
+  height: 90vh;
   flex-direction: column;
   display: flex;
 } 
 `;
 
 const StyleSwiper = styled(Swiper)`
-  padding: 8% 3% 10%;
-  margin: 0 1%;
+  /* padding: 10% 0%; */
+  padding: 12% 4%;
   overflow: hidden;
 
+&#original-slide .swiper-slide-active{
+    transform: scale(1.1);
+  }
 @media (max-width: 700px) {
-  margin: 0;
+  position: absolute;
+  top: 20%;
+  left: 0;
+  padding: 10% 8.5%;
   display: flex;
   flex-direction: column;
 }
+.swiper-slide-active,
+  .swiper-slide-duplicate-active {
+    @media (max-width: 700px) {
+      transform: scale(0.98);
+    }
+  }
 .swiper-slide {
-  width: 33%;
+  width: 22.91666666666667%;
+  height: 54vh;
   transform: scale(1);
-  transition: transform 3s ease;
+  transition: transform 1s ease;
   box-shadow: 0px 5px 48px rgba(0, 0, 0, 0.2);
   border-radius: 45px;
   padding: 3.1% 2.5% 3.1%;
   overflow: hidden;
+  position: relative;
 
   @media (max-width: 700px) {
-    padding: 3% 3%;
+    padding: 20px 10px 29px 8px;
     margin-right: 23px;
-    width: 60%;
+    width: 203px;
+    height: 204px;border-radius: 9px;
     box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.15);
-    border-radius: 9px;
-    transform: scale(1);
+    overflow: hidden;
   }
 
   > p {
@@ -100,15 +114,18 @@ const StyleSwiper = styled(Swiper)`
     @media (max-width: 700px) {
       font-size: 0.625rem;
       line-height: 0.6875rem;
-      
+      border-bottom: 1px solid #620406;
     }
   }
   > h3 {
     font-size: 1.25rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 17vh;
+    align-items: flex-start;
+    padding-top: 25%;
+    padding-bottom: 10%;
+    height: 20vh;
+    text-overflow: ellipsis;
+    overflow: hidden;
     color: #323232;
     font-family: 'GoyangDeogyang';
     color: #1A1A1A;
@@ -116,41 +133,36 @@ const StyleSwiper = styled(Swiper)`
     @media (max-width: 700px) {
       font-size: 0.625rem;
       line-height: 0.6875rem;
-      height: 60px;
-      white-space: pre;
+      height: 68px;
     }
   }
 }
-  .swiper-slide-active,
-  .swiper-slide-duplicate-active {
-    @media (max-width: 700px) {
-      transform: scale(0.98);
-    }
-  }
+  
+  
 `;
 const TextContent = styled.div`
   font-size: 0.8rem;
-  height: 24vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding-bottom: 10%;
   overflow: hidden;
   text-overflow: ellipsis;
-  
+  height: 20vh;
   > p {
-    padding-bottom: 5.5%;
+    padding-bottom: 5%;
   }
   @media (max-width: 700px) {
     font-size: 0.625rem;
     line-height: 0.96875;
-    height: auto;
+    overflow: hidden;
     text-overflow: ellipsis;
+    height: 13vh;
+    padding-top: 5%;
     > p {
       padding-bottom: 0;
-      line-height: 1rem;
-      height: 62px;
-      overflow: hidden;
     }
+    > ttx {
+      display: none;
+    }
+   
   }
 `;
 
@@ -158,6 +170,7 @@ const StyleA = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
   > div {
     width: 16.02040816326531%;
     height: 12.05px;
@@ -235,7 +248,7 @@ const PressRoom = () => {
             <h3>{nd.title}</h3>
             <TextContent>
               <p>{nd.content}</p>
-              <p>{nd.subCont}</p>
+              <ttx>{nd.subCont}</ttx>
             </TextContent>
             <StyleA to="#">
               <div></div>
@@ -257,7 +270,7 @@ const PressRoom = () => {
               <h3>{nd.title}</h3>
               <TextContent>
                 <p>{nd.content}</p>
-                <p>{nd.subCont}</p>
+                <ttx>{nd.subCont}</ttx>
               </TextContent>
               <StyleA to="#">
                 <div></div>

@@ -123,7 +123,7 @@ const CardBox = styled.ul`
   @media (max-width: 1261px) {
     width: 100%;
     font-size: 1.125rem;
-    padding: 10% 13.5% 8.3% 10%;
+    padding: 13.5% 12%;
 
   }
   > .card-icon {
@@ -141,9 +141,11 @@ const CardBox = styled.ul`
     font-size: 1.5rem;
     color: #323232;
     padding-top: 40.6%;
+
     @media (max-width: 1261px) {
     font-size: 1.125rem;
     line-height: 1.25rem;
+    padding-top: 50%;
     }
   }
   > .card-desc {
@@ -155,6 +157,8 @@ const CardBox = styled.ul`
     @media (max-width: 1261px) {
     font-size: 0.8125rem;
     line-height: 1.0625rem;
+    padding-top: 10%;
+    padding-bottom: 70%;
     }
   }
   .more-btn {

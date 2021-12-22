@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import '../style/Test.css';
 import { useLocation } from "react-router-dom";
 import whitelogo from '../img/common/whitelogo.svg';
@@ -10,6 +10,8 @@ import togglebtn from '../img/common/toggle_btn.svg';
 import togglebtnblack from '../img/common/toggle_btn_black.svg';
 import closebtn from '../img/common/closebtn.svg';
 // import classNames from 'classnames';
+
+
 
 const Headers =  styled.header`
   position: fixed;
@@ -85,6 +87,7 @@ const Logo = styled.h2`
     margin-right: 0;
     width: 33.06666666666667vw;
     order: 1;
+    display: ${props => (props.isopen ? 'block' : 'none')};
   }
   
 `;
@@ -297,18 +300,18 @@ const Header = () => {
   const location = useLocation();
 
   return (
-    
-    <Headers
-      isopen={isToggleOn} 
-      className={location.pathname === '/' ? 'trsp_header' : 'white_header'}
-      className={location.pathname === '/summary' ? 'uinque_header' : 'trsp_header'}
-    >
+    <ThemeContext.Consumer>
+      {(value) => (
+        <Headers 
+        isopen={isToggleOn} 
+      >
       <Inner>
         <Logo as="a" href="/"
           isopen={isToggleOn}
           islogo={isHovering}
-          className={location.pathname === '/summary' ? 'uinque_header' : 'trsp_header'}
-          className={location.pathname === '/' ? 'trsp_header' : 'white_header'}
+          value={{ }}
+          // className={location.pathname === '/summary' ? 'uinque_header' : 'trsp_header'}
+          // className={location.pathname === '/' ? 'trsp_header' : 'white_header'}
         >
         </Logo>
      
@@ -391,6 +394,9 @@ const Header = () => {
           </ToggleBtn>
       </Inner>
     </Headers>
+      )}
+    </ThemeContext.Consumer>
+  
   )
 }
 
