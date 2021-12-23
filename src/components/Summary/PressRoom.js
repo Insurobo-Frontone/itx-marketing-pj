@@ -118,7 +118,7 @@ const StyleSwiper = styled(Swiper)`
     }
   }
   > h3 {
-    font-size: 1.25rem;
+    font-size: 1.05vw;
     display: flex;
     align-items: flex-start;
     padding-top: 25%;
@@ -141,7 +141,7 @@ const StyleSwiper = styled(Swiper)`
   
 `;
 const TextContent = styled.div`
-  font-size: 0.8rem;
+  font-size: 0.85vw;
   padding-bottom: 10%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -150,7 +150,7 @@ const TextContent = styled.div`
     padding-bottom: 5%;
   }
   @media (max-width: 700px) {
-    font-size: 0.625rem;
+    font-size: 0.6vw;
     line-height: 0.96875;
     overflow: hidden;
     text-overflow: ellipsis;

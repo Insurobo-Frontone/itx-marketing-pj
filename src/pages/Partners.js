@@ -1,12 +1,12 @@
 import React from 'react';
-import Layout from '../Layouts/Layout'
+import Layout from '../Layouts/Layout';
 import Visual from '../components/Summary/Visual';
 import History from '../components/Summary/History';
 import ManageIdea from '../components/Summary/ManageIdea';
 import PressRoom from '../components/Summary/PressRoom';
 
 
-const Summary = () => {
+const Partners = () => {
   return (
     <Layout>
       <Visual />
@@ -19,4 +19,4 @@ const Summary = () => {
 
 
 
-export default Summary;
+export default Partners;

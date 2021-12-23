@@ -1,6 +1,5 @@
 import React from 'react';
 import '../style/Swiper.css';
-
 import {Swiper, SwiperSlide} from 'swiper/react';
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/effect-fade/effect-fade.min.css";

@@ -68,12 +68,15 @@ const Items = styled.li`
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #F8F8F8;
+    border-radius: 50%;
+    margin-bottom: 11%;
+
     @media (max-width: 700px) {
       width: 90px;
       height: 90px;
       padding: 13% 11%;
-      background-color: #F8F8F8;
-      border-radius: 50%;
+      margin-bottom: 2%;
     }
   }
   > h3 {

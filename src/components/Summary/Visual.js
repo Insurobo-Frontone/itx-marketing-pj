@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
 
-import introVisual from '../img/sub/summaryVisual.svg';
-import introVisualMb from '../img/sub/summaryVisualMb.svg';
+import introVisual from '../../img/sub/summaryVisual.svg';
+import introVisualMb from '../../img/sub/summaryVisualMb.svg';
 
 const VisualContainer = styled.section`
   width: 100%;
