@@ -1,14 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from "swiper/react";       
+// import { Swiper, SwiperSlide } from "swiper/react";       
 import styled from "styled-components";
-import "swiper/swiper.min.css";
-import "swiper/components/effect-fade/effect-fade.min.css";
-
-
+// import "swiper/swiper.min.css";
 import visual from "../img/main/recruitVisual.png";
-import plusbtn from "../img/common/plusbtn.svg";
-import plusbtnActive from "../img/common/plusbtn_rev.svg";
+import { ReactComponent as PlusBtn } from "../img/common/plusBtn.svg";
 
 const Card = [
   {
@@ -90,10 +86,11 @@ const VisualBox = styled.div`
   }
 `;
 
-const SlideContainer = styled.div`
+const CardContainer = styled.div`
   position: absolute;
+  display: flex;
   bottom: 5%;
-  width: 100%;
+  width: 116.3541666666667%;
   align-items: center;
   background-color: #F8F8F8;
   padding: 6.15% 0 6.1% 1.66%;
@@ -103,37 +100,29 @@ const SlideContainer = styled.div`
 
   @media (max-width: 700px) {
     padding: 10% 0% 10.4% 0%;
+    margin-left: 5.714285714285714%;
     bottom: 8%;
   }
 `;
-const StyleSwiper = styled(Swiper)`
-    
-   .swiper-slide{
+const CardSlide = styled.div`
     border-radius: 46px;
     background-color: #FFFFFF;
     padding: 3.6% 2.26% 15.2%;
-    width: 20.83333333333333%;
+    width: 17.90510295434199%;
+    margin-right: 2.93%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
 
-    > div {
-      width: 45px;
-      height: 45px;
-      background-image: url(${plusbtn});
-      background-repeat: no-repeat;
-      background-size: contain;
-
-      @media (max-width: 700px) {
-        width: 15px;
-        height: 15px;
-      }
-    }
     @media (max-width: 700px) {
       padding: 6.9% 4% 28%;
       border-radius: 15px;
+      width: 50%;
+      overflow: hidden;
+      /* display: block; */
     }
+    
     > p {
       font-size: 1.5rem;
       line-height: 2.25rem;
@@ -143,7 +132,7 @@ const StyleSwiper = styled(Swiper)`
         font-size: 0.8125rem;
       }
     }
-  }
+  
   .swiper-slide-active,
   .swiper-slide-duplicate-active{
     background-color: #B8292D;
@@ -152,29 +141,42 @@ const StyleSwiper = styled(Swiper)`
     @media (max-width: 700px) {
       padding: 6% 4% 40%;
     }
-
-    > div {
-      background-image: url(${plusbtnActive});
-    }
   }
 `;
-
-const Recruit = () => {
-  const [swiper, setSwiper] = useState(null);
-  
-  const swiperParams = {
-    onSwiper: setSwiper,
-    loop: true,
-    slidesPerView:2.6,
-    slideToClickedSlide: true,
-    slidesBetween: 10,
-    speed: 1000,
-    breakpoints: {
-      700: {
-        slidesPerView: 4.5,
-        spaceBetween: 55,
-      }
+const MoreBtn = styled(PlusBtn)`
+  stroke: #323232;
+  stroke-width: 3px;
+  width: 45px;
+  height: 45px;
+  @media (max-width: 700px) {
+    stroke-width: 2px;
+    width: 15px;
+    height: 15px;
     }
+`;
+const Recruit = () => {
+  // const [swiper, setSwiper] = useState(null);
+  
+  // const swiperParams = {
+  //   onSwiper: setSwiper,
+  //   loop: true,
+  //   slidesPerView:2.6,
+  //   slideToClickedSlide: true,
+  //   slidesBetween: 10,
+  //   speed: 1000,
+  //   breakpoints: {
+  //     700: {
+  //       slidesPerView: 4.5,
+  //       spaceBetween: 55,
+  //     }
+  //   }
+  // }
+  const TOTAL_SLIDES = 4;
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slideRef = useRef(null)
+  const handleSlider = () => {
+    
   }
   return (
       <SectionContainer>
@@ -188,17 +190,16 @@ const Recruit = () => {
           <p>ITX 마케팅과 함께할 다양한 분야의 전문가를 기다립니다.</p> 
         </SectionTitle> 
         <VisualBox />
-        <SlideContainer>
-          <StyleSwiper {...swiperParams}> 
+        <CardContainer> 
         {Card.map((dt) => (
-          <SwiperSlide key={dt.id}>
-          <p>{dt.title}<Link to='#'></Link></p>
-          <div></div>
-          </SwiperSlide>
+          <CardSlide key={dt.id} onClick={handleSlider} ref={slideRef}>
+            <p>{dt.title}</p>
+            <Link to='#'>
+              <MoreBtn />
+            </Link>
+          </CardSlide>
         ))} 
-        </StyleSwiper> 
-        
-        </SlideContainer>
+        </CardContainer> 
       </SectionContainer>
   );
 };

@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components';
+import { gsap } from "gsap"
 
-import introVisual from '../../img/sub/summaryVisual.svg';
-import introVisualMb from '../../img/sub/summaryVisualMb.svg';
+import CircleFrame from '../../img/sub/circleFrame.svg';
+import CircleFrameMb from '../../img/sub/circleFrameMb.svg';
+import FpCircle from '../../img/sub/fpCircle.svg';
+import InsuranceCircle from '../../img/sub/insuranceCircle.svg';
+import LabCircle from '../../img/sub/labCircle.svg';
+import CeoCircle from '../../img/sub/ceoCircle.svg';
+import MarketCircle from '../../img/sub/marketCircle.svg';
 
 const VisualContainer = styled.section`
   width: 100%;
@@ -24,8 +30,6 @@ const ContentWrap = styled.div`
   }
 `;
 const TextWrap = styled.div`
-    
-  
   > h1 {
     font-size: 2rem;
     color: #1A1A1A;
@@ -58,25 +62,92 @@ const TextWrap = styled.div`
   }
  
 `;
-const ImgWrap = styled.div`
-  width: 39.42708333333333vw;
-  height: 39.42708333333333vh;
-  padding: 23.55% 0; 
-  background-image: url(${introVisual});
+const CircleWrap = styled.div`
+  position: relative;
+  width: 39.44427083333333%;
+  height: 70.12314814814815%;
+  padding: 23.38%;
+  background-image: url(${CircleFrame});
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: right;
 
+  > img {
+    position: absolute;
+  }
+  .fp-circle{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 26.40856693911505%;
+    height: 26.40856693911505%;
+  }
+  .floating1{
+    width: 17.42965417981593%;
+    height: 17.42965417981593%;
+    top: 12.8081549654708%;
+    left: 2.50881385921593%;
+  }
+  .floating2{
+    width: 17.42965417981593%;
+    height: 17.42965417981593%;
+    top: 2.509907529722589%;
+    right: 11.26721508457344%;
+  }
+  .floating3{
+    width: 17.42965417981593%;
+    height: 17.42965417981593%;
+    left: 22.44728189824779%;
+    bottom: 22.49085603369733%;
+  }
+  .floating4{
+    width: 17.42965417981593%;
+    height: 17.42965417981593%;
+    right: 6.249587366141576%;
+    bottom: 5.061201853881399%;
+  }
   @media (max-width: 700px) {
-    background-image: url(${introVisualMb});
-    background-position: left;
-    padding: 79% 90%;
-  } 
+    background-image: url(${CircleFrameMb});
+    padding: 75%;
+    width: 120.8%;
 
+    > img{
+      display: none;
+    }
+  }
 `;
 
 
 const Visual = () => {
+
+  const random = (min, max) => {
+    return parseFloat((Math
+      .random() * (max - min) + min)
+      .toFixed(2))
+  }
+
+const floating1 = useRef(null);
+const floating2 = useRef(null);
+const floating3 = useRef(null);
+const floating4 = useRef(null);
+
+useEffect(() => {
+  const floatingObject = (selector, delay, size) => {
+    gsap.to(selector, random(1.5, 2.5), {
+      delay: random(0, delay),
+      y: size,
+      repeat: -1,
+      yoyo: true,
+      ease: 'Power1.easeInOut',
+    },[]);
+  };
+ 
+ 
+  floatingObject(floating1.current, 1, 3);
+  floatingObject(floating2.current, .5, 5);
+  floatingObject(floating3.current, 1.5, 6);
+  floatingObject(floating4.current, 1.5, 2);
+}, [])
+
   return (
     <VisualContainer>
       <ContentWrap>
@@ -91,10 +162,16 @@ const Visual = () => {
             구축하고&nbsp;있습니다.
           </p>
         </TextWrap>
-        <ImgWrap />
+        <CircleWrap>
+          <img src={FpCircle} className='fp-circle' />
+          <img src={MarketCircle} ref={floating1} className='floating1'alt="Market" />
+          <img src={InsuranceCircle} ref={floating2} className='floating2' alt="보험 플러스" />
+          <img src={CeoCircle} ref={floating3} className='floating3' alt="CEO" />
+          <img src={LabCircle} ref={floating4} className='floating4'alt="Lab 연구소" />
+        </CircleWrap>
       </ContentWrap>
     </VisualContainer>
   )
 }
 
-export default Visual
+export default Visual;

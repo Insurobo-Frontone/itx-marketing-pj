@@ -1,15 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styled, { ThemeContext } from 'styled-components';
-import '../style/Test.css';
+import styled  from 'styled-components';
 import { useLocation } from "react-router-dom";
-import whitelogo from '../img/common/whitelogo.svg';
-import listicon from '../img/common/listIcon.svg';
-import blacklogo from '../img/common/blacklogo.svg';
-import togglebtn from '../img/common/toggle_btn.svg';
-import togglebtnblack from '../img/common/toggle_btn_black.svg';
-import closebtn from '../img/common/closebtn.svg';
-// import classNames from 'classnames';
+import { ReactComponent as TopLogo } from "../img/common/logo.svg";
+import { ReactComponent as MenuBtn } from "../img/common/menuIcon.svg";
+import submenuicon from "../img/common/listIcon.svg"
 
 
 
@@ -21,20 +16,8 @@ const Headers =  styled.header`
   font-size: 1rem;
   width: 100%;
   height: 100px;
+  color: #FFFFFF;
 
-  &.trsp_header{
-    background-color: 'transparent';
-    color: #FFFFFF;
-  }
-  &.white_header{
-     background-color: #FFFFFF;
-     color: #323232;
-  } 
-  &.uinque_header {
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.3));
-    background-color: #F8F8F8;
-    color: #323232;
-  }
 ::after{
     width: 100%;
     content: "";
@@ -61,16 +44,6 @@ const Inner = styled.div`
   }
 `;
 const Logo = styled.h2`
-
-  &.trsp_header{
-    background-image: url(${whitelogo});
-  }
-  &.white_header{
-     background-image: url(${blacklogo});
-  }
-  &.uinque_header {
-    background-image: url(${blacklogo});
-  }
   display: flex;
   height: 100%;
   justify-content: flex-start;
@@ -78,16 +51,15 @@ const Logo = styled.h2`
   z-index: 31;
   width: 19.2vw;
   margin-right: 5.208333333333333%;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat;
   background-size: contain;
-  background-position: center;
+  background-position: center; */
 
   @media (max-width: 700px) {
     padding-right: 0;
     margin-right: 0;
     width: 33.06666666666667vw;
     order: 1;
-    display: ${props => (props.isopen ? 'block' : 'none')};
   }
   
 `;
@@ -231,34 +203,22 @@ const Lnb = styled.div`
   padding-right: 11px;
   width: 8px;
   height: 8px;
-  background-image: url(${listicon});
+  background-image: url(${submenuicon});
   background-repeat: no-repeat;
-  background-position: left;
-  background-size: contain;
 }
 `;
 const ToggleBtn = styled.div`
   width: 40px;
   height: 70px;
-  background-repeat: no-repeat;
-  background-position: center;
-  
   cursor: pointer;
   display: none;
   z-index: 30;
-  &.toggleblack {
-    background-image: url(${togglebtnblack});
-    background-image: url(${props => props.isopen ? closebtn : togglebtnblack});
-  }
-  &.togglewhite {
-    background-image: url(${togglebtn});
-    background-image: url(${props => props.isopen ? closebtn : togglebtn});
-  }
-  
+  display: none;
+  align-items: center;
+
   @media (max-width: 700px) {
     order: 2;
-    display: block;
-        
+    display: flex;
   }
 `;
  
@@ -298,21 +258,25 @@ const Header = () => {
   }
 
   const location = useLocation();
-
+  
+  
   return (
-    <ThemeContext.Consumer>
-      {(value) => (
-        <Headers 
-        isopen={isToggleOn} 
-      >
+    <Headers 
+      isopen={isToggleOn}
+      // 인라인 스타일 우선순위 1
+      style={{
+        backgroundColor: scrollPosition > 300 ? '#FFFFFF' : '',
+        filter: scrollPosition > 300 || location.pathname !== '/'? 'drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.3)' : '',
+        color: scrollPosition > 300 || location.pathname !== '/' ? '#323232' : ''
+      }}
+    >
       <Inner>
-        <Logo as="a" href="/"
-          isopen={isToggleOn}
-          islogo={isHovering}
-          value={{ }}
-          // className={location.pathname === '/summary' ? 'uinque_header' : 'trsp_header'}
-          // className={location.pathname === '/' ? 'trsp_header' : 'white_header'}
-        >
+        <Logo as="a" href="/">
+          <TopLogo 
+            fill={isHovering || isToggleOn || scrollPosition > 300 
+              || location.pathname !== '/' ? 
+              '#2D2D2D':'#FFFFFF'}
+          />
         </Logo>
      
         <Lnb isopen={isToggleOn} 
@@ -331,7 +295,7 @@ const Header = () => {
                 <ul
                   className="sub-menu">
                   <li><Link to='/summary'>개요</Link></li>
-                  <li><Link to='#'>제휴사</Link></li>
+                  <li><Link to='/partners'>제휴사</Link></li>
                   <li><Link to='#'>채용</Link></li>
                   <li><Link to='#'>Contact us</Link></li>
                 </ul>
@@ -386,17 +350,11 @@ const Header = () => {
           </nav>
           <div></div>
         </Lnb>
-           <ToggleBtn
-           onClick={handleClick}
-           isopen={isToggleOn}
-           className={location.pathname === '/' ? 'togglewhite' : 'toggleblack' }
-          >
-          </ToggleBtn>
+           <ToggleBtn onClick={handleClick} isopen={isToggleOn}>
+              <MenuBtn stroke={isToggleOn ? '#1A1A1A': '#FFFFFF'} />
+           </ToggleBtn>
       </Inner>
-    </Headers>
-      )}
-    </ThemeContext.Consumer>
-  
+    </Headers>  
   )
 }
 

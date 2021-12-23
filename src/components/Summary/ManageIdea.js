@@ -75,8 +75,8 @@ const Items = styled.li`
     @media (max-width: 700px) {
       width: 90px;
       height: 90px;
-      padding: 13% 11%;
-      margin-bottom: 2%;
+      padding: 6%;
+      margin:13% 11% 2%;
     }
   }
   > h3 {

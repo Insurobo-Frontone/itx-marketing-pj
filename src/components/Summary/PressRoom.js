@@ -8,7 +8,7 @@ import "swiper/swiper.min.css";
 import Title from './Title';
 
 import { AddSharp } from '@mui/icons-material';
-import linkbtn from '../../img/sub/pressLinkBtn.svg';
+
 
 const News = [
   {
@@ -174,9 +174,6 @@ const StyleA = styled(Link)`
   > div {
     width: 16.02040816326531%;
     height: 12.05px;
-    background-image: url(${linkbtn});
-    background-repeat: no-repeat;
-    background-size: contain;
   }
   
 `;
@@ -251,7 +248,10 @@ const PressRoom = () => {
               <ttx>{nd.subCont}</ttx>
             </TextContent>
             <StyleA to="#">
-              <div></div>
+              <svg width="81" height="15" viewBox="0 0 81 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 6.8418H78.7698" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"/>
+                <path d="M73.293 1L79.5 6.84186L73.293 13.0488" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"/>
+              </svg>
             </StyleA>
           </SwiperSlide>
           ))}
@@ -273,7 +273,10 @@ const PressRoom = () => {
                 <ttx>{nd.subCont}</ttx>
               </TextContent>
               <StyleA to="#">
-                <div></div>
+                <svg width="81" height="15" viewBox="0 0 81 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 6.8418H78.7698" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M73.293 1L79.5 6.84186L73.293 13.0488" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"/>
+                </svg>
               </StyleA>
             </SwiperSlide>
             ))}

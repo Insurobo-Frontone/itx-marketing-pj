@@ -9,7 +9,7 @@ import PressRoom from '../components/Summary/PressRoom';
 const Partners = () => {
   return (
     <Layout>
-      <Visual />
+
       <History />
       <ManageIdea />
       <PressRoom />

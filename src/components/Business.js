@@ -11,7 +11,6 @@ import icon3 from "../img/main/inheritanceResearch.svg";
 import rectangle from "../img/main/Rectangle.svg";
 import { gsap } from "gsap"
 import styled from 'styled-components';
-import "../style/Swiper.css";
 
 const card = [
   {

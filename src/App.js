@@ -4,7 +4,9 @@ import theme from "./components/Theme";
 import GlobalStyle from './components/GlobalStyle'
 import Home from './pages/Home';
 import Summary from './pages/Summary';
-
+import Partners from "./pages/Partners";
+import { BrowserRouter } from 'react-router-dom';
+import ScrollToTop from "./components/ScrollToTop";
 
 
 function App() {
@@ -12,8 +14,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle/>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/summary" component={Summary} />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/summary" component={Summary} />
+          <Route exact path="/partners" component={Partners} />
+        </BrowserRouter>
     </ThemeProvider>
   );
 }

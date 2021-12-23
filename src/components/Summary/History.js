@@ -2,7 +2,6 @@ import React, { useEffect, useRef }  from 'react'
 import styled from 'styled-components';
 import Title from './Title';
 import ScrollMagic from "scrollmagic";
-import gsap from "gsap";
 
 const Item = [
   {
@@ -55,14 +54,13 @@ const HistoryList = styled.ul`
   padding: 5% 0 15% 15.6%;
   display: flex;
   flex-flow: column nowrap;
-  opacity: 0;
   transition: 1s;
-  transform: translateY(500px);
-&.show{
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0s;
-}
+
+  &.show .scroll-text {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   @media (max-width: 700px) {
     width: 100%;
     padding: 6% 0 12% 10.6%;
@@ -73,6 +71,7 @@ const Items = styled.li`
   display: flex;
   width: 100%;
   white-space: pre;
+
 :nth-child(2) > span {
   @media (max-width: 700px) {
     padding-bottom: 21%;
@@ -81,6 +80,7 @@ const Items = styled.li`
 :last-child > span {
   line-height: 2rem;
   padding-bottom: 3.6%;
+  
   @media (max-width: 700px) {
     line-height: 1rem;
     padding-bottom: 0%;
@@ -93,30 +93,16 @@ const Items = styled.li`
   color: #B8292D;
   white-space: pre;
   text-align: center;
-
-  @media (max-width: 700px) {
-    font-size: 1.25rem;
-    width: 25%;
-    
-  }
-}
-> span {
-  display: inline-block;
-  font-size: 1.25rem;
-  color: #323232;
-  padding-left: 4.6%;
-  padding-bottom: 14%;
-  border-left: 4px solid #B8292D;
+  border-right: 4px solid #B8292D;
   position: relative;
   z-index: 1;
+  padding-bottom: 11.35%;
   @media (max-width: 700px) {
-    border-left: 1px solid #B8292D;
-    font-size: 0.625rem;
-    padding-left: 5.2%;
+    border-right: 1px solid #B8292D;
+    padding-right: 5.2%;
     padding-bottom: 15.5%;
   }
-
-  ::before {
+  ::after {
     content: "";
     display: block;
     width: 14px;
@@ -125,60 +111,75 @@ const Items = styled.li`
     background-color: #B8292D;
     position: absolute;
     top: 0;
-    left: -8.5px;
+    right: -9px;
     z-index: 2;
     @media (max-width: 700px) {
       width: 7px;
       height: 7px;
-      left: -4px;
+      right: -4px;
     }
   }
+  @media (max-width: 700px) {
+    font-size: 1.25rem;
+    width: 25%;
+    
+  }
+}
+> .scroll-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 1.25rem;
+  color: #323232;
+  padding-left: 4.6%;
+  transform: translateY(300px);
+  opacity: 0;
+  transition: all 2s;
+  
+  @media (max-width: 700px) {
+    font-size: 0.625rem;
+    transform: translateY(100px);
+  }  
 }
 `;
 
 const BigTextScroll = styled.div`
-    > h2 {
-      width: 100%;
-      font-size: 6rem;
-      text-align: right;
-      font-weight: 300;
-      color: #F0F0F0;
-      opacity: 0;
-      transform: translateX(-1000px);
-      transition: 3s;
-    
-    &.show{
-      opacity: 1;
-      transform: translateX(150px);
-      transition-delay: 0s;
-      animation-duration: 3s;
-      }
-    }
-
-    @media (max-width: 700px) {
-     > h2 {
-      font-size: 2.5rem;
-      overflow: hidden;
-      text-overflow: initial;
-      white-space: nowrap;
-      }
-    }
+  > h2 {
+    width: 100%;
+    font-size: 6.3vw;
+    text-align: right;
+    font-weight: 300;
+    color: #F0F0F0;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0; 
+    transition: 3s;
+    transform: translateX(-2000px);
   
+  &.show {
+    opacity: 1;
+    transform: translateX(100px);
+    @media (max-width: 700px) {
+      transform: translateX(0);
+    }
+  }
+ 
+}
 `;
-
 const History = () => {
-  const hisRef = useRef(null);
+ 
+  const historyRef = useRef(null);
   const textRef = useRef(null);
 
   useEffect(() => {
     const controller = new ScrollMagic.Controller();
-    new ScrollMagic
-        .Scene({
-          triggerElement: hisRef.current,
-          triggerHook: .8
-        })
-        .setClassToggle(hisRef.current, 'show')
-        .addTo(controller);
+      new ScrollMagic
+      .Scene({
+        triggerElement: historyRef.current,
+        triggerHook: .8
+      })
+      .setClassToggle(historyRef.current, 'show')
+      .addTo(controller);
 
         new ScrollMagic
         .Scene({
@@ -193,12 +194,12 @@ const History = () => {
   return (
     <HistoryContainer>
       <Title en={'Company\nhistory'} ko={'회사 연혁'} />
-      <HistoryList ref={hisRef}>
+      <HistoryList ref={historyRef}>
         {Item.map((hi) => (
           <Items 
             key={hi.id}>
             <p>{hi.year}</p>
-            <span>{hi.result}</span>
+            <span className='scroll-text'>{hi.result}</span>
           </Items>
         ))}
         </HistoryList>
