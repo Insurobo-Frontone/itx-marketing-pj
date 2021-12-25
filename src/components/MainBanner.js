@@ -57,6 +57,7 @@ const Overay = styled.div`
   left: 0;
   background: rgba(0,0,0,.3);
 `;
+
 const StyleSwiper = styled(Swiper)`
   .swiper-slide-active .slide-img,
 .swiper-slide-duplicate-active .slide-img{

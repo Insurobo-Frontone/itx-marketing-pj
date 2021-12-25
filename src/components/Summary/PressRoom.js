@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from 'swiper';
-
 import "swiper/swiper.min.css";
 import Title from './Title';
 
+import  { ReactComponent as LinkBtn } from '../../img/sub/linkBtn.svg';
 import { AddSharp } from '@mui/icons-material';
 
 
@@ -49,26 +49,24 @@ const News = [
 ]
 
 const ManageIdeaContainer = styled.section`
+  position: relative;
   width: 100%;
   padding: 6.5% 7.8% 10%;
-  position: relative;
+  
+
 @media (max-width: 700px) {
   padding: 15% 0 30% 7.8%;
   width: 100%;
-  height: 90vh;
+  /* height: 90vh; */
   flex-direction: column;
   display: flex;
 } 
 `;
 
 const StyleSwiper = styled(Swiper)`
-  /* padding: 10% 0%; */
-  padding: 12% 4%;
+  padding: 10.76% 4%;
   overflow: hidden;
 
-&#original-slide .swiper-slide-active{
-    transform: scale(1.1);
-  }
 @media (max-width: 700px) {
   position: absolute;
   top: 20%;
@@ -77,15 +75,23 @@ const StyleSwiper = styled(Swiper)`
   display: flex;
   flex-direction: column;
 }
+
+&#original-slide .swiper-slide-active{
+    transform: scale(1.1);
+}
+&#original-slide .swiper-slide:hover .hover,
+&#original-slide .swiper-slide-active .hover{
+  stroke: #B8292D;
+}
 .swiper-slide-active,
-  .swiper-slide-duplicate-active {
-    @media (max-width: 700px) {
-      transform: scale(0.98);
-    }
+.swiper-slide-duplicate-active {
+  @media (max-width: 700px) {
+    transform: scale(0.98);
   }
+}
+
 .swiper-slide {
   width: 22.91666666666667%;
-  height: 54vh;
   transform: scale(1);
   transition: transform 1s ease;
   box-shadow: 0px 5px 48px rgba(0, 0, 0, 0.2);
@@ -97,8 +103,9 @@ const StyleSwiper = styled(Swiper)`
   @media (max-width: 700px) {
     padding: 20px 10px 29px 8px;
     margin-right: 23px;
-    width: 203px;
-    height: 204px;border-radius: 9px;
+    /* width: 203px;
+    height: 204px; */
+    border-radius: 9px;
     box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.15);
     overflow: hidden;
   }
@@ -117,13 +124,13 @@ const StyleSwiper = styled(Swiper)`
       border-bottom: 1px solid #620406;
     }
   }
+
   > h3 {
     font-size: 1.05vw;
     display: flex;
     align-items: flex-start;
     padding-top: 25%;
     padding-bottom: 10%;
-    height: 20vh;
     text-overflow: ellipsis;
     overflow: hidden;
     color: #323232;
@@ -136,16 +143,16 @@ const StyleSwiper = styled(Swiper)`
       height: 68px;
     }
   }
-}
-  
-  
+} 
 `;
+
 const TextContent = styled.div`
   font-size: 0.85vw;
   padding-bottom: 10%;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 20vh;
+  height: 20%;
+
   > p {
     padding-bottom: 5%;
   }
@@ -170,6 +177,24 @@ const StyleA = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  .link-btn{
+    width: 78.5px;
+    height: 12.05px;
+
+    @media (max-width: 700px) {
+    width: 20.5px;
+    height: 3.15px;
+    }
+  }
+  .link-btn.hover{
+    stroke: #C4C4C4;
+    transition: all .3s;
+  }
+
+  .link-btn.static{
+    stroke: #B8292D;
+  }
 
   > div {
     width: 16.02040816326531%;
@@ -248,10 +273,7 @@ const PressRoom = () => {
               <ttx>{nd.subCont}</ttx>
             </TextContent>
             <StyleA to="#">
-              <svg width="81" height="15" viewBox="0 0 81 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 6.8418H78.7698" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"/>
-                <path d="M73.293 1L79.5 6.84186L73.293 13.0488" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"/>
-              </svg>
+              <LinkBtn className='link-btn hover'/>
             </StyleA>
           </SwiperSlide>
           ))}
@@ -273,10 +295,7 @@ const PressRoom = () => {
                 <ttx>{nd.subCont}</ttx>
               </TextContent>
               <StyleA to="#">
-                <svg width="81" height="15" viewBox="0 0 81 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 6.8418H78.7698" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M73.293 1L79.5 6.84186L73.293 13.0488" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"/>
-                </svg>
+                <LinkBtn className='link-btn static'/>
               </StyleA>
             </SwiperSlide>
             ))}

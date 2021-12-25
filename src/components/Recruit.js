@@ -88,16 +88,20 @@ const VisualBox = styled.div`
 
 const CardContainer = styled.div`
   position: absolute;
-  display: flex;
   bottom: 5%;
   width: 116.3541666666667%;
-  align-items: center;
   background-color: #F8F8F8;
   padding: 6.15% 0 6.1% 1.66%;
   border-radius: 366.5px 0 0 366.5px;
-  align-items: center;
   margin-left: 12.13541666666667%;
+  display: flex;
+  flex-flow: row nowrap;
 
+  .clearfix::after {
+   content: "";
+   display: block;
+   clear: both;
+  }
   @media (max-width: 700px) {
     padding: 10% 0% 10.4% 0%;
     margin-left: 5.714285714285714%;
@@ -108,13 +112,27 @@ const CardSlide = styled.div`
     border-radius: 46px;
     background-color: #FFFFFF;
     padding: 3.6% 2.26% 15.2%;
-    width: 17.90510295434199%;
+    width: 400px;
+    height: 400px;
     margin-right: 2.93%;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    float: left;
+    display: flex;
+    
 
+    .plus-btn{
+      stroke: #323232;
+      stroke-width: 3px;
+      width: 45px;
+      height: 45px;
+      @media (max-width: 700px) {
+      stroke-width: 2px;
+      width: 15px;
+      height: 15px;
+      }
+    }
     @media (max-width: 700px) {
       padding: 6.9% 4% 28%;
       border-radius: 15px;
@@ -143,17 +161,7 @@ const CardSlide = styled.div`
     }
   }
 `;
-const MoreBtn = styled(PlusBtn)`
-  stroke: #323232;
-  stroke-width: 3px;
-  width: 45px;
-  height: 45px;
-  @media (max-width: 700px) {
-    stroke-width: 2px;
-    width: 15px;
-    height: 15px;
-    }
-`;
+
 const Recruit = () => {
   // const [swiper, setSwiper] = useState(null);
   
@@ -195,10 +203,11 @@ const Recruit = () => {
           <CardSlide key={dt.id} onClick={handleSlider} ref={slideRef}>
             <p>{dt.title}</p>
             <Link to='#'>
-              <MoreBtn />
+              <PlusBtn className="plus-btn" />
             </Link>
           </CardSlide>
         ))} 
+        <div className="clearfix"></div>
         </CardContainer> 
       </SectionContainer>
   );

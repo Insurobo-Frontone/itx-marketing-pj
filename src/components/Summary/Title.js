@@ -29,7 +29,7 @@ const TitleContainer = styled.div`
 
 const Title = (props) => {
   return (
-  <TitleContainer>
+  <TitleContainer style={{color: props.color}}>
     <h2>{props.en}</h2>
     <p>{props.ko}</p>
   </TitleContainer>

@@ -222,7 +222,7 @@ const ToggleBtn = styled.div`
   }
 `;
  
-const Header = () => {
+const Header = (props) => {
   const [isHovering, setIsHovering] = useState(0);
   const [isToggleOn, setToggleOn] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -266,7 +266,7 @@ const Header = () => {
       // 인라인 스타일 우선순위 1
       style={{
         backgroundColor: scrollPosition > 300 ? '#FFFFFF' : '',
-        filter: scrollPosition > 300 || location.pathname !== '/'? 'drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.3)' : '',
+        filter: scrollPosition > 300  ? 'drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.3)' : '',
         color: scrollPosition > 300 || location.pathname !== '/' ? '#323232' : ''
       }}
     >
