@@ -1,10 +1,8 @@
 import React, { useState, useRef } from "react";
-import { Link } from 'react-router-dom';
-// import { Swiper, SwiperSlide } from "swiper/react";       
+import { Link } from 'react-router-dom';   
 import styled from "styled-components";
-// import "swiper/swiper.min.css";
 import visual from "../img/main/recruitVisual.png";
-import plusBtn from "../img/common/plusBtn.svg";
+import  { ReactComponent as PlusBtn } from '../img/common/plusBtn.svg';
 
 const Card = [
   {
@@ -203,7 +201,7 @@ const Recruit = () => {
           <CardSlide key={dt.id} onClick={handleSlider} ref={slideRef}>
             <p>{dt.title}</p>
             <Link to='#'>
-              <img src={plusBtn}/>
+               <PlusBtn className="plus-btn"/>
             </Link>
           </CardSlide>
         ))} 
