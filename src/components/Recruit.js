@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { Link } from 'react-router-dom';   
 import styled from "styled-components";
 import visual from "../img/main/recruitVisual.png";
-import  { ReactComponent as PlusBtn } from '../img/common/plusBtn.svg';
+import  { ReactComponent as PlusBtn } from '../img/common/PlusBtn.svg';
 
 const Card = [
   {

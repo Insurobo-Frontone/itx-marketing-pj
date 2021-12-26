@@ -6,7 +6,7 @@ import SwiperCore, { Autoplay } from 'swiper';
 import "swiper/swiper.min.css";
 import Title from './Title';
 
-import  { ReactComponent as LinkBtn } from '../../img/sub/linkBtn.svg';
+import  { ReactComponent as LinkBtn } from '../../img/sub/LinkBtn.svg';
 import { AddSharp } from '@mui/icons-material';
 
 

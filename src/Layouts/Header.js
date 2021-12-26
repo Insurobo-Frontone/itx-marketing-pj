@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled  from 'styled-components';
 import { useLocation } from "react-router-dom";
-import { ReactComponent as TopLogo } from "../img/common/logo.svg";
-import { ReactComponent as MenuBtn } from "../img/common/menuIcon.svg";
+import { ReactComponent as TopLogo } from "../img/common/Logo.svg";
+import { ReactComponent as MenuBtn } from "../img/common/MenuIcon.svg";
 import submenuicon from "../img/common/listIcon.svg"
 
 
