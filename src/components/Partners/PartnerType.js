@@ -1,5 +1,6 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components';
+import ScrollMagic from "scrollmagic";
 import Button from '../Button'
 
 import insurtech from "../../img/sub/insurtech.png"
@@ -7,8 +8,14 @@ import healthCare from "../../img/sub/healthCare.png"
 import financial from "../../img/sub/financial.png"
 import bigData from "../../img/sub/bigData.png"
 
+
 const TypeContainer = styled.section`
   padding: 10.12% 0 2.4% 0;
+  background-color: #F8F8F8;
+
+  @media (max-width: 700px) {
+    padding: 18.3% 7.6%;
+  }
 `;
 const TypeList = styled.ul`
 
@@ -19,26 +26,35 @@ const Item = styled.li`
   margin-bottom: 4.7%;
   position: relative;
 
+  .img-box{
+    width: 50.625vw;
+    height: 58.8vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+  .show{
+      
+    }
+  }
+  
   .text-box{
+    width: 49.21875%;
     position: absolute;
     right: 7.8125%;
-    width: 49.21875%;
     padding: 3.1%;
     box-shadow: 2px 4px 22px rgba(0, 0, 0, 0.2);
     /* height: 58.33333333333333%; */
     display: flex;
-    justify-content: space-between;
     align-items: flex-end;
     background-color: #FFFFFF;
-    
-    
+
     > div {
-      width: 44%;
+      width: 76%;
       > span {
         font-size: 1.25rem;
         color: #767676;
       }
       > h1 {
+        font-family: 'GoyangDeogyang';
         font-size: 2.5rem;
         padding-top: 2.5%;
         padding-bottom: 15.7%;
@@ -46,6 +62,54 @@ const Item = styled.li`
       }
       > p {
         line-height: 1.366666666666667rem;
+        width: 58%;
+      }
+    }
+  }
+  @media (max-width: 700px) {
+    border-radius: 20px;
+    box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.2);
+    padding: 5%;
+    background: #FFFFFF;
+    justify-content: space-between;
+
+    .img-box{
+      width: 43%;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 100px;
+      height: 100px;
+      z-index: 2;
+      background-position: 25%;
+    
+    }
+    .text-box {
+      position: static;
+      box-shadow: none;
+      width: 57%;
+      padding: 0%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      
+
+      > div {
+        align-self: flex-start;
+        > span {
+        font-size: 0.625rem;
+        line-height: 0rem;
+        }
+        > h1 {
+        font-size: 1.25rem;
+        padding-top: 0%;
+        padding-bottom: 20%;
+        }
+        > p {
+        line-height: 0.87rem;
+        font-size: 0.625rem;
+        width: 100%;
+        padding-bottom: 3.1%;
+        }
       }
     }
   }
@@ -82,16 +146,35 @@ const Type = [
 ]
 
 const PartnerType = () => {
+
   const fadeRef = useRef(null);
+
+  useEffect(() => {
+    const controller = new ScrollMagic.Controller();
+      new ScrollMagic
+      .Scene({
+        triggerElement: fadeRef.current,
+        triggerHook: .3
+      })
+      .setClassToggle(fadeRef.current, 'show')
+      .addTo(controller);
+  });
 
   return (
     <TypeContainer>
       <TypeList>
       {Type.map((td) => (
         <Item>
-          <img src={td.image} alt={td.ko} />
+          <div
+            ref={fadeRef}
+            className='img-box'
+            style={{
+              backgroundImage: `url(${td.image})`
+            }}
+          >
+          </div>
           <div className='text-box'>
-            <div ref={fadeRef}>
+            <div>
               <span>{td.en}</span>
               <h1>{td.ko}</h1>
               <p>{td.desc}</p>

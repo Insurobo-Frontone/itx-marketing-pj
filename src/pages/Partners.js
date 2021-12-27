@@ -5,7 +5,7 @@ import PartnerCompany from '../components/Partners/PartnerCompany';
 import PartnerType from '../components/Partners/PartnerType';
 
 import banner from '../img/sub/partnersVisual.png';
-import Illust from '../img/sub/partnersIllust.svg';
+import Illust from '../img/sub/partnersIllust.png';
 
 
 const Partners = () => {

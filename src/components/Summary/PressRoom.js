@@ -192,15 +192,15 @@ const StyleA = styled(Link)`
 
 `;
 const MoreBtn = styled.button`
-position: absolute;
-right: 7.8%;
- display: flex;
- align-items: center;
- justify-content: space-between;
- color: #323232;
- font-size: 1.25rem;
-font-family: 'GoyangDeogyang';
- margin-left: 91.51041666666667%;
+  position: absolute;
+  right: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #323232;
+  font-size: 1.25rem;
+  font-family: 'GoyangDeogyang';
+  /* margin-left: 91.51041666666667%; */
  cursor: pointer;
 
  @media (max-width: 700px) {

@@ -11,6 +11,15 @@ const PrimaryButton = styled.button`
   opacity: 0.95;
   width: 200px;
   height: 60px;
+
+  @media (max-width: 700px) {
+    font-size: 0.625rem;
+    width: 85px;
+    height: 25px;
+    font-size: 0.625rem;
+    box-shadow: none;
+    opacity: 1;
+  }
 `;
 
 const Button = (props) => {

@@ -60,7 +60,6 @@ const Logo = styled.h2`
     width: 33.06666666666667vw;
     order: 1;
   }
-  
 `;
 
 const Lnb = styled.div`
@@ -164,6 +163,7 @@ const Lnb = styled.div`
  > nav > .main-menu > li > .sub-menu {
   position: absolute;
   width: 100%;
+  height: 100%;
   z-index: 99;
   opacity: 1;
   transition: all 0.3s;
@@ -264,8 +264,6 @@ const Header = (props) => {
   }
 
   const location = useLocation();
-  
-  
   return (
     <Headers 
       isopen={isToggleOn}

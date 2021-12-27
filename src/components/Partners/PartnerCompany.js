@@ -52,6 +52,10 @@ import vibrant from '../../img/sub/ci/vibrant_hospital.png';
 
 const CompanyConatiner = styled.section`
   padding: 8.333333333333333%;
+
+  @media (max-width: 700px) {
+    padding: 11.5% 6.9% 5.8%;
+  }
 `;
 const Title = styled.div`
   padding-bottom: 8.7%;
@@ -68,11 +72,24 @@ const Title = styled.div`
   > p {
     font-size: 1.5rem;
   }
+
+  @media (max-width: 700px) {
+    padding-bottom: 10%;
+    > h2 {
+    font-size: 1.25rem;
+    padding-bottom: 3.3%;
+   }
+    > p {
+      font-size: 0.8125rem;
+    }
+  }
 `;
 const BoxContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  
+  @media (max-width: 700px) {
+      flex-flow: column;
+  }
   
 `;
 const BoxWrap = styled.div`
@@ -80,31 +97,47 @@ const BoxWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `;
 const ListBox = styled.div`
   background-color: #F8F8F8;
-
+  @media (max-width: 700px) {
+    margin-bottom: 6.3%;
+  }
   > h3 {
     background-color: #B8292D;
     color: #FFFFFF;
     display: inline-block;
     width: 26.66666666666667%;
-    font-size: 1.07vw;
+    font-size: 1.02vw;
     line-height: 3rem;
     font-family: 'GoyangDeogyang';
     text-align: center;
     padding: 0 4%;
     margin-bottom: 5.9%;
+    @media (max-width: 700px) {
+      font-size: 0.625vw;
+      width: 34.05572755417957%;
+      line-height: 1.875rem;
+    }
   }
 
   .financial-list > li{
-    width: 33.33333333333333%;
+     width: 33.33333333333333%;
   }
   .life-list {
     margin-bottom: 5.3%;
+
   }
   .divide-list {
     margin-bottom: 4%;
+    @media (max-width: 700px) {
+      > li {
+        width: 33.33333333333333%;
+      }
+    }
   }
   > ul {
     display: flex;
@@ -113,25 +146,59 @@ const ListBox = styled.div`
     margin-left: 6.7%;
     margin-right: 6.7%;
     margin-bottom: 8.7%;
+    
 
     > li {
+      position: relative;
       width: 25%;
       height: 70px;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
       font-size: 0.8rem;
-      /* height: 70px; */
-      > p, img {
-        position: absolute;
-      }
-      > p {
-        display: none;
-      }
-      > img {
+
+      @media (max-width: 700px) {
+        font-size: 0.4vw;
+        height: 30px;
+        .back {
+            padding: 10%;
+          }  
 
       }
+      :hover .front {
+        transform: rotateY(-180deg);
+      }
+
+      :hover .back {
+        transform: rotateY(0deg);
+      }
+      > div {
+        position: absolute;
+        backface-visibility: hidden;
+        background-color: #FFFFFF;
+        width: 100%;
+        height: 100%;
+        line-height: 70px;
+        cursor: pointer;
+        transition: .3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media (max-width: 700px) {
+          line-height: 0.4rem;
+          white-space: pre;
+         
+        
+        }
+      }
+      .front {
+        transform: rotateY(0deg); 
+      }
+      .back {
+        transform: rotateY(-180deg);
+      }
+      
     }
   }
 `;
@@ -321,7 +388,7 @@ const Life= [
   },
   {
     id: 35,
-    company: '강남세브란스병원',
+    company: '강남세브란스',
     ci: severance
   },
   {
@@ -346,7 +413,7 @@ const Life= [
   },
   {
     id: 40,
-    company: '다인이비인후과병원',
+    company: '다인이비인후과',
     ci: dain
   },
   {
@@ -405,16 +472,16 @@ const PartnerCompany = (props) => {
             <ul>
             {Financial.map((fd) => (
               <li key={fd.id}>
-                <div>{fd.company}</div>
-                <img src={fd.ci} alt={fd.company} />
+                <div className='front'>{fd.company}</div>
+                <div className='back'><img src={fd.ci} alt={fd.company} /></div>
               </li>
             ))}
           </ul>
           <ul className='financial-list'>
           {Financial_2.map((fd2) => (
             <li key={fd2.id}>
-              <div>{fd2.company}</div>
-              <img src={fd2.ci} alt={fd2.company} />
+              <div className='front'>{fd2.company}</div>
+              <div className='back'><img src={fd2.ci} alt={fd2.company} /></div>
             </li>
           ))}
           </ul> 
@@ -426,8 +493,9 @@ const PartnerCompany = (props) => {
           <ul className='life-list'>
           {Life.map((ld) => (
             <li key={ld.id}>
-              <div>{ld.company}</div>
-              <img src={ld.ci} alt={ld.company} />
+              <div className='front'>{ld.company}
+              </div>
+              <div className='back'><img src={ld.ci} alt={ld.company} /></div>
             </li>
           ))}
           </ul>
@@ -437,8 +505,8 @@ const PartnerCompany = (props) => {
           <ul className='divide-list'>
           {Divide.map((dd) => (
             <li key={dd.id}>
-              <p>{dd.company}</p>
-              <img src={dd.ci} />
+              <div className='front'>{dd.company}</div>
+              <div className='back'><img src={dd.ci} alt={dd.company} /></div>
             </li>
           ))}
           </ul>
