@@ -49,177 +49,166 @@ const News = [
 ]
 
 const ManageIdeaContainer = styled.section`
-  position: relative;
-  width: 100%;
-  padding: 6.5% 7.8% 10%;
-  
+  padding: 6.54% 7.8%;
 
-@media (max-width: 700px) {
-  padding: 15% 0 30% 7.8%;
-  width: 100%;
-  /* height: 90vh; */
-  flex-direction: column;
-  display: flex;
-} 
+  @media (max-width: 700px) {
+    padding: 14% 0 14% 6.2%;
+  }
 `;
-
 const StyleSwiper = styled(Swiper)`
-  padding: 10.76% 4%;
-  overflow: hidden;
+  padding: 10% 3.5%;
+  margin: 0 1%;
+
+  .swiper-slide{
+    box-shadow: 0px 5px 48px rgba(0, 0, 0, 0.2);
+    border-radius: 45px;
+    padding: 3.2%;
+    height: 640px;
+    
+    @media (max-width: 1261px) {
+      height: 400px;
+      border-radius: 30px;
+      padding: 3%;
+      transition: all .3s;
+      transform: scale(1);
+      overflow: hidden;
+      background-color: #FFFFFF;
+    }
+    @media (max-width: 700px) {
+      height: 204px;
+      width: 203px;
+      border-radius: 9px;
+      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.15);
+      margin-right: 25px;
+    } 
+  }
 
 @media (max-width: 700px) {
-  position: absolute;
-  top: 20%;
-  left: 0;
-  padding: 10% 8.5%;
-  display: flex;
-  flex-direction: column;
+  margin: 0%;
+  padding: 10% 0;
+ 
 }
-
 &#original-slide .swiper-slide-active{
-    transform: scale(1.1);
+  transform: scale(1.1);
+  @media(max-width: 700px) {
+    transform: scale(0.9);
+  }
 }
 &#original-slide .swiper-slide:hover .hover,
 &#original-slide .swiper-slide-active .hover{
-  stroke: #B8292D;
+   stroke: #B8292D;
 }
-.swiper-slide-active,
-.swiper-slide-duplicate-active {
-  @media (max-width: 700px) {
-    transform: scale(0.98);
-  }
-}
-
-.swiper-slide {
-  width: 22.91666666666667%;
-  transform: scale(1);
-  transition: transform 1s ease;
-  box-shadow: 0px 5px 48px rgba(0, 0, 0, 0.2);
-  border-radius: 45px;
-  padding: 3.1% 2.5% 3.1%;
-  overflow: hidden;
-  position: relative;
-
-  @media (max-width: 700px) {
-    padding: 20px 10px 29px 8px;
-    margin-right: 23px;
-    /* width: 203px;
-    height: 204px; */
-    border-radius: 9px;
-    box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-  }
-
-  > p {
-    font-size: 0.9rem;
-    line-height: 1rem;
-    color: #620406;
-    font-family: 'GoyangDeogyang';
-    border-bottom: 2px solid #620406;
-    display: inline-block;
-
-    @media (max-width: 700px) {
-      font-size: 0.625rem;
-      line-height: 0.6875rem;
-      border-bottom: 1px solid #620406;
-    }
-  }
-
-  > h3 {
-    font-size: 1.05vw;
-    display: flex;
-    align-items: flex-start;
-    padding-top: 25%;
-    padding-bottom: 10%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    color: #323232;
-    font-family: 'GoyangDeogyang';
-    color: #1A1A1A;
-
-    @media (max-width: 700px) {
-      font-size: 0.625rem;
-      line-height: 0.6875rem;
-      height: 68px;
-    }
-  }
-} 
 `;
 
 const TextContent = styled.div`
-  font-size: 0.85vw;
-  padding-bottom: 10%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  height: 20%;
+  display: flex;
+  height: 100%;
+  flex-flow: column nowrap;
 
-  > p {
-    padding-bottom: 5%;
+  .top-txt {
+    font-family: 'GoyangDeogyang';
+    height: 52.5%;
+    > span {
+      font-size: 0.9rem;
+      line-height: 1rem;
+      color: #620406;
+      border-bottom: 2px solid #620406;
+    }
+    > h3 {
+      color: #323232;
+      font-size: 1.25rem;
+      padding-top: 36.4%;
+    }
+    @media (max-width: 1261px) {
+      > span {
+        border-bottom: 1px solid #620406;
+      }
+      > h3 {
+        padding-top: 20%;
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 700px) {
+      > span {
+        font-size: 0.625rem;
+      }
+      > h3 {
+        font-size: 0.625rem;
+        height: 60px;
+        text-overflow: ellipsis;
+        white-space: pre;
+        overflow: hidden;
+      }
+    }
+    
   }
-  @media (max-width: 700px) {
-    font-size: 0.6vw;
-    line-height: 0.96875;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: 13vh;
-    padding-top: 5%;
+  .bottom-txt {
+    font-size: 0.8rem;
+    line-height: 0.8905rem;
+    padding-top: 20%;
     > p {
-      padding-bottom: 0;
+      padding-bottom: 3%;
     }
-    > ttx {
-      display: none;
+    @media (max-width: 1261px) {
+      padding-top: 0%;
+      > p {
+        font-size: 0.7rem;
+      }
+      > ttx {
+        font-size: 0;
+      }
     }
-   
+    @media (max-width: 700px) {
+      > p {
+        font-size: 0.625rem;
+        padding-bottom: 0%;
+        line-height: 0.85rem;
+      }
+    }
   }
 `;
-
 const StyleA = styled(Link)`
   display: flex;
-  align-items: center;
+ align-items: center;
   justify-content: flex-end;
 
   .link-btn{
-    width: 78.5px;
-    height: 12.05px;
+  width: 78.5px;
+   height: 12.05px;
 
-    @media (max-width: 700px) {
+   @media (max-width: 700px) {
     width: 20.5px;
     height: 3.15px;
     }
   }
-  .link-btn.hover{
-    stroke: #C4C4C4;
-    transition: all .3s;
-  }
+.link-btn.hover{
+  stroke: #C4C4C4;
+   transition: all .3s;
+   }
 
   .link-btn.static{
-    stroke: #B8292D;
-  }
+  stroke: #B8292D;
+   }
 
-  > div {
-    width: 16.02040816326531%;
-    height: 12.05px;
-  }
-  
 `;
-
 const MoreBtn = styled.button`
-  position: absolute;
-  right: 7.8%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 8.489583333333333vw;
-  color: #323232;
-  font-size: 1.25rem;
-  font-family: 'GoyangDeogyang';
-  margin-left: 91.51041666666667%;
-  cursor: pointer;
+position: absolute;
+right: 7.8%;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ color: #323232;
+ font-size: 1.25rem;
+font-family: 'GoyangDeogyang';
+ margin-left: 91.51041666666667%;
+ cursor: pointer;
 
-  @media (max-width: 700px) {
-    display: none;
-  }
+ @media (max-width: 700px) {
+   display: none;
+ }
 `;
+
+
 
 const PressRoom = () => {
   SwiperCore.use([Autoplay]);
@@ -233,10 +222,12 @@ const PressRoom = () => {
   const swiperParams = {
     onSwiper: setSwiper,
     loop: true,
-    slidesPerView: 'auto',
-    loopedSlides: 5,
     slidesPerColumn: 1,
-    slidesBetween: 0,
+    centeredSlides: false,
+    slidesPerView: 'auto',
+    loopedSlides: 4,
+    slidesBetween:0,
+    // slidesBetween: 23,
     speed: 1000,
     autoplay : {
       delay: 5000,
@@ -266,11 +257,15 @@ const PressRoom = () => {
         >
         {News.map((nd) => (
           <SwiperSlide key={nd.id}>
-            <p>{nd.date}</p>
-            <h3>{nd.title}</h3>
             <TextContent>
-              <p>{nd.content}</p>
-              <ttx>{nd.subCont}</ttx>
+              <div className='top-txt'>
+                <span>{nd.date}</span>
+                <h3>{nd.title}</h3>
+              </div>
+              <div className='bottom-txt'>
+                <p>{nd.content}</p>
+                <ttx>{nd.subCont}</ttx>
+              </div>
             </TextContent>
             <StyleA to="#">
               <LinkBtn className='link-btn hover'/>
@@ -288,11 +283,15 @@ const PressRoom = () => {
           >
           {News.map((nd) => (
             <SwiperSlide key={nd.id}>
-              <p>{nd.date}</p>
-              <h3>{nd.title}</h3>
               <TextContent>
+              <div className='top-txt'>
+                <span>{nd.date}</span>
+                <h3>{nd.title}</h3>
+              </div>
+              <div className='bottom-txt'>
                 <p>{nd.content}</p>
                 <ttx>{nd.subCont}</ttx>
+              </div>
               </TextContent>
               <StyleA to="#">
                 <LinkBtn className='link-btn static'/>

@@ -17,6 +17,7 @@
     "lodash": "^4.17.21",
     "npm": "^8.3.0",
     "react": "^17.0.2",
+    "react-carousel": "^4.3.0",
     "react-classlist": "^1.1.2",
     "react-dom": "^17.0.2",
     "react-gsap": "^3.2.1",

@@ -148,10 +148,11 @@ const CardBox = styled.ul`
     }
   }
   > .card-desc {
-    font-size: 1rem;
+    font-size: 1.05vw;
     white-space: pre-wrap;
     padding-top: 10.5%;
     padding-bottom: 28.5%;
+    line-height: 1.25rem;
 
     @media (max-width: 1261px) {
     font-size: 0.8125rem;

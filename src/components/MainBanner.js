@@ -2,6 +2,7 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/effect-fade/effect-fade.min.css";
+import "swiper/swiper.min.css";
 import SwiperCore, { Autoplay, Pagination, EffectFade } from "swiper";
 
 import banner1 from "../img/main/mbSlide1.png"

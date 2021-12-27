@@ -271,7 +271,7 @@ const AwradList = styled.ul`
         align-items: center;
         font-size: 0.8125rem;
       }
-      >p:last-child {
+      > p:last-child {
         padding-top: 11px;
         @media (max-width: 700px) {
           padding-top: 0;

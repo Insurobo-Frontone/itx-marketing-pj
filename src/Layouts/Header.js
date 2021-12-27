@@ -5,8 +5,7 @@ import { useLocation } from "react-router-dom";
 import { ReactComponent as TopLogo } from "../img/common/Logo.svg";
 import { ReactComponent as MenuBtn } from "../img/common/MenuIcon.svg";
 import submenuicon from "../img/common/listIcon.svg"
-
-
+import closeBtn from "../img/common/closeBtn.svg"
 
 const Headers =  styled.header`
   position: fixed;
@@ -74,6 +73,17 @@ const Lnb = styled.div`
 > nav {
   position: relative;
   z-index: 30;
+  @media(max-width: 700px) {
+    position: fixed;
+    top: 0;
+    left: 0px;
+    padding-left: 20px;
+    padding-top: 100px;
+    height: 812px;
+    opacity: 1;
+    width: 100%;
+    background-color: #FFFFFF;
+  }
 }
 > nav:hover + div {
   height: 610px;
@@ -92,11 +102,6 @@ const Lnb = styled.div`
   background: #FFFFFF;
   transition: all 0.3s;
   z-index: 29;
-  @media (max-width: 700px){
-    position: fixed;
-    height: 100%;
-    opacity: 1;
-  }
 }
 > nav > .main-menu {
   display: flex;
@@ -229,11 +234,12 @@ const Header = (props) => {
 
 
   const updeateScroll = () => {
-    setScrollPosition(window.scrollY);
+    setScrollPosition(window.pageYOffset);
   }
   useEffect(() => {
     window.addEventListener('scroll', updeateScroll);
   });
+
 
   const activeMethod = (event) => {
     const current = event.currentTarget;
@@ -265,15 +271,15 @@ const Header = (props) => {
       isopen={isToggleOn}
       // 인라인 스타일 우선순위 1
       style={{
-        backgroundColor: scrollPosition > 300 ? '#FFFFFF' : '',
-        filter: scrollPosition > 300  ? 'drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.3)' : '',
-        color: scrollPosition > 300 || location.pathname !== '/' ? '#323232' : ''
+        backgroundColor: scrollPosition > 500 ? '#FFFFFF' : '',
+        filter: scrollPosition > 500  ? 'drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.3)' : '',
+        color: scrollPosition > 500 || location.pathname !== '/' ? '#323232' : ''
       }}
     >
       <Inner>
         <Logo as="a" href="/">
           <TopLogo 
-            fill={isHovering || isToggleOn || scrollPosition > 300 
+            fill={isHovering || isToggleOn || scrollPosition > 500
               || location.pathname !== '/' ? 
               '#2D2D2D':'#FFFFFF'}
           />
@@ -348,10 +354,17 @@ const Header = (props) => {
               <li><Link to='/store'>지점 찾기</Link></li>
             </ul>
           </nav>
-          <div></div>
+          <div className={isToggleOn ? 'active' : ''}></div>
         </Lnb>
            <ToggleBtn onClick={handleClick} isopen={isToggleOn}>
-              <MenuBtn stroke={isToggleOn ? '#1A1A1A': '#FFFFFF'} />
+             {isToggleOn && (
+               <img src={closeBtn} />
+             )}
+              {!isToggleOn && (
+                <MenuBtn stroke={
+                  scrollPosition > 500 || location.pathname !== '/' ? '#323232' : '#FFFFFF'
+                }/>
+              )}
            </ToggleBtn>
       </Inner>
     </Headers>  

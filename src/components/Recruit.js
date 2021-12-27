@@ -1,4 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import "swiper/swiper.min.css";
+
 import { Link } from 'react-router-dom';   
 import styled from "styled-components";
 import visual from "../img/main/recruitVisual.png";
@@ -29,7 +32,7 @@ const SectionContainer = styled.div`
   overflow: hidden;
 
   @media (max-width: 700px) {
-    padding: 28.5% 0 70%;
+    padding: 28.5% 0 80%;
   }
 `;
 
@@ -83,62 +86,104 @@ const VisualBox = styled.div`
     background-position: 30% 0;
   }
 `;
-
-const CardContainer = styled.div`
+const SwiperContainer = styled.div`
   position: absolute;
-  bottom: 5%;
-  width: 116.3541666666667%;
+  top: 62%;
+  left: 13.80208333333333%;
   background-color: #F8F8F8;
-  padding: 6.15% 0 6.1% 1.66%;
   border-radius: 366.5px 0 0 366.5px;
-  margin-left: 12.13541666666667%;
-  display: flex;
-  flex-flow: row nowrap;
-
-  .clearfix::after {
-   content: "";
-   display: block;
-   clear: both;
-  }
   @media (max-width: 700px) {
-    padding: 10% 0% 10.4% 0%;
-    margin-left: 5.714285714285714%;
-    bottom: 8%;
+    left: 4%;
+    top: 60%;
   }
 `;
-const CardSlide = styled.div`
-    border-radius: 46px;
-    background-color: #FFFFFF;
-    padding: 3.6% 2.26% 15.2%;
-    width: 400px;
-    height: 400px;
-    margin-right: 2.93%;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    float: left;
-    display: flex;
-    
+const StyleSwiper = styled(Swiper)`
+  padding: 6.1% 0 6.1% 1.815087918321044%;
+  /* width: 91.82291666666667%; */
+  width: 1763px;
+  @media (max-width: 700px) {
+    width: 636px;
+    padding: 6.1% 0 6.1% 1%;
+  }
 
-    .plus-btn{
+  .swiper-slide {
+    background-color: #FFFFFF;
+    border-radius: 46px;
+    display: flex;
+    justify-content: space-between;
+    height: 400px;
+    width: 22.68859897901305%;
+    padding: 4% 2%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #323232;
+    font-family: 'GoyangDeogyang';
+
+    > p{
+      line-height: 45px;
+    }
+
+    @media (max-width: 700px) {
+      width: 25.68493150684932%;
+      height: 150px;
+      font-size: 0.8125rem;
+      letter-spacing: -2.5%;
+      border-radius: 15px;
+      padding: 4% 2%;
+      
+      > p{
+        line-height: 15px;
+      }
+    }
+  }
+  .swiper-slide-active {
+    background-color: #B8292D;
+    color: #FFFFFF;
+    height: 500px;
+    @media (max-width: 700px) {
+     
+      height: 209px;
+    }
+  }
+  .plus-btn{
       stroke: #323232;
       stroke-width: 3px;
       width: 45px;
       height: 45px;
       @media (max-width: 700px) {
-      stroke-width: 2px;
+      stroke-width: 3px;
       width: 15px;
       height: 15px;
       }
-    }
+  }
+  .swiper-slide-active .plus-btn {
+    stroke: #FFFFFF;
+
+  }
+`;
+  /* .swiper-slide{
+    
+    background-color: #FFFFFF;
+    
+    width: 400px;
+    height: 400px;
+    margin-right: 2.93%;
+    justify-content: space-between;
+    align-items: center;
+    
+    float: left;
+    display: flex;
     @media (max-width: 700px) {
       padding: 6.9% 4% 28%;
       border-radius: 15px;
       width: 50%;
       overflow: hidden;
       /* display: block; */
+    /* }
+  }
+  
+      
     }
-    
     > p {
       font-size: 1.5rem;
       line-height: 2.25rem;
@@ -147,9 +192,7 @@ const CardSlide = styled.div`
       @media (max-width: 700px) {
         font-size: 0.8125rem;
       }
-    }
-  
-  .swiper-slide-active,
+      .swiper-slide-active,
   .swiper-slide-duplicate-active{
     background-color: #B8292D;
     color: #FFFFFF;
@@ -158,32 +201,29 @@ const CardSlide = styled.div`
       padding: 6% 4% 40%;
     }
   }
-`;
+}  */
+
+
+    
+    
+
+
 
 const Recruit = () => {
-  // const [swiper, setSwiper] = useState(null);
   
-  // const swiperParams = {
-  //   onSwiper: setSwiper,
-  //   loop: true,
-  //   slidesPerView:2.6,
-  //   slideToClickedSlide: true,
-  //   slidesBetween: 10,
-  //   speed: 1000,
-  //   breakpoints: {
-  //     700: {
-  //       slidesPerView: 4.5,
-  //       spaceBetween: 55,
-  //     }
-  //   }
-  // }
-  const TOTAL_SLIDES = 4;
-
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slideRef = useRef(null)
-  const handleSlider = () => {
+  const sliderRef = useRef(null);
+  const [swiper, setSwiper] = useState(null);
+  const swiperHandle = () => {
     
-  }
+  }  
+  const swiperParams = {
+    onSwiper: setSwiper,
+    loop: true,
+    slideToClickedSlide: true,
+    speed: 1000,
+    
+ }
+
   return (
       <SectionContainer>
         <SectionTitle>
@@ -196,17 +236,28 @@ const Recruit = () => {
           <p>ITX 마케팅과 함께할 다양한 분야의 전문가를 기다립니다.</p> 
         </SectionTitle> 
         <VisualBox />
-        <CardContainer> 
-        {Card.map((dt) => (
-          <CardSlide key={dt.id} onClick={handleSlider} ref={slideRef}>
-            <p>{dt.title}</p>
-            <Link to='#'>
-               <PlusBtn className="plus-btn"/>
-            </Link>
-          </CardSlide>
-        ))} 
-        <div className="clearfix"></div>
-        </CardContainer> 
+          <SwiperContainer>
+          <StyleSwiper 
+            {...swiperParams}
+            slidesPerView={4}
+            spaceBetween={9}
+            breakpoints={{
+              700:{spaceBetween: 9}
+            }}
+          >
+            {Card.map((dt) => (
+              <SwiperSlide key={dt.id} onClick={swiperHandle}
+                ref={sliderRef}
+              >
+                <p>{dt.title}</p>
+                <Link to='#'>
+                  <PlusBtn className="plus-btn"/>
+                </Link>
+              </SwiperSlide>
+            ))}
+          </StyleSwiper>
+          </SwiperContainer>
+   
       </SectionContainer>
   );
 };
