@@ -31,9 +31,7 @@ const Item = styled.li`
     height: 58.8vh;
     background-repeat: no-repeat;
     background-size: cover;
-  .show{
-      
-    }
+  
   }
   
   .text-box{
@@ -147,18 +145,18 @@ const Type = [
 
 const PartnerType = () => {
 
-  const fadeRef = useRef(null);
+  // const fadeRef = useRef(null);
 
-  useEffect(() => {
-    const controller = new ScrollMagic.Controller();
-      new ScrollMagic
-      .Scene({
-        triggerElement: fadeRef.current,
-        triggerHook: .3
-      })
-      .setClassToggle(fadeRef.current, 'show')
-      .addTo(controller);
-  });
+  // useEffect(() => {
+  //   const controller = new ScrollMagic.Controller();
+  //     new ScrollMagic
+  //     .Scene({
+  //       triggerElement: fadeRef.current,
+  //       triggerHook: .3
+  //     })
+  //     .setClassToggle(fadeRef.current, 'show')
+  //     .addTo(controller);
+  // });
 
   return (
     <TypeContainer>
@@ -166,7 +164,7 @@ const PartnerType = () => {
       {Type.map((td) => (
         <Item>
           <div
-            ref={fadeRef}
+            
             className='img-box'
             style={{
               backgroundImage: `url(${td.image})`

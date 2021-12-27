@@ -1,42 +1,18 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Title from './Title';
 import icon1 from '../../img/sub/Accompany.svg';
 import icon2 from '../../img/sub/Contribution.svg';
 import icon3 from '../../img/sub/Experties.svg';
 import icon4 from '../../img/sub/Integrity.svg';
+import ScrollMagic from "scrollmagic";
+import { gsap } from "gsap";
+import classnames from 'classnames';
 
-const List = [
-  {
-    id: 0,
-    icon: icon1,
-    title: '동행\n(Accompany)',
-    desc:'고객의 Life Cycle에 맞는\n필요한 금융서비스 제공'
-  },
-  {
-    id: 1,
-    icon: icon2,
-    title: '기여\n(Contribution)',
-    desc:'FP와 함께 회사가\nFP의 성장을 지원'
-  },
-  {
-    id: 2,
-    icon: icon3,
-    title: '전문성\n(Expertise)',
-    desc:'금융전문가로 성장하여\n고객으로부터 존경받는 FP' 
-  },
-  {
-    id: 3,
-    icon: icon4,
-    title: '진실성\n(Integrity)',
-    desc:'합리적인 가격으로 신뢰할\n수 있는 보험회사를 선정\n하는 최선의 상품 제공' 
-  }
-]
 const ManageIdeaContainer = styled.section`
   display: flex;
   flex-direction: column;
   padding: 9% 7.8125% 0;
-  
 `;
 const IdeaList = styled.ul`
   display: flex;
@@ -57,6 +33,26 @@ const Items = styled.li`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+&.spyEls {
+  opacity: 0;
+}
+&.spyEls.show {
+  opacity: 1;
+}
+&.delay-0.show {
+  transition-delay: 0s;
+}
+&.delay-1.show {
+  transition-delay: 3s;
+} 
+&.delay-2.show {
+  transition-delay: .6s;
+} 
+&.delay-3.show {
+  transition-delay: .9s;
+} 
+
   @media (max-width: 700px) {
     justify-content: center;
     width: 50%;
@@ -103,17 +99,56 @@ const Items = styled.li`
 `;
 
 const ManageIdea = () => {
+
+
+  
+  const spyEls = document.querySelectorAll('.spyEls');
+  useEffect(() => {
+    // const controller = new ScrollMagic.Controller();
+    //   new ScrollMagic
+    //   .Scene({
+    //     triggerElement: fadeEls,
+    //     triggerHook: .8
+    //   })
+    //   // .setClassToggle(fadeRef.current, 'fade-in')
+    //   .addTo(controller);
+    
+    spyEls.forEach((spyEl) => {
+        new ScrollMagic
+        .Scene({
+          triggerElement: spyEl,
+          triggerHook: .8
+        })
+        .setClassToggle(spyEl, 'show')
+        .addTo(new ScrollMagic.Controller())
+      })
+    
+  });
+
   return (
     <ManageIdeaContainer>
       <Title en={'Management\nideology'} ko={'경영 이념'} />
       <IdeaList>
-      {List.map((il) => (
-        <Items key={il.id}>
-          <div><img src={il.icon} ait={il.title} /></div>
-          <h3>{il.title}</h3>
-          <p>{il.desc}</p>
+        <Items className={classnames('delay-0', 'spyEls')}>
+          <div><img src={icon1} ait="동행"/></div>
+          <h3>동행<br />(Accompany)</h3>
+          <p>고객의 Life Cycle에 맞는<br />필요한 금융서비스 제공</p>
         </Items>
-      ))}
+        <Items className={classnames('delay-1', 'spyEls')}>
+          <div><img src={icon2} ait="기여" /></div>
+          <h3>기여<br />(Contribution)</h3>
+          <p>FP와 함께 회사가<br />FP의 성장을 지원</p>
+        </Items>
+        <Items className={classnames('delay-2', 'spyEls')}>
+          <div><img src={icon3} ait="전문성" /></div>
+          <h3>전문성<br />(Expertise)</h3>
+          <p>금융전문가로 성장하여<br />고객으로부터 존경받는 FP</p>
+        </Items>
+        <Items className={classnames('delay-3', 'spyEls')}>
+          <div><img src={icon4} ait="진실성" /></div>
+          <h3>진실성<br />(Integrity</h3>
+          <p>합리적인 가격으로 신뢰할<br />수 있는 보험회사를 선정<br />하는 최선의 상품 제공</p>
+        </Items>
       </IdeaList>
     </ManageIdeaContainer>
   )

@@ -142,10 +142,10 @@ useEffect(() => {
   };
  
  
-  floatingObject(floating1.current, 1, 3);
-  floatingObject(floating2.current, .5, 5);
-  floatingObject(floating3.current, 1.5, 6);
-  floatingObject(floating4.current, 1.5, 2);
+  floatingObject(floating1.current, 1, 5);
+  floatingObject(floating2.current, .5, 8);
+  floatingObject(floating3.current, 1.5, 12);
+  floatingObject(floating4.current, 1.5, 7);
 }, [])
 
   return (

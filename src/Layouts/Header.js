@@ -75,7 +75,7 @@ const Lnb = styled.div`
   @media(max-width: 700px) {
     position: fixed;
     top: 0;
-    left: 0px;
+    left: 0;
     padding-left: 20px;
     padding-top: 100px;
     height: 812px;
@@ -93,9 +93,9 @@ const Lnb = styled.div`
 }
  > nav + div {
   position: absolute;
+  width: 100%;
   left: 0;
   top: 0;
-  width: 100%;
   height: 0;
   opacity: 0;
   background: #FFFFFF;

@@ -147,11 +147,9 @@ const StyleSwiper = styled(Swiper)`
   }
   .plus-btn{
       stroke: #323232;
-      stroke-width: 3px;
       width: 45px;
       height: 45px;
       @media (max-width: 700px) {
-      stroke-width: 3px;
       width: 15px;
       height: 15px;
       }
@@ -161,54 +159,9 @@ const StyleSwiper = styled(Swiper)`
 
   }
 `;
-  /* .swiper-slide{
-    
-    background-color: #FFFFFF;
-    
-    width: 400px;
-    height: 400px;
-    margin-right: 2.93%;
-    justify-content: space-between;
-    align-items: center;
-    
-    float: left;
-    display: flex;
-    @media (max-width: 700px) {
-      padding: 6.9% 4% 28%;
-      border-radius: 15px;
-      width: 50%;
-      overflow: hidden;
-      /* display: block; */
-    /* }
-  }
-  
-      
-    }
-    > p {
-      font-size: 1.5rem;
-      line-height: 2.25rem;
-      font-family: "GoyangDeogyang";
-
-      @media (max-width: 700px) {
-        font-size: 0.8125rem;
-      }
-      .swiper-slide-active,
-  .swiper-slide-duplicate-active{
-    background-color: #B8292D;
-    color: #FFFFFF;
-    padding: 3.9999% 2.5% 20.2% 1.9%;
-    @media (max-width: 700px) {
-      padding: 6% 4% 40%;
-    }
-  }
-}  */
-
 
     
     
-
-
-
 const Recruit = () => {
   
   const sliderRef = useRef(null);
