@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import { ReactComponent as TopLogo } from "../img/common/Logo.svg";
 import { ReactComponent as MenuBtn } from "../img/common/MenuIcon.svg";
 import submenuicon from "../img/common/listIcon.svg"
-import closeBtn from "../img/common/closeBtn.svg"
+import CloseBtn from "../img/common/CloseBtn.svg"
 
 const Headers =  styled.header`
   position: fixed;
@@ -358,7 +358,7 @@ const Header = (props) => {
         </Lnb>
            <ToggleBtn onClick={handleClick} isopen={isToggleOn}>
              {isToggleOn && (
-               <img src={closeBtn} />
+               <img src={CloseBtn} />
              )}
               {!isToggleOn && (
                 <MenuBtn stroke={
