@@ -12,12 +12,10 @@ const Wrap = styled.div`
   overflow: hidden;
 `;
 
-
 const Layout = ({children}) => {
-  
   return (
     <Wrap className="wrap">
-      <Header />
+      <Header/>
         {children}
       <Footer />
     </Wrap>

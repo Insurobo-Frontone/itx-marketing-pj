@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import styled  from 'styled-components';
+import { Link } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import { ReactComponent as TopLogo } from "../img/common/Logo.svg";
 import { ReactComponent as MenuBtn } from "../img/common/MenuIcon.svg";
@@ -15,7 +15,19 @@ const Headers =  styled.header`
   font-size: 1rem;
   width: 100%;
   height: 100px;
-  color: #FFFFFF;
+  
+  &.primary-header {
+    color: #FFFFFF;
+  }
+  &.black-font {
+    color: #323232;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  }
+  &#scroll-header{
+    background-color: #FFFFFF;
+    color: #323232;
+    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.3));
+  }
 
 ::after{
     width: 100%;
@@ -50,10 +62,16 @@ const Logo = styled.h2`
   z-index: 31;
   width: 19.2vw;
   margin-right: 5.208333333333333%;
-  /* background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center; */
 
+  #scroll-logo {
+    fill: #2D2D2D;
+  }
+  > .primary-logo {
+    fill: #FFFFFF;
+  }
+  > .black-logo {
+    fill: #2D2D2D;
+  }
   @media (max-width: 700px) {
     padding-right: 0;
     margin-right: 0;
@@ -78,9 +96,9 @@ const Lnb = styled.div`
     left: 0;
     padding-left: 20px;
     padding-top: 100px;
-    height: 812px;
     opacity: 1;
     width: 100%;
+    height: 1000px;
     background-color: #FFFFFF;
   }
 }
@@ -225,21 +243,22 @@ const ToggleBtn = styled.div`
     order: 2;
     display: flex;
   }
+
+  .black-toggle {
+    stroke: #1A1A1A;
+  }
+  #scroll-toggle {
+    stroke: #1A1A1A;
+  }
+  .primary-toggle {
+    stroke: #FFFFFF; 
+  }
 `;
  
 const Header = (props) => {
   const [isHovering, setIsHovering] = useState(0);
   const [isToggleOn, setToggleOn] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
-
-
-  const updeateScroll = () => {
-    setScrollPosition(window.pageYOffset);
-  }
-  useEffect(() => {
-    window.addEventListener('scroll', updeateScroll);
-  });
-
 
   const activeMethod = (event) => {
     const current = event.currentTarget;
@@ -258,33 +277,44 @@ const Header = (props) => {
     }
    }
 
+  // Header 변경
+
   // togglebtn 
   const handleClick = () => {
     setToggleOn(!isToggleOn);
   }
 
+  const updeateScroll = () => {
+    setScrollPosition(window.pageYOffset);
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', updeateScroll);
+  });
+
   const location = useLocation();
+
   return (
     <Headers 
-      isopen={isToggleOn}
-      // 인라인 스타일 우선순위 1
-      style={{
-        backgroundColor: scrollPosition > 500 ? '#FFFFFF' : '',
-        filter: scrollPosition > 500  ? 'drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.3)' : '',
-        color: scrollPosition > 500 || location.pathname !== '/' ? '#323232' : ''
-      }}
+        isopen={isToggleOn}
+        className={
+          location.pathname === '/summary' ||
+          location.pathname === '/partners' ?
+          'black-font' : 'primary-header'
+        }
+        id={scrollPosition > 500 || isHovering ? 'scroll-header' : ''}
     >
       <Inner>
         <Logo as="a" href="/">
           <TopLogo 
-            fill={isHovering || isToggleOn || scrollPosition > 500
-              || location.pathname !== '/' ? 
-              '#2D2D2D':'#FFFFFF'}
+            className={
+              location.pathname === '/summary' ||
+              location.pathname === '/partners' ?
+              'black-logo' : 'primary-logo'
+            }
+            id={scrollPosition > 500 || isHovering || isToggleOn ? 'scroll-logo' : ''}
           />
         </Logo>
-     
-        <Lnb isopen={isToggleOn} 
-        >
+        <Lnb isopen={isToggleOn}>
           <nav>
             <ul
               className='main-menu'
@@ -300,8 +330,8 @@ const Header = (props) => {
                   className="sub-menu">
                   <li><Link to='/summary'>개요</Link></li>
                   <li><Link to='/partners'>제휴사</Link></li>
-                  <li><Link to='#'>채용</Link></li>
-                  <li><Link to='#'>Contact us</Link></li>
+                  <li><Link to='/recruit'>채용</Link></li>
+                  <li><Link to='/contact'>Contact us</Link></li>
                 </ul>
               </li>
               <li
@@ -352,16 +382,21 @@ const Header = (props) => {
               <li><Link to='/store'>지점 찾기</Link></li>
             </ul>
           </nav>
-          <div className={isToggleOn ? 'active' : ''}></div>
+          <div></div>
         </Lnb>
            <ToggleBtn onClick={handleClick} isopen={isToggleOn}>
              {isToggleOn && (
-               <img src={CloseBtn} />
+               <img src={CloseBtn} alt="닫기"/>
              )}
               {!isToggleOn && (
-                <MenuBtn stroke={
-                  scrollPosition > 500 || location.pathname !== '/' ? '#323232' : '#FFFFFF'
-                }/>
+                <MenuBtn
+                  className={
+                    location.pathname === '/summary' ||
+                    location.pathname === '/partners' ?
+                    'black-toggle' : 'primary-toggle'
+                  }
+                  id={scrollPosition > 500 || isHovering ? 'scroll-toggle' : ''}
+                />
               )}
            </ToggleBtn>
       </Inner>

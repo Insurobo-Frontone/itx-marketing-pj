@@ -5,10 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from 'swiper';
 import "swiper/swiper.min.css";
 import Title from './Title';
-
-import  { ReactComponent as LinkBtn } from '../../img/sub/LinkBtn.svg';
-import { AddSharp } from '@mui/icons-material';
-
+import  { ReactComponent as LinkBtn } from '../../img/common/LinkBtn.svg';
+import  { ReactComponent as PlusBtn } from '../../img/common/PlusBtn.svg';
 
 const News = [
   {
@@ -154,7 +152,7 @@ const TextContent = styled.div`
       > p {
         font-size: 0.7rem;
       }
-      > ttx {
+      > span {
         font-size: 0;
       }
     }
@@ -173,7 +171,7 @@ const StyleA = styled(Link)`
   justify-content: flex-end;
 
   .link-btn{
-  width: 78.5px;
+    width: 78.5px;
    height: 12.05px;
 
    @media (max-width: 700px) {
@@ -181,16 +179,15 @@ const StyleA = styled(Link)`
     height: 3.15px;
     }
   }
-.link-btn.hover{
-  stroke: #C4C4C4;
+  .link-btn.hover{
    transition: all .3s;
    }
 
   .link-btn.static{
-  stroke: #B8292D;
+    stroke: #B8292D;
    }
-
 `;
+
 const MoreBtn = styled.button`
   position: absolute;
   right: 5%;
@@ -200,9 +197,15 @@ const MoreBtn = styled.button`
   color: #323232;
   font-size: 1.25rem;
   font-family: 'GoyangDeogyang';
-  /* margin-left: 91.51041666666667%; */
- cursor: pointer;
-
+  cursor: pointer;
+  > span {
+    align-self: flex-end;
+  }
+ .toggle-btn{
+   width: 30px;
+   height: 30px;
+   margin-right: 57px;
+ }
  @media (max-width: 700px) {
    display: none;
  }
@@ -268,7 +271,7 @@ const PressRoom = () => {
               </div>
             </TextContent>
             <StyleA to="#">
-              <LinkBtn className='link-btn hover'/>
+              <LinkBtn className='link-btn hover' stroke="#C4C4C4"/>
             </StyleA>
           </SwiperSlide>
           ))}
@@ -290,7 +293,7 @@ const PressRoom = () => {
               </div>
               <div className='bottom-txt'>
                 <p>{nd.content}</p>
-                <ttx>{nd.subCont}</ttx>
+                <span>{nd.subCont}</span>
               </div>
               </TextContent>
               <StyleA to="#">
@@ -301,7 +304,7 @@ const PressRoom = () => {
             </StyleSwiper>)}
 
         <MoreBtn onClick={handleClick} isopen={isToggleOn}>
-          <AddSharp/>
+          <PlusBtn stroke="#323232" className='toggle-btn'/>
             {!isToggleOn && (<span>더 보기</span>)}
             {isToggleOn && (<span>다시 접기</span>)}
         </MoreBtn>

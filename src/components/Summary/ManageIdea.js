@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import ScrollMagic from "scrollmagic";
 import Title from './Title';
+
 import icon1 from '../../img/sub/Accompany.svg';
 import icon2 from '../../img/sub/Contribution.svg';
 import icon3 from '../../img/sub/Experties.svg';
 import icon4 from '../../img/sub/Integrity.svg';
-import ScrollMagic from "scrollmagic";
-import { gsap } from "gsap";
-import classnames from 'classnames';
+
 
 const ManageIdeaContainer = styled.section`
   display: flex;
@@ -99,53 +99,43 @@ const Items = styled.li`
 `;
 
 const ManageIdea = () => {
-
-
-  
+  const spyRef = useRef(null);
   const spyEls = document.querySelectorAll('.spyEls');
+
   useEffect(() => {
-    // const controller = new ScrollMagic.Controller();
-    //   new ScrollMagic
-    //   .Scene({
-    //     triggerElement: fadeEls,
-    //     triggerHook: .8
-    //   })
-    //   // .setClassToggle(fadeRef.current, 'fade-in')
-    //   .addTo(controller);
     
     spyEls.forEach((spyEl) => {
         new ScrollMagic
         .Scene({
-          triggerElement: spyEl,
+          triggerElement: spyRef,
           triggerHook: .8
         })
         .setClassToggle(spyEl, 'show')
         .addTo(new ScrollMagic.Controller())
       })
-    
   });
 
   return (
-    <ManageIdeaContainer>
+    <ManageIdeaContainer ref={spyRef}>
       <Title en={'Management\nideology'} ko={'경영 이념'} />
       <IdeaList>
-        <Items className={classnames('delay-0', 'spyEls')}>
-          <div><img src={icon1} ait="동행"/></div>
+        <Items>
+          <div><img src={icon1} alt="동행" /></div>
           <h3>동행<br />(Accompany)</h3>
           <p>고객의 Life Cycle에 맞는<br />필요한 금융서비스 제공</p>
         </Items>
-        <Items className={classnames('delay-1', 'spyEls')}>
-          <div><img src={icon2} ait="기여" /></div>
+        <Items>
+          <div><img src={icon2} alt="기여" /></div>
           <h3>기여<br />(Contribution)</h3>
           <p>FP와 함께 회사가<br />FP의 성장을 지원</p>
         </Items>
-        <Items className={classnames('delay-2', 'spyEls')}>
-          <div><img src={icon3} ait="전문성" /></div>
+        <Items>
+          <div><img src={icon3} alt="전문성" /></div>
           <h3>전문성<br />(Expertise)</h3>
           <p>금융전문가로 성장하여<br />고객으로부터 존경받는 FP</p>
         </Items>
-        <Items className={classnames('delay-3', 'spyEls')}>
-          <div><img src={icon4} ait="진실성" /></div>
+        <Items>
+          <div><img src={icon4} alt="진실성" /></div>
           <h3>진실성<br />(Integrity</h3>
           <p>합리적인 가격으로 신뢰할<br />수 있는 보험회사를 선정<br />하는 최선의 상품 제공</p>
         </Items>

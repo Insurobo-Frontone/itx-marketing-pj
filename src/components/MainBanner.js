@@ -43,6 +43,7 @@ const Page = styled.div`
   line-height: 22.56px;
   left: 9.270833333333333%;
   font-family: "GoyangDeogyang B";
+
   @media (max-width: 700px) {
     position: absolute;
     font-size: 0.625rem;
@@ -50,6 +51,7 @@ const Page = styled.div`
     top: 84.33098591549296%;
   }
 `;
+
 const Overay = styled.div`
   width: 100%;
   height: 100%;
@@ -110,6 +112,7 @@ const StyleSwiper = styled(Swiper)`
   font-size: 1.5rem;
   line-height: 33.39px;
 }
+
 @media (max-width: 700px){
   .text-wrap{
     top: 65.3169014084507%;
@@ -169,7 +172,6 @@ const MainBanner = () => {
       type: 'progressbar',
     }
   }
-
 
   return (
     <StyleSwiper {...swiperParams}>

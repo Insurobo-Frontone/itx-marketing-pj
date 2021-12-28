@@ -177,7 +177,7 @@ const PartnerType = () => {
               <h1>{td.ko}</h1>
               <p>{td.desc}</p>
             </div>
-            <Button primary="제휴상담문의"></Button>
+            <Button primary="제휴상담문의" />
           </div>
         </Item>
       ))}

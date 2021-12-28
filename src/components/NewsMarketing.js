@@ -10,6 +10,7 @@ import sinhan from "../img/main/sinhanSimbol.png";
 import morebtn from "../img/main/newsMoreBtn.svg";
 import nextbtn from "../img/main/nextBtn.svg";
 import styled from "styled-components";
+
 const NewsData = [
   {
     id: 0,
@@ -54,6 +55,7 @@ const AwardData = [
     content: '우수보험대리점 (주최: 신한생명)'
   },
 ]
+
 const SectionContainer = styled.div`
   width: 100%;
   display: flex;
@@ -283,7 +285,8 @@ const AwradList = styled.ul`
 `;
 const NewsMarketing = () => {
   const [swiper , setSwiper] = useState(null);
-  
+  console.log(swiper);
+
   SwiperCore.use([Autoplay, Navigation]);
 
   const swiperParams = {

@@ -10,7 +10,9 @@ const theme = {
   mobile: `(max-width: ${size.Mobile})`,
   tablet: `(max-width: ${size.Tablet})`,
   smaillMobile: `(max-width: ${size.SmaillMobile})`,
+
 };
+
 
 
 export default theme;
