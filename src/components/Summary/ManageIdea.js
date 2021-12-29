@@ -41,44 +41,44 @@ const Items = styled.li`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition-duration: 1s;
+  transition-duration: 0.6s;
   /* transition: 3s; */
   opacity: 0;
 
   &.delay-0 {
     transition-delay: 0;
-    transform: translateX(0%);
+    transform: translateY(50%);
     opacity: 1;
   }
   &.delay-1 {
     transition-delay: .3s;
-    transform: translateX(-100%);
+    transform: translateY(100%);
   }
   &.delay-2 {
-    transition-delay: .6s;
-    transform: translateX(-200%);
+    transition-delay: .4s;
+    transform: translateY(200%);
   }
   &.delay-3 {
-    transition-delay: .9s;
-    transform: translateX(-300%);
+    transition-delay: .5s;
+    transform: translateY(300%);
   }
   @media (max-width: 700px) {
   &.delay-0 {
-    transition-delay: .3s;
-    transform: translateX(-80%);
+    transition-delay: .0s;
+    transform: translateY(40%);
     opacity: 0;
   }
   &.delay-1 {
-    transition-delay: .6s;
-    transform: translateX(-100%);
+    transition-delay: .1s;
+    transform: translateY(40%);
   }
     &.delay-2 {
-    transition-delay: .6s;
-    transform: translateX(100%);
+    transition-delay: .2s;
+    transform: translateY(40%);
   }
   &.delay-3 {
     transition-delay: .3s;
-    transform: translateX(80%);
+    transform: translateY(40%);
     opacity: 0;
   }
 }
