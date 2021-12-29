@@ -12,6 +12,7 @@ const BannerContainer = styled.section`
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url(${banner});
+
   @media (max-width: 700px) {
   padding-top: 154.8%;
   background-position: right center;
@@ -39,7 +40,7 @@ const BannerContainer = styled.section`
       }
       > p {
         line-height: 1.3rem;
-        padding: 13.3% 0 19.6% 0;
+        padding: 8% 0 16.8% 0;
       }
 
       @media (max-width: 700px) {

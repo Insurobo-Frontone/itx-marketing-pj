@@ -156,12 +156,14 @@ const ListBox = styled.div`
       align-items: center;
       justify-content: center;
       font-size: 0.8rem;
-
+      
       @media (max-width: 700px) {
         font-size: 0.4vw;
         height: 30px;
+        
         .back {
-            padding: 10%;
+            width: 61.53846153846154%;
+            height: auto;
           }  
 
       }

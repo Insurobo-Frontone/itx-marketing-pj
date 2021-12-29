@@ -153,7 +153,7 @@ const TextContent = styled.div`
         font-size: 0.7rem;
       }
       > span {
-        font-size: 0;
+        display: none;
       }
     }
     @media (max-width: 700px) {
@@ -267,7 +267,7 @@ const PressRoom = () => {
               </div>
               <div className='bottom-txt'>
                 <p>{nd.content}</p>
-                <ttx>{nd.subCont}</ttx>
+                <span>{nd.subCont}</span>
               </div>
             </TextContent>
             <StyleA to="#">

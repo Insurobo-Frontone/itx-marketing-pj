@@ -26,12 +26,23 @@ const Item = styled.li`
   margin-bottom: 4.7%;
   position: relative;
 
+  &.show .img-box{
+    /* transform: translateX(0); */
+    width: 50.625%;
+    opacity: 1;
+
+  }
+  &.show .text-box{
+    opacity: 1;
+    
+  }
   .img-box{
-    width: 50.625vw;
+    width: 0;
     height: 58.8vh;
     background-repeat: no-repeat;
     background-size: cover;
-  
+    opacity: 0;
+    transition: width 1s ease-out .6s;
   }
   
   .text-box{
@@ -40,11 +51,13 @@ const Item = styled.li`
     right: 7.8125%;
     padding: 3.1%;
     box-shadow: 2px 4px 22px rgba(0, 0, 0, 0.2);
-    /* height: 58.33333333333333%; */
     display: flex;
     align-items: flex-end;
     background-color: #FFFFFF;
-
+    transition-delay: .3s;
+    opacity: 0;
+    transition-duration: 1s;
+    
     > div {
       width: 76%;
       > span {
@@ -79,7 +92,7 @@ const Item = styled.li`
       height: 100px;
       z-index: 2;
       background-position: 25%;
-    
+      
     }
     .text-box {
       position: static;
@@ -145,26 +158,35 @@ const Type = [
 
 const PartnerType = () => {
 
-  // const fadeRef = useRef(null);
+  
+// // 나타날 요소들을 하나씩 반복해서 처리!
+// fadeEls.forEach(function (fadeEl, index) {
+//   // 각 요소들을 순서대로(delay) 보여지게 함!
+//   gsap.to(fadeEl, 1, {
+//     delay: (index + 1) * .7,
+//     opacity: 1
+//   })
+// })
 
-  // useEffect(() => {
-  //   const controller = new ScrollMagic.Controller();
-  //     new ScrollMagic
-  //     .Scene({
-  //       triggerElement: fadeRef.current,
-  //       triggerHook: .3
-  //     })
-  //     .setClassToggle(fadeRef.current, 'show')
-  //     .addTo(controller);
-  // });
+  useEffect(() => {
+    const fadeEls = document.querySelectorAll('.fade-el');
+    fadeEls.forEach(function (fadeEl) {
+      new ScrollMagic
+      .Scene({
+        triggerElement: fadeEl,
+        triggerHook: .5
+      })
+      .setClassToggle(fadeEl, 'show')
+      .addTo(new ScrollMagic.Controller());
+    })
+  });
 
   return (
     <TypeContainer>
       <TypeList>
       {Type.map((td) => (
-        <Item>
+        <Item key={td.id} className='fade-el'>
           <div
-            
             className='img-box'
             style={{
               backgroundImage: `url(${td.image})`

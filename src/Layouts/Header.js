@@ -289,7 +289,7 @@ const Header = (props) => {
   }
   useEffect(() => {
     window.addEventListener('scroll', updeateScroll);
-  });
+  },[]);
 
   const location = useLocation();
 

@@ -163,7 +163,7 @@ useEffect(() => {
           </p>
         </TextWrap>
         <CircleWrap>
-          <img src={FpCircle} className='fp-circle' />
+          <img src={FpCircle} className='fp-circle' alt="FP" />
           <img src={MarketCircle} ref={floating1} className='floating1'alt="Market" />
           <img src={InsuranceCircle} ref={floating2} className='floating2' alt="보험 플러스" />
           <img src={CeoCircle} ref={floating3} className='floating3' alt="CEO" />
