@@ -170,7 +170,7 @@ const PartnerType = () => {
       .setClassToggle(fadeEl, 'show')
       .addTo(new ScrollMagic.Controller());
     })
-  });
+  },[]);
 
   return (
     <TypeContainer>

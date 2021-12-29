@@ -141,7 +141,6 @@ const StyleSwiper = styled(Swiper)`
     color: #FFFFFF;
     height: 500px;
     @media (max-width: 700px) {
-     
       height: 209px;
     }
   }
@@ -160,8 +159,6 @@ const StyleSwiper = styled(Swiper)`
   }
 `;
 
-    
-    
 const RecruitSlider = () => {
   
   const sliderRef = useRef(null);
@@ -208,7 +205,7 @@ const RecruitSlider = () => {
                 </Link>
               </SwiperSlide>
             ))}
-          </StyleSwiper>
+            </StyleSwiper>
           </SwiperContainer>
    
       </SectionContainer>

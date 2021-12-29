@@ -10,6 +10,9 @@ const NavContainer = styled.div`
   justify-content: center;
   padding: 4.7% 13.54166666666667% 2.1%;
 
+  @media (max-width: 700px) {
+    padding: 8.2% 5.4%;
+  }
   > ul {
     width: 100%;
     display: flex;
@@ -21,17 +24,27 @@ const NavContainer = styled.div`
       border: 1px solid #C4C4C4;
       border-right-width: 0;
       color: #767676;
+      @media (max-width: 700px) {
+        border: 0;
+        
+      } 
   
       &.active{
         border: 2px solid #B8292D;
         border-right-width: 2px;
         color: #B8292D;
         font-family: 'GoyangDeogyang';
+        @media (max-width: 700px) {
+          border: 0;
+        } 
       }
       > a {
         display: block;
         line-height: 3.5rem;
-        
+        @media (max-width: 700px) {
+          font-size: 0.8125rem;
+          line-height: 2.5rem;
+        } 
       }
       :last-child {
         border-right-width: 1px;
@@ -99,7 +112,7 @@ const RecruitTab = () => {
             data-toggle="tab"
             href="#cont4"
             role="tablist"
-          >정규직채용</a>
+          >정규직<sapn>채용</sapn></a>
         </li>
       </ul>
     </NavContainer>

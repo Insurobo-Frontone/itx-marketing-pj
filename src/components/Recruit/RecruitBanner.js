@@ -11,10 +11,10 @@ const BannerContainer = styled.section`
   background-image: url(${banner});
   
   @media (max-width: 700px) {
-  /* padding-top: 154.8%;
+  padding-top: 154.8%;
   background-position: right center;
-  background-size: 110%;
-  background-position: 0% 60%; */
+  background-size: 290%;
+  background-position: 10% 5%;
 }
 > .text-wrap {
     position: absolute;
@@ -36,6 +36,20 @@ const BannerContainer = styled.section`
       > p {
         padding-top: 10%;
         line-height: 1.4rem;
+      }
+      @media (max-width: 700px) {
+        width: 56%;
+        top: 31.5%;
+
+        > h2 {
+          font-size: 1.75rem;
+          line-height: 2.15625rem;
+        }
+        > p {
+          font-size: 0.8125rem;
+          line-height: 1.25rem;
+          padding-top: 8.8%;
+        }
       }
     }
 `;
