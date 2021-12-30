@@ -27,9 +27,11 @@ const Item = styled.li`
   position: relative;
 
   &.show .img-box{
-    /* transform: translateX(0); */
     width: 50.625%;
     opacity: 1;
+    @media (max-width: 700px) {
+      width: 100px;
+    }
 
   }
   &.show .text-box{
@@ -85,14 +87,13 @@ const Item = styled.li`
     justify-content: space-between;
 
     .img-box{
-      width: 43%;
       border-radius: 50%;
       overflow: hidden;
       width: 100px;
       height: 100px;
       z-index: 2;
       background-position: 25%;
-      
+      opacity: 1;
     }
     .text-box {
       position: static;
@@ -102,7 +103,7 @@ const Item = styled.li`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      
+      opacity: 1;
 
       > div {
         align-self: flex-start;

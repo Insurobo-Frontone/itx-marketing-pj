@@ -104,23 +104,24 @@ const BoxWrap = styled.div`
 const ListBox = styled.div`
   background-color: #F8F8F8;
   @media (max-width: 700px) {
-    margin-bottom: 6.3%;
+    margin-bottom: 6.3%; 
   }
   > h3 {
     background-color: #B8292D;
     color: #FFFFFF;
     display: inline-block;
-    width: 26.66666666666667%;
-    font-size: 1.02vw;
+    /* width: 26.66666666666667%; */
+    font-size: 0.8rem;
     line-height: 3rem;
     font-family: 'GoyangDeogyang';
     text-align: center;
-    padding: 0 4%;
+    padding: 0 4.2%;
     margin-bottom: 5.9%;
     @media (max-width: 700px) {
-      font-size: 0.625vw;
-      width: 34.05572755417957%;
+      font-size: 0.625rem;
+      /* width: 34.05572755417957%; */
       line-height: 1.875rem;
+      padding: 0 6.5%;
     }
   }
 
@@ -158,14 +159,15 @@ const ListBox = styled.div`
       font-size: 0.8rem;
       
       @media (max-width: 700px) {
-        font-size: 0.4vw;
+        font-size: 0.5625rem;
         height: 30px;
-        
+        .front {
+          width: 100%;
+        }
         .back {
             width: 61.53846153846154%;
             height: auto;
           }  
-
       }
       :hover .front {
         transform: rotateY(-180deg);
@@ -195,7 +197,7 @@ const ListBox = styled.div`
         }
       }
       .front {
-        transform: rotateY(0deg); 
+        transform: rotateY(0deg);
       }
       .back {
         transform: rotateY(-180deg);

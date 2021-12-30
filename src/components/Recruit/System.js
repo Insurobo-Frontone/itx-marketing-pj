@@ -102,8 +102,9 @@ const CircleWrap = styled.div`
         height: 50px;
         background-image: url(${arrow});
         position: absolute;
-        right: -50%;
-        transform: translateX(-10px);
+        right: -40%;
+       z-index: 3;
+        /* transform: translateX(); */
       }
       :first-child {
         background: linear-gradient(#fff, #fff),linear-gradient(60deg, #F0F0F0 70%, #F9BDBD 30%);
@@ -148,7 +149,6 @@ const CircleWrap = styled.div`
           height: 28px;
           background-repeat: no-repeat;
           background-size: contain;
-          z-index: 3;
           }
           &:nth-child(3),:nth-child(4) {
             margin: 0;
