@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components';
 import Title from '../Summary/Title';
-
-import arrow from '../../img/sub/arrowIcon.svg';
+import ScrollMagic from "scrollmagic";
+import arrow from '../../img/sub/arrowIcon.png';
 import career from '../../img/sub/career.svg';
 import market from '../../img/sub/market.svg';
 import salary from '../../img/sub/salary.svg';
@@ -17,31 +17,36 @@ const ProgramData = [
     id: 0,
     title: '경력우대',
     desc: '우수 인재 발굴을 위해 전 직장의\n경력을 획기적으로\n우대합니다.',
-    icon: career
+    icon: career,
+    classname: 'delay-0'
   },
   {
     id: 1,
     title: '시장제공',
     desc: '회사가 보유한 다양한 채널 중\n본인의 능력에 적합한 시장(Market)을\n제공합니다.',
-    icon: market
+    icon: market,
+    classname: 'delay-1'
   },
   {
     id: 2,
     title: '승급제도',
     desc: '동기부여와 성과에 대한\n목표의식 고취를 위한\n승급제도를 운영합니다.',
-    icon: salary
+    icon: salary,
+    classname: 'delay-2'
   },
   {
     id: 3,
     title: '조직활성화',
     desc: '사내 벤쳐 제도, 조직단위별 워크샵,\n리더쉽 교육, TF활성화 등 조직문화를\n만들어갑니다.',
-    icon: group
+    icon: group,
+    classname: 'delay-3'
   },
   {
     id: 4,
     title: '직무역량',
     desc: '신규입사 멘토제도 운영, 전문강사 특강,\n보험 전문자격증 취득 지원을\n합니다.',
-    icon: duty
+    icon: duty,
+    classname: 'delay-4'
   }
 ]
 
@@ -50,19 +55,22 @@ const InsentiveData = [
     id: 0,
     title: '영업채널',
     desc: '동기부여를 위해 능력과\n성과에 따른 폭넓은\n인센티브 제도 운영',
-    icon: sales
+    icon: sales,
+    classname: 'delay-0'
   },
   {
     id: 1,
     title: '지원채널',
     desc: '영업활성화를 위한 제도확립,\n기반구축등 성과에 따른\n인센티브 제도 운영',
-    icon: support
+    icon: support,
+    classname: 'delay-1'
   },
   {
     id: 2,
     title: '신사업',
     desc: '신사업모델 발굴과 성과\n발생시 합리적인\n보상제도 마련',
-    icon: newBsiness
+    icon: newBsiness,
+    classname: 'delay-2'
   }
 ]
 
@@ -73,101 +81,118 @@ const Container = styled.section`
     padding-top: 0;
   }
 `;
+
 const CircleWrap = styled.div`
   padding: 8.6% 8.73% 0%;
  
   > ul {
     display: flex;
     justify-content: space-between;
-    padding: 8.19% 2.1% 9.1%;
+    padding: 8.19% 0% 9.1%;
 
     > li {
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
-      border-color: transparent;
-      border: 6px solid transparent;
+      width: 25%;
       display: flex;
-      justify-content: center;
       align-items: center;
-      font-size: 1.4rem;
-      font-family: 'GoyangDeogyang';
-      color: #000000;
+      justify-content: center;
       position: relative;
-
-      ::after {
+      &::after {
         content: '';
         display: block;
         width: 20px;
         height: 50px;
         background-image: url(${arrow});
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 3;
         position: absolute;
-        right: -40%;
-       z-index: 3;
-        /* transform: translateX(); */
+        right: -10px;
       }
-      :first-child {
+      :last-child::after {
+        content: none;
+      }
+    > div {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 6px solid transparent;
+      font-size: 1.4rem;
+      font-family: 'GoyangDeogyang';
+      color: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+      :first-child > div {
         background: linear-gradient(#fff, #fff),linear-gradient(60deg, #F0F0F0 70%, #F9BDBD 30%);
         background-origin: border-box;
         background-clip: content-box, border-box;
       }
-      :nth-child(2) {
+      :nth-child(2) > div {
         background: linear-gradient(#fff, #fff),linear-gradient(90deg, #F0F0F0 50%, #F9BDBD 50%);
         background-origin: border-box;
         background-clip: content-box, border-box;
       }
-      :nth-child(3) {
+      :nth-child(3) > div {
         background: linear-gradient(#fff, #fff),linear-gradient(-60deg, #F9BDBD 70%, #F0F0F0 30%);
         background-origin: border-box;
         background-clip: content-box, border-box;
       }
-      :last-child {
+      :last-child > div {
         background: linear-gradient(#fff, #fff),linear-gradient(#F9BDBD 100%, #F9BDBD 100%);
         background-origin: border-box;
-        background-clip: content-box, border-box;
-      }
-      :last-child::after {
-        content: none;
+        background-clip: content-box, border-box;      
       }
     }
   }
   @media (max-width: 700px) {
     padding: 8% 5.333333333333333% 0%;
+
     > ul {
       flex-flow: row wrap;
-      padding: 10% 3.4% 15.7%;
+      padding: 7.3% 0 8%;
       > li {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8% 0;
+        :nth-child(3),:nth-child(4) {
+          margin: 0;
+        }
+        :nth-child(2)::after{
+          transform: rotate(90deg);
+          bottom: -9.5px;
+          left: 47%;
+        }
+        &:nth-child(3)::after{
+          transform: rotate(180deg);
+          left: -3.5px;
+
+        }
+        :nth-child(4) {
+          order: 3;
+        }
+        :nth-child(3) {
+          order: 4;
+        }
+        &::after {
+        width: 7px;
+        height: 19px;
+        background-image: url(${arrow});
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 3;
+        position: absolute;
+        right: -3.5px;
+        }
+      }
+      > li > div {
         width: 120px;
         height: 120px;
         border-width: 3px;
         font-size: 0.625rem;
-        margin-bottom: 17.5%;
-
-        
-        ::after {
-          width: 14px;
-          height: 28px;
-          background-repeat: no-repeat;
-          background-size: contain;
-          }
-          &:nth-child(3),:nth-child(4) {
-            margin: 0;
-          }
-          &:nth-child(4) {
-            order: 3;
-          }
-          &:nth-child(3) {
-            order: 4;
-          }
-          &:nth-child(2)::after {
-            transform: rotate(90deg);
-            right: 40%;
-            bottom: -40%;
-          }
-          &:nth-child(3)::after {
-            transform: rotate(180deg);
-            left: -40%;
-          }
         }
       }
     }
@@ -175,7 +200,26 @@ const CircleWrap = styled.div`
 
 const Program = styled.div`
   padding: 6.16% 8.333333333333333% 0;
-
+  &.show .delay-0{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  &.show .delay-1{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  &.show .delay-2{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  &.show .delay-3{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  &.show .delay-4{
+    transform: translateY(0);
+    opacity: 1;
+  }
   > ul {
     display: flex;
     flex-flow: row wrap;
@@ -191,7 +235,29 @@ const Program = styled.div`
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      opacity: 0;
 
+      &.delay-0 {
+      transition-delay: 0;
+      transform: translateY(-50%);
+      opacity: 1;
+      }
+      &.delay-1 {
+      transition-delay: .3s;
+      transform: translateY(-100%);
+      }
+      &.delay-2 {
+      transition-delay: .5s;
+      transform: translateY(-200%);
+      }
+      &.delay-3 {
+      transition-delay: .7s;
+      transform: translateY(-300%);
+      }
+      &.delay-4 {
+      transition-delay: .9s;
+      transform: translateY(-400%);
+      }
       :nth-child(3) {
         margin-right: 0;
       }
@@ -222,6 +288,8 @@ const Program = styled.div`
   }
   @media (max-width: 700px) {
     padding: 10.5% 5.4% 0;
+
+    
     > ul {
       flex-flow: column;
       padding: 11.2% 3.7% 13%;
@@ -231,7 +299,8 @@ const Program = styled.div`
         align-items: center;
         padding: 3.3% 0;
         margin-right: 0;
-
+        opacity: 0;
+        
         &:last-child {
           margin-bottom: 0;
         }
@@ -264,7 +333,24 @@ const Program = styled.div`
 `;
 
 const Incentive = styled.div`
-   padding: 4.1% 8.333333333333333% 0;
+  padding: 4.1% 8.333333333333333% 0;
+  &.show .delay-0{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  &.show .delay-1{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  &.show .delay-2{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  &.show .delay-3{
+    transform: translateY(0);
+    opacity: 1;
+  }
+   
    > ul {
     display: flex;
     justify-content: space-between;
@@ -275,7 +361,28 @@ const Incentive = styled.div`
       align-items: center;
       width: 25%;
       padding: 1.04% 0;
+      opacity: 0;
+      transition-duration: 4s;
+      transform: translateY(100%);
 
+      &.delay-0 {
+      transition-delay: 0;
+      transform: translateY(50%);
+      opacity: 1;
+      }
+      &.delay-1 {
+      transition-delay: .3s;
+      
+
+      }
+      &.delay-2 {
+      transition-delay: .4s;
+      transform: translateY(200%);
+      }
+      &.delay-3 {
+      transition-delay: .5s;
+      transform: translateY(300%);
+      }
       > .img-wrap {
         width: 150px;
         height: 150px;
@@ -307,13 +414,13 @@ const Incentive = styled.div`
     }
    }
    @media (max-width: 700px) {
-    padding: 10.5% 5.4% 0;
+    padding: 8.5% 5.4% 0;
 
     > ul {
-    padding: 13% 0 12.5%;
-    flex-direction: column;
+      padding: 13% 3.6% 12.5%;
+      flex-direction: column;
+
     > li {
-      /* align-items: center; */
       width: 100%;
       padding: 1.04% 0;
       margin-bottom: 12%;
@@ -341,26 +448,54 @@ const Incentive = styled.div`
       }
     }
    }
-   }
+  }
 `;
 
 const System = () => {
+  const intRef = useRef(null);
+  const progRef = useRef(null);
+  useEffect(() => {
+    const controller = new ScrollMagic.Controller();
+      new ScrollMagic
+      .Scene({
+        triggerElement: intRef.current,
+        triggerHook: .8
+      })
+      .setClassToggle(intRef.current, 'show')
+      .addTo(controller);
+      new ScrollMagic
+        .Scene({
+          triggerElement: progRef.current,
+          triggerHook: .8
+        })
+        .setClassToggle(progRef.current, 'show')
+        .addTo(controller);
+  }, []);
+  
   return (
     <Container>
       <CircleWrap>
       <Title en={'Recruitment procedure'} ko={'채용절차'} />
         <ul>
-          <li>서류전형</li>
-          <li>실무면접</li>
-          <li>임원면접</li>
-          <li>최종합격</li>
+          <li>
+            <div>서류전형</div>
+          </li>
+          <li>
+            <div>실무면접</div>
+          </li>
+          <li>
+            <div>임원면접</div>
+          </li>
+          <li>
+            <div>최종합격</div>
+          </li>
         </ul>
       </CircleWrap>
-      <Program>
+      <Program ref={progRef}>
         <Title en={'A nurturing program'} ko={'육성프로그램'} />
         <ul>
           {ProgramData.map((pd) => (
-            <li key={pd.id}>
+            <li key={pd.id} className={pd.classname}>
               <div className='text-wrap'>
                 <h3>{pd.title}</h3>
                 <p>{pd.desc}</p>
@@ -372,11 +507,11 @@ const System = () => {
           ))}
         </ul>
       </Program>
-      <Incentive>
+      <Incentive ref={intRef}>
         <Title en={'Incentive'} ko={'인센티브 제도'} />
         <ul>
           {InsentiveData.map((nd) => (
-            <li key={nd.id}>
+            <li key={nd.id} className={nd.classname}>
               <div className='img-wrap'>
                 <img src={nd.icon} alt={nd.title} />
               </div>

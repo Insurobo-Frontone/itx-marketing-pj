@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components';
 import idea from '../../img/sub/idea.png';
 import trust from '../../img/sub/trust.png';
 import passion from '../../img/sub/passion.png';
 import target from '../../img/sub/target.png';
+import ScrollMagic from "scrollmagic";
 
 const Container = styled.section`
   padding: 7% 13.54166666666667% 0%;
@@ -70,6 +71,22 @@ const ItemList = styled.ul`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  &.show .delay-0{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  &.show .delay-1{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  &.show .delay-2{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  &.show .delay-3{
+    transform: translateY(0);
+    opacity: 1;
+  }
   @media (max-width: 700px) {
     flex-wrap: wrap;
   }
@@ -80,9 +97,51 @@ const ItemList = styled.ul`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition-duration: 0.6s;
+    opacity: 0;
+   
+    &.delay-0 {
+    transition-delay: 0;
+    transform: translateY(50%);
+    opacity: 1;
+    }
+    &.delay-1 {
+    transition-delay: .3s;
+    transform: translateY(100%);
+    }
+    &.delay-2 {
+    transition-delay: .4s;
+    transform: translateY(200%);
+    }
+    &.delay-3 {
+    transition-delay: .5s;
+    transform: translateY(300%);
+    }
+
+
+    /* @media (max-width: 700px) {
+      &.delay-0 {
+        transition-delay: .0s;
+        transform: translateY(40%);
+        opacity: 0;
+      }
+      &.delay-1 {
+        transition-delay: .1s;
+        transform: translateY(40%);
+      }
+      &.delay-2 {
+        transition-delay: .2s;
+        transform: translateY(40%);
+      }
+      &.delay-3 {
+        transition-delay: .3s;
+        transform: translateY(40%);
+        opacity: 0;
+      }
+    }
     @media (max-width: 700px) {
       width: 50%;
-    }
+    } */
   }
 
   .img-wrap{
@@ -135,7 +194,22 @@ const ItemList = styled.ul`
   } 
 `;
 
-function RightPeople() {
+const RightPeople = () => {
+
+  const itemsRef = useRef(null);
+
+  useEffect(() => {
+    const controller = new ScrollMagic.Controller();
+      new ScrollMagic
+      .Scene({
+        triggerElement: itemsRef.current,
+        triggerHook: .8
+      })
+      .setClassToggle(itemsRef.current, 'show')
+      .addTo(controller);
+  }, []);
+
+
   return (
     <Container>
       <Board>
@@ -143,8 +217,8 @@ function RightPeople() {
         <h2>인슈어테크를 넘어 핀테크를 선도할 혁신 人</h2>
       </Board>
       <ItemContainer>
-        <ItemList>
-          <li>
+        <ItemList ref={itemsRef}>
+          <li className='delay-0'>
             <div className='img-wrap'>
               <img src={idea} alt="idea"/>
             </div>
@@ -153,7 +227,7 @@ function RightPeople() {
               <p>창의적인&nbsp;<span>아이디어</span>로<br /> 혁신을&nbsp;선도할&nbsp;인재</p>
             </div>
           </li>
-          <li>
+          <li className='delay-1'>
             <div className='img-wrap'>
               <img src={trust} alt="trust"/>
             </div>
@@ -162,7 +236,7 @@ function RightPeople() {
               <p>고객을&nbsp;최우선으로<br /> <span>신뢰</span>를&nbsp;얻을&nbsp;수 있는&nbsp;인재</p>
             </div>
           </li>
-          <li>
+          <li className='delay-2'>
             <div className='img-wrap'>
               <img src={passion}  alt="passion"/>
             </div>
@@ -171,7 +245,7 @@ function RightPeople() {
               <p><span>열정</span>을&nbsp;무기로 최고의<br /> 전문가 될 수 있는&nbsp;인재</p>
             </div>
           </li>
-          <li>
+          <li className='delay-3'>
             <div className='img-wrap'>
               <img src={target} alt="target"/>
             </div>
@@ -186,4 +260,4 @@ function RightPeople() {
   )
 }
 
-export default RightPeople
+export default RightPeople;

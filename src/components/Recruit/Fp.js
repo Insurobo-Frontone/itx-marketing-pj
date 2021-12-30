@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Highfive from "../../img/sub/Highfive.svg";
-import Support from "../../img/sub/Support.svg";
+import Support from "../../img/sub/support.svg";
 
 const Container = styled.section`
 `;

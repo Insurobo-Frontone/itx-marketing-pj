@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import ScrollMagic from "scrollmagic";
 import Button from '../Button'

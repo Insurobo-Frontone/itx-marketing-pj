@@ -25,7 +25,7 @@ const IdeaList = styled.ul`
   &.show li {
     /* transform: translateX(0); */
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
  
   @media (max-width: 700px) {
