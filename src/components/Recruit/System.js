@@ -200,23 +200,10 @@ const CircleWrap = styled.div`
 
 const Program = styled.div`
   padding: 6.16% 8.333333333333333% 0;
-  &.show .delay-0{
-    transform: translateY(0);
-    opacity: 1;
+  @media (max-width: 700px) {
+    padding: 10.5% 5.4% 0;
   }
-  &.show .delay-1{
-    transform: translateY(0);
-    opacity: 1;
-  }
-  &.show .delay-2{
-    transform: translateY(0);
-    opacity: 1;
-  }
-  &.show .delay-3{
-    transform: translateY(0);
-    opacity: 1;
-  }
-  &.show .delay-4{
+  &.show li{
     transform: translateY(0);
     opacity: 1;
   }
@@ -224,109 +211,99 @@ const Program = styled.div`
     display: flex;
     flex-flow: row wrap;
     padding: 8.5% 0 8.4%;
-    
 
-    > li {
-      width: 25%;
-      padding: 4% 0 0 1.6%;
-      margin-right: 12.5%;
-      margin-bottom: 3.13%;
-      border: 1px solid #BEBEBE;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      opacity: 0;
-
-      &.delay-0 {
-      transition-delay: 0;
-      transform: translateY(-50%);
-      opacity: 1;
-      }
-      &.delay-1 {
-      transition-delay: .3s;
-      transform: translateY(-100%);
-      }
-      &.delay-2 {
-      transition-delay: .5s;
-      transform: translateY(-200%);
-      }
-      &.delay-3 {
-      transition-delay: .7s;
-      transform: translateY(-300%);
-      }
-      &.delay-4 {
-      transition-delay: .9s;
-      transform: translateY(-400%);
-      }
-      :nth-child(3) {
-        margin-right: 0;
-      }
-
-      > .img-wrap {
-        align-self: flex-end;
-        width: 150px;
-        height: 150px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      > .text-wrap {
-        white-space: pre;
-
-        > h3 {
-          font-size: 1rem;
-          color: #1A1A1A;
-          font-family: 'GoyangDeogyang';
-        }
-        > p {
-          font-size: 0.8rem;
-          line-height: 1.166666666666667rem;
-          padding: 21.1% 0 20.6% 0;
-        }
-      }
-    }
-  }
-  @media (max-width: 700px) {
-    padding: 10.5% 5.4% 0;
-
-    
-    > ul {
+    @media (max-width: 700px) {
       flex-flow: column;
       padding: 11.2% 3.7% 13%;
-      > li {
-        flex-direction: row;
-        width: 100%;
-        align-items: center;
-        padding: 3.3% 0;
-        margin-right: 0;
-        opacity: 0;
-        
-        &:last-child {
-          margin-bottom: 0;
-        }
-        .img-wrap {
-          order: 1;
-          width: 100px;
-          height: 100px;
-          align-self: center;
-          > img {
-            width: 50%;
-          }
-        }
-        .text-wrap {
-          align-self: center;
-          order: 2;
-          padding-left: 10.5%;
-          > h3 {
-            color: #1A1A1A;
-            font-family: 'GoyangDeogyang';
-          }
-          > p {
-            font-size: 0.625rem;
-            line-height: 0.8958333333333333rem;
-            padding: 10% 0 0 0;
-          }
-        }
+    }
+  }
+`;   
+
+const Items = styled.li`
+  width: 25%;
+  padding: 4% 0 0 1.6%;
+  margin-right: 12.5%;
+  margin-bottom: 3.13%;
+  border: 1px solid #BEBEBE;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  opacity: 0;
+  background-color: #FFFFFF;
+  transition-duration: 0.4s;
+  transform: translateY(100%);
+
+  &.delay-0 {
+    transition-delay: 0;
+  }
+  &.delay-1 {
+    transition-delay: .3s;
+  }
+  &.delay-2 {
+    transition-delay: .4s;
+  }
+  &.delay-3 {
+    transition-delay: .5s;
+  }
+  &.delay-4 {
+    transition-delay: .6s;
+  }
+  :nth-child(3) {
+    margin-right: 0;
+  }
+   > .img-wrap {
+      align-self: flex-end;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
+  > .text-wrap {
+      white-space: pre;
+    > h3 {
+        font-size: 1rem;
+        color: #1A1A1A;
+        font-family: 'GoyangDeogyang';
+      }
+    > p {
+        font-size: 0.8rem;
+        line-height: 1.166666666666667rem;
+        padding: 21.1% 0 20.6% 0;
+      }
+    }
+  @media (max-width: 700px) {
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    padding: 3.3% 0;
+    margin-right: 0;
+    opacity: 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .img-wrap {
+      order: 1;
+      width: 100px;
+      height: 100px;
+      align-self: center;
+      > img {
+        width: 50%;
+      }
+    }
+    .text-wrap {
+      align-self: center;
+      order: 2;
+      padding-left: 10.5%;
+      > h3 {
+        color: #1A1A1A;
+        font-family: 'GoyangDeogyang';
+      }
+      > p {
+        font-size: 0.625rem;
+        line-height: 0.8958333333333333rem;
+        padding: 10% 0 0 0;
       }
     }
   }
@@ -334,19 +311,8 @@ const Program = styled.div`
 
 const Incentive = styled.div`
   padding: 4.1% 8.333333333333333% 0;
-  &.show .delay-0{
-    transform: translateY(0);
-    opacity: 1;
-  }
-  &.show .delay-1{
-    transform: translateY(0);
-    opacity: 1;
-  }
-  &.show .delay-2{
-    transform: translateY(0);
-    opacity: 1;
-  }
-  &.show .delay-3{
+
+  &.show li{
     transform: translateY(0);
     opacity: 1;
   }
@@ -359,29 +325,21 @@ const Incentive = styled.div`
     > li {
       display: flex;
       align-items: center;
-      width: 25%;
-      padding: 1.04% 0;
-      opacity: 0;
-      transition-duration: 4s;
+      justify-content: space-between;
       transform: translateY(100%);
-
+      transition-duration: 0.4s;
+      width: 25%;
       &.delay-0 {
       transition-delay: 0;
-      transform: translateY(50%);
-      opacity: 1;
       }
       &.delay-1 {
       transition-delay: .3s;
-      
-
       }
       &.delay-2 {
       transition-delay: .4s;
-      transform: translateY(200%);
       }
       &.delay-3 {
       transition-delay: .5s;
-      transform: translateY(300%);
       }
       > .img-wrap {
         width: 150px;
@@ -394,8 +352,8 @@ const Incentive = styled.div`
       }
       > .text-wrap {
         white-space: pre;
-        padding-left: 6.8%;
-        align-self: flex-start;
+        width: 50%;
+        /* align-self: center; */
 
         > h3 {
           color: #1A1A1A;
@@ -408,7 +366,7 @@ const Incentive = styled.div`
         > p {
           font-size: 0.8rem;
           line-height: 1.166666666666667rem;
-          padding: 20% 0 0 0;
+          padding: 20% 0 20% 0;
         }
       }
     }
@@ -430,7 +388,7 @@ const Incentive = styled.div`
         height: 100px;
         
         > img {
-          width: 50%;
+          /* width: 50%; */
         }
       }
       > .text-wrap {
@@ -454,22 +412,23 @@ const Incentive = styled.div`
 const System = () => {
   const intRef = useRef(null);
   const progRef = useRef(null);
+
   useEffect(() => {
     const controller = new ScrollMagic.Controller();
+    new ScrollMagic
+        .Scene({
+          triggerElement: progRef.current,
+          triggerHook: .5
+        })
+        .setClassToggle(progRef.current, 'show')
+        .addTo(controller);
       new ScrollMagic
       .Scene({
         triggerElement: intRef.current,
         triggerHook: .8
       })
       .setClassToggle(intRef.current, 'show')
-      .addTo(controller);
-      new ScrollMagic
-        .Scene({
-          triggerElement: progRef.current,
-          triggerHook: .8
-        })
-        .setClassToggle(progRef.current, 'show')
-        .addTo(controller);
+      .addTo(controller);      
   }, []);
   
   return (
@@ -495,7 +454,7 @@ const System = () => {
         <Title en={'A nurturing program'} ko={'육성프로그램'} />
         <ul>
           {ProgramData.map((pd) => (
-            <li key={pd.id} className={pd.classname}>
+            <Items key={pd.id} className={pd.classname}>
               <div className='text-wrap'>
                 <h3>{pd.title}</h3>
                 <p>{pd.desc}</p>
@@ -503,7 +462,7 @@ const System = () => {
               <div className='img-wrap'>
                 <img src={pd.icon} alt={pd.title} />
               </div>
-            </li>
+            </Items>
           ))}
         </ul>
       </Program>

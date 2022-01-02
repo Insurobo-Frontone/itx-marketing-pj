@@ -459,6 +459,7 @@ const Divide = [
     ci: theH 
   }
 ]
+
 const PartnerCompany = (props) => {
   return (
     <CompanyConatiner>

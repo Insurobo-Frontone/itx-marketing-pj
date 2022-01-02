@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components';
-import ScrollMagic from "scrollmagic";
 import Button from '../Button'
+import ScrollMagic from "scrollmagic";
 
 import insurtech from "../../img/sub/insurtech.png"
 import healthCare from "../../img/sub/healthCare.png"
@@ -17,9 +17,10 @@ const TypeContainer = styled.section`
     padding: 18.3% 7.6%;
   }
 `;
-const TypeList = styled.ul`
 
+const TypeList = styled.ul`
 `;
+
 const Item = styled.li`
   display: flex;
   align-items: center;
@@ -159,19 +160,18 @@ const Type = [
 
 const PartnerType = () => {
 
-
   useEffect(() => {
     const fadeEls = document.querySelectorAll('.fade-el');
     fadeEls.forEach(function (fadeEl) {
       new ScrollMagic
-      .Scene({
-        triggerElement: fadeEl,
-        triggerHook: .5
-      })
-      .setClassToggle(fadeEl, 'show')
-      .addTo(new ScrollMagic.Controller());
+        .Scene({
+          triggerElement: fadeEl,
+          triggerHook: .5
+        })
+        .setClassToggle(fadeEl, 'show')
+        .addTo(new ScrollMagic.Controller());
     })
-  },[]);
+  }, []);
 
   return (
     <TypeContainer>

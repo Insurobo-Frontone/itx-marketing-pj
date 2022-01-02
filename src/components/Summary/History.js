@@ -1,4 +1,4 @@
-import React, { useEffect, useRef }  from 'react'
+import React, { useRef, useEffect }  from 'react'
 import styled from 'styled-components';
 import Title from './Title';
 import ScrollMagic from "scrollmagic";
@@ -180,14 +180,13 @@ const History = () => {
       })
       .setClassToggle(historyRef.current, 'show')
       .addTo(controller);
-
-        new ScrollMagic
-        .Scene({
-          triggerElement: textRef.current,
-          triggerHook: .8
-        })
-        .setClassToggle(textRef.current, 'show')
-        .addTo(controller);
+      new ScrollMagic
+      .Scene({
+        triggerElement: textRef.current,
+        triggerHook: .8
+      })
+      .setClassToggle(textRef.current, 'show')
+      .addTo(controller);
   });
 
 

@@ -1,60 +1,53 @@
 import React from 'react'
 import styled from 'styled-components';
-
 import bannerMb from '../../img/sub/partnersVisualMb.png';
 import banner from '../../img/sub/partnersVisual.png';
 import Illust from '../../img/sub/partnersIllust.png';
 
-
 const BannerContainer = styled.section`
-  position: relative;
-  padding-top: 56.25%;
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url(${banner});
-
-  @media (max-width: 700px) {
-  padding-top: 154.8%;
-  background-position: right center;
-  background-size: 110%;
-  background-position: 0% 60%;
-  background-image: url(${bannerMb}) !important;
-}
   > div {
-    position: absolute;
-    bottom: 0;
-    @media (max-width: 700px) {
-      width: 33.06666666666667%;
+    > img {
+      height: 352px;
     }
-    .text-wrap {
-      padding-left: 39%;
-      width: 190%;
-
+    > .text-wrap {
+      padding: 25.13% 0 5.3% 7.8%;
       > h2 {
         color: #1A1A1A;
         font-size: 2rem;
         font-family: 'GoyangDeogyang';
+        padding-bottom: 2.5%;
         > strong {
         color: #B8292D;
         }
       }
       > p {
         line-height: 1.3rem;
-        padding: 8% 0 16.8% 0;
       }
-
-      @media (max-width: 700px) {
-        padding: 0 0 175% 16.8%;
+    }
+  }
+@media (max-width: 700px) {
+  background-position: right center;
+  background-size: 110%;
+  background-position: 0% 60%;
+  background-image: url(${bannerMb}) !important;
+  > div {
+    width: 100%;
+    > img {
+      height: 119px;
+    }
+    > .text-wrap{
+        padding: 40% 0 59% 7.8%;
+        width: 100%;
         > h2 {
           font-size: 1.75rem;
+          /* padding-bottom: 3%; */
         }
         > p {
           font-size: 0.8125rem;
-          padding: 4% 0 0 0;
-
-          > br {
-            display: none;
-          }
+          padding: 0;
         }
       }
     }

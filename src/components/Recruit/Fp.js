@@ -34,16 +34,15 @@ function Fp() {
             {LinkList.map((el) => (
               <LinkWrap>
                 <p>{el.title}</p>
-                <a href="#content1"><img src={el.icon} alt="" /></a>
+                <a href="#content1"><img src={el.icon} alt={el.title} /></a>
               </LinkWrap>
             ))}
           </Title>
           <ImgWrap>
-            <img src={Highfive} alt="" />
+            <img src={Highfive} alt="FP" />
           </ImgWrap>
           <FPBOX>
           <h2>FP채용</h2>
-          <Line />
           <Ul>
             <li>개인영업</li>
             <li>법인컨설팅</li>
@@ -87,15 +86,18 @@ const Title = styled.div`
 `;
 
 const ImgWrap = styled.div`
+  pa
   & > img {
-    padding-top: 71px;
+    /* padding-top: 71px; */
   }
 `;
 
 const FPBOX = styled.div`
-  right: 0;
-  width: 455px;
-  height: 315px;
+  /* position: absolute;
+  right: 0; */
+  width: 23.69791666666667%;
+  display: flex;
+  flex-direction: column;
   background-color: #b8292d;
 
   & > h2 {
@@ -103,8 +105,9 @@ const FPBOX = styled.div`
     font-family: 'GoyangDeogyang';
     font-size: 30px;
     text-align: center;
-    padding-top: 40px;
-    padding-bottom: 31px;
+    /* padding-top: 40px;
+    padding-bottom: 31px; */
+    border-bottom: 3px solid #FFFFFF;
   }
 `;
 
@@ -129,7 +132,3 @@ const LinkWrap = styled.div`
   }
 `;
 
-const Line = styled.div`  
-  height: 3px;
-  background-color: #ffffff;
-`;

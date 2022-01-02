@@ -62,6 +62,7 @@ const StyleSwiper = styled(Swiper)`
     border-radius: 45px;
     padding: 3.2%;
     height: 640px;
+    transition: 1s;
     
     @media (max-width: 1261px) {
       height: 400px;
@@ -88,6 +89,7 @@ const StyleSwiper = styled(Swiper)`
 }
 &#original-slide .swiper-slide-active{
   transform: scale(1.1);
+
   @media(max-width: 700px) {
     transform: scale(0.9);
   }
