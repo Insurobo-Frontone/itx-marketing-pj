@@ -4,20 +4,28 @@ import styled from 'styled-components';
 import GroupChart from './GroupChart';
 import banner1 from '../../img/sub/contactVisual1.png';
 import banner2 from '../../img/sub/contactVisual2.png';
+import SearchForm from './SearchForm';
+import Overay from '../Overay';
+import SalesChart from './SalesChart';
 
 
 const NavContainer = styled.div`
   display: flex;
   justify-content: center;
   padding: 4.7% 13.54166666666667% 2.1%;
-
+  @media (max-width: 700px) {
+    padding: 8% 5.4% 8%;
+  }
   > ul {
     width: 100%;
     display: flex;
     justify-content: space-between;
     
+    @media (max-width: 700px) {
+      padding: 0;
+    }
     > li {
-      width: 25%;
+      width: 50%;
       text-align: center;
       border: 1px solid #C4C4C4;
       border-right-width: 0;
@@ -32,7 +40,10 @@ const NavContainer = styled.div`
       > a {
         display: block;
         line-height: 3.5rem;
-        
+        @media (max-width: 700px) {
+          line-height: 2.5rem;
+          font-size: 0.8125rem;
+        }
       }
       :last-child {
         border-right-width: 1px;
@@ -50,10 +61,49 @@ const ContactBanner = styled.section`
   background-repeat: no-repeat;
   background-position: 0 70%;
   background-size: 100%;
-  /* background-image: url(${banner1}); */
+  @media (max-width: 700px) {
+    padding-top: 154.7%;
+    background-size: cover;
+    background-position: 72% 50%;
+  }
+  > .text-wrap {
+    position: absolute;
+    top: 50%;
+    left: 7.708333333333333%;
+    transform: translateY(-20%);
+    color: #FFFFFF;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    
+      > h2 { 
+        font-size: 2rem;
+        font-family: 'GoyangDeogyang';
+        > strong {
+        color: #B8292D;
+        }
+      }
+      > p {
+        padding-top: 10%;
+        line-height: 1.4rem;
+      }
+      @media (max-width: 700px) {
+        width: 56%;
+        top: 31.5%;
+
+        > h2 {
+          font-size: 1.75rem;
+          line-height: 2.15625rem;
+        }
+        > p {
+          font-size: 0.8125rem;
+          line-height: 1.25rem;
+          padding-top: 8.8%;
+        }
+      }
+    }
 `;
 const TabContent = styled.div`
-  
   .block{
     display: block;
   }
@@ -66,45 +116,63 @@ const ContactTab = () => {
 
   return (
     <Layout>
-      <ContactBanner style={{
-        backgroundImage: openTab === 1 ? `url(${banner1})` :  `url(${banner2})`
-      }}>
-
-      </ContactBanner>
+      {openTab === 1 && (
+        <ContactBanner style={{
+          backgroundImage: `url(${banner1})`
+        }}>
+          <Overay />
+          <div className='text-wrap'>
+            <h2><strong>C</strong>ontact <strong>U</strong>s</h2>
+            <p>ITX 마케팅 조직도</p> 
+          </div>
+        </ContactBanner> 
+      )}
+      {openTab === 2 && (
+        <ContactBanner style={{
+          backgroundImage: `url(${banner2})`
+        }}>
+          <div className='text-wrap'>
+            <h2><strong>C</strong>ontact<strong>U</strong>s</h2>
+            <p>ITX마케팅 사업단</p> 
+          </div>
+        </ContactBanner> 
+      )}
+      
       <NavContainer>
-      <ul>
-        <li className={openTab === 1 ? 'active' : '' }>
-          <a
-            onClick={(e) => {
-            e.preventDefault();
-              setOpenTab(1);
-            }}
-            data-toggle="tab"
-            href="#cont1"
-            role="tablist"
-          >조직도</a>
-        </li>
-        <li className={openTab === 2 ? 'active' : '' }>
-          <a
-           onClick={(e) => {
-            e.preventDefault();
+        <ul>
+          <li className={openTab === 1 ? 'active' : '' }>
+            <a
+              onClick={(e) => {
+              e.preventDefault();
+              setOpenTab(1)}}
+              data-toggle="tab"
+              href="#cont1"
+              role="tablist"
+            >조직도</a>
+          </li>
+          <li className={openTab === 2 ? 'active' : '' }>
+            <a
+              onClick={(e) => {
+              e.preventDefault();
               setOpenTab(2)}}
-            data-toggle="tab"
-            href="#cont2"
-            role="tablist"
-          >사업단 & FP 찾기</a>
-        </li>
-      </ul>
-    </NavContainer>
+              data-toggle="tab"
+              href="#cont2"
+              role="tablist"
+            >사업단 & FP 찾기</a>
+          </li>
+        </ul>
+      </NavContainer>
     <TabContent>
       <div className={openTab === 1 ? 'block' : 'hidden'} id="#cont1">
         <GroupChart />
+        <SalesChart />
       </div>
       <div className={openTab === 2 ? 'block' : 'hidden'} id="#cont2">
+        <SearchForm />
       </div>
     </TabContent>
     </Layout>
   )
 }
 
-export default ContactTab
+export default ContactTab;

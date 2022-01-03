@@ -9,6 +9,7 @@ import banner1 from "../img/main/mbSlide1.png"
 import banner2 from "../img/main/mbSlide2.png"
 import banner3 from "../img/main/mbSlide3.png"
 import styled from 'styled-components';
+import Overay from './Overay';
 
 const data = [
   {
@@ -50,15 +51,6 @@ const Page = styled.div`
     line-height: 11.28px;
     top: 84.33098591549296%;
   }
-`;
-
-const Overay = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0,0,0,.3);
 `;
 
 const StyleSwiper = styled(Swiper)`
