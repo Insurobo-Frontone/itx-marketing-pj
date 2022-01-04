@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Highfive from "../../img/sub/Highfive.svg";
-import Support from "../../img/sub/support.svg";
+import linkBtn from "../../img/common/halfArrow.svg";
 
 const Container = styled.section`
 `;
@@ -10,17 +10,17 @@ const LinkList = [
   {
     id: 0,
     title: "교육지원",
-    icon: Support,
+    icon: linkBtn,
   },
   {
     id: 1,
     title: "DB지원",
-    icon: Support,
+    icon: linkBtn,
   },
   {
     id: 2,
     title: "전산지원",
-    icon: Support,
+    icon: linkBtn,
   },
 ];
 
