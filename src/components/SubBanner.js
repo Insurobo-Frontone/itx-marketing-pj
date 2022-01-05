@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
 import linkBtn from "../img/common/halfArrow.svg";
-import TitleBox from './TitleBox';
 
 const Container = styled.div`
 
@@ -46,12 +45,8 @@ const SubBanner = (props) => {
           <li><a href="#part3">{props.link3}</a></li>
         </LinkWrap>
       </GrayBox>
-      <TitleBox 
-        title="FP채용"
-        list1="개인영업"
-        list2="법인컨설팅"
-        list3="DB영업"
-      />
+      
+
     </Container>
   )
 }
