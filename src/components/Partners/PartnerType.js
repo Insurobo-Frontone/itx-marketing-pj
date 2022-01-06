@@ -7,8 +7,7 @@ import insurtech from "../../img/sub/insurtech.png"
 import healthCare from "../../img/sub/healthCare.png"
 import financial from "../../img/sub/financial.png"
 import bigData from "../../img/sub/bigData.png"
-
-
+import  { ReactComponent as ArrowBtn } from '../../img/common/ArrowShortBtn.svg';
 const TypeContainer = styled.section`
   padding: 10.12% 0 2.4% 0;
   background-color: #F8F8F8;
@@ -20,13 +19,44 @@ const TypeContainer = styled.section`
 
 const TypeList = styled.ul`
 `;
+const Text = styled.p`
+  transition: .5s;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transform: translateX(15px);
+  :hover {
+    transform: translateX(0);
+  }
+  :hover > .arrow-icon {
+    transform: translateX(15px);
+    opacity: 1;
+    display: inline-block;
+  }
+   .arrow-icon {
+    width: 35px;
+    height: 8.55px;          
+    opacity: 0;
+    transform: translateX(-15px);
+    transition: .5s;
+  }
+  @media (max-width: 700px) {
+    transform: translateX(0);
+    :hover .arrow-icon {
+      display: none;
+    }
+    > p {
+      transform: translateX(0);
+    }
+  }
+`;
 
 const Item = styled.li`
   display: flex;
   align-items: center;
   margin-bottom: 4.7%;
   position: relative;
-
+ 
   &.show .img-box{
     width: 50.625%;
     opacity: 1;
@@ -191,7 +221,12 @@ const PartnerType = () => {
               <h1>{td.ko}</h1>
               <p>{td.desc}</p>
             </div>
-            <Button primary="제휴상담문의" />
+            <Button size="md">
+              <Text>
+                제휴상담문의
+                <ArrowBtn stroke="#FFFFFF" className='arrow-icon'/>
+              </Text>
+            </Button>
           </div>
         </Item>
       ))}

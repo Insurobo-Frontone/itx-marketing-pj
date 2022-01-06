@@ -50,7 +50,7 @@ const Board = styled.div`
 const MiniBanner = (props) => {
   return (
     <Board>
-        <p>{props.title}</p>
+        <p>ITX Marketing</p>
         <h2>{props.desc}</h2>
     </Board>
   )

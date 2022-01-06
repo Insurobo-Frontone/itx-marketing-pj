@@ -54,6 +54,40 @@ const GlobalStyle = createGlobalStyle`
     outline: none;
     cursor: pointer;
   }
+  input,select {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+  }
+  input:focus::-webkit-input-placeholder,
+  textarea:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+  input:focus::-moz-input-placeholder,
+  textarea:focus::-moz-input-placeholder {
+    color: transparent;
+  }
+  input:focus::-moz-placeholder,
+  textarea:focus::-moz-placeholder { 
+    color: transparent; 
+  }
+  input:focus:-ms-input-placeholder,
+  textarea:focus:-ms-input-placeholder { 
+    color: transparent; 
+  }
+  table{
+    border-spacing: 0;
+    border-collapse: collapse;
+    text-indent: 0;
+  }
+  input[type='checkbox']{
+    position: absolute;
+    padding: 0;
+    left: -3000%;
+  }
 `;
 
 export default GlobalStyle;

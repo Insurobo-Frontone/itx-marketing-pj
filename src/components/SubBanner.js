@@ -2,51 +2,70 @@ import React from 'react'
 import styled from 'styled-components';
 import linkBtn from "../img/common/halfArrow.svg";
 
+
 const Container = styled.div`
+  background-color: #F8F8F8;
+  width: 100%;
 
-`;
-const GrayBox = styled.div`
-
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 24.8%;
+  }
 `;
 const TextWrap = styled.div`
-
-`;
-const ImagWrpa = styled.div`
-
+  h2 {
+    font-family: 'GoyangDeogyang';
+    color: #1A1A1A;
+    font-size: 2.5rem;
+    padding-top: 8.7%;
+  }
+  p {
+    font-size: 1.5rem;
+  }
 `;
 const LinkWrap = styled.ul`
   display: flex;
+  width: 100%;
+  font-size: 0.8rem;
+  color: #B8292D;
 >li::after {
   content: '';
   display: block;
-  width: 230px;
+  width: 235px;
   height: 12px;
   background-image: url(${linkBtn});
   background-size: contain;
   background-repeat: no-repeat;
 }
 `;
+
 const SubBanner = (props) => {
   return (
-    <Container>
-      <GrayBox>
+    <Container
+      style={{
+        padding: `${props.padding}`
+      }}
+    >
+      <div>
+        <TextWrap
+          style={{
+            paddingLeft: `${props.leftpd}`
+          }}
+        >
+          <p>{props.modifier}</p>
+          <h2>아이티엑스마케팅</h2>
+        </TextWrap>
         <div>
-          <TextWrap>
-            <p>{props.modifier}</p>
-            <h2>아이티엑스마케팅</h2>
-          </TextWrap>
-          <ImagWrpa>
-            <img src={props.image} alt="아이티엑스마케팅"/>
-          </ImagWrpa>
+          <img src={props.image} alt='아이티엑스마케팅'/>
         </div>
-        <LinkWrap>
-          <li><a href="#part1">{props.link1}</a></li>
-          <li><a href="#part2">{props.link2}</a></li>
-          <li><a href="#part3">{props.link3}</a></li>
-        </LinkWrap>
-      </GrayBox>
-      
-
+      </div>
+      <LinkWrap>
+        <li><a href="#part1">{props.link1}</a></li>
+        <li><a href="#part2">{props.link2}</a></li>
+        <li><a href="#part3">{props.link3}</a></li>
+      </LinkWrap>
     </Container>
   )
 }

@@ -35,7 +35,8 @@ const ItemList = styled.ul`
   } 
 
   @media (max-width: 700px) {
-    flex-wrap: wrap;
+    flex-flow: row wrap;
+   
   }
    
 `;
@@ -49,7 +50,11 @@ const Items = styled.li`
   transition-duration: 0.6s;
   opacity: 0;
   transform: translateY(100%);
-  
+  @media (max-width: 700px) {
+    width: 50%;
+    align-self: flex-start;
+    padding-bottom: 7%;
+  }
   &.delay-0 {
     transition-delay: 0;
   }
@@ -70,6 +75,7 @@ const Items = styled.li`
     justify-content: center;
     background-color: #F8F8F8;
     border-radius: 50%;
+
     @media (max-width: 700px) {
       width: 100px;
       height: 100px;
@@ -114,6 +120,7 @@ const Items = styled.li`
 const RightPeople = () => {
 
   const itemsRef = useRef(null);
+
   useEffect(() => {
     const controller = new ScrollMagic.Controller();
       new ScrollMagic
@@ -127,7 +134,7 @@ const RightPeople = () => {
 
   return (
     <Container>
-      <MiniBanner title="ITX Marketing" desc="인슈어테크를 넘어 핀테크를 선도할 혁신 人" />
+      <MiniBanner desc="인슈어테크를 넘어 핀테크를 선도할 혁신 人" />
       <ItemContainer>
         <ItemList ref={itemsRef}>
           <Items className='delay-0'>

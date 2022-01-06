@@ -380,7 +380,7 @@ const Incentive = styled.div`
 
     > li {
       width: 100%;
-      padding: 1.04% 0;
+      padding: 1.04% 10% 0 0;
       margin-bottom: 12%;
 
       > .img-wrap {
@@ -388,12 +388,12 @@ const Incentive = styled.div`
         height: 100px;
         
         > img {
-          /* width: 50%; */
+          padding: 25%;
         }
       }
       > .text-wrap {
-        padding-left: 10.3%;
-        align-self: center;
+        padding-left: 0%;
+        /* align-self: flex-start; */
 
         > h3 {
           line-height: 1.1875rem;
@@ -401,7 +401,7 @@ const Incentive = styled.div`
         > p {
           font-size: 0.625rem;
           line-height: 1.166666666666667rem;
-          padding: 12% 0 0 0;
+          padding: 11% 0 0 0;
         }
       }
     }
@@ -434,7 +434,7 @@ const System = () => {
   return (
     <Container>
       <CircleWrap>
-      <Title en={'Recruitment procedure'} ko={'채용절차'} />
+        <Title en={'Recruitment procedure'} ko={'채용절차'} />
         <ul>
           <li>
             <div>서류전형</div>
