@@ -7,7 +7,7 @@ import banner2 from '../../img/sub/contactVisual2.png';
 import SearchForm from './SearchForm';
 import Overay from '../Overay';
 import SalesChart from './SalesChart';
-
+import TopBox from './TopBox';
 
 const NavContainer = styled.div`
   display: flex;
@@ -164,6 +164,7 @@ const ContactTab = () => {
       </NavContainer>
     <TabContent>
       <div className={openTab === 1 ? 'block' : 'hidden'} id="#cont1">
+        <TopBox title="조직구성"/>
         <GroupChart />
         <SalesChart />
       </div>

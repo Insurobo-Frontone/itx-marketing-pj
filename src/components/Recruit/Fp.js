@@ -157,6 +157,9 @@ const Fp = () => {
           link1='교육지원'
           link2='DB지원'
           link3='전산지원'
+          id1="#part1"
+          id2="#part2"
+          id3="#part3"
         />
         <TitleBox  
           title="FP채용"

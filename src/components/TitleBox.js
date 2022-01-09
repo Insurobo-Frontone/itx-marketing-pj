@@ -4,10 +4,15 @@ import styled from 'styled-components'
 const BoxContain = styled.div`
   position: absolute;
   top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: #B8292D;
   width: 23.69791666666667%;
+  height: 316px;
   color: #FFFFFF;
   box-shadow: 10px 11px 14px rgba(0, 0, 0, 0.15);
+  
   > h2 {
     line-height: 5.25rem;
     font-family: 'GoyangDeogyang';
@@ -15,7 +20,8 @@ const BoxContain = styled.div`
     border-bottom: 3px solid #FFFFFF;
   }
   ul {
-    padding: 18.1% 0 5.8% 8.2%;
+    padding: 0 0 5% 8.2%;
+
     > li {
     line-height: 1.666666666666667rem;
   }

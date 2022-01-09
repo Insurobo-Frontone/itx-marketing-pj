@@ -17,7 +17,7 @@ const ChartWrap = styled.div`
     justify-content: space-between;
     padding: 0 8.59375%;
     @media(max-width: 700px) {
-      padding: 0;
+      padding: 0 4.8%;
     }
   }
   .ceo-wrap{
@@ -102,17 +102,17 @@ const ChartWrap = styled.div`
 const ChannelWrap = styled.ul`
   position: relative;
   padding-top: 3.1%;
-  width: 22.8%;
+  width: 18.78%;
+
   @media(max-width: 700px) {
-    width: 24.9%;
-  
+    width: 24.5%;
   }
   > li {
     color: #1A1A1A;
     
   }
   > li > div {
-    width: 300px;
+    width: 100%;
     height: 80px;
     border: 4px solid #F0F0F0;
     background-color: #FFFFFF;
@@ -123,7 +123,7 @@ const ChannelWrap = styled.ul`
     z-index: 3;
     margin-top: 10%;
     @media(max-width: 700px) {
-      width: 80px;
+      /* width: 80px; */
       height: 30px;
       font-size: 0.625rem;
       border: 2px solid #F0F0F0;
@@ -131,7 +131,7 @@ const ChannelWrap = styled.ul`
   }
  .title-box {
     background-color: #B8292D;
-    width: 300px;
+    width: 100%;
     height: 80px;
     border-radius: 108px;
     color: #FFFFFF;
@@ -142,22 +142,24 @@ const ChannelWrap = styled.ul`
     border: 0;
     z-index: 3;
     @media(max-width: 700px) {
-      width: 80px;
+      /* width: 80px; */
       height: 30px;
       font-size: 0.625rem;
     }
     ::before{
     content: '';
     display: block;
-    width: 100%;
+    width: 120%;
     height: 157px;
     border-left: 3px solid #F0F0F0;
+    border-top: 3px solid #F0F0F0;
     position: absolute;
     left: 50%;
     z-index: -1;
     @media(max-width: 700px) {
       height: 64px;
       border-left: 1.5px solid #F0F0F0;
+      border-top: 0;
     }
     }
   }
@@ -189,9 +191,12 @@ const BusiTeamList = styled.ul`
     list-style: disc;
   > li {
     line-height: 1.86rem;
+
+
     @media(max-width: 700px) {
       font-size: 0.625rem;
       line-height: 1.0375rem;
+      align-self: flex-start;
     }
   }
 

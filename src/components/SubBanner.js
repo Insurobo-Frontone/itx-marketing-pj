@@ -62,9 +62,9 @@ const SubBanner = (props) => {
         </div>
       </div>
       <LinkWrap>
-        <li><a href="#part1">{props.link1}</a></li>
-        <li><a href="#part2">{props.link2}</a></li>
-        <li><a href="#part3">{props.link3}</a></li>
+        <li><a href={props.id1}>{props.link1}</a></li>
+        <li><a href={props.id2}>{props.link2}</a></li>
+        <li><a href={props.id3}>{props.link3}</a></li>
       </LinkWrap>
     </Container>
   )

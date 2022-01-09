@@ -4,7 +4,48 @@ import lady from "../../img/sub/lady.svg";
 import SubTitle from "./SubTitle";
 import SubBanner from "../SubBanner";
 import TitleBox from "../TitleBox";
+import MiniBanner from "../MiniBanner";
+import Info from "./Info";
 
+import benefits1 from "../../img/sub/benefits1.svg";
+import benefits2 from "../../img/sub/benefits2.svg";
+import benefits3 from "../../img/sub/benefits3.svg";
+import benefits4 from "../../img/sub/benefits4.svg";
+import benefits5 from "../../img/sub/benefits5.svg";
+import benefits6 from "../../img/sub/benefits6.svg";
+
+const Data = [
+  {
+    id: 0,
+    title: '4대 보험 및 퇴직금',
+    icon: benefits1
+  },
+  {
+    id: 1,
+    title: '다양한 휴가제도\n연차, 출산휴가\n경조사휴가, 특별휴가',
+    icon: benefits2
+  },
+  {
+    id: 2,
+    title: '경조금 / 화환 지급',
+    icon: benefits3
+  },
+  {
+    id: 3,
+    title: '육아휴직\n임산부 업무시간 조정',
+    icon: benefits4
+  },
+  {
+    id: 4,
+    title: '분기별 워크샵',
+    icon: benefits5
+  },
+  {
+    id: 5,
+    title: '장기근속포상',
+    icon: benefits6
+  },
+]
 const Container = styled.section`
   > .gray-box {
     position: relative;
@@ -18,6 +59,41 @@ const ContentContainer = styled.div`
 const Contents = styled.div`
   display: flex;
   flex-direction: column;
+
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 3% 0;
+
+    > li {
+      display: flex;
+      width: 31%;
+      justify-content: space-between;
+      text-align: end;
+      align-items: center;
+      padding: 1.2% 2% 1.2% 1.2%;
+      border: 1px solid #BEBEBE;
+      margin: 2.75% 0;
+      
+      > div {
+        background-color: #F8F8F8;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      > h2 {
+        white-space: pre;
+        color: #1A1A1A;
+        font-family: 'GoyangDeogyang';
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+    }
+  }
 `;
 
 const Table = styled.table`
@@ -39,7 +115,10 @@ const Table = styled.table`
 
 `;
 
-function Permanent() {
+const BottomWrap = styled.div`
+  padding: 5% 13.54166666666667% 0;
+`;
+const Permanent = () => {
   return (
     <Container>
       <div className='gray-box'>
@@ -51,6 +130,9 @@ function Permanent() {
           link2='근무조건'
           link3='우대사항'
           leftpd='8.5%'
+          id1="#cont1"
+          id2="#cont2"
+          id3="#cont3"
         />
         <TitleBox  
           title="정규직채용"
@@ -62,7 +144,7 @@ function Permanent() {
         /> 
       </div>
       <ContentContainer>
-        <Contents id="part1">
+        <Contents id="cont1">
           <SubTitle 
             title="모집부분"
           />
@@ -112,7 +194,7 @@ function Permanent() {
             </tbody>
           </Table> 
         </Contents>
-        <Contents id="part2">
+        <Contents id="cont2">
           <SubTitle 
             title="근무조건"
           />
@@ -144,7 +226,7 @@ function Permanent() {
             </tr>
           </Table>
         </Contents >
-        <Contents id="part3">
+        <Contents id="cont3">
           <SubTitle 
             title="우대사항"
           />
@@ -175,10 +257,23 @@ function Permanent() {
           <SubTitle 
             title="복리후생"
           />
+          <ul>
+            {Data.map((bd) => (
+            <li key={bd.id}>
+              <div><img src={bd.icon} alt={bd.title}/></div>
+              <h2>{bd.title}</h2>
+            </li>
+            ))}
+          </ul>
         </Contents>
       </ContentContainer>
+      <BottomWrap>
+          <MiniBanner desc="정규직 채용 문의" />
+            <Info email="이메일 : aseds@wehago.com" keeper="담당자 : 정의석 부장" />
+        </BottomWrap>
     </Container>
   )
 }
 
-export default Permanent
+export default Permanent;
+
