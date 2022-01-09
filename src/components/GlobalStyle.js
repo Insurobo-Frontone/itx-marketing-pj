@@ -79,8 +79,6 @@ const GlobalStyle = createGlobalStyle`
     color: transparent; 
   }
   table{
-    border-spacing: 0;
-    border-collapse: collapse;
     text-indent: 0;
   }
   input[type='checkbox']{

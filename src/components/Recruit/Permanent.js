@@ -225,7 +225,7 @@ const Permanent = () => {
               <td>-</td>
             </tr>
           </Table>
-        </Contents >
+        </Contents>
         <Contents id="cont3">
           <SubTitle 
             title="우대사항"
