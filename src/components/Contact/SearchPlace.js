@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
+import SearchGuide from "./SearchGuide";
 import searchIcon from '../../img/common/searchIcon.svg';
+import Map from "./Map";
 
 const SearchBox = styled.div`
   margin: 5% 13.54166666666667% 3%;
@@ -29,7 +30,7 @@ const SearchBox = styled.div`
 
 const SearchPlace = () => {
   const [inputText, setInputText] = useState("");
-  const [place, setPlace] = useState("");
+  const [Place, setPlace] = useState("");
 
   const onChange = (e) => {
     setInputText(e.target.value);
@@ -42,7 +43,8 @@ const SearchPlace = () => {
   };
 
   return (
-    <SearchBox>
+    <>
+      <SearchBox>
       <form className="inputForm" onSubmit={handleSubmit}>
         <input
           id="keword"
@@ -53,7 +55,10 @@ const SearchPlace = () => {
         />
         <button type="submit" />
       </form>
-    </SearchBox>
+      </SearchBox>
+      <SearchGuide />
+      <Map searchPlace={Place} />
+    </>
   );
 };
 

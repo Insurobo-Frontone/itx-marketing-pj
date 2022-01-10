@@ -4,12 +4,12 @@ import styled from 'styled-components';
 import GroupChart from './GroupChart';
 import banner1 from '../../img/sub/contactVisual1.png';
 import banner2 from '../../img/sub/contactVisual2.png';
-import SearchGuide from './SearchGuide';
+import SearchPlace from './SearchPlace';
 import Overay from '../Overay';
 import SalesChart from './SalesChart';
 import TopBox from './TopBox';
-import SearchPlace from './SearchPlace';
 import Map from './Map';
+
 
 const NavContainer = styled.div`
   display: flex;
@@ -173,7 +173,6 @@ const ContactTab = () => {
       <div className={openTab === 2 ? 'block' : 'hidden'} id="#cont2">
         <TopBox title="사업단, 보험플러스 조회"/>
         <SearchPlace />
-        <SearchGuide />
         <Map />
       </div>
     </TabContent>

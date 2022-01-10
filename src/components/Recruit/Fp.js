@@ -82,18 +82,18 @@ const InputBox = styled.div`
   input {
     border: 1px solid #BEBEBE;
     border-radius: 8px;
-    height: 50px;
+    height: 4.8vh;
     width: 100%;
     padding: 0 20px;
   }
   input::placeholder,
   textarea::placeholder {
     color: #C4C4C4;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-family: 'GoyangIlsan';
   }
   textarea {
-    height: 194px;
+    height: 19.2vh;
     width: 100%;
     border: 1px solid #BEBEBE;
     border-radius: 8px;
@@ -305,6 +305,9 @@ const Fp = () => {
           </div>
           <form
             id="application"
+            style={{
+             
+            }}
             onSubmit={(event) => {
               event.preventDefault();
               console.log(

@@ -16,13 +16,14 @@ const ModalBody = styled.div`
 const Modal = styled.div`
   background-color: #FFFFFF;
   position: fixed;
-  width: 700px;
-  height: 1000px;
+  width: 36.45833333333333%;
+  height: 100vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
-  padding: 4% 3%;
+  padding: 4vh 3vw;
+  
   > div {
     display: flex;
     flex-direction: column;
@@ -35,28 +36,28 @@ const Modal = styled.div`
       font-size: 1.5rem;
       color: #1A1A1A;
       font-family: 'GoyangDeogyang';
-      padding: 5% 0;
+      padding: 2vh 0;
     }
   }
+
   select {
     border: 1px solid #BEBEBE;
     border-radius: 8px;
     width: 100%;
-    height: 50px;
+    height: 4.8vh;
     color: #BEBEBE;
     padding: 0 20px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     background: url(${selectBoxIcon}) no-repeat 97% 50%;
     appearance: none;
   }
 `;
-
 const FpModal = ({ children }) => {
 
   return ReactDOM.createPortal(
     <ModalBody>
-      <Modal>
-        {children}
+        <Modal>
+          {children}
         </Modal>
       </ModalBody>,
       document.getElementById("modal")
