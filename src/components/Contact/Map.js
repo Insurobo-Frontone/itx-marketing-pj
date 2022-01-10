@@ -1,7 +1,8 @@
 /* global kakao */
 import React, { useEffect } from "react";
 import styled from "styled-components";
-
+import SearchGuide from "./SearchGuide";
+import searchIcon from '../../img/common/searchIcon.svg';
 const { kakao } = window;
 
 const mapData = [
@@ -108,7 +109,29 @@ const mapData = [
   //   tel: '02-6952-2133'
   // },
 ]
-
+const SearchBox = styled.div`
+  margin: 5% 13.54166666666667% 3%;
+  padding: 0 1%;
+  border-bottom: 1px solid #444444;
+  
+  .inputForm{
+    display: flex;
+  }
+   input {
+    width: 100%;
+    height: 40px;
+  }
+  input::placeholder{
+    color: #C4C4C4;
+  }
+   button {
+    background-image: url(${searchIcon});
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+  }
+`;
 const MapList = styled.div`
   padding-bottom: 5%;
   table {
@@ -146,46 +169,46 @@ const MapContainer = styled.div`
   padding: 0 13.54166666666667%;
 `;
 
-const Map = ({ searchPlace }) => {
+const Map = () => {
   useEffect(() => {
-    var infowindow = new kakao.map.InfoWindow({ zIndex: 1 })
-    const container = document.getElementById("map");
-    const options = {
-      center: new window.kakao.maps.LatLng(33.450701, 126.570667),
+    const mapContainer = document.getElementById("map");
+    const mapOptions = {
+      center: new kakao.maps.LatLng(35.12, 129.1),
       level: 3,
     };
-
-    let map = new kakao.maps.Map(container, options);
-    let ps = new kakao.maps.services.Places();
-    ps.keywordSearch(searchPlace, placeSearchCB);
-    
-    const placeSearchCB = (data, status, pagination) => {
-      if (status === kakao.map.services.Status.OK) {
-        let bounds = new kakao.maps.LatLngBounds()
-
-        for (let i = 0; i < data.length; i++) {
-          displayMarker(data[i])
-          bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x))
-        }
-        map.setBounds(bounds)
+    // 지도 생성
+    let map = new kakao.maps.Map(mapContainer, mapOptions);
+    let geocoder = new kakao.maps.services.Geocoder();
+    geocoder.addressSearch('', function(result, status) {
+      if (status === kakao.maps.services.Status.OK) {
+        let coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+        let marker = new kakao.maps.Marker({
+          map: map,
+          position: coords
+        });
+        let infowindow = new kakao.maps.InfoWindow({
+          content: '<div style="width:150px;color:red;text-align:center;padding:6px 0;">내가 썼지롱</div>'
+        });
+        infowindow.open(map, marker);
+        map.setCenter(coords);
       }
-    }
+    })
+  }, []);
 
-    const displayMarker = (place) => {
-      let marker = new kakao.map.Marker({
-        map: map,
-        position: new kakao.maps.LatLng(place.y, place.x),
-      })
-      kakao.maps.event.addListener(marker, 'click', function () {
-        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>')
-        infowindow.open(map, marker)
-      })
-    }
-  }, [searchPlace]);
 
   return (
     <MapContainer>
+      <SearchBox>
+      <form className="inputForm">
+        <input
+          id="keword"
+          type="text"
+          placeholder="본부, 사업단, 지점명, 보험플러스 점포명 입력"
+        />
+        <button type="submit" />
+      </form>
+      </SearchBox>
+      <SearchGuide />
       <MapList>
         <table>
           <thead>
