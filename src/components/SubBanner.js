@@ -13,8 +13,20 @@ const Container = styled.div`
     justify-content: space-between;
     padding-bottom: 24.8%;
   }
+  @media(max-width: 700px){
+    padding: 8.6% 5.6% !important;
+    > div {
+      align-items: flex-start;
+      padding-bottom: 93.5%;
+      .img-wrap {
+        width: 49.8%;
+        align-self: flex-end;
+      }
+    }
+  }
 `;
 const TextWrap = styled.div`
+  padding-left: 0 !important;
   h2 {
     font-family: 'GoyangDeogyang';
     color: #1A1A1A;
@@ -23,6 +35,16 @@ const TextWrap = styled.div`
   }
   p {
     font-size: 1.5rem;
+  }
+  @media(max-width: 700px){
+    h2 {
+    font-size: 1.25rem;
+    padding-top: 8%;
+    padding-bottom: 84%;
+    }
+    p {
+    font-size: 0.8125rem;
+    }
   }
 `;
 const LinkWrap = styled.ul`
@@ -38,6 +60,21 @@ const LinkWrap = styled.ul`
   background-image: url(${linkBtn});
   background-size: contain;
   background-repeat: no-repeat;
+}
+@media(max-width: 700px){
+  flex-direction: column;
+  font-size: 0.8125rem;
+  > li{
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  > li::after {
+    width: 150px;
+
+  }
 }
 `;
 
@@ -57,7 +94,7 @@ const SubBanner = (props) => {
           <p>{props.modifier}</p>
           <h2>아이티엑스마케팅</h2>
         </TextWrap>
-        <div>
+        <div className='img-wrap'>
           <img src={props.image} alt='아이티엑스마케팅'/>
         </div>
       </div>

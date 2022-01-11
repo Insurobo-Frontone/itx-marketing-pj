@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import Layout from '../../Layouts/Layout'
 import styled from 'styled-components';
-import GroupChart from './GroupChart';
+
 import banner1 from '../../img/sub/contactVisual1.png';
 import banner2 from '../../img/sub/contactVisual2.png';
 
+import Layout from '../../Layouts/Layout'
+import GroupChart from './GroupChart';
 import Overay from '../Overay';
 import SalesChart from './SalesChart';
 import TopBox from './TopBox';

@@ -8,6 +8,7 @@ const Title = styled.h2`
   font-size: 2.5rem;
   font-family: 'GoyangDeogyang';
   line-height: 2.75rem;
+ 
   ::before{
     content: '';
     width: 30px;
@@ -17,6 +18,17 @@ const Title = styled.h2`
     display: inline-block;
     margin-right: 16px;
     box-sizing: border-box;
+  }
+  @media(max-width: 700px){
+    font-size: 1.25rem;
+    line-height: 0;
+    ::before {
+      width: 20px;
+      height: 20px;
+      border: 5px solid #B8292D;
+      display: inline-flex;
+      margin-right: 9px;
+    }
   }
 `;
 

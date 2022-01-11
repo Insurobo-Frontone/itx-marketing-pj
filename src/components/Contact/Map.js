@@ -170,6 +170,7 @@ const MapContainer = styled.div`
 `;
 
 const Map = () => {
+
   useEffect(() => {
     const mapContainer = document.getElementById("map");
     const mapOptions = {
@@ -178,34 +179,22 @@ const Map = () => {
     };
     // 지도 생성
     let map = new kakao.maps.Map(mapContainer, mapOptions);
-    let geocoder = new kakao.maps.services.Geocoder();
-    geocoder.addressSearch('', function(result, status) {
-      if (status === kakao.maps.services.Status.OK) {
-        let coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-        let marker = new kakao.maps.Marker({
-          map: map,
-          position: coords
-        });
-        let infowindow = new kakao.maps.InfoWindow({
-          content: '<div style="width:150px;color:red;text-align:center;padding:6px 0;">내가 썼지롱</div>'
-        });
-        infowindow.open(map, marker);
-        map.setCenter(coords);
-      }
-    })
+    
   }, []);
-
-
+ 
   return (
     <MapContainer>
       <SearchBox>
       <form className="inputForm">
         <input
-          id="keword"
+          id="address"
           type="text"
           placeholder="본부, 사업단, 지점명, 보험플러스 점포명 입력"
         />
-        <button type="submit" />
+        <button 
+          type="button"
+          value="search"
+        />
       </form>
       </SearchBox>
       <SearchGuide />

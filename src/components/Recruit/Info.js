@@ -19,7 +19,27 @@ const Wrap = styled.ul`
     > div {
       margin-right: 3%;
     }
-  }  
+  }
+  
+  @media(max-width: 700px) {
+   flex-direction: column;
+   padding: 10%;
+   > li {
+      width: 100%;
+      line-height: 1.875rem;
+      justify-content: flex-start;
+      font-size: 0.8125rem;
+    > div {
+      width: 30px;
+      height: 30px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2%;
+    }
+   }
+  }
 `;
 
 const Info = (props) => {

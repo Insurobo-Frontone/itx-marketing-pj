@@ -16,7 +16,10 @@ import checkedIcon from "../../img/common/checkedIcon.svg";
 const Container = styled.section`
  > div {
    position: relative;
-   padding-right: 12.96875%; 
+   padding-right: 12.96875%;
+   @media(max-width: 700px){
+    padding-right: 0;
+   }
  }
 `;
 const SupportContainer = styled.section`
@@ -30,6 +33,17 @@ const SupportContainer = styled.section`
       padding-top: 20%;
     }
   }
+  @media(max-width: 700px){
+    padding: 0 7.89%;
+    .title-box{
+      line-height: 1rem;
+      font-size: 0.625rem;
+      align-self: flex-start;
+      > p {
+        padding-top: 10.4%;
+      }
+    }
+  }
 `;
 
 const Contents1 = styled.div`
@@ -38,17 +52,109 @@ const Contents1 = styled.div`
   justify-content: space-between;
   > table{
     margin-top: 16%;
+    border-collapse: collapse;
+    th:last-child{
+        width: 50%;
+    }
+    th:first-child{
+        width: 25%;
+    }
+    th:nth-child(2){
+      width: 75%;
+    }
+  }
+  @media(max-width: 700px) {
+    flex-direction: column;
+   
+    > table{
+      width: 100%;
+      margin-top: 6%;
+      th,td {
+        font-size: 0.625rem;
+        height: 40px;
+        line-height: 1rem;
+      }
+      th:last-child{
+        width: 56.25%;
+      }
+      th:first-child,th:nth-child(2){
+        width: 21.875%;
+      }
+    }
   }
 `;
 const Contents2 = styled.div`
-padding-top: 3%;
+  padding-top: 3%;
   display: flex;
   justify-content: space-between;
+  table{
+    border-collapse: collapse;
+    th:last-child{
+        width: 75%;
+    }
+    th:first-child{
+        width: 25%;
+    }
+    br {
+      display: none;
+    }
+  }
+  @media(max-width: 700px) {
+    flex-direction: column;
+    > table{
+      width: 100%;
+      th,td {
+        font-size: 0.625rem;
+        height: 40px;
+        line-height: 1rem;
+        /* height: 2.5rem; */
+        br {
+          display: block;
+        }
+      }
+      th:last-child{
+        width: 78.125%;
+      }
+      th:first-child{
+        width: 21.875%;
+      }
+    }
+  }
 `;
 const Contents3 = styled.div`
-padding-top: 3%;
+  padding-top: 3%;
   display: flex;
   justify-content: space-between;
+  table{
+    border-collapse: collapse;
+    th:last-child{
+      width: 75%;
+    }
+    th:first-child{
+      width: 25%;
+    }
+  }
+  @media(max-width: 700px) {
+    flex-direction: column;
+    > table{
+      width: 100%;
+      th,td {
+        font-size: 0.625rem;
+        height: 40px;
+        line-height: 1rem;
+        /* height: 2.5rem; */
+        br {
+          display: block;
+        }
+      }
+      th:last-child{
+        width: 78.125%;
+      }
+      th:first-child{
+        width: 21.875%;
+      }
+    }
+  }
 `;
 const Table = styled.table`
   align-self: flex-end;
@@ -69,10 +175,15 @@ const ButtonWrap = styled.div`
   padding: 6% 0 6% 12.96875%;
   display: flex;
   justify-content: center;
- 
+  @media(max-width: 700px) {
+    padding: 3% 5% !important;
+  }
 `;
 const BottomWrap = styled.div`
   padding: 3% 13.54166666666667% 0;
+  @media(max-width: 700px) {
+    padding: 3% 5% !important;
+  }
 `;
 const InputBox = styled.div`
   > h3 {
@@ -99,7 +210,9 @@ const InputBox = styled.div`
     border-radius: 8px;
     padding: 24px 0 0 19px;
   }
-
+  @media(max-width: 700px) {
+   
+  }
 `;
 const CheckBox = styled.div`
   display: flex;
@@ -180,21 +293,9 @@ const Fp = () => {
            <Table>
             <thead>
               <tr>
-                <th
-                style={{
-                  width:'25%'
-                }}
-                >교육과정</th>
-                <th
-                style={{
-                  width:'25%'
-                }}
-                >대상</th>
-                <th
-                 style={{
-                  width:'50%'
-                }}
-                >내용</th>
+                <th>교육과정</th>
+                <th>대상</th>
+                <th>내용</th>
               </tr>
             </thead>
             <tbody>
@@ -230,20 +331,13 @@ const Fp = () => {
           </div>
           <Table>
             <tr>
+              <th>속성</th>
               <th
-              style={{
-                width:'25%'
-              }}
-              >속성</th>
-              <th
-              style={{
-                width:'75%'
-              }}
               >채널</th>
             </tr>
             <tr>
               <td>보장분석</td>
-              <td>홈페이지, SNS, 방송, 블로그, 내방형점포(마트, 샵인샵, 로드샵)</td>
+              <td>홈페이지, SNS, 방송, 블로그, 내방형점포<br />(마트, 샵인샵, 로드샵)</td>
             </tr>
             <tr>
               <td>보험금청구</td>
@@ -264,16 +358,8 @@ const Fp = () => {
           </div>
           <Table>
             <tr>
-              <th
-              style={{
-                width:'25%'
-              }}
-              >솔루션</th>
-              <th
-              style={{
-                width:'75%'
-              }}
-              >지원내용</th>
+              <th>솔루션</th>
+              <th>지원내용</th>
             </tr>
             <tr>
               <td>OK 마이보험</td>

@@ -49,7 +49,10 @@ const Data = [
 const Container = styled.section`
   > .gray-box {
     position: relative;
-    padding-left: 12.96875%; 
+    padding-left: 12.96875%;
+    @media(max-width: 700px) {
+      padding-left: 0;
+    }
   }
 `;
 const ContentContainer = styled.div`

@@ -12,21 +12,37 @@ const BoxContain = styled.div`
   height: 316px;
   color: #FFFFFF;
   box-shadow: 10px 11px 14px rgba(0, 0, 0, 0.15);
-  
   > h2 {
     line-height: 5.25rem;
     font-family: 'GoyangDeogyang';
+    font-size: 1.5rem;
     text-align: center;
     border-bottom: 3px solid #FFFFFF;
   }
   ul {
     padding: 0 0 5% 8.2%;
-
     > li {
     line-height: 1.666666666666667rem;
+    }
   }
+  @media(max-width: 700px){
+    top: 48%;
+    width: 55.9%;
+    height: 250px;
+    transform: translateY(-50%);
+    right: 5.6% !important;
+    left: auto !important;
+    > h2 {
+      font-size: 1.25rem;
+      line-height: 5rem;
+    }
+    ul {
+    padding: 0 0 8.5% 10.5%;
+    > li {
+    line-height: 1.583333333333333rem;
+    }
   }
-    
+  }  
 `;
 const TitleBox = (props) => {
   return (
