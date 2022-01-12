@@ -23,7 +23,7 @@ const Container = styled.section`
  }
 `;
 const SupportContainer = styled.section`
-  padding: 0 11.61458333333333% 4% 8.020833333333333%;
+  padding: 2% 11.61458333333333% 4% 8.020833333333333%;
 
   .title-box{
     line-height: 1.056375rem;
@@ -60,12 +60,12 @@ const Contents1 = styled.div`
         width: 25%;
     }
     th:nth-child(2){
-      width: 75%;
+      width: 25%;
     }
   }
   @media(max-width: 700px) {
     flex-direction: column;
-   
+    
     > table{
       width: 100%;
       margin-top: 6%;

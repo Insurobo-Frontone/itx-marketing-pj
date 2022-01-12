@@ -17,7 +17,7 @@ const Modal = styled.div`
   background-color: #FFFFFF;
   position: fixed;
   width: 36.45833333333333%;
-  height: 100vh;
+  max-height: 1000vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

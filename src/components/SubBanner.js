@@ -26,7 +26,7 @@ const Container = styled.div`
   }
 `;
 const TextWrap = styled.div`
-  padding-left: 0 !important;
+  
   h2 {
     font-family: 'GoyangDeogyang';
     color: #1A1A1A;
@@ -37,6 +37,7 @@ const TextWrap = styled.div`
     font-size: 1.5rem;
   }
   @media(max-width: 700px){
+    padding-left: 0 !important;
     h2 {
     font-size: 1.25rem;
     padding-top: 8%;

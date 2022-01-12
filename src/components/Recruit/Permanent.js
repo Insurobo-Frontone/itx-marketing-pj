@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components';
 import lady from "../../img/sub/lady.svg";
 import SubTitle from "./SubTitle";
@@ -6,6 +6,7 @@ import SubBanner from "../SubBanner";
 import TitleBox from "../TitleBox";
 import MiniBanner from "../MiniBanner";
 import Info from "./Info";
+import ScrollMagic from "scrollmagic";
 
 import benefits1 from "../../img/sub/benefits1.svg";
 import benefits2 from "../../img/sub/benefits2.svg";
@@ -18,32 +19,38 @@ const Data = [
   {
     id: 0,
     title: '4대 보험 및 퇴직금',
-    icon: benefits1
+    icon: benefits1,
+    class: 'delay-0'
   },
   {
     id: 1,
     title: '다양한 휴가제도\n연차, 출산휴가\n경조사휴가, 특별휴가',
-    icon: benefits2
+    icon: benefits2,
+    class: 'delay-1'
   },
   {
     id: 2,
     title: '경조금 / 화환 지급',
-    icon: benefits3
+    icon: benefits3,
+    class: 'delay-2'
   },
   {
     id: 3,
     title: '육아휴직\n임산부 업무시간 조정',
-    icon: benefits4
+    icon: benefits4,
+    class: 'delay-3'
   },
   {
     id: 4,
     title: '분기별 워크샵',
-    icon: benefits5
+    icon: benefits5,
+    class: 'delay-4'
   },
   {
     id: 5,
     title: '장기근속포상',
-    icon: benefits6
+    icon: benefits6,
+    class: 'delay-5'
   },
 ]
 const Container = styled.section`
@@ -68,7 +75,10 @@ const Contents = styled.div`
     flex-flow: row wrap;
     justify-content: space-between;
     padding: 3% 0;
-
+    &.show li {
+      opacity: 1;
+      transform: translateY(0);
+    }
     > li {
       display: flex;
       width: 31%;
@@ -78,7 +88,30 @@ const Contents = styled.div`
       padding: 1.2% 2% 1.2% 1.2%;
       border: 1px solid #BEBEBE;
       margin: 2.75% 0;
-      
+      transition-duration: 0.6s;
+      transform: translateY(100%);
+      opacity: 0;
+
+      &.delay-0 {
+        transition-delay: 0;
+        opacity: 1;
+      }
+      &.delay-1 {
+        transition-delay: .3s;
+      }
+      &.delay-2 {
+        transition-delay: .4s;
+      }
+      &.delay-3 {
+        transition-delay: .5s;
+      }
+      &.delay-4 {
+        transition-delay: .6s;
+      }
+      &.delay-5 {
+        transition-delay: .7s;
+      }
+
       > div {
         background-color: #F8F8F8;
         border-radius: 50%;
@@ -115,13 +148,29 @@ const Table = styled.table`
   td {
     text-align: center;
   }
+  .pos{
+    text-align: start;
+  }
 
 `;
 
 const BottomWrap = styled.div`
   padding: 5% 13.54166666666667% 0;
 `;
+
 const Permanent = () => {
+  const benefitsRef = useRef(null);
+  useEffect(() => {
+    const controller = new ScrollMagic.Controller();
+      new ScrollMagic
+      .Scene({
+        triggerElement: benefitsRef.current,
+        triggerHook: .5
+      })
+      .setClassToggle(benefitsRef.current, 'show')
+      .addTo(controller);
+  });
+
   return (
     <Container>
       <div className='gray-box'>
@@ -162,7 +211,7 @@ const Permanent = () => {
             <tbody>
             <tr>
               <td>영업지원</td>
-              <td>
+              <td className='pos'>
                 FP 영업활동 지원<br />
                 신계약 청약, 배서, 수금관리
               </td>
@@ -170,7 +219,7 @@ const Permanent = () => {
             </tr>
             <tr>
               <td>수수료관리</td>
-              <td>
+              <td className='pos'>
                 수수료 정산 및 운영<br />
                 수수료 제도 기안 및 관련 정책 수립<br />
                 수수료 시스템 및 수수료 지급 검증
@@ -179,7 +228,7 @@ const Permanent = () => {
             </tr>
             <tr>
               <td>홍보마케팅</td>
-              <td>
+              <td className='pos'>
                 디지털 마케팅(SNS 채널 운영, 관리 및 콘텐츠 기획)<br />
                 온/오프라인 프로모션 기획 및 현장지원<br />
                 B2B2C 제휴(마케팅 전략 수립 및 실행)
@@ -188,7 +237,7 @@ const Permanent = () => {
             </tr>
             <tr>
               <td>신시장발굴</td>
-              <td>
+              <td className='pos'>
                 신시장 개발조사, 신시장 기획 및 운영전략 수립<br />
                 신시장 업계동향 파악 및 아이템 발굴
               </td>
@@ -260,9 +309,9 @@ const Permanent = () => {
           <SubTitle 
             title="복리후생"
           />
-          <ul>
+          <ul ref={benefitsRef}>
             {Data.map((bd) => (
-            <li key={bd.id}>
+            <li key={bd.id} className={bd.class}>
               <div><img src={bd.icon} alt={bd.title}/></div>
               <h2>{bd.title}</h2>
             </li>

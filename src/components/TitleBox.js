@@ -26,7 +26,7 @@ const BoxContain = styled.div`
     }
   }
   @media(max-width: 700px){
-    top: 48%;
+    top: 47%;
     width: 55.9%;
     height: 250px;
     transform: translateY(-50%);
