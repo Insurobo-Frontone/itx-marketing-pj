@@ -26,13 +26,13 @@ const BannerContainer = styled.section`
     display: flex;
     flex-direction: column;
     
-      > h2 { 
-        font-size: 2rem;
-        font-family: 'GoyangDeogyang';
-        > strong {
+    > h2 { 
+      font-size: 2rem;
+      font-family: 'GoyangDeogyang';
+      > strong {
         color: #B8292D;
-        }
       }
+    }
       > p {
         padding-top: 10%;
         line-height: 1.4rem;

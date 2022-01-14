@@ -6,14 +6,17 @@ import RecruitSlider from '../components/RecruitSlider'
 import NewsMarketing from '../components/NewsMarketing';
 
 
+
 const Home = () => {
   return (
-    <Layout>
+   
+      <Layout>
       <MainBanner />
       <Business />
       <RecruitSlider />
       <NewsMarketing />
     </Layout>
+ 
   )
 }
 

@@ -26,7 +26,6 @@ const Container = styled.div`
   }
 `;
 const TextWrap = styled.div`
-  
   h2 {
     font-family: 'GoyangDeogyang';
     color: #1A1A1A;
@@ -53,6 +52,7 @@ const LinkWrap = styled.ul`
   width: 100%;
   font-size: 0.8rem;
   color: #B8292D;
+  
 >li::after {
   content: '';
   display: block;

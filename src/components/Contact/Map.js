@@ -113,7 +113,6 @@ const SearchBox = styled.div`
   margin: 5% 13.54166666666667% 3%;
   padding: 0 1%;
   border-bottom: 1px solid #444444;
-  
   .inputForm{
     display: flex;
   }
@@ -130,6 +129,29 @@ const SearchBox = styled.div`
     background-size: contain;
     width: 25px;
     height: 25px;
+  }
+  @media(max-width: 700px) {
+    padding: 0 2.5%;
+    margin: 10% 7.466666666666667%;
+    border-bottom: 2px solid #444444;
+
+    .inputForm{
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input {
+    width: 100%;
+    height: 40px;
+    }
+    input::placeholder{
+    font-size: 0.625rem;
+    }
+    button{
+      width: 18px;
+      height: 18px;
+    }
   }
 `;
 const MapList = styled.div`
@@ -149,7 +171,7 @@ const MapList = styled.div`
     th:first-child,th:last-child{
       width: 18.21428571428571%;
     }
-    th:nth-child(2) {
+    th:nth-child(2),td:nth-child(2) {
       border-left: 1px solid #F0F0F0;
       border-right: 1px solid #F0F0F0;
     }
@@ -157,16 +179,37 @@ const MapList = styled.div`
       height: 70px;
       text-align: center;
       color: #323232;
-      
     }
-    td:nth-child(2) {
-      border-left: 1px solid #F0F0F0;
-      border-right: 1px solid #F0F0F0;
+  }
+  @media(max-width: 700px) {
+    padding: 10% 7.2%;
+    table {
+      font-size: 0.625rem;
+      th {
+        font-size: 0.625rem;
+      }
+      th:nth-child(2),td:nth-child(2) {
+        border-left: 0;
+        border-right: 0;
+        width: 22.8125%;
+      }
     }
+
   }
 `;
 const MapContainer = styled.div`
   padding: 0 13.54166666666667%;
+  .map-wrap {
+      margin: 0;
+      height: 250px;
+    }
+  @media(max-width:700px){
+    padding: 0 0;
+    .map-wrap {
+      margin: 0 7% 20%;
+      height: 250px;
+    }
+  }
 `;
 
 const Map = () => {
@@ -223,7 +266,7 @@ const Map = () => {
           id="map"
           style={{
             width: '100%',
-            height: '500px'
+            height: '100%'
           }}
         >
         </div>

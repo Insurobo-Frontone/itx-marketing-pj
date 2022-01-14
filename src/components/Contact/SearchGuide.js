@@ -3,15 +3,25 @@ import styled from 'styled-components';
 
 const Container = styled.section`
   padding: 7% 8.333333333333333%;
+
+  @media(max-width:700px){
+    padding: 5% 6.2%;
+  }
   > h2 {
     font-size: 2.5rem;
     color: #1A1A1A;
     font-family: 'GoyangDeogyang';
     padding-bottom: 8%;
+    @media(max-width:700px){
+      font-size: 1rem;
+    }
   }
   > div {
     display: flex;
     padding: 5% 0;
+    @media(max-width:700px){
+      flex-direction: column;
+    }
     h3 {
       font-family: 'GoyangDeogyang';
       color: #222222;
@@ -29,6 +39,14 @@ const Container = styled.section`
         border: 10px solid #B8292D;
         box-sizing: border-box;
         margin-right: 3%;
+      }
+      @media(max-width:700px){
+        font-size: 1rem;
+        ::before{
+          width: 20px;
+          height: 20px;
+          border: 5px solid #B8292D;
+        }
       }
     }
   }
@@ -53,7 +71,15 @@ const Area = styled.div`
       font-size: 0.8rem;
     }
   }
-  
+  @media(max-width:700px) {
+    width: 100%;
+    table{
+      margin: 0;
+      td {
+        font-size: 0.625rem;
+      }
+    }
+  }
 `;
 const Target = styled.div`
   width: 50%;
@@ -67,7 +93,6 @@ const Target = styled.div`
     margin: 5% 9%;
     > div {
       width: 50%;
-
       :first-child {
         border-right: 1px solid #C4C4C4;
       }
@@ -78,6 +103,7 @@ const Target = styled.div`
         border-bottom: 1px solid #C4C4C4;
         background-color: #F0F0F0;
         line-height: 50px;
+        font-weight: 400;
       }
       ul {
         padding: 3% 0 0 5%;
@@ -87,6 +113,24 @@ const Target = styled.div`
           color: #323232;
         }
       }
+    }
+  }
+  @media(max-width:700px) {
+    width: 100%;
+    div{
+      margin: 0;
+      height: 250px;
+      > div {
+        > h4 {
+          font-size: 0.625rem;
+        }
+        > ul {
+          padding: 7.8% 0 0 6%;
+          > li {
+            font-size: 0.625rem;
+          }
+        }
+      }  
     }
   }
 `;

@@ -9,9 +9,12 @@ import GroupChart from './GroupChart';
 import Overay from '../Overay';
 import SalesChart from './SalesChart';
 import TopBox from './TopBox';
+import TitleBox from '../TitleBox';
 import Map from './Map';
 
-
+const BannerContain = styled.div`
+  position: relative;
+`;
 const NavContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -68,6 +71,9 @@ const ContactBanner = styled.section`
     padding-top: 154.7%;
     background-size: cover;
     background-position: 72% 50%;
+    &.banner2-bg {
+      background-position: 16% 50%;
+    }
   }
   > .text-wrap {
     position: absolute;
@@ -131,7 +137,9 @@ const ContactTab = () => {
         </ContactBanner> 
       )}
       {openTab === 2 && (
-        <ContactBanner style={{
+        <ContactBanner
+          className='banner2-bg'
+          style={{
           backgroundImage: `url(${banner2})`
         }}>
           <div className='text-wrap'>
@@ -167,12 +175,24 @@ const ContactTab = () => {
       </NavContainer>
     <TabContent>
       <div className={openTab === 1 ? 'block' : 'hidden'} id="#cont1">
-        <TopBox title="조직구성"/>
+        <BannerContain>
+          <TopBox title="조직구성"/>
+          <TitleBox
+            title="조직도"
+            left='0'
+          />
+        </BannerContain>
         <GroupChart />
         <SalesChart />
       </div>
       <div className={openTab === 2 ? 'block' : 'hidden'} id="#cont2">
-        <TopBox title="사업단, 보험플러스 조회"/>
+        <BannerContain>
+          <TopBox title="조직구성"/>
+          <TitleBox
+            title="사업단 조회"
+            left='0'
+          />
+        </BannerContain>
         <Map />
       </div>
     </TabContent>

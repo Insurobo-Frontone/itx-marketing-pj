@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from "styled-components";
-import TitleBox from "../TitleBox";
+
 
 const Container = styled.section`
   position: relative;
   padding-left: 12.96875%;
+  @media(max-width:700px){
+    padding-left: 0%;
+  }
 `;
 const GrayBox = styled.div`
   background-color: #F8F8F8;
@@ -20,7 +23,18 @@ const GrayBox = styled.div`
     font-size: 1.5rem;
   }
 }
-  
+@media(max-width:700px){
+  > div {
+    padding: 7.7% 0 7% 7%;
+    > h2 {
+        font-size: 1.375rem;
+    }
+    > p {
+        font-size: 0.8125rem;
+        padding-bottom: 115%;
+      }
+    }
+  } 
 `;
 
 const TopBox = (props) => {
@@ -32,10 +46,6 @@ const TopBox = (props) => {
           <p>{props.title}</p>
         </div>
       </GrayBox>
-      <TitleBox
-        title="조직도"
-        left='0'
-      />
     </Container>
   )
 }

@@ -12,7 +12,6 @@ import Partners from "./pages/Partners";
 import ScrollToTop from "./components/ScrollToTop";
 import ContactTab from "./components/Contact/ContactTab";
 
-
 function App() {
   
   return (

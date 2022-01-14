@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Footer from './Footer'
 import Header from './Header'
-
+import PageScrollToTop from './PageScrollToTop'
 
 const Wrap = styled.div`
   position: relative;
@@ -14,11 +14,14 @@ const Wrap = styled.div`
 
 const Layout = ({children}) => {
   return (
-    <Wrap className="wrap">
-      <Header/>
-        {children}
-      <Footer />
-    </Wrap>
+    <>
+      <PageScrollToTop />
+      <Wrap className="wrap">
+        <Header/>
+          {children}
+        <Footer />
+      </Wrap>
+    </>
   );
 }
 

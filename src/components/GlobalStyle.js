@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
   html {
+    scroll-behavior:smooth;
     font-size: 20px;
     @media (max-width: 1261px) {
       font-size: 16px;

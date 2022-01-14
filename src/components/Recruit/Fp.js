@@ -13,8 +13,9 @@ import { ReactComponent as CloseBtn } from "../../img/common/CloseBtn.svg";
 import checkIcon from "../../img/common/checkIcon.svg";
 import checkedIcon from "../../img/common/checkedIcon.svg";
 
+
 const Container = styled.section`
- > div {
+ > .sub-banner {
    position: relative;
    padding-right: 12.96875%;
    @media(max-width: 700px){
@@ -23,12 +24,10 @@ const Container = styled.section`
  }
 `;
 const SupportContainer = styled.section`
-  padding: 2% 11.61458333333333% 4% 8.020833333333333%;
-
+  padding: 0 11.61458333333333% 0 8.020833333333333%;
   .title-box{
     line-height: 1.056375rem;
     font-size: 0.8rem;
-    align-self: center;
     > p {
       padding-top: 20%;
     }
@@ -47,11 +46,10 @@ const SupportContainer = styled.section`
 `;
 
 const Contents1 = styled.div`
-  padding-top: 3%;
+  padding-top: 13.61%;
   display: flex;
   justify-content: space-between;
   > table{
-    margin-top: 16%;
     border-collapse: collapse;
     th:last-child{
         width: 50%;
@@ -63,12 +61,11 @@ const Contents1 = styled.div`
       width: 25%;
     }
   }
-  @media(max-width: 700px) {
+  @media(max-width: 700px) { 
     flex-direction: column;
-    
+    padding-top: 10.5%;
     > table{
       width: 100%;
-      margin-top: 6%;
       th,td {
         font-size: 0.625rem;
         height: 40px;
@@ -84,7 +81,7 @@ const Contents1 = styled.div`
   }
 `;
 const Contents2 = styled.div`
-  padding-top: 3%;
+  padding-top: 9.81%;
   display: flex;
   justify-content: space-between;
   table{
@@ -122,7 +119,7 @@ const Contents2 = styled.div`
   }
 `;
 const Contents3 = styled.div`
-  padding-top: 3%;
+  padding-top: 9.81%;
   display: flex;
   justify-content: space-between;
   table{
@@ -160,7 +157,8 @@ const Table = styled.table`
   align-self: flex-end;
   width: 62.21646143875567%;
   line-height: 3rem;
-  margin-top: 15%;
+  margin-top: 6.99999%;
+  
   td {
     border-top: 2px solid #C4C4C4;
   }
@@ -171,24 +169,35 @@ const Table = styled.table`
     text-align: start;
   }
 `;
-const ButtonWrap = styled.div`
-  padding: 6% 0 6% 12.96875%;
-  display: flex;
-  justify-content: center;
-  @media(max-width: 700px) {
-    padding: 3% 5% !important;
-  }
-`;
 const BottomWrap = styled.div`
-  padding: 3% 13.54166666666667% 0;
+  width: 100%;
+  padding: 0 13.64583333333333%;
+  display: flex;
+  flex-direction: column;
+  > .btn-box{
+    width: 100%;
+    padding: 15.62% 0 14.024% 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
   @media(max-width: 700px) {
-    padding: 3% 5% !important;
+    padding: 0 5%;
+    > .btn-box {
+      padding: 17%  0;
+    }
   }
 `;
 const InputBox = styled.div`
   > h3 {
     line-height: 2.6rem;
     color: #1A1A1A;
+    @media(max-width: 700px){
+      font-size: 1rem;
+      line-height: 2.25rem;
+      padding-top: 3.9%;
+    }
   }
   input {
     border: 1px solid #BEBEBE;
@@ -196,12 +205,19 @@ const InputBox = styled.div`
     height: 4.8vh;
     width: 100%;
     padding: 0 20px;
+    @media(max-width: 700px){
+      height: 50px;
+      border-radius: 5px;
+    }
   }
   input::placeholder,
   textarea::placeholder {
     color: #C4C4C4;
     font-size: 0.8rem;
     font-family: 'GoyangIlsan';
+    @media(max-width: 700px){
+      font-size: 0.8125rem;
+    }
   }
   textarea {
     height: 19.2vh;
@@ -209,23 +225,31 @@ const InputBox = styled.div`
     border: 1px solid #BEBEBE;
     border-radius: 8px;
     padding: 24px 0 0 19px;
+    outline: none;
+    @media(max-width: 700px) {
+      padding: 16px 0 0 16px;
+    }
   }
-  @media(max-width: 700px) {
-   
-  }
+  
 `;
 const CheckBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 3% 0 5% 0;
-
+  @media(max-width: 700px) {
+    padding: 2% 0 10% 0;
+  }
   input[type="checkbox"] + label {
     display: flex;
     align-items: center;
     font-size: 0.8rem;
     color: #1A1A1A;
     width: 70%;
+    @media(max-width: 700px) {
+      font-size: 0.625rem;
+      line-height: 1.25rem;
+    }
   }
   input[type="checkbox"] + label::before{
     content: '';
@@ -237,6 +261,10 @@ const CheckBox = styled.div`
     background-repeat: no-repeat;
     background-size: contain;
     margin-right: 5%;
+    @media(max-width: 700px) {
+      width: 20px;
+      height: 20px;
+    }
   }
   input[type="checkbox"]:checked + label::before{
     background-image: url(${checkedIcon});
@@ -247,22 +275,43 @@ const CheckBox = styled.div`
     color: #FFFFFF;
     background-color: #B8292D;
     font-size: 0.8rem;
+    @media(max-width: 700px) {
+      width: 40px;
+      height: 20px;
+      font-size: 0.625rem;
+    }
   }
+ 
 `;
 const SubmitBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  button {
+    width: 250px;
+    height: 50px;
+    color: #FFFFFF;
+    background-color: #B8292D;
+    border-radius: 95px;
+    font-size: 0.8125rem;
+    cursor: pointer;
+  }
+  @media(max-width: 700px) {
+    button {
+      width: 100% ;
+      height: 30px;
+      border-radius: 3px;
+    }
+  }
 `;
 
 const Fp = () => {
   const [modalOpen, setModalOpen] = useState(false);
-
   const openModal = (event) => { setModalOpen(!modalOpen) }
 
   return (
     <Container>
-      <div>
+      <div className="sub-banner">
         <SubBanner
           padding="4.3% 16.75643327348893% 3.8% 9.275882704967086%"
           modifier="FP가 주인인 회사" 
@@ -376,14 +425,7 @@ const Fp = () => {
           </Table>
         </Contents3>
       </SupportContainer>
-        <ButtonWrap>
-          <Button size="lg">
-            <p style={{width: '100%'}} onClick={openModal}>
-              입사지원
-            </p>
-          </Button>
-        </ButtonWrap>
-          {modalOpen ?  
+      {modalOpen ?  
         <FpModal onClick={(event) =>{event.stopPropagation()}}>
           <div>
             <CloseBtn stroke='#1A1A1A' className="close-btn" onClick={openModal}/>
@@ -449,27 +491,26 @@ const Fp = () => {
               <button>보기</button>
             </CheckBox>
             <SubmitBox>
-              <Button size="lg">
-                <input 
-                  type="submit" 
-                  value="지원하기" 
-                  style={{
-                    width: '100%',
-                    color: '#FFFFFF',
-                    height: '100%',
-                    fontSize: '0.9rem',
-                  }} 
-                />
-            </Button>
+              <button type="submit">
+                지원하기
+              </button>
             </SubmitBox>
           </form>
         </FpModal> : null}
 
         <BottomWrap>
+          <div className="btn-box">
+            <Button size="lg">
+              <p style={{width: '100%'}} onClick={openModal}>
+                입사지원
+              </p>
+            </Button>
+          </div>
           <MiniBanner desc="FP채용 문의" />
+          
             <Info email="이메일 : kkang933@wehago.com" keeper="담당자 : 강세훈 부장" />
-        </BottomWrap>
      
+        </BottomWrap>
     </Container>
   );
 }

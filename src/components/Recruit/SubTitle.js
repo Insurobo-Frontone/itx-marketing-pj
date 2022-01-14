@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TextWrap = styled.div`
-  padding-top: 9.67%;
+  
 `;
 const Title = styled.h2`
   font-size: 2.5rem;

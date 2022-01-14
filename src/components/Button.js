@@ -33,6 +33,7 @@ const StyledButton = styled.button`
     .arrow-icon {
       display: none;
     }
+    
   }
 `;
 
@@ -57,14 +58,12 @@ const Button = ({children, size, variant}) => {
   const variantStyle = VARIANTS[variant];
 
   return (
-    <StyledButton 
+    <StyledButton
       sizeStyle={sizeStyle}
       variantStyle={variantStyle}
-
     >
       {children}
-      
-  </StyledButton>
+    </StyledButton>
   )
 }
 

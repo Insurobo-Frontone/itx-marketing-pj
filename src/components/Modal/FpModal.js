@@ -23,7 +23,11 @@ const Modal = styled.div`
   transform: translate(-50%, -50%);
   z-index: 999;
   padding: 4vh 3vw;
-  
+  @media(max-width: 700px){
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+  }
   > div {
     display: flex;
     flex-direction: column;
@@ -37,6 +41,10 @@ const Modal = styled.div`
       color: #1A1A1A;
       font-family: 'GoyangDeogyang';
       padding: 2vh 0;
+      @media(max-width: 700px){
+        font-size: 1.25rem;
+        
+      }
     }
   }
 
@@ -50,6 +58,11 @@ const Modal = styled.div`
     font-size: 0.8rem;
     background: url(${selectBoxIcon}) no-repeat 97% 50%;
     appearance: none;
+    @media(max-width: 700px){
+      height: 50px;
+      font-size: 1rem;
+      border-radius: 5px;
+    }
   }
 `;
 const FpModal = ({ children }) => {

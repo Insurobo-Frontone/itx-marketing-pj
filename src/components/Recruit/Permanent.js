@@ -63,18 +63,30 @@ const Container = styled.section`
   }
 `;
 const ContentContainer = styled.div`
-  padding: 6% 8.020833333333333% 0;
+  padding: 3% 8.020833333333333% 0;
+  @media(max-width: 700px) {
+    padding: 1.2% 6.4% 0;
+  }
 `;
 
 const Contents = styled.div`
+  padding-top: 9.4%;
   display: flex;
   flex-direction: column;
+  @media(max-width: 700px){
+    padding-top: 8.4%;
+  }
 
   ul {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     padding: 3% 0;
+  @media(max-width: 700px){
+    flex-direction: column;
+    align-items: center;
+    padding: 8.98% 0 10% 0;
+  }
     &.show li {
       opacity: 1;
       transform: translateY(0);
@@ -91,7 +103,11 @@ const Contents = styled.div`
       transition-duration: 0.6s;
       transform: translateY(100%);
       opacity: 0;
-
+      @media(max-width: 700px){
+        width: 100%;
+        padding: 3%;
+        margin: 3.3% 0;
+      }
       &.delay-0 {
         transition-delay: 0;
         opacity: 1;
@@ -120,6 +136,15 @@ const Contents = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+        @media(max-width: 700px){
+          width: 100px;
+          height: 100px;
+          > img {
+            max-width: 50px;
+            max-height: 65px;
+
+          }
+        }
       }
       > h2 {
         white-space: pre;
@@ -134,8 +159,9 @@ const Contents = styled.div`
 
 const Table = styled.table`
   width: 74.44168734491315%;
-  margin: 5% 0;
+  margin: 3.78% 0 0 0;
   align-self: center;
+  border-collapse: collapse;
   th {
     font-size: 1.3rem;
     color: #1A1A1A;
@@ -143,19 +169,41 @@ const Table = styled.table`
   th, td{
     height: 5rem;
     width: 33.33333333333333%;
-    border-bottom: 1px solid #C4C4C4;
   }
   td {
     text-align: center;
+    border-top: 1px solid #C4C4C4;
   }
   .pos{
     text-align: start;
   }
 
+  @media(max-width: 700px) {
+    width: 100%;
+    margin: 5% 0 0 0;
+
+    th,td{
+      font-size: 0.625rem;
+      height: 3.75rem;
+    }
+    th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){
+      text-align: start;
+    }
+    th:first-child,th:last-child,
+    td:first-child,td:last-child{
+      width: 21%;
+    }
+    th:nth-child(2){
+      width: 58%;
+    }
+  }
 `;
 
 const BottomWrap = styled.div`
   padding: 5% 13.54166666666667% 0;
+  @media(max-width: 700px) {
+    padding: 5% 6.666666666666667% 0;
+  }
 `;
 
 const Permanent = () => {
