@@ -5,14 +5,70 @@ import styled from 'styled-components';
 
 const Container = styled.section`
   padding: 7% 8.3%;
+&.show .item{
+  opacity: 1;
+  transform: translateX(0);
+}
+&.show .item.delay-8{
+  transform: translateY(-100%);
+}
+&.show .item.delay-7{
+  transform: translateY(100%);
+}
+  .item {
+    opacity: 0;
+    transition: .5s ease-out .6s;
+    transform: translateX(20%);
+  }
+  .item.delay-1 {
+    transition-delay: .3s;
+  }
+  .item.delay-2 {
+    transition-delay: .6s;
+  }
+  .item.delay-3 {
+    transition-delay: .9s;
+  }
+  .item.delay-4 {
+    transition-delay: 1.2s;
+  }
+  .item.delay-5 {
+    transition-delay: 1.5s;
+  }
+  .item.delay-6 {
+    transition-delay: 1.8s;
+  }
+  .item.delay-7 {
+    transition-delay: 2.1s;
+  }
+  .item.delay-8 {
+    transition-delay: 2.4s;
+  }
+  .item.delay-9 {
+    transition-delay: 2.7s;
+  }
   @media (max-width: 700px) {
     padding: 11.3% 6%;
     width: 100%;
+    .item {
+      transform: translateX(0);
+    }
+    &.show .item.delay-8{
+      transform: translateY(0);
+    }
+    &.show .item.delay-7{
+      transform: translateY(0);
+    }
+    &.show .item.delay-4{
+      transform: translateX(30%);
+    }
   }
 `;
 const ChartWrap = styled.div`
   padding: 3.7% 0 4.4% 6.4%;
   display: flex;
+
+
   @media (max-width: 700px) {
     padding: 4.3% 0 6.4%;
     flex-direction: column;
@@ -22,6 +78,8 @@ const ChartWrap = styled.div`
  .ceo-wrap {
    padding-right: 7%;
    align-self: flex-end;
+ 
+   
    @media (max-width: 700px) {
     align-self: center;
     padding: 0 5% 8%;
@@ -50,6 +108,7 @@ const Depth1 = styled.div`
   justify-content: space-between;
   height: 405px;
   position: relative;
+
     @media (max-width: 700px) {
       height: 120px;
       margin: 0 15%;
@@ -142,7 +201,7 @@ const Depth2 = styled.div`
     background-color: #A3CDFF;
     order: 2;
       @media (max-width: 700px) {
-        transform: translateX(20%)
+        transform: translateX(20%);
       }
     > span {
       background-color: #A3CDFF;
@@ -197,7 +256,7 @@ const Depth3 = styled.div`
     width: 50%;
     height: 3px;
     position: absolute;
-    top: 70%;
+    top: 73%;
     left: 0;
     transform: translate(-100%);
     background-color: #F0F0F0;
@@ -486,43 +545,47 @@ const Rectangle2 = styled.div`
 
 const GroupChart = () => {
 
+  
   const chartRef = useRef(null);
   useEffect(() => {
-    const controller = new ScrollMagic.Controller();
+    
+    
     new ScrollMagic
-        .Scene({
-          triggerElement: chartRef.current,
-          triggerHook: .8
-        })
-        .setClassToggle(chartRef.current, 'show')
-        .addTo(controller);   
-  });
+      .Scene({
+        triggerElement: chartRef.current,
+        triggerHook: .8 
+      })
+      .setClassToggle(chartRef.current, 'show')
+      .addTo(new ScrollMagic.Controller())
 
+
+  }, []);   
+ 
   return (
     <Container ref={chartRef}>
       <Title en="Organization chart" ko="본사 조직도" />
       <ChartWrap>
         <div className='ceo-wrap'>
-          <Circle>
+          <Circle className='item delay-1'>
             <span></span>
             <p>대표이사</p>
           </Circle>
         </div>
         <Depth1>
-          <Circle2><span></span><p>운영대표</p></Circle2>
-          <Rectangle><span></span><p>대외협력실</p></Rectangle>
+          <Circle2 className='item delay-2'><span></span><p>운영대표</p></Circle2>
+          <Rectangle className='item delay-3'><span></span><p>대외협력실</p></Rectangle>
         </Depth1>
         <Depth2>
-          <Rectangle2><span></span><p>채널지원부문</p></Rectangle2>
-          <Rectangle2><span></span><p>경영지원부문</p></Rectangle2>
+          <Rectangle2 className='item delay-4'><span></span><p>채널지원부문</p></Rectangle2>
+          <Rectangle2 className='item delay-5'><span></span><p>경영지원부문</p></Rectangle2>
         </Depth2>
         <Depth3>
-          <Rectangle2>경영지원팀</Rectangle2>
-          <Rectangle2>고객지원팀</Rectangle2>
+          <Rectangle2 className='item delay-6'>경영지원팀</Rectangle2>
+          <Rectangle2 className='item delay-7'>고객지원팀</Rectangle2>
         </Depth3>
         <Depth4>
-          <Rectangle2>재무파트</Rectangle2>
-          <Rectangle2>영업지원파트</Rectangle2>
+          <Rectangle2 className='item delay-8'>재무파트</Rectangle2>
+          <Rectangle2 className='item delay-9'>영업지원파트</Rectangle2>
         </Depth4>
       </ChartWrap>
     </Container>

@@ -10,7 +10,9 @@ import Overay from '../Overay';
 import SalesChart from './SalesChart';
 import TopBox from './TopBox';
 import TitleBox from '../TitleBox';
-import Map from './Map';
+import SearchContainer from './SearchContainer';
+
+
 
 const BannerContain = styled.div`
   position: relative;
@@ -120,6 +122,8 @@ const TabContent = styled.div`
     display: none;
   }
 `;
+
+
 const ContactTab = () => {
   const [openTab, setOpenTab] = useState(1);
 
@@ -193,7 +197,7 @@ const ContactTab = () => {
             left='0'
           />
         </BannerContain>
-        <Map />
+        <SearchContainer />
       </div>
     </TabContent>
     </Layout>

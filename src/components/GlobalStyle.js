@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
   html {
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
     font-size: 20px;
     @media (max-width: 1261px) {
       font-size: 16px;
@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'GoyangIlsan';
     color: #444444;
-    font-size: 1rem;
+    font-size: 1rem;    
   }
   #root {
     position: relative;

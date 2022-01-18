@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components';
 
 const Container = styled.section`
-  padding: 7% 8.333333333333333%;
+  padding: 10% 0;
 
   @media(max-width:700px){
-    padding: 5% 6.2%;
+    padding: 19.5% 0 0 0;
   }
   > h2 {
     font-size: 2.5rem;
@@ -14,6 +14,7 @@ const Container = styled.section`
     padding-bottom: 8%;
     @media(max-width:700px){
       font-size: 1rem;
+      padding-bottom: 13.8%;
     }
   }
   > div {
@@ -21,6 +22,7 @@ const Container = styled.section`
     padding: 5% 0;
     @media(max-width:700px){
       flex-direction: column;
+      padding: 0;
     }
     h3 {
       font-family: 'GoyangDeogyang';
@@ -42,6 +44,7 @@ const Container = styled.section`
       }
       @media(max-width:700px){
         font-size: 1rem;
+        padding: 0 0 8% 0;
         ::before{
           width: 20px;
           height: 20px;
@@ -63,6 +66,11 @@ const Area = styled.div`
       height: 40px;
       text-align: center;
       font-size: 0.8rem;
+      transition: background 0.3s ease-in-out;
+      :hover{
+        background-color: #FCFCFC;
+        
+      }
     }
     th {
       background-color: #B8292D;
@@ -73,71 +81,68 @@ const Area = styled.div`
   }
   @media(max-width:700px) {
     width: 100%;
+    padding: 0 2% 16.6%;
     table{
       margin: 0;
-      td {
+      td,th {
         font-size: 0.625rem;
       }
     }
   }
 `;
 const Target = styled.div`
-  width: 50%;
-  
-  > div {
-    display: flex;
-    justify-content: space-between;
+ width: 50%;
+>div{
+  padding: 5% 9%;
+> table {
+    border-collapse: collapse;
     width: 100%;
-    height: 330px;
-    border: 1px solid #C4C4C4;
-    margin: 5% 9%;
-    > div {
+    th,td{
+      border: 1px solid #C4C4C4;
+      font-size: 0.8rem;
+      color: #323232;
       width: 50%;
-      :first-child {
-        border-right: 1px solid #C4C4C4;
+    }
+    th {
+      background-color:  #F0F0F0;
+      font-weight: 400;
+      height: 50px;
+    }
+    td {
+      padding: 3.9% 0 0 4.4%;
+      height: 279px;
+      vertical-align: top;
+      line-height: 1.65rem;
+    }
+  }
+}
+@media(max-width: 700px) {
+  width: 100%;
+  padding: 0 2% 16.6%;
+
+  > div{
+    padding: 0;
+    > table {
+      td,th {
+        font-size: 0.625rem;
       }
-      > h4 {
-        font-size: 0.8rem;
-        color: #323232;
-        text-align: center;
-        border-bottom: 1px solid #C4C4C4;
-        background-color: #F0F0F0;
-        line-height: 50px;
-        font-weight: 400;
-      }
-      ul {
-        padding: 3% 0 0 5%;
-        > li {
-          line-height: 1.65rem;
-          font-size: 0.8rem;
-          color: #323232;
+      td {
+        padding: 7.35% 0 0 5%;
+        height: 200px;
+        line-height: 0.625rem;
+        > p {
+          padding-bottom: 18%;
         }
       }
     }
   }
-  @media(max-width:700px) {
-    width: 100%;
-    div{
-      margin: 0;
-      height: 250px;
-      > div {
-        > h4 {
-          font-size: 0.625rem;
-        }
-        > ul {
-          padding: 7.8% 0 0 6%;
-          > li {
-            font-size: 0.625rem;
-          }
-        }
-      }  
-    }
-  }
+}
+  
+  
+
 `;
-
-
-
-function SearchGuide() {
+  
+const SearchGuide = () => {
   return (
     <Container>
       <h2>사업단 검색</h2>
@@ -145,6 +150,8 @@ function SearchGuide() {
           <Area>
             <h3>지역구분</h3>
             <table>
+              <thead></thead>
+              <tbody>
               <tr>
                 <th>서울</th>
                 <td>강남구</td>
@@ -169,26 +176,31 @@ function SearchGuide() {
                 <th>제주</th>
                 <td>제주시</td>
               </tr>
+              </tbody>
             </table>
           </Area>
           <Target>
             <h3>검색대상</h3>
             <div>
-              <div>
-                <h4>사업단</h4>
-                <ul>
-                  <li>서울본부</li>
-                  <li>자산관리본부</li>
-                  <li>JJ파트너스</li>
-                  <li>유니온본부</li>
-                </ul>
-              </div>
-              <div>
-                <h4>보험플러스</h4>
-                <ul>
-                  <li>강남 세브란스 병원</li>
-                </ul>
-              </div> 
+            <table>
+              <thead>
+                <tr>
+                  <th>사업단</th>
+                  <th>보험플러스</th>
+                </tr>
+              </thead>
+              <tbody>
+                <td>
+                  <p>서울본부</p>
+                  <p>자산관리본부</p>
+                  <p>JJ파트너스</p>
+                  <p>유니온본부</p>
+                </td>
+                <td>
+                  <p>강남 세브란스 병원</p>
+                </td>
+              </tbody>
+            </table>
             </div>
           </Target>
         </div>
