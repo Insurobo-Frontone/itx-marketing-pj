@@ -176,7 +176,7 @@ const ContactTab = () => {
     <TabContent>
       <div className={openTab === 1 ? 'block' : 'hidden'} id="#cont1">
         <BannerContain>
-          <TopBox title="조직구성"/>
+          <TopBox title="아이티엑스마케팅(주)" content="조직구성"/>
           <TitleBox
             title="조직도"
             left='0'
