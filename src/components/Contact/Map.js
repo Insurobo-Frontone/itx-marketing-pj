@@ -28,7 +28,7 @@ const Map = () => {
     };
     // 지도 생성
     let map = new kakao.maps.Map(mapContainer, mapOptions);
-  }, []);
+  });
  
   
 
