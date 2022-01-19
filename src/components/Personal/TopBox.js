@@ -2,32 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import button from "../../img/sub/platformButton.svg";
 
-const List = [
-  {
-    id: 1,
-    content: "개인영업(FP)",
-    image: button,
-  },
-
-  {
-    id: 2,
-    content: "법인영업",
-    image: button,
-  },
-
-  {
-    id: 3,
-    content: "보험플러스",
-    image: button,
-  },
-
-  {
-    id: 4,
-    content: "DB Market",
-    image: button,
-  },
-];
-
 const TopBox = (props) => {
   return (
     <Container>
@@ -39,15 +13,19 @@ const TopBox = (props) => {
         <ListBox>
           <li>
             <a href={props.id1}>{props.link1}</a>
+            <img src={button} alt="" />
           </li>
           <li>
             <a href={props.id2}>{props.link2}</a>
+            <img src={button} alt="" />
           </li>
           <li>
             <a href={props.id3}>{props.link3}</a>
+            <img src={button} alt="" />
           </li>
           <li>
             <a href={props.id4}>{props.link4}</a>
+            <img src={button} alt="" />
           </li>
         </ListBox>
       </GrayBox>
@@ -67,7 +45,7 @@ const Container = styled.section`
 const GrayBox = styled.div`
   background-color: #f8f8f8;
   > div {
-    padding: 7.7% 0 21% 15%;
+    padding: 7.7% 0 26.15% 15%;
     > h2 {
       font-family: "GoyangDeogyang";
       color: #1a1a1a;
@@ -94,15 +72,22 @@ const GrayBox = styled.div`
 
 const ListBox = styled.ul`
   display: flex;
-  padding-bottom: 116px;
-  padding-left: 516px;
+  padding-bottom: 6.04%;
+  padding-left: 37%;
   > li {
-    width: 210px;
+    padding-top: 1.7%;
+    padding-left: 1.5%;
+    width: 20%;
     height: 60px;
     margin-right: 20px;
-    background-color: #c22229;
-    padding-top: 20px;
-    padding-left: 17px;
+    background-color: #B8292D; 
     color: #ffffff;
+
+    > img {
+      display: inline;
+      float: right;
+      padding-right: 9.27%;
+      padding-top: 3.1%;
+    }
   }
 `;
