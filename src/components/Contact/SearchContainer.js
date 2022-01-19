@@ -2,7 +2,7 @@ import React,{ useReducer, useState } from 'react'
 import styled from 'styled-components'
 import Map from './Map';
 import SearchGuide from './SearchGuide';
-import MapData from './mapData.json';
+import mapData from './mapData.json';
 
 import searchIcon from '../../img/common/searchIcon.svg';
 
@@ -102,97 +102,109 @@ const SearchResult = styled.div`
     }
   }
 `;
-const SearchContainer = () => {
- const [text, setText] = useState('');
 
- const [teamPrint, setTeamPrint] = useState(false);
- const [team2Print, setTeam2rint] = useState(false);
- const [namePrint, setNamePrint] = useState(false);
 
- const teamKeyword = '사업단'
- const team2Keyword = '보험플러스'
- const nameKeyword = MapData.item.name;
+const SearchContainer = ({
+    // input,
+    // mapData,
+    // onChangeInput,
+    // onInsert,
+    // onRemove
+  }) => {
+    const onSubmit = e => {
+      e.preventDefault();
+    }
+//  const [text, setText] = useState('');
 
-  const handleChange = (e) => {
-     setText(e.target.value)
+//  const [teamPrint, setTeamPrint] = useState(false);
+//  const [team2Print, setTeam2rint] = useState(false);
+//  const [namePrint, setNamePrint] = useState(false);
 
-     if (text === teamKeyword) {
-      setTeamPrint(!teamPrint)
-     } 
-     else if (text === team2Keyword) {
-      setTeam2rint(!team2Print)
-     }
-     else if (text === nameKeyword) {
-      setNamePrint(!namePrint);
-     }
-  }
+//  const teamKeyword = '사업단'
+//  const team2Keyword = '보험플러스'
+//  const nameKeyword = MapData.item.name;
 
-  const wordList = MapData.item.filter(
-    items => (items.team === teamKeyword))
+//   const handleChange = (e) => {
+//      setText(e.target.value)
 
-  const word2List = MapData.item.filter(
-    items => (items.team === team2Keyword))
+//      if (text === teamKeyword) {
+//       setTeamPrint(!teamPrint)
+//      } 
+//      else if (text === team2Keyword) {
+//       setTeam2rint(!team2Print)
+//      }
+//      else if (text === nameKeyword) {
+//       setNamePrint(!namePrint)
+//      }
+//   }
 
-  const nameList = MapData.item.filter(
-    items => (items.name === nameKeyword))
+//   const wordList = MapData.item.filter(
+//     items => (items.team === teamKeyword))
+
+//   const word2List = MapData.item.filter(
+//     items => (items.team === team2Keyword))
+
+//   const nameList = MapData.item.filter(
+//     items => (items.name === nameKeyword))
+
+
   return (
     <Container>
       <Search>
-        <div className="inputForm">
+        <form 
+          className="inputForm"
+          onSubmit={onSubmit}
+        >
           <input
             type="text"
             placeholder="본부, 사업단, 지점명, 보험플러스 점포명 입력"
-            onChange={handleChange}
-            onKeyPress={handleChange}
-            value={text}
-            name="inputs"
+            name="name"
           />
           <button 
             type="button"
-            onClick={handleChange}
+            name="search"
           />
-        </div>
+        </form>
       </Search>
       <SearchGuide />
       <SearchResult>
         <table>
           <thead>
             <tr>
-              {teamPrint && (
-                <th>{teamKeyword}</th>
-              )}
-              {team2Print && (
-                <th>{team2Keyword}</th>
-              )}
-              {namePrint && (
-                <th>{nameKeyword}</th>
-              )}
+              <th>사업단</th>
               <th>주소</th>
               <th>전화번호</th>
             </tr>
           </thead>
           <tbody>
-          {teamPrint && wordList.map((item) => (
+            {mapData.item.map((item) => (
+            <tr key={item.index}>
+              <td>{item.name}</td>
+              <td>{item.address}</td>
+              <td>{item.tel}</td>
+            </tr>
+            ))}
+          {/* {teamPrint && wordList.map((item) => (
           <tr key={item.index}>
             <td>{item.name}</td>
             <td>{item.address}</td>
             <td>{item.tel}</td>
           </tr>
-          ))}
-          {team2Print && word2List.map((item) => (
+          ))} */}
+          {/* {team2Print && word2List.map((item) => (
           <tr key={item.index}>
             <td>{item.name}</td>
             <td>{item.address}</td>
             <td>{item.tel}</td>
           </tr>
-          ))}
-          {namePrint && nameList.map((item) => (
+          ))} */}
+          {/* {namePrint && nameList.map((item) => (
           <tr key={item.index}>
             <td>{item.name}</td>
             <td>{item.address}</td>
             <td>{item.tel}</td>
           </tr>
-          ))}
+          ))} */}
           </tbody>
         </table>
     </SearchResult>
