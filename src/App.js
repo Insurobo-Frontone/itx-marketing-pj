@@ -8,7 +8,6 @@ import Home from './pages/Home';
 import Summary from './pages/Summary';
 import Recruit from './pages/Recruit';
 import Partners from "./pages/Partners";
-
 import ScrollToTop from "./components/ScrollToTop";
 import ContactTab from "./components/Contact/ContactTab";
 
