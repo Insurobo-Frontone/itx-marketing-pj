@@ -86,7 +86,6 @@ const DirectNews =  styled.div`
   flex-flow: column;
   > h2 {
     font-size: 3.13vw;
-    font-family: 'GoyangDeogyang';
     color: #1A1A1A;
     padding-bottom: 28px;
     > tt {
@@ -206,7 +205,6 @@ const StyleSwiper = styled(Swiper)`
   }
     h3, h2 {
         font-size: 2rem;
-        font-family: 'GoyangDeogyang';
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -357,5 +355,4 @@ const NewsMarketing = () => {
     </SectionContainer>
   )
 }
-
 export default NewsMarketing;

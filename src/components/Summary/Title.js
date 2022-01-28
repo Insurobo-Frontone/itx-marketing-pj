@@ -8,7 +8,6 @@ const TitleContainer = styled.div`
     font-size: 2.5rem;
     padding-bottom: 35px;
     color: #1A1A1A;
-    font-family: 'GoyangDeogyang';
   }
   > p {
     font-size: 1.5rem;

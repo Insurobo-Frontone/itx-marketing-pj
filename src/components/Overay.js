@@ -15,5 +15,4 @@ const Overay = () => {
     <DarkBg />
   )
 }
-
 export default Overay;

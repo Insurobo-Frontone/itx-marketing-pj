@@ -67,14 +67,14 @@ const Modal = styled.div`
 `;
 const FpModal = ({ children }) => {
 
-  return ReactDOM.createPortal(
-    <ModalBody>
-        <Modal>
-          {children}
-        </Modal>
-      </ModalBody>,
-      document.getElementById("modal")
-    );
+return ReactDOM.createPortal(
+  <ModalBody>
+    <Modal>
+      {children}
+    </Modal>
+  </ModalBody>,
+  document.getElementById("modal")
+  );
 }
 
 export default FpModal;

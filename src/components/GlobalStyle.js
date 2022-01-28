@@ -25,16 +25,19 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
-  body {
-    font-family: 'GoyangIlsan';
-    color: #444444;
-    font-size: 1rem;    
-  }
   #root {
     position: relative;
     width: 100%;
     height: 100%;
     margin: 0 auto;
+  }
+  body {
+    font-family: 'GoyangIlsan';
+    color: #444444;
+    font-size: 1rem;    
+  }
+  h1, h2, h3, h4 {
+    font-family: 'GoyangDeogyang';
   }
   img {
     display: block;

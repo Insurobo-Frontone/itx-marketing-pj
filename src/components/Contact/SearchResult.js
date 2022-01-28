@@ -47,27 +47,27 @@ const Container = styled.div`
 `;
 
 const SearchResult = (props) => {
+  const { itemList } = props;
   return (
-    <Container>
-        <table>
+    <table>
           <thead>
             <tr>
-              <th>사업단</th>
+              <th></th>
               <th>주소</th>
               <th>전화번호</th>
             </tr>
           </thead>
           <tbody>
-          {/* {props.items.map(({id, name, address, tel}) => (
-            <tr key={id}>
-              <td>{name}</td>
-              <td>{address}</td>
-              <td>{tel}</td>
-            </tr>
-          ))} */}
+          {itemList && 
+            itemList.map((itemdata) => (
+              <tr key={itemdata.key}>
+                <th>{itemdata.name}</th>
+                <th>{itemdata.address}</th>
+                <th>{itemdata.tel}</th>
+              </tr>
+            ))}
           </tbody>
         </table>
-    </Container>
   );
 }
 

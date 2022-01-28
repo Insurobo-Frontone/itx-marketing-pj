@@ -34,7 +34,6 @@ const TextWrap = styled.div`
     font-size: 2rem;
     color: #1A1A1A;
     line-height: 2.375rem;
-    font-family: 'GoyangDeogyang';
     padding-bottom: 6.8%;
    
     br {

@@ -47,7 +47,6 @@ const TitleBox = styled.div`
   > h3 {
     font-size: 3rem;
     line-height: 3.4rem;
-    font-family: 'GoyangDeogyang';
     color: #323232;
 
     @media (max-width: 700px) {
@@ -74,7 +73,7 @@ const StyleSwiper = styled(Swiper)`
   padding: 12.1% 8.5% 11%;
   justify-content: space-between;
 
-  & .swiper-pagination-bullet{
+  &.swiper-pagination-bullet{
     display: none;
   }
  
@@ -205,18 +204,17 @@ const Business = () => {
       .toFixed(2))
   }
 
- useEffect(() => {
-   gsap.to(recRef.current, 1, {
-     transform: 'translateY(50px)',
-     delay: random(0, 1),
-     y: 15,
-     repeat: -1,
-     yoyo: true,
-     ease: 'Power1.easeInOut',
-   },[]);
- }
- 
-)
+  useEffect(() => {
+    gsap.to(recRef.current, 1, {
+      transform: 'translateY(50px)',
+      delay: random(0, 1),
+      y: 15,
+      repeat: -1,
+      yoyo: true,
+      ease: 'Power1.easeInOut',
+    },[]);
+  })
+
   SwiperCore.use([Pagination]);
 
   return (
@@ -249,7 +247,8 @@ const Business = () => {
           <CardBox>
             <li
               className="card-icon"
-              style={{backgroundImage:`url(${dt.icon})`}}></li>
+              style={{backgroundImage:`url(${dt.icon})`}}>
+            </li>
             <li className="card-title">{dt.title}</li>
             <li className="card-desc">{dt.description}</li>
             <li className="more-btn"><Link to="#">자세히 보기</Link></li>
@@ -258,10 +257,9 @@ const Business = () => {
         ))} 
       </StyleSwiper>
       <Rectangle>
-        {/* <div ref={smRef} className="rectangle"></div> */}
         <img ref={recRef} src={rectangle} alt="Rectangle" />
       </Rectangle>
     </SectionContainer>
   );
-      }
+}
 export default Business;

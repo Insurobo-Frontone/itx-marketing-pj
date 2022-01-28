@@ -10,7 +10,7 @@ import Overay from '../Overay';
 import SalesChart from './SalesChart';
 import TopBox from './TopBox';
 import TitleBox from '../TitleBox';
-import SearchContainer from './SearchContainer';
+import SearchMap from './SearchMap';
 
 
 
@@ -89,7 +89,6 @@ const ContactBanner = styled.section`
     
       > h2 { 
         font-size: 2rem;
-        font-family: 'GoyangDeogyang';
         > strong {
         color: #B8292D;
         }
@@ -197,7 +196,7 @@ const ContactTab = () => {
             left='0'
           />
         </BannerContain>
-        <SearchContainer />
+        <SearchMap />
       </div>
     </TabContent>
     </Layout>
