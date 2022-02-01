@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import Map from './Map';
 import SearchGuide from './SearchGuide';
-import SearchResult from './SearchResult';
 import searchIcon from '../../img/common/searchIcon.svg';
+import searchMork from './searchMork.json';
+
 
 const Container = styled.section`
   padding: 3% 8.333333333333333% 10%;
@@ -55,55 +55,104 @@ const Button = styled.button`
   height: 18px;
 }
 `;
-const SearchMap = () => {
-  const [itemList, setItemList] = useState([]);
-  const [query, setQuery] = useState("");
-  const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+const SearchResult = styled.div`
+  margin: 0 6.3% 3%;
+  table {
+    width: 100%;
+    border-collapse: collapse;
   
-  useEffect(() => {
-    const fetchData = async () => {
-      setError("");
-      setLoading(true);
-      try {
-        const result = await axios(`./searchMork.json/search?query=${search}`);
-        setItemList(result.data);
-        setLoading(false);
-        console.log(itemList)
-      } catch (error) {
-        setError(error)
-        console.log('error');
+    th {
+      background-color: #F5F5F5;
+      line-height: 50px;
+      font-size: 0.8rem;
+      color: #323232;
+      border-top: 3px solid #323232;
+      font-family: 'GoyangDeogyang';
+    }
+    th:first-child,th:last-child{
+      width: 18.21428571428571%;
+    }
+    th:nth-child(2),td:nth-child(2) {
+      border-left: 1px solid #F0F0F0;
+      border-right: 1px solid #F0F0F0;
+    }
+    td {
+      height: 70px;
+      text-align: center;
+      color: #323232;
+    }
+  }
+  @media(max-width: 700px) {
+    margin: 0 2% 2.23%;
+
+    table {
+      font-size: 0.625rem;
+      th {
+        font-size: 0.625rem;
+      }
+      th:nth-child(2),td:nth-child(2) {
+        border-left: 0;
+        border-right: 0;
+        width: 22.8125%;
       }
     }
-    fetchData();
-  },[search])
+  }
+`;
+
+const SearchMap = () => {
+  // const [data, setData] = useState({hits: []});
+  const [query, setQuery] = useState('');
+  const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    for (let i = 0; searchMork.item.length > i; i++) {
+      if (query === searchMork.item[i].name) {
+        console.log('일치')
+      }
+    }
+  }, [search])
+  
+
   return (
-      <Container>
-        <Search>
-          <Input
-            type="text"
-            placeholder='본부, 사업단, 지점명, 보험플러스 점포명 입력'
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            onPress={(e) => setSearch(query)}
-          />
-          <Button onClick={(e) => setSearch(query)} />
-        </Search>
-        <SearchGuide />
-        <SearchResult>
-
-        </SearchResult>
-        
-
-        
-     
-        <Map />
-      </Container>
-
-  )
+    <Container>
+      <Search>
+        <Input
+          type="text"
+          placeholder='본부, 사업단, 지점명, 보험플러스 점포명 입력'
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyPress={() => setSearch(query)}
+          value={query}
+        />
+        <Button onClick={() => setSearch(query)} />
+      </Search>
+      <SearchGuide />
+      <SearchResult>
+        <table>
+          <thead>
+            <tr>
+              <th>사업단</th>
+              <th>주소</th>
+              <th>전화번호</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* {searchData.hits. => (
+              <tr key={val.index}>
+              <td>{val.name}</td>
+              <td>{}</td>
+              <td>결과</td>
+            </tr>
+            ))} */}
+          </tbody>
+        </table>
+      </SearchResult>
+      <Map 
+        address={'ss'}
+        name={'건누리병원'}
+      />
+    </Container>
+  );
 }
 
 
-export default SearchMap
-;
+export default SearchMap;

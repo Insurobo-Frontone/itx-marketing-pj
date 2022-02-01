@@ -18,7 +18,7 @@ const MapContainer = styled.div`
   }
 `;
 
-const Map = () => {
+const Map = (props) => {
 
   useEffect(() => {
     const mapContainer = document.getElementById("map");
@@ -30,7 +30,7 @@ const Map = () => {
     var map = new kakao.maps.Map(mapContainer, mapOptions);
     var geocoder = new kakao.maps.services.Geocoder();
 
-    geocoder.addressSearch('서울시 영등포구 양평로 68, 7층(DN빌딩)', function(result, status) {
+    geocoder.addressSearch(props.address, function(result, status) {
 
     // 정상적으로 검색이 완료됐으면 
       if (status === kakao.maps.services.Status.OK) {
@@ -43,7 +43,7 @@ const Map = () => {
 
       // 인포윈도우로 장소에 대한 설명을 표시합니다
       var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:150px;text-align:center;padding:6px 0;">서울본부</div>'
+            content: `<div style="width:150px;text-align:center;padding:6px 0;">${props.name}</div>`
       });
       infowindow.open(map, marker);
 
