@@ -8,6 +8,7 @@ import Planner from "./Planner";
 import System from "./System";
 import Service from "./Service";
 import Consulting from "./Consulting";
+import Advice from "./Advice";
 
 const PersonalBody = () => {
   return (
@@ -33,6 +34,7 @@ const PersonalBody = () => {
       <System />
       <Service />
       <Consulting />
+      <Advice />
     </>
   );
 };
