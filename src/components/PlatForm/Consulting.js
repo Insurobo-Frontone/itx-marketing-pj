@@ -96,7 +96,6 @@ const ConsultingWrap = styled.ul`
       position: absolute;
       right: -35%;
       top: 37%;
-      /* transform: translate(-50%, -50%); */
     }
     > h3 {
       font-size: 0.8rem;

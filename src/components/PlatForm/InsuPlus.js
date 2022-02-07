@@ -38,7 +38,7 @@ const Data = [
   {
     id: 4,
     title: "로드샵 / 샵인샵",
-    content: "프랜 차이즈 기반의 내방형 보험전문샵\n전국 네트워크로 확대가 가능",
+    content: "프랜 차이즈 기반의\n내방형 보험전문샵\n전국 네트워크로 확대가 가능",
     img: carrier,
     className: 'delay-3',
   },

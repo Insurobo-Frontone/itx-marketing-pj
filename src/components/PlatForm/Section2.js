@@ -81,7 +81,7 @@ const DataContent = styled.li`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 14.5% 0 13% 0;
+  padding: 16% 0 0 0;
   opacity: 0;
   transform: translateY(50%);
   transition-duration: 0.6s;
@@ -109,12 +109,14 @@ const DataContent = styled.li`
   }
   > .text-wrap {
       text-align: center;
-   
+
     > h2 {
       font-size: 1rem;
       color: #1a1a1a;
-      padding: 21% 0;
-
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     > p {
       font-size: 0.75rem;
@@ -136,10 +138,12 @@ const DataContent = styled.li`
     > .text-wrap {
       > h2 {
         font-size: 0.8125rem;
-        padding: 20% 0 9% 0;
         white-space: pre;
+        align-items: flex-end;
+        height: 45px;
       }
       > p {
+        padding-top: 11.5%;
         font-size: 0.625rem;
         line-height: 0.9rem;
       }
