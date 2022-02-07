@@ -66,7 +66,7 @@ const Wrap = styled.div`
 const ConsultingWrap = styled.ul`
   display: flex;
   justify-content: space-between;
-  padding: 12.38% 0 11.48% 8.56%;
+  padding: 12.38% 4% 11.48% 12.56%;
 
   > li {
     box-shadow: 6px 9px 41px rgba(0, 0, 0, 0.15);
@@ -76,7 +76,7 @@ const ConsultingWrap = styled.ul`
     background-color: #FFFFFF;
     border-radius: 25px;
     color: #1A1A1A;
-    width: 12.5%;
+    width: 13.6%;
     height: 197px;
     position: relative;
 
@@ -94,10 +94,9 @@ const ConsultingWrap = styled.ul`
       background-repeat: no-repeat;
       background-size: contain;
       position: absolute;
-      right: -50%;
-      top: 50%;
-      transform: translate(-50% , -50%);
-
+      right: -35%;
+      top: 37%;
+      /* transform: translate(-50%, -50%); */
     }
     > h3 {
       font-size: 0.8rem;
@@ -139,7 +138,8 @@ const ConsultingWrap = styled.ul`
           width: 40%;
           height: 2px;
           margin-top: 4px;
-
+          right: -45%;
+          top: 45%;
         }
       }
       :nth-child(1) {
