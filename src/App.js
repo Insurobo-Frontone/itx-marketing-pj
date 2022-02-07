@@ -25,9 +25,6 @@ function App() {
           <Route exact path="/recruit" component={Recruit} />
           <Route exact path="/contact" component={ContactTab} />
           <Route exact path="/platform" component={PlatForm} />
-          <Route exact path="/platform?personal" component={PlatForm} />
-          <Route exact path="/platform?insuplus" component={PlatForm} />
-          <Route exact path="/platform?market" component={PlatForm} />
         </BrowserRouter>
     </ThemeProvider>
   );

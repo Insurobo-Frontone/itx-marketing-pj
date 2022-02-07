@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Map from './Map';
 import SearchGuide from './SearchGuide';
@@ -100,18 +100,27 @@ const SearchResult = styled.div`
 `;
 
 const SearchMap = () => {
-  // const [data, setData] = useState({hits: []});
-  const [query, setQuery] = useState('');
+  const [data, setData] = useState({
+    hits: searchMork.item[7]
+  });
   const [search, setSearch] = useState('');
 
-  useEffect(() => {
+  
+  const handleClick = () => {
     for (let i = 0; searchMork.item.length > i; i++) {
-      if (query === searchMork.item[i].name) {
-        console.log('일치')
+      if (search === searchMork.item[i].name) {
+        setData((prevState) => ({
+          ...prevState,
+          hits: searchMork.item[i]
+        }))
+      }
+      if (search !== searchMork.item[i].name) {
+        alert('일치하는 사업단이 없습니다.');
+        return false;
       }
     }
-  }, [search])
-  
+  }
+
 
   return (
     <Container>
@@ -119,36 +128,33 @@ const SearchMap = () => {
         <Input
           type="text"
           placeholder='본부, 사업단, 지점명, 보험플러스 점포명 입력'
-          onChange={(e) => setQuery(e.target.value)}
-          onKeyPress={() => setSearch(query)}
-          value={query}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyPress={handleClick}
         />
-        <Button onClick={() => setSearch(query)} />
+        <Button onClick={handleClick} />
       </Search>
       <SearchGuide />
       <SearchResult>
         <table>
           <thead>
             <tr>
-              <th>사업단</th>
+              <th>{data.hits.team}</th>
               <th>주소</th>
               <th>전화번호</th>
             </tr>
           </thead>
           <tbody>
-            {/* {searchData.hits. => (
-              <tr key={val.index}>
-              <td>{val.name}</td>
-              <td>{}</td>
-              <td>결과</td>
+            <tr key={data.hits.index}>
+              <td>{data.hits.name}</td>
+              <td>{data.hits.address}</td>
+              <td>{data.hits.tel}</td>
             </tr>
-            ))} */}
           </tbody>
         </table>
       </SearchResult>
       <Map 
-        address={'ss'}
-        name={'건누리병원'}
+        address={data.hits.address}
+        name={data.hits.name}
       />
     </Container>
   );

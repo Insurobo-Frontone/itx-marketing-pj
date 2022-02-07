@@ -27,11 +27,10 @@ const BannerContainer = styled.section`
   background-image: url(${banner});
   
   @media (max-width: 700px) {
-  padding-top: 154.8%;
-  background-position: right center;
-  background-size: 290%;
-  background-position: 10% 5%;
-}
+    padding-top: 162%;
+    background-position: center top;
+    background-size: cover;
+  }
 > .text-wrap {
     position: absolute;
     top: 50%;

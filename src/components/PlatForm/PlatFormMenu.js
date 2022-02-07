@@ -5,22 +5,14 @@ import TopBox from "./TopBox";
 import TitleBox from "../TitleBox";
 
 
-
-
-
-
 const PlatFormMenu = () => {
   return (
-    <>
-      <Container>
-        <BannerContain>
-          <TopBox/>
-          <TitleBox title="Business" left="0" list4="Platform" />
-        </BannerContain>
-      </Container>
-
-
-    </>
+    <Container>
+      <BannerContain>
+        <TopBox/>
+        <TitleBox title="Business" left="0" list4="Platform" />
+      </BannerContain>
+    </Container>
   );
 };
 
@@ -31,6 +23,9 @@ const BannerContain = styled.div`
 `;
 
 const Container = styled.div`
-  padding-top: 140px;
-  padding-bottom: 140px;
+  padding: 7.3% 0;
+
+  @media (max-width: 700px) {
+    padding: 0;
+  }
 `;

@@ -49,7 +49,8 @@ const Items = styled.li`
   align-items: center;
   transition-duration: 0.6s;
   opacity: 0;
-  transform: translateY(100%);
+  transform: translateY(50%);
+  
   @media (max-width: 700px) {
     width: 50%;
     align-self: flex-start;

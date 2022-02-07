@@ -57,19 +57,20 @@ const Item = styled.li`
   margin-bottom: 4.7%;
   position: relative;
  
-  &.show .img-box{
+  &.show .img-box {
     width: 50.625%;
     opacity: 1;
+    
     @media (max-width: 700px) {
       width: 100px;
     }
 
   }
-  &.show .text-box{
+  &.show .text-box {
     opacity: 1;
     
   }
-  .img-box{
+  .img-box {
     width: 0;
     height: 58.8vh;
     background-repeat: no-repeat;
@@ -98,7 +99,6 @@ const Item = styled.li`
         color: #767676;
       }
       > h1 {
-        font-family: 'GoyangDeogyang';
         font-size: 2.5rem;
         padding-top: 2.5%;
         padding-bottom: 15.7%;

@@ -13,8 +13,7 @@ const BoxContain = styled.div`
   color: #FFFFFF;
   box-shadow: 10px 11px 14px rgba(0, 0, 0, 0.15);
   > h2 {
-    line-height: 5.25rem;
-    font-family: 'GoyangDeogyang';
+    line-height: 5.25rem;;
     font-size: 1.5rem;
     text-align: center;
     border-bottom: 3px solid #FFFFFF;

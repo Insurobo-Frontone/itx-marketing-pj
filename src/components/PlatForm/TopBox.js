@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
+import flatformLink from '../../img/sub/flatformLink.svg';
 // import button from "../../img/sub/platformButton.svg";
 
 const TopBox = (props) => {
+  const activeStyle = { background: "#C22229" };
+
   return (
     <Container>
       <GrayBox>
@@ -12,12 +15,55 @@ const TopBox = (props) => {
             차별화된 다양한 비즈니스 플랫폼을 제공합니다.
           </p>
         </div>
-
         <ListBox>
-          <li><NavLink to='/platform?personal'>개인영업</NavLink></li>
-          <li>법인영업</li>
-          <li><NavLink to='/platform?insuplus'>보험플러스</NavLink></li>
-          <li><NavLink to='/platform?Market'>DB Market</NavLink></li>
+          <li>
+            <StyledLink
+              to='/platform?personal'
+              activeStyle={activeStyle}
+              isActive={(match, location) => {
+                return match !== null && location.search === "?personal";
+              }}
+            >
+              <h3>개인영업(FP)</h3>
+              <img src={flatformLink} alt="개인영업" />
+            </StyledLink>
+          </li>
+          <li>
+            <StyledLink
+              to='/platform?corperation'
+              activeStyle={activeStyle}
+              isActive={(match, location) => {
+                return match !== null && location.search === "?corperation";
+              }}
+            >
+              <h3>법인영업</h3>
+              <img src={flatformLink} alt="법인영업" />
+            </StyledLink>
+          </li>
+          <li>
+            <StyledLink
+              to='/platform?insuplus'
+              activeStyle={activeStyle}
+              isActive={(match, location) => {
+                return match !== null && location.search === "?insuplus";
+              }}
+            >
+              <h3>보험플러스</h3>
+              <img src={flatformLink} alt="보험플러스" />
+            </StyledLink>
+          </li>
+          <li>
+            <StyledLink
+              to='/platform?market'
+              activeStyle={activeStyle}
+              isActive={(match, location) => {
+                return match !== null && location.search === "?market";
+              }}
+            >
+              <h3>DB Market</h3>
+              <img src={flatformLink} alt="DB Market" />
+          </StyledLink>
+          </li>
         </ListBox>
       </GrayBox>
     </Container>
@@ -33,28 +79,25 @@ const Container = styled.section`
     padding-left: 0%;
   }
 `;
+
+
 const GrayBox = styled.div`
   background-color: #f8f8f8;
   > div {
-    padding: 7.7% 0 26.15% 15%;
-    /* > h2 {
-      color: #1a1a1a;
-      font-size: 2.5rem;
-      padding-bottom: 2%;
-    } */
+    padding: 7.7% 0 26.4% 15%;
+    
     p {
-      font-size: 1.5em;
+      font-size: 1rem;
+      line-height: 1.475rem;
     }
   }
   @media (max-width: 700px) {
     > div {
-      padding: 7.7% 0 7% 7%;
-      > h2 {
-        font-size: 1.375rem;
-      }
+      padding: 16.8% 0 0 6.2%;
+     
       > p {
+        width: 45%;
         font-size: 0.8125rem;
-        padding-bottom: 115%;
       }
     }
   }
@@ -62,22 +105,45 @@ const GrayBox = styled.div`
 
 const ListBox = styled.ul`
   display: flex;
-  padding-bottom: 6.04%;
-  padding-left: 37%;
-  > li {
-    padding-top: 1.7%;
-    padding-left: 1.5%;
-    width: 20%;
-    height: 60px;
-    margin-right: 20px;
-    background-color: #B8292D; 
-    color: #ffffff;
+  justify-content: flex-end;
+  padding: 0 8.976660682226212% 10.5% 0;
 
-    > img {
-      display: inline;
-      float: right;
-      padding-right: 9.27%;
-      padding-top: 3.1%;
+  > li {
+    width: 13.99%;
+    margin-right: 1.75%;
+    :last-child{
+      margin-right: 0;
+    }
+  }
+  @media (max-width: 700px) {
+    flex-direction: column;
+    padding: 100% 0 10.5% 6%;
+
+    > li {
+      width: 120px;
+      margin-right: 0%;
+      margin-bottom: 5.4%;
+    }
+  }
+`;
+const StyledLink = styled(NavLink)`
+  background-color: #B8292D;
+  color: #FFFFFF;
+  height: 60px;
+  padding: 8.095238095238095%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  > h3 {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  @media (max-width: 700px) {
+    height: 30px;
+    > h3 {
+      font-size: 0.625rem;
     }
   }
 `;

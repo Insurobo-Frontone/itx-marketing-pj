@@ -69,6 +69,7 @@ const ContactBanner = styled.section`
   background-repeat: no-repeat;
   background-position: 0 70%;
   background-size: 100%;
+  
   @media (max-width: 700px) {
     padding-top: 154.7%;
     background-size: cover;

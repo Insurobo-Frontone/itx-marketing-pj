@@ -15,14 +15,14 @@ const StyledButton = styled.button`
   font-size: 0.9rem;
   padding: 0;
   color: #FFFFFF;
-  border-radius: 95px;
   box-shadow: -1px 6px 12px rgba(114, 0, 3, 0.25);
   opacity: 1;
   display: flex;
   justify-content: space-around;
   align-items: center;
   transition: bacground .3s ease-in-out;
-  
+  font-family: 'GoyangIlsan';
+  font-weight: 400;
 
   @media (max-width: 700px) {
     font-size: 0.625rem;
@@ -41,11 +41,24 @@ const SIZES = {
   md: css`
     width: 200px;
     height: 60px;
+    border-radius: 95px;
   `,
   lg: css`
     width: 250px;
     height: 60px;
+    border-radius: 95px;
   `,
+  xl: css`
+    width: 464px;
+    height: 60px;
+    border-radius: 7px;
+    @media (max-width: 700px) {
+      width: 100% !important;
+      height: 50px !important;
+      font-size: 0.8125rem !important;
+      box-shadow: -1px 6px 12px rgba(114, 0, 3, 0.25) !important;
+    }
+`,
 }
 const VARIANTS = {
   hovering: css`
@@ -53,7 +66,6 @@ const VARIANTS = {
   `
 }
 const Button = ({children, size, variant}) => {
-
   const sizeStyle = SIZES[size];
   const variantStyle = VARIANTS[variant];
 

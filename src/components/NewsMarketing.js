@@ -125,7 +125,7 @@ const StyledLink = styled(Link)`
       font-size: 0.625rem;
     } 
   }
-  >span {
+  > span {
     display: inline-block;
     width: 38px;
     height: 38px;
@@ -326,9 +326,7 @@ const NewsMarketing = () => {
         <NewsContainer>
           <StyleSwiper {...swiperParams} ref={setSwiper}> 
             {NewsData.map((newDt) => (
-            <SwiperSlide
-                key={newDt.id}
-              >
+              <SwiperSlide key={newDt.id}>
                 <h3>{newDt.date}</h3>
                 <div>
                   <h2>{newDt.title}</h2>
