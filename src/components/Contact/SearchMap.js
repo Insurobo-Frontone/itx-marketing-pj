@@ -119,10 +119,10 @@ const SearchMap = () => {
         
       }
 
-      // if (search !== searchMork.item[i].name) {
-      //   alert('일치하는 사업단이 없습니다.');
-      //   return false;
-      // }
+      if (search !== searchMork.item[i].name) {
+        alert('일치하는 사업단이 없습니다. 띄어쓰기 포함해서 입력해주세요! 수정예정입니다');
+        return false;
+      }
     }
   }
 
