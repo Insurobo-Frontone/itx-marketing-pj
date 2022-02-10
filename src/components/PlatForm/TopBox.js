@@ -18,10 +18,10 @@ const TopBox = (props) => {
         <ListBox>
           <li>
             <StyledLink
-              to='/platform?personal'
+              to='/platform'
               activeStyle={activeStyle}
               isActive={(match, location) => {
-                return match !== null && location.search === "?personal";
+                return match !== null && location.search === '';
               }}
             >
               <h3>개인영업(FP)</h3>
@@ -87,8 +87,8 @@ const GrayBox = styled.div`
     padding: 7.7% 0 26.4% 15%;
     
     p {
-      font-size: 1rem;
-      line-height: 1.475rem;
+      font-size: 1.25rem;
+      line-height: 1.775rem;
     }
   }
   @media (max-width: 700px) {

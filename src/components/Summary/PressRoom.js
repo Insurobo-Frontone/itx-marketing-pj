@@ -54,7 +54,7 @@ const ManageIdeaContainer = styled.section`
   }
 `;
 const StyleSwiper = styled(Swiper)`
-  padding: 10% 3.5%;
+  padding: 15% 3.5%;
   margin: 0 1%;
 
   .swiper-slide{
@@ -62,7 +62,7 @@ const StyleSwiper = styled(Swiper)`
     border-radius: 45px;
     padding: 3.2%;
     height: 640px;
-    transition: 1s;
+    transition: transform 1s;
     
     @media (max-width: 1261px) {
       height: 400px;

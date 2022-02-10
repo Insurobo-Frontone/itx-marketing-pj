@@ -20,8 +20,10 @@ const BoxContain = styled.div`
   }
   ul {
     padding: 0 0 5% 8.2%;
+
     > li {
-    line-height: 1.666666666666667rem;
+      font-size: 1.25rem;
+      line-height: 1.666666666666667rem;
     }
   }
   @media(max-width: 700px){
@@ -38,7 +40,7 @@ const BoxContain = styled.div`
     ul {
     padding: 0 0 8.5% 10.5%;
     > li {
-    line-height: 1.583333333333333rem;
+      line-height: 1.583333333333333rem;
     }
   }
   }  
@@ -62,4 +64,4 @@ const TitleBox = (props) => {
   )
 }
 
-export default TitleBox
+export default TitleBox;

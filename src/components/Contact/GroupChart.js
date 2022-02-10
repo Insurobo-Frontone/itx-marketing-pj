@@ -1,67 +1,13 @@
-import React, { useEffect, useRef } from 'react';
-import ScrollMagic from "scrollmagic";
+import React from 'react';
 import Title from '../Summary/Title';
 import styled from 'styled-components';
 
 const Container = styled.section`
   padding: 7% 8.3%;
-&.show .item{
-  opacity: 1;
-  transform: translateX(0);
-}
-&.show .item.delay-8{
-  transform: translateY(-100%);
-}
-&.show .item.delay-7{
-  transform: translateY(100%);
-}
-  .item {
-    opacity: 0;
-    transition: .5s ease-out .6s;
-    transform: translateX(20%);
-  }
-  .item.delay-1 {
-    transition-delay: .3s;
-  }
-  .item.delay-2 {
-    transition-delay: .6s;
-  }
-  .item.delay-3 {
-    transition-delay: .9s;
-  }
-  .item.delay-4 {
-    transition-delay: 1.2s;
-  }
-  .item.delay-5 {
-    transition-delay: 1.5s;
-  }
-  .item.delay-6 {
-    transition-delay: 1.8s;
-  }
-  .item.delay-7 {
-    transition-delay: 2.1s;
-  }
-  .item.delay-8 {
-    transition-delay: 2.4s;
-  }
-  .item.delay-9 {
-    transition-delay: 2.7s;
-  }
+
   @media (max-width: 700px) {
     padding: 11.3% 6%;
     width: 100%;
-    .item {
-      transform: translateX(0);
-    }
-    &.show .item.delay-8{
-      transform: translateY(0);
-    }
-    &.show .item.delay-7{
-      transform: translateY(0);
-    }
-    &.show .item.delay-4{
-      transform: translateX(30%);
-    }
   }
 `;
 const ChartWrap = styled.div`
@@ -544,25 +490,9 @@ const Rectangle2 = styled.div`
 
 
 const GroupChart = () => {
-
-  
-  const chartRef = useRef(null);
-  useEffect(() => {
-    
-    
-    new ScrollMagic
-      .Scene({
-        triggerElement: chartRef.current,
-        triggerHook: .8 
-      })
-      .setClassToggle(chartRef.current, 'show')
-      .addTo(new ScrollMagic.Controller())
-
-
-  }, []);   
  
   return (
-    <Container ref={chartRef}>
+    <Container>
       <Title en="Organization chart" ko="본사 조직도" />
       <ChartWrap>
         <div className='ceo-wrap'>

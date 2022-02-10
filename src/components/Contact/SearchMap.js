@@ -19,7 +19,7 @@ const Search = styled.div`
   border-bottom: 2px solid #444444;
   display: flex;
   align-items: center;
-
+  
 @media(max-width: 700px) {
   margin: 0 2%;
   width: 100%;
@@ -31,8 +31,10 @@ const Search = styled.div`
 const Input = styled.input`
     width: 100%;
     height: 48px;
+
   ::placeholder {
-    color: #C4C4C4; 
+    color: #C4C4C4;
+    font-size: 1rem;
   }
 @media(max-width: 700px) {
     width: 100%;
@@ -109,15 +111,18 @@ const SearchMap = () => {
   const handleClick = () => {
     for (let i = 0; searchMork.item.length > i; i++) {
       if (search === searchMork.item[i].name) {
+        
         setData((prevState) => ({
           ...prevState,
           hits: searchMork.item[i]
         }))
+        
       }
-      if (search !== searchMork.item[i].name) {
-        alert('일치하는 사업단이 없습니다.');
-        return false;
-      }
+
+      // if (search !== searchMork.item[i].name) {
+      //   alert('일치하는 사업단이 없습니다.');
+      //   return false;
+      // }
     }
   }
 
@@ -129,7 +134,7 @@ const SearchMap = () => {
           type="text"
           placeholder='본부, 사업단, 지점명, 보험플러스 점포명 입력'
           onChange={(e) => setSearch(e.target.value)}
-          onKeyPress={handleClick}
+          // onKeyPress={handleClick}
         />
         <Button onClick={handleClick} />
       </Search>

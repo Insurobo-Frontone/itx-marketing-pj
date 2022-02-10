@@ -75,15 +75,15 @@ const InsentiveData = [
 ]
 
 const Container = styled.section`
-  padding-top: 5.8%;
+
 
   @media (max-width: 700px) {
-    padding-top: 0;
+   
   }
 `;
 
 const CircleWrap = styled.div`
-  padding: 8.6% 8.73% 0%;
+  padding: 7.05% 8.73% 0%;
  
   > ul {
     display: flex;
@@ -199,7 +199,7 @@ const CircleWrap = styled.div`
 `;
 
 const Program = styled.div`
-  padding: 6.16% 8.333333333333333% 0;
+  padding: 7.05% 0 0 8.333333333333333%;
   @media (max-width: 700px) {
     padding: 10.5% 5.4% 0;
   }
@@ -210,7 +210,7 @@ const Program = styled.div`
   > ul {
     display: flex;
     flex-flow: row wrap;
-    padding: 8.5% 0 8.4%;
+    padding: 8.5% 0 4%;
 
     @media (max-width: 700px) {
       flex-flow: column;
@@ -220,10 +220,10 @@ const Program = styled.div`
 `;   
 
 const Items = styled.li`
-  width: 25%;
-  padding: 4% 0 0 1.6%;
-  margin-right: 12.5%;
-  margin-bottom: 3.13%;
+  width: 28.4%;
+  padding: 3% 0 0 2.85%;
+  margin-right: 6.2%;
+  margin-bottom: 6.1%;
   border: 1px solid #BEBEBE;
   display: flex;
   flex-direction: column;
@@ -231,7 +231,7 @@ const Items = styled.li`
   opacity: 0;
   background-color: #FFFFFF;
   transition-duration: 0.4s;
-  transform: translateY(100%);
+  transform: translateY(100px);
 
   &.delay-0 {
     transition-delay: 0;
@@ -263,14 +263,12 @@ const Items = styled.li`
   > .text-wrap {
       white-space: pre;
     > h3 {
-        font-size: 1rem;
+        font-size: 1.25rem;
         color: #1A1A1A;
-        font-family: 'GoyangDeogyang';
       }
     > p {
-        font-size: 0.8rem;
         line-height: 1.166666666666667rem;
-        padding: 21.1% 0 20.6% 0;
+        padding: 15% 0 0% 0;
       }
     }
   @media (max-width: 700px) {
@@ -320,13 +318,13 @@ const Incentive = styled.div`
    > ul {
     display: flex;
     justify-content: space-between;
-    padding: 10% 0 12.5%;
+    padding: 6.9% 0 7.7%;
     
     > li {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      transform: translateY(100%);
+      transform: translateY(100px);
       transition-duration: 0.4s;
       width: 25%;
       &.delay-0 {

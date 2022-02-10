@@ -77,7 +77,7 @@ const SectionContainer = styled.div`
 `;
 
 const DirectNews =  styled.div`
-  width:33.85416666666667%;
+  width: 33.85416666666667%;
   padding: 24.5% 6% 26.06% 7.8125%;
   margin-bottom: 60px; 
   background-color: #F8F8F8;

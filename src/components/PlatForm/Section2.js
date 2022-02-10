@@ -79,9 +79,8 @@ const DataContent = styled.li`
   width: 25%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 16% 0 0 0;
+  padding: 13% 0 8% 0;
   opacity: 0;
   transform: translateY(50%);
   transition-duration: 0.6s;
@@ -123,6 +122,7 @@ const DataContent = styled.li`
       line-height: 1.45rem;
       text-align: center;
       white-space: pre;
+      height: 120px;
     }
   }
   @media (max-width: 700px) {
@@ -146,6 +146,7 @@ const DataContent = styled.li`
         padding-top: 11.5%;
         font-size: 0.625rem;
         line-height: 0.9rem;
+        
       }
     }
   }

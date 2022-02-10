@@ -41,7 +41,7 @@ const Section3 = (props) => {
               style={{textAlign: `${props.left}`}}
             >
               <h2 className="hash-tag">{dt.hashtag}</h2>
-              {location.search === '?personal' ? 
+              {location.search === '' ? 
               (<p className="sub-txt">{dt.content}</p>) :
               (<ul className="list-wrap sub-txt">
                 <li>{dt.list1}</li>

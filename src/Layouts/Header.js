@@ -337,9 +337,8 @@ const Header = (props) => {
                 onClick={activeMethod}
               >Business
                 <ul className="sub-menu">
-                  <li><Link to='/platform?personal'>플랫폼</Link>
+                  <li><Link to='/platform'>플랫폼</Link>
                     <ul className="sub-menu-dropdown">
-                      <li><Link to='/platform?personal'>개인영업</Link></li>
                       <li><Link to='/platform?corperation'>법인영업</Link></li>
                       <li><Link to='/platform?insuplus'>보험플러스</Link></li>
                       <li><Link to='/platform?market'>Market</Link></li>

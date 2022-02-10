@@ -34,7 +34,7 @@ const card = [
 ]
 const SectionContainer = styled.div`
   width: 100%;
-  padding: 12.85% 0 15.55%;
+  padding: 8.08% 0 0;
   background-color: #F8F8F8;
   position: relative;
 
@@ -68,9 +68,8 @@ const TitleBox = styled.div`
 `;
 const StyleSwiper = styled(Swiper)`
   width: 100%;
-  
   flex-direction: row nowrap;
-  padding: 12.1% 8.5% 11%;
+  padding: 12.1% 8.5% 11.5%;
   justify-content: space-between;
 
   &.swiper-pagination-bullet{
@@ -183,7 +182,9 @@ const CardBox = styled.ul`
 const Rectangle = styled.div`
   width: 15.625%;
   position: absolute;
+  bottom: -19.5%;
   right: 7.8125%;
+  
   @media (max-width: 700px) {
     width: 27%;
     bottom: 0;

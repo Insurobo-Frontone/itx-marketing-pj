@@ -16,15 +16,16 @@ const BannerContainer = styled.section`
       padding: 25.13% 0 5.3% 7.8%;
       > h2 {
         color: #1A1A1A;
-        font-size: 2rem;
+        font-size: 2.5rem;
         font-family: 'GoyangDeogyang';
-        padding-bottom: 2.5%;
+        padding-bottom: 2%;
         > strong {
         color: #B8292D;
         }
       }
       > p {
-        line-height: 1.3rem;
+        line-height: 1.65rem;
+        font-size: 1.25rem;
       }
     }
   }

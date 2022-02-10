@@ -42,13 +42,13 @@ const IdeaData = [
 const ManageIdeaContainer = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 9% 7.8125% 0;
+  padding: 7.78% 7.8125% 0;
 `;
 const IdeaList = styled.ul`
   display: flex;
   white-space: pre;
   text-align: center;
-  padding: 14% 7.239583333333333%;
+  padding: 6.25% 7.239583333333333%;
 
   &.show li {
     opacity: 1;
@@ -110,7 +110,6 @@ const Items = styled.li`
   }
   > h3 {
     font-size: 1rem;
-    font-family: 'GoyangDeogyang';
     line-height: 1.15rem;
     color: #323232;
     padding-bottom: 5%;
@@ -123,6 +122,7 @@ const Items = styled.li`
   > p {
     font-size: 0.8rem;
     line-height: 0.9rem;
+    height: 60px;
     @media (max-width: 700px) {
       font-size: 0.625rem;
       line-height: 0.6875rem;

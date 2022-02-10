@@ -89,14 +89,15 @@ const ContactBanner = styled.section`
     flex-direction: column;
     
       > h2 { 
-        font-size: 2rem;
+        font-size: 2.5rem;
         > strong {
         color: #B8292D;
         }
       }
       > p {
-        padding-top: 10%;
+        padding-top: 12.4%;
         line-height: 1.4rem;
+        font-size: 1.25rem;
       }
       @media (max-width: 700px) {
         width: 56%;
@@ -191,7 +192,7 @@ const ContactTab = () => {
       </div>
       <div className={openTab === 2 ? 'block' : 'hidden'} id="#cont2">
         <BannerContain>
-          <TopBox title="조직구성"/>
+          <TopBox title="사업단, 보험플러스 조회"/>
           <TitleBox
             title="사업단 조회"
             left='0'

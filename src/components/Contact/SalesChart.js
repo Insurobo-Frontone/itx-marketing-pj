@@ -1,10 +1,10 @@
-import React,{ useEffect,useRef } from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import Title from '../Summary/Title';
-import ScrollMagic from "scrollmagic";
+
 
 const Container = styled.section`
-  padding: 7% 8.3%;
+  padding: 6.69% 8.3% 7.75%;
 
   @media(max-width: 700px) {
     padding: 5% 6.5%;
@@ -12,85 +12,7 @@ const Container = styled.section`
 `;
 const ChartWrap = styled.div`
   position: relative;
-  &.show .item{
-  opacity: 1;
-  transform: translateY(0);
-}
-.item {
-    opacity: 0;
-    transition: .5s ease-out .6s;
-    transform: translateY(20%);
-  }
-.item.delay-1 { 
- transition-delay: .3s;
-}
-.item.delay-2 {
- transition-delay: .6s;
-}
-.item.delay-3 {
- transition-delay: .9s;
-}
-.item.delay-4 {
- transition-delay: 1.2s;
-}
-.item.delay-5 {
- transition-delay: 1.5s;
-}
-.item.delay-6 {
- transition-delay: 1.8s;
-}
-.item.delay-7 {
- transition-delay: 2.1s;
-}
-.item.delay-8 {
- transition-delay: 2.4s;
-}
-.item.delay-9 {
- transition-delay: 2.7s;
-}
-.item.delay-10 {
- transition-delay: 3s;
-}
-.item.delay-11 {
- transition-delay: 3.3s;
-}
-.item.delay-12 {
- transition-delay: 3.6s;
-}
-.item.delay-13 {
- transition-delay: 3.9s;
-}
-.item.delay-14 {
- transition-delay: 4.2s;
-}
-.item.delay-15 {
- transition-delay: 4.5s;
-}
-.item.delay-16 {
- transition-delay: 4.8;
-}
-.item.delay-17 {
- transition-delay: 5.1s;
-}
-.item.delay-18 {
- transition-delay: 5.4s;
-}
-.item.delay-19 {
- transition-delay: 5.7s;
-}
-.item.delay-20 {
- transition-delay: 6s;
-}
-.item.delay-21 {
- transition-delay: 6.3s;
-}
-.item.delay-22 {
- transition-delay: 6.6s;
-}
-.item.delay-23 {
- transition-delay: 6.9s;
-}
-  
+ 
   > div {
     display: flex;
     flex-wrap: wrap;
@@ -285,24 +207,10 @@ const BusiTeamList = styled.ul`
 
 const SalesChart = () => {
 
-  const chartRef = useRef(null);
-  useEffect(() => {
-    
-    
-    new ScrollMagic
-      .Scene({
-        triggerElement: chartRef.current,
-        triggerHook: .8 
-      })
-      .setClassToggle(chartRef.current, 'show')
-      .addTo(new ScrollMagic.Controller())
-
-
-  }, []);   
   return (
     <Container>
       <Title en="Sales organization chart" ko="영업 조직도"/>
-      <ChartWrap ref={chartRef}>
+      <ChartWrap>
         <div>
           <div className='ceo-wrap'>
             <p>대표이사</p>

@@ -27,15 +27,15 @@ const BannerContainer = styled.section`
     flex-direction: column;
     
     > h2 { 
-      font-size: 2rem;
-      font-family: 'GoyangDeogyang';
+      font-size: 2.5rem;
       > strong {
         color: #B8292D;
       }
     }
       > p {
-        padding-top: 10%;
+        padding-top: 5.7%;
         line-height: 1.4rem;
+        font-size: 1.25rem;
       }
       @media (max-width: 700px) {
         width: 56%;

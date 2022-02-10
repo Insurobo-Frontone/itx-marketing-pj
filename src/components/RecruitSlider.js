@@ -28,7 +28,7 @@ const Card = [
 const SectionContainer = styled.div`
   position: relative;
   width: 100%;
-  padding: 20.56% 0 19%;
+  padding: 15.7% 0 22.6%;
   overflow: hidden;
 
   @media (max-width: 700px) {
@@ -40,12 +40,10 @@ const SectionTitle = styled.div`
   margin-left: 5.333333333333333%;
   > h2 {
     font-size: 3.13vw;
-    font-family: 'GoyangDeogyang';
     color: #1A1A1A;
     padding-bottom: 1.4%;
     border-bottom: 3px solid #1A1A1A;
     > span {
-      font-family: 'GoyangIlsan';
       display: inline-block;
       font-weight: 300;
     }
@@ -77,9 +75,9 @@ const VisualBox = styled.div`
   background-image: url(${visual});
   background-repeat: no-repeat;
   background-position: 33.5% 1%;
-  background-size: 133%;
+  background-size: 146%;
 
-  @media (max-width: 700px){
+  @media (max-width: 700px) {
     padding-top: 123%;
     margin-left: 0;
     background-size: 250%;
@@ -88,8 +86,8 @@ const VisualBox = styled.div`
 `;
 const SwiperContainer = styled.div`
   position: absolute;
-  top: 62%;
-  left: 13.80208333333333%;
+  top: 64%;
+  left: 11%;
   background-color: #F8F8F8;
   border-radius: 366.5px 0 0 366.5px;
   @media (max-width: 700px) {
@@ -112,14 +110,14 @@ const StyleSwiper = styled(Swiper)`
     display: flex;
     justify-content: space-between;
     height: 400px;
-    width: 22.68859897901305%;
+    width: 400px;
     padding: 4% 2%;
     cursor: pointer;
     font-size: 1.5rem;
     color: #323232;
     font-family: 'GoyangDeogyang';
 
-    > p{
+    > p {
       line-height: 45px;
     }
 
@@ -131,7 +129,7 @@ const StyleSwiper = styled(Swiper)`
       border-radius: 15px;
       padding: 4% 2%;
       
-      > p{
+      > p {
         line-height: 15px;
       }
     }
@@ -163,16 +161,32 @@ const RecruitSlider = () => {
   
   const sliderRef = useRef(null);
   const [swiper, setSwiper] = useState(null);
+
   const swiperHandle = () => {
     console.log(swiper);
   }  
   const swiperParams = {
     onSwiper: setSwiper,
-    loop: true,
-    slideToClickedSlide: true,
-    speed: 1000,
-    
- }
+    // loop: false,
+    // speed: 1000,
+    // spaceBetween: 6,
+    // slidesPerView: 2.5,
+    // centeredSlides: true,         
+    // breakpoints: {
+    //   700: {
+        loop: true,
+        speed: 1000,
+        slideToClickedSlide: true,
+        centeredSlides: false, 
+        slidesPerView: 4,
+        spaceBetween: 55,
+        allowTouchMove: false,
+        // pagination: {
+        //   clickable: true,
+        // }
+      
+    }
+ 
 
   return (
       <SectionContainer>
@@ -189,14 +203,11 @@ const RecruitSlider = () => {
           <SwiperContainer>
           <StyleSwiper 
             {...swiperParams}
-            slidesPerView={4}
-            spaceBetween={9}
-            breakpoints={{
-              700:{spaceBetween: 9}
-            }}
           >
             {Card.map((dt) => (
-              <SwiperSlide key={dt.id} onClick={swiperHandle}
+              <SwiperSlide 
+                key={dt.id} 
+                onClick={swiperHandle}
                 ref={sliderRef}
               >
                 <p>{dt.title}</p>

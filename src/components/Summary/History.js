@@ -43,7 +43,7 @@ const Item = [
 
 const HistoryContainer = styled.section`
   width: 100%;
-  padding: 9% 9.479166666666667% 5% 7.8125%;
+  padding: 5.65% 9.479166666666667% 0 7.8125%;
   display: flex;
   flex-direction: column;
   @media (max-width: 700px) {
@@ -51,7 +51,7 @@ const HistoryContainer = styled.section`
   }
 `;
 const HistoryList = styled.ul`
-  padding: 5% 0 15% 15.6%;
+  padding: 5% 0 3% 15.6%;
   display: flex;
   flex-flow: column nowrap;
   transition: 1s;
@@ -144,7 +144,7 @@ const Items = styled.li`
 `;
 
 const BigTextScroll = styled.div`
-  > h2 {
+  > p {
     width: 100%;
     font-size: 6.3vw;
     text-align: right;
@@ -154,6 +154,7 @@ const BigTextScroll = styled.div`
     overflow: hidden;
     opacity: 0; 
     transition: 3s;
+    line-height: 15rem;
     transform: translateX(-2000px);
   
   &.show {
@@ -203,9 +204,9 @@ const History = () => {
         ))}
         </HistoryList>
           <BigTextScroll>
-            <h2 ref={textRef}>
+            <p ref={textRef}>
               고객과 FP의 행복한 동행
-            </h2>
+            </p>
           </BigTextScroll>
     </HistoryContainer>
   )

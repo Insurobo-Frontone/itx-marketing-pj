@@ -9,7 +9,7 @@ const PlatFormMenu = () => {
   return (
     <Container>
       <BannerContain>
-        <TopBox/>
+        <TopBox />
         <TitleBox title="Business" left="0" list4="Platform" />
       </BannerContain>
     </Container>
@@ -23,7 +23,7 @@ const BannerContain = styled.div`
 `;
 
 const Container = styled.div`
-  padding: 7.3% 0;
+  padding: 7.3% 0 0 0;
 
   @media (max-width: 700px) {
     padding: 0;
