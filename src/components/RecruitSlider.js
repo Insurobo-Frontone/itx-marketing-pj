@@ -10,25 +10,29 @@ import  { ReactComponent as PlusBtn } from '../img/common/PlusBtn.svg';
 const Card = [
   {
     id: 0,
-    title: '개인영업(FP)'
+    title: '개인영업(FP)',
+    url: '/recruit'
   },
   {
     id: 1,
-    title: '법인컨설턴트'
+    title: '법인컨설턴트',
+    url: '/recruit'
   },
   {
     id: 2,
-    title: '전문가그룹'
+    title: '전문가그룹',
+    url: '/recruit'
   },
   {
     id: 3,
-    title: '정규직'
+    title: '정규직',
+    url: '/recruit'
   }
 ]
 const SectionContainer = styled.div`
   position: relative;
   width: 100%;
-  padding: 15.7% 0 22.6%;
+  padding: 15.7% 0 10%;
   overflow: hidden;
 
   @media (max-width: 700px) {
@@ -71,11 +75,11 @@ const SectionTitle = styled.div`
 const VisualBox = styled.div`
   width: 100%;
   margin-left: 29.5%;
-  padding-top: 79.2%;
+  padding-top: 82.6%;
   background-image: url(${visual});
   background-repeat: no-repeat;
   background-position: 33.5% 1%;
-  background-size: 146%;
+  background-size: 132%;
 
   @media (max-width: 700px) {
     padding-top: 123%;
@@ -211,7 +215,7 @@ const RecruitSlider = () => {
                 ref={sliderRef}
               >
                 <p>{dt.title}</p>
-                <Link to='#'>
+                <Link to={dt.url}>
                   <PlusBtn className="plus-btn"/>
                 </Link>
               </SwiperSlide>
