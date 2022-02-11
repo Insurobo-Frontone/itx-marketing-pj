@@ -40,7 +40,7 @@ const Footers = styled.footer`
   font-size: 0.65rem;
   font-weight: 400;
   width: 100%;
-  padding: 6.85% 0 5.4% 7.8125%;
+  padding: 3.05% 0 2.44% 7.8125%;
   display: flex;
   flex-direction: column;
   align-content: space-between;
@@ -59,7 +59,7 @@ const Logo = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: left;
-  margin-bottom: 36px;
+  margin-bottom: 1.8%;
 
   @media (max-width: 700px) {
     width: 130px;
@@ -75,7 +75,7 @@ const FooterMenu = styled.div`
   }
   > ul:last-child {
     width: 30%;
-    padding-bottom: 125px;
+    padding-bottom: 3.03%;
     >li:nth-child(2)::after {
       display: none;
     }

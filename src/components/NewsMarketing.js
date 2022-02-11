@@ -78,8 +78,7 @@ const SectionContainer = styled.div`
 
 const DirectNews =  styled.div`
   width: 33.85416666666667%;
-  padding: 24.5% 6% 26.06% 7.8125%;
-  margin-bottom: 60px; 
+  padding: 17.36% 6.6% 17.36% 7.8125%;
   background-color: #F8F8F8;
   position: relative;
   display: flex;
@@ -88,7 +87,7 @@ const DirectNews =  styled.div`
     font-size: 3.13vw;
     color: #1A1A1A;
     padding-bottom: 28px;
-    > tt {
+    > p {
       font-family: 'GoyangIlsan';
       font-weight: 400;
     }
@@ -315,13 +314,12 @@ const NewsMarketing = () => {
           <h2>
             <strong style={{color:"#C22229"}}>N</strong>
               e<strong>W</strong>s&nbsp;<br />
-            <tt>ITX&nbsp;Marketing</tt>
+            <p>ITX&nbsp;Marketing</p>
           </h2>
           <StyledLink to="#">
             <p>자세히보기</p>
             <span></span>
           </StyledLink>
-          
         </DirectNews>
         <NewsContainer>
           <StyleSwiper {...swiperParams} ref={setSwiper}> 

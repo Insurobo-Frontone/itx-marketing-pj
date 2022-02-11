@@ -125,17 +125,17 @@ const CircleWrap = styled.div`
       position: relative;
     }
       :first-child > div {
-        background: linear-gradient(#fff, #fff),linear-gradient(60deg, #F0F0F0 70%, #F9BDBD 30%);
+        background: linear-gradient(#fff, #fff),linear-gradient(60deg, #9D9D9D 70%, #F9BDBD 30%);
         background-origin: border-box;
         background-clip: content-box, border-box;
       }
       :nth-child(2) > div {
-        background: linear-gradient(#fff, #fff),linear-gradient(90deg, #F0F0F0 50%, #F9BDBD 50%);
+        background: linear-gradient(#fff, #fff),linear-gradient(90deg, #9D9D9D 50%, #F9BDBD 50%);
         background-origin: border-box;
         background-clip: content-box, border-box;
       }
       :nth-child(3) > div {
-        background: linear-gradient(#fff, #fff),linear-gradient(-60deg, #F9BDBD 70%, #F0F0F0 30%);
+        background: linear-gradient(#fff, #fff),linear-gradient(-60deg, #F9BDBD 70%, #9D9D9D 30%);
         background-origin: border-box;
         background-clip: content-box, border-box;
       }

@@ -23,7 +23,7 @@ const BannerContain = styled.div`
 `;
 
 const Container = styled.div`
-  padding: 7.3% 0 0 0;
+  padding: 4.45% 0 0 0;
 
   @media (max-width: 700px) {
     padding: 0;

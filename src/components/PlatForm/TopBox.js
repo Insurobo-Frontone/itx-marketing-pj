@@ -84,7 +84,7 @@ const Container = styled.section`
 const GrayBox = styled.div`
   background-color: #f8f8f8;
   > div {
-    padding: 7.7% 0 26.4% 15%;
+    padding: 7.7% 0 10.29% 15%;
     
     p {
       font-size: 1.25rem;
@@ -106,7 +106,7 @@ const GrayBox = styled.div`
 const ListBox = styled.ul`
   display: flex;
   justify-content: flex-end;
-  padding: 0 8.976660682226212% 10.5% 0;
+  padding: 0 9% 4.3% 0;
 
   > li {
     width: 13.99%;
