@@ -41,6 +41,7 @@ const BoxContain = styled.div`
     padding: 0 0 8.5% 10.5%;
     > li {
       line-height: 1.583333333333333rem;
+      font-size: 1rem;
     }
   }
   }  

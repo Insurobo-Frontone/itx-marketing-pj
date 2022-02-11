@@ -10,7 +10,6 @@ const Container = styled.section`
   > h2 {
     font-size: 2.5rem;
     color: #1A1A1A;
-    font-family: 'GoyangDeogyang';
     padding-bottom: 8%;
     @media(max-width:700px){
       font-size: 1rem;
@@ -25,7 +24,6 @@ const Container = styled.section`
       padding: 0;
     }
     h3 {
-      font-family: 'GoyangDeogyang';
       color: #222222;
       font-size: 1.5rem;
       display: flex;
@@ -197,7 +195,7 @@ const SearchGuide = () => {
                   <p>유니온지사</p>
                 </td>
                 <td>
-                  <p>강남 세브란스 병원</p>
+                  <p>강남 세브란스병원</p>
                 </td>
               </tbody>
             </table>
