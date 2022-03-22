@@ -77,7 +77,8 @@ const InsuPlus = () => {
   return (
     <>
       <Section1
-        thin="+ 보험플러스"
+        thin="+"
+        logo='insuplus'
         strong1="I"
         title1="nsurance"
         strong2="P"
@@ -93,7 +94,7 @@ const InsuPlus = () => {
         data={Data} 
       />
       <Section3
-        thin="아주 특별한 공간"
+        thin="아주 특별한 공간 "
         title1="보험플러스"
         data={Data2}
         left="left"

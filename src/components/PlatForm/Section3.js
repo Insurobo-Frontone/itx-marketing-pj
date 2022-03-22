@@ -25,9 +25,9 @@ const Section3 = (props) => {
       <SectionTitle>
         <span>{props.thin}</span>
         <span className="small">{props.small}</span>
-        <strong>&nbsp;{props.strong1}</strong>
+        <strong>{props.strong1}</strong>
         {props.title1}
-        <strong>&nbsp;{props.strong2}</strong>
+        <strong>{props.strong2}</strong>
         {props.title2}
       </SectionTitle>
       <Content>
@@ -41,7 +41,7 @@ const Section3 = (props) => {
               style={{textAlign: `${props.left}`}}
             >
               <h2 className="hash-tag">{dt.hashtag}</h2>
-              {location.search === '' ? 
+              {location.search === '' ?
               (<p className="sub-txt">{dt.content}</p>) :
               (<ul className="list-wrap sub-txt">
                 <li>{dt.list1}</li>

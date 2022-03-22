@@ -39,7 +39,6 @@ const Modal = styled.div`
       align-self: center;
       font-size: 1.5rem;
       color: #1A1A1A;
-      font-family: 'GoyangDeogyang';
       padding: 2vh 0;
       @media(max-width: 700px){
         font-size: 1.25rem;

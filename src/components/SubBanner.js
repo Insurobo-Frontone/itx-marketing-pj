@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import linkBtn from "../img/common/halfArrow.svg";
 
 
@@ -27,7 +27,6 @@ const Container = styled.div`
 `;
 const TextWrap = styled.div`
   h2 {
-    font-family: 'GoyangDeogyang';
     color: #1A1A1A;
     font-size: 2.5rem;
     padding-top: 8.7%;
@@ -52,16 +51,20 @@ const LinkWrap = styled.ul`
   width: 100%;
   font-size: 0.8rem;
   color: #B8292D;
-  
->li::after {
-  content: '';
-  display: block;
-  width: 235px;
-  height: 12px;
-  background-image: url(${linkBtn});
-  background-size: contain;
-  background-repeat: no-repeat;
-}
+> li {
+    &.none {
+      display: none;
+    }
+    ::after {
+    content: '';
+    display: block;
+    width: 235px;
+    height: 12px;
+    background-image: url(${linkBtn});
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+} 
 @media(max-width: 700px){
   flex-direction: column;
   font-size: 0.8125rem;
@@ -103,6 +106,7 @@ const SubBanner = (props) => {
         <li><a href={props.id1}>{props.link1}</a></li>
         <li><a href={props.id2}>{props.link2}</a></li>
         <li><a href={props.id3}>{props.link3}</a></li>
+        <li className={props.display}><a href={props.id4}>{props.link4}</a></li>
       </LinkWrap>
     </Container>
   )

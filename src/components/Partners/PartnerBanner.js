@@ -17,7 +17,6 @@ const BannerContainer = styled.section`
       > h2 {
         color: #1A1A1A;
         font-size: 2.5rem;
-        font-family: 'GoyangDeogyang';
         padding-bottom: 2%;
         > strong {
         color: #B8292D;

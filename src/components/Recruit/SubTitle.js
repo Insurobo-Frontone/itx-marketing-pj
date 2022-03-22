@@ -6,7 +6,6 @@ const TextWrap = styled.div`
 `;
 const Title = styled.h2`
   font-size: 2.5rem;
-  font-family: 'GoyangDeogyang';
   line-height: 2.75rem;
  
   ::before{

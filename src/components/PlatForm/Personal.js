@@ -86,7 +86,7 @@ const Personal = () => {
         data={Data}
       />
       <Section3
-        thin="차원이 다른"
+        thin="차원이 다른 "
         title1="보험서비스의 실현"
         data={Data2}
         bottom="9.1%"

@@ -2,20 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import SectionTitle from "./SectionTitle";
 
-
 const Section1 = (props) => {
   
   return (
     <Wrap>
       <SectionTitle>
         <span>{props.thin}</span>
+        <span className={props.logo}></span>
         <strong>&nbsp;{props.strong1}</strong>
         {props.title1}
         <strong>&nbsp;{props.strong2}</strong>
         {props.title2}
       </SectionTitle>
         
-   
       <Content>
         <img src={props.img} alt={props.title} />
         <div>

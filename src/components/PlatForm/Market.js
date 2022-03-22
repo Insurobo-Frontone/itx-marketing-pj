@@ -71,10 +71,10 @@ const Data2 = [
   },
   {
     id: 4,
-    hashtag: "#소상공인 #의무/정책보험",
-    list1: "소상공인 전용 의무/정책보험 기반의 고객 확보",
-    list2: "정부와 지자체 등의 보험료 지원을 통해 확장성 보장",
-    list3: "소상공인 보험료 절감을 위한 “보험 리모델링 캠페인”동시 진행",
+    hashtag: "#보장분석 #보험서비스 #유통",
+    list1: "Push(프로모션, 이벤트) 보장분석 고객 확보 후 공급",
+    list2: "TM을 통한 보장분석, 재무설계, 보험비교 서비스 제공",
+    list3: "보험 뿐만 아니라 금융대출(대출, 카드) 유통을 위한 채널로 활용",
     img: smallOwner2,
   }
 ];
@@ -90,7 +90,7 @@ const Market = () => {
         description={'회사의 제휴역량을 통해 다양한 가망고객을 확보하여\nFP가 원하는 속성의 가망고객과 매칭해 드립니다.'}
     />
       <Section2
-        small="고객 확보로 고민하십니까?"
+        small={"고객 확보로 고민하십니까?\n"}
         strong1="S"
         title1="ales to"
         strong2="M"
@@ -98,9 +98,9 @@ const Market = () => {
         data={Data}
       />
       <Section3
-        small="영업을 위한 특별한 공간!"
+        small={"영업을 위한 특별한 공간!\n"}
         strong1="고"
-        title1="객"
+        title1="객 "
         strong2="M"
         title2="arket"
         data={Data2}

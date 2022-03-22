@@ -30,18 +30,6 @@ const TopBox = (props) => {
           </li>
           <li>
             <StyledLink
-              to='/platform?corperation'
-              activeStyle={activeStyle}
-              isActive={(match, location) => {
-                return match !== null && location.search === "?corperation";
-              }}
-            >
-              <h3>법인영업</h3>
-              <img src={flatformLink} alt="법인영업" />
-            </StyledLink>
-          </li>
-          <li>
-            <StyledLink
               to='/platform?insuplus'
               activeStyle={activeStyle}
               isActive={(match, location) => {

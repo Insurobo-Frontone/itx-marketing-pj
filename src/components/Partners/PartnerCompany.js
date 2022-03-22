@@ -63,7 +63,6 @@ const Title = styled.div`
   > h2 {
     color: #1A1A1A;
     font-size: 2.5rem;
-    font-family: 'GoyangDeogyang';
     padding-bottom: 1.45%;
     > strong {
       color: #B8292D;
@@ -113,7 +112,6 @@ const ListBox = styled.div`
     /* width: 26.66666666666667%; */
     font-size: 0.8rem;
     line-height: 3rem;
-    font-family: 'GoyangDeogyang';
     text-align: center;
     padding: 0 4.2%;
     margin-bottom: 5.9%;

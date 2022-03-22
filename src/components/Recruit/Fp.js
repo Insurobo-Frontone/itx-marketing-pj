@@ -322,6 +322,7 @@ const Fp = () => {
           id1="#part1"
           id2="#part2"
           id3="#part3"
+          display='none'
         />
         <TitleBox  
           title="FP채용"

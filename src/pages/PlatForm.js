@@ -6,7 +6,6 @@ import { useLocation } from "react-router-dom";
 import Personal from '../components/PlatForm/Personal';
 import InsuPlus from '../components/PlatForm/InsuPlus';
 import Market from '../components/PlatForm/Market';
-import Corporation from '../components/PlatForm/Corporation';
 
 const PlatForm = () => {
   const location = useLocation();
@@ -17,10 +16,8 @@ const PlatForm = () => {
       <PlatFormMenu />
       {location.search === '?insuplus' ? (<InsuPlus />) 
       : location.search === '?market' ? (<Market />) 
-      : location.search === '?corperation' ? (<Corporation />)
       : (<Personal />)
       }
-
     </Layout>
   )
 };

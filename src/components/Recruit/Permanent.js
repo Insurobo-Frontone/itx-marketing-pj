@@ -229,10 +229,12 @@ const Permanent = () => {
           link1='모집부분'
           link2='근무조건'
           link3='우대사항'
+          link4='복리후생'
           leftpd='8.5%'
           id1="#cont1"
           id2="#cont2"
           id3="#cont3"
+          id4="#cont4"
         />
         <TitleBox  
           title="정규직채용"
@@ -353,7 +355,7 @@ const Permanent = () => {
             </tr>
           </Table>
         </Contents>
-        <Contents>
+        <Contents id='cont4'>
           <SubTitle 
             title="복리후생"
           />
