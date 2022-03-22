@@ -337,11 +337,11 @@ const Header = (props) => {
                 onClick={activeMethod}
               >Business
                 <ul className="sub-menu">
-                  <li><a href='/platform'>플랫폼</a>
+                  <li><Link to='/platform'>플랫폼</Link>
                     <ul className="sub-menu-dropdown">
-                      <li><a href='/platform'>개인영업</a></li>
-                      <li><a href='/platform?insuplus'>보험플러스</a></li>
-                      <li><a href='/platform?market'>Market</a></li>
+                      <li><Link to='/platform'>개인영업</Link></li>
+                      <li><Link to='/platform?insuplus'>보험플러스</Link></li>
+                      <li><Link to='/platform?market'>Market</Link></li>
                     </ul>
                   </li>
                   <li><Link to='#'>서비스</Link>
