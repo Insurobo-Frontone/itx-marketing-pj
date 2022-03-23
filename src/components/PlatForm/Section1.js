@@ -19,7 +19,7 @@ const Section1 = (props) => {
         <img src={props.img} alt={props.title} />
         <div>
           <SubTitle>{props.subTitle}</SubTitle>
-          <Description>{props.description}</Description>
+          <Discription>{props.description}</Discription>
         </div>
       </Content>
     </Wrap>
@@ -59,7 +59,7 @@ const Content = styled.div`
     > div {
       padding-left: 0;
       width: 100%;
-  }
+    }
   }
 `;
 
@@ -76,7 +76,7 @@ const SubTitle = styled.h2`
   }
 `;
 
-const Description = styled.p`
+const Discription = styled.p`
   color: #444444;
   font-size: 1rem;
   line-height: 1.475rem;

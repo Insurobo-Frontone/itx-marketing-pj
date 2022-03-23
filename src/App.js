@@ -11,6 +11,9 @@ import Partners from "./pages/Partners";
 import ScrollToTop from "./components/ScrollToTop";
 import ContactTab from "./components/Contact/ContactTab";
 import PlatForm from "./pages/PlatForm"
+import Invest from "./pages/Invest";
+import Apply from "./pages/Apply";
+
 
 function App() {
   
@@ -26,6 +29,8 @@ function App() {
           <Route exact path="/contact" component={ContactTab} />
           <Route exact path="/platform" component={PlatForm} />
           <Route exact path="/platform/:pagename" component={PlatForm} />
+          <Route exact path="/invest" component={Invest} />
+          <Route exact path="/apply" component={Apply} />
         </BrowserRouter>
     </ThemeProvider>
   );

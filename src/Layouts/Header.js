@@ -351,8 +351,8 @@ const Header = (props) => {
                       <li>기업컨설팅</li>
                     </ul>
                   </li>
-                  <li><Link to='#'>3분 재태크</Link></li>
-                  <li><Link to='#'>상담신청</Link></li>
+                  <li><Link to='/invest'>3분 재태크</Link></li>
+                  <li><Link to='/apply'>상담신청</Link></li>
                 </ul>
               </li>
               <li 
