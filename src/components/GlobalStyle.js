@@ -24,6 +24,10 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    ::-webkit-scrollbar {
+      background-color: transparent;
+      width: 0px;
+    }
   }
   #root {
     position: relative;

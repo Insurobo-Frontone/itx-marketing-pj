@@ -340,8 +340,8 @@ const Header = (props) => {
                   <li><Link to='/platform'>플랫폼</Link>
                     <ul className="sub-menu-dropdown">
                       <li><Link to='/platform'>개인영업</Link></li>
-                      <li><Link to='/platform?insuplus'>보험플러스</Link></li>
-                      <li><Link to='/platform?market'>Market</Link></li>
+                      <li><Link to='/platform/insuplus'>보험플러스</Link></li>
+                      <li><Link to='/platform/market'>Market</Link></li>
                     </ul>
                   </li>
                   <li><Link to='#'>서비스</Link>

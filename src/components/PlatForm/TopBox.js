@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
 import flatformLink from '../../img/sub/flatformLink.svg';
-// import button from "../../img/sub/platformButton.svg";
 
 const TopBox = (props) => {
   const activeStyle = { background: "#C22229" };
@@ -18,11 +17,9 @@ const TopBox = (props) => {
         <ListBox>
           <li>
             <StyledLink
+              exact
               to='/platform'
               activeStyle={activeStyle}
-              isActive={(match, location) => {
-                return match !== null && location.search === '';
-              }}
             >
               <h3>개인영업(FP)</h3>
               <img src={flatformLink} alt="개인영업" />
@@ -30,11 +27,8 @@ const TopBox = (props) => {
           </li>
           <li>
             <StyledLink
-              to='/platform?insuplus'
+              to='/platform/insuplus'
               activeStyle={activeStyle}
-              isActive={(match, location) => {
-                return match !== null && location.search === "?insuplus";
-              }}
             >
               <h3>보험플러스</h3>
               <img src={flatformLink} alt="보험플러스" />
@@ -42,11 +36,8 @@ const TopBox = (props) => {
           </li>
           <li>
             <StyledLink
-              to='/platform?market'
+              to='/platform/market'
               activeStyle={activeStyle}
-              isActive={(match, location) => {
-                return match !== null && location.search === "?market";
-              }}
             >
               <h3>DB Market</h3>
               <img src={flatformLink} alt="DB Market" />
