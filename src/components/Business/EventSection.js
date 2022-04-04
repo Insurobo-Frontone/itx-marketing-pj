@@ -2,10 +2,11 @@ import React, { useEffect } from 'react'
 import styled, { css } from "styled-components"
 import SectionTitle from '../PlatForm/SectionTitle';
 import ScrollMagic from "scrollmagic";
+import InvestList from './Invest/InvestList';
 
 function EventSection({
   thin, strong, title,
-  img, children, apply
+  img, children, apply, invest
 }) {
 
   useEffect(() => {
@@ -35,7 +36,13 @@ function EventSection({
         <TextWrap apply={apply} className='fade-el'>
           {children}
         </TextWrap>
+        
       </Content>
+      {invest && (
+        <SubContents>
+          <InvestList />
+        </SubContents>
+      )}
     </Wrap>
   )
 }
@@ -123,5 +130,9 @@ const TextWrap = styled.div`
     padding-left: 0;
     width: 100%;
   }
+`;
+
+const SubContents = styled.div`
+  width: 100%;
 `;
 

@@ -19,7 +19,7 @@ const HashBox = styled.div`
   border-radius: 48px;
   background-color: #F8F8F8;
   font-size: 0.75rem;
-  padding: 0 2.7%;
+  padding: 0 1.5%;
   margin-right: 25px;
    > p {
      padding-top: 0;

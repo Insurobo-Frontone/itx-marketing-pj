@@ -43,6 +43,11 @@ const SIZES = {
     height: 60px;
     border-radius: 95px;
   `,
+  md2: css`
+  width: 250px;
+  height: 60px;
+  border-radius: 8px;
+`,
   lg: css`
     width: 250px;
     height: 60px;
@@ -65,12 +70,13 @@ const VARIANTS = {
     --hover-bg-color: #C22229;
   `
 }
-const Button = ({children, size, variant}) => {
+const Button = ({children, size, variant, onClick}) => {
   const sizeStyle = SIZES[size];
   const variantStyle = VARIANTS[variant];
 
   return (
     <StyledButton
+      onClick={onClick}
       sizeStyle={sizeStyle}
       variantStyle={variantStyle}
     >

@@ -296,7 +296,6 @@ const Items = styled.li`
       padding-left: 10.5%;
       > h3 {
         color: #1A1A1A;
-        font-family: 'GoyangDeogyang';
       }
       > p {
         font-size: 0.625rem;
@@ -356,7 +355,6 @@ const Incentive = styled.div`
         > h3 {
           color: #1A1A1A;
           font-size: 1rem;
-          font-family: 'GoyangDeogyang';
           border-bottom: 3px solid #B8292D;
           display: inline-block;
           line-height: 1.5rem;

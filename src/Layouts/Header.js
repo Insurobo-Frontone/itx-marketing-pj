@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import { ReactComponent as TopLogo } from "../img/common/Logo.svg";
 import { ReactComponent as MenuBtn } from "../img/common/MenuIcon.svg";
 import submenuicon from "../img/common/listIcon.svg"
-import { ReactComponent as CloseBtn } from "../img/common/CloseBtn.svg";
+import { ReactComponent as CloseBtn } from "../img/common/closeBtn.svg";
 
 
 const Headers =  styled.header`
@@ -104,7 +104,7 @@ const Lnb = styled.div`
   }
 }
 > nav:hover + div {
-  height: 650px;
+  height: 609px;
   opacity: 1;
   @media (max-width: 700px){
     height: 100%;
@@ -243,6 +243,7 @@ const ToggleBtn = styled.div`
   @media (max-width: 700px) {
     order: 2;
     display: flex;
+    justify-content: flex-end;
   }
 
   .black-toggle {
@@ -296,8 +297,8 @@ const Header = (props) => {
     <Headers 
         isopen={isToggleOn}
         className={
-          location.pathname === '/summary' ||
-          location.pathname === '/partners' ?
+          location.pathname === '/intro/summary' ||
+          location.pathname === '/intro/partners' ?
           'black-font' : 'primary-header'
         }
         id={scrollPosition > 500 || isHovering ? 'scroll-header' : ''}
@@ -306,8 +307,8 @@ const Header = (props) => {
         <Logo as="a" href="/">
           <TopLogo 
             className={
-              location.pathname === '/summary' ||
-              location.pathname === '/partners' ?
+              location.pathname === '/intro/summary' ||
+              location.pathname === '/intro/partners' ?
               'black-logo' : 'primary-logo'
             }
             id={scrollPosition > 500 || isHovering || isToggleOn ? 'scroll-logo' : ''}
@@ -327,54 +328,45 @@ const Header = (props) => {
                 ITX Marketing 
                 <ul
                   className="sub-menu">
-                  <li><Link to='/summary'>개요</Link></li>
-                  <li><Link to='/partners'>제휴사</Link></li>
-                  <li><Link to='/recruit'>채용</Link></li>
-                  <li><Link to='/contact'>Contact us</Link></li>
+                  <li><Link to='/intro/summary'>개요</Link></li>
+                  <li><Link to='/intro/partners'>제휴사</Link></li>
+                  <li><Link to='/intro/recruit'>채용</Link></li>
+                  <li><Link to='/intro/contact'>Contact us</Link></li>
                 </ul>
               </li>
               <li
                 onClick={activeMethod}
               >Business
                 <ul className="sub-menu">
-                  <li><Link to='/platform'>플랫폼</Link>
+                  <li><Link to='/business/platform'>플랫폼</Link>
                     <ul className="sub-menu-dropdown">
-                      <li><Link to='/platform'>개인영업</Link></li>
-                      <li><Link to='/platform/insuplus'>보험플러스</Link></li>
-                      <li><Link to='/platform/market'>Market</Link></li>
+                      <li><Link to='/business/platform'>개인영업</Link></li>
+                      <li><Link to='/business/platform/insuplus'>보험플러스</Link></li>
+                      <li><Link to='/business/platform/market'>Market</Link></li>
                     </ul>
                   </li>
-                  <li><Link to='#'>서비스</Link>
-                    <ul className="sub-menu-dropdown">
-                      <li>보장분석</li>
-                      <li>보험비교</li>
-                      <li>기업컨설팅</li>
-                    </ul>
-                  </li>
-                  <li><Link to='/invest'>3분 재태크</Link></li>
-                  <li><Link to='/apply'>상담신청</Link></li>
+                  <li><Link to='/business/invest'>3분 재태크</Link></li>
+                  <li><Link to='/business/apply'>상담신청</Link></li>
                 </ul>
               </li>
               <li 
               onClick={activeMethod}
+              >기업컨설팅
+                <ul className="sub-menu">
+                  <li><Link to='/corporation'>컨설팅 소개</Link></li>
+                  <li><Link to='/corporation/service'>서비스</Link></li>
+                  <li><Link to='/corporation/expert'>전문가 그룹</Link></li>
+                  <li><Link to='/corporation/apply'>상담신청</Link></li>
+                </ul>
+              </li>
+              <li
+                onClick={activeMethod}
               >상속증여연구소
                 <ul className="sub-menu">
                   <li><Link to='#'>연구소 소개</Link></li>
                   <li><Link to='#'>서비스</Link></li>
                   <li><Link to='#'>전문가 그룹</Link></li>
-                  <li><Link to='#'>프로세스</Link></li>
-                  <li><Link to='#'>상담신청</Link></li>
-                </ul>
-              </li>
-              <li
-                onClick={activeMethod}
-              >기업컨설팅
-                <ul className="sub-menu">
-                  <li><Link to='#'>컨설팅 소개</Link></li>
-                  <li><Link to='#'>서비스</Link></li>
-                  <li><Link to='#'>전문가 그룹</Link></li>
-                  <li><Link to='#'>프로세스</Link></li>
-                  <li><Link to='#'>상담신청</Link></li>
+                  <li><Link to='/inherit/apply'>상담신청</Link></li>
                 </ul>
               </li>
               <li><Link to='/runnig'>러닝센터</Link></li>
@@ -390,8 +382,8 @@ const Header = (props) => {
               {!isToggleOn && (
                 <MenuBtn
                   className={
-                    location.pathname === '/summary' ||
-                    location.pathname === '/partners' ?
+                    location.pathname === '/intro/summary' ||
+                    location.pathname === '/intro/partners' ?
                     'black-toggle' : 'primary-toggle'
                   }
                   id={scrollPosition > 500 || isHovering ? 'scroll-toggle' : ''}

@@ -75,7 +75,7 @@ const SectionTitle = styled.div`
 const VisualBox = styled.div`
   width: 100%;
   margin-left: 29.5%;
-  padding-top: 82.6%;
+  padding-top: 50%;
   background-image: url(${visual});
   background-repeat: no-repeat;
   background-position: 33.5% 1%;
@@ -89,11 +89,9 @@ const VisualBox = styled.div`
   }
 `;
 const SwiperContainer = styled.div`
-  position: absolute;
-  top: 64%;
-  left: 11%;
   background-color: #F8F8F8;
   border-radius: 366.5px 0 0 366.5px;
+  margin-left: 12.2%;
   @media (max-width: 700px) {
     left: 4%;
     top: 60%;
@@ -102,9 +100,8 @@ const SwiperContainer = styled.div`
 const StyleSwiper = styled(Swiper)`
   padding: 6.1% 0 6.1% 1.815087918321044%;
   /* width: 91.82291666666667%; */
-  width: 1763px;
+  /* width: 1763px; */
   @media (max-width: 700px) {
-    width: 636px;
     padding: 6.1% 0 6.1% 1%;
   }
 
@@ -113,21 +110,14 @@ const StyleSwiper = styled(Swiper)`
     border-radius: 46px;
     display: flex;
     justify-content: space-between;
-    height: 400px;
-    width: 400px;
-    padding: 4% 2%;
+    padding: 4% 2.5% 15% 2%;
     cursor: pointer;
     font-size: 1.5rem;
     color: #323232;
     font-family: 'GoyangDeogyang';
 
-    > p {
-      line-height: 45px;
-    }
-
     @media (max-width: 700px) {
       width: 25.68493150684932%;
-      height: 150px;
       font-size: 0.8125rem;
       letter-spacing: -2.5%;
       border-radius: 15px;
@@ -141,7 +131,7 @@ const StyleSwiper = styled(Swiper)`
   .swiper-slide-active {
     background-color: #B8292D;
     color: #FFFFFF;
-    height: 500px;
+    padding-bottom: 20%;
     @media (max-width: 700px) {
       height: 209px;
     }

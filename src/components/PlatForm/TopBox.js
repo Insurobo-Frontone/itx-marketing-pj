@@ -18,7 +18,7 @@ const TopBox = (props) => {
           <li>
             <StyledLink
               exact
-              to='/platform'
+              to='/business/platform'
               activeStyle={activeStyle}
             >
               <h3>개인영업(FP)</h3>
@@ -27,7 +27,7 @@ const TopBox = (props) => {
           </li>
           <li>
             <StyledLink
-              to='/platform/insuplus'
+              to='/business/platform/insuplus'
               activeStyle={activeStyle}
             >
               <h3>보험플러스</h3>
@@ -36,7 +36,7 @@ const TopBox = (props) => {
           </li>
           <li>
             <StyledLink
-              to='/platform/market'
+              to='/business/platform/market'
               activeStyle={activeStyle}
             >
               <h3>DB Market</h3>

@@ -1,16 +1,17 @@
 import React from 'react'
-import styled from 'styled-components';
-
+import styled, { css } from 'styled-components';
 import Overay from './Overay';
 
-const CommonBanner = (props) => {
+const CommonBanner = ({
+  consulting, strong, title, subtxt, img
+}) => {
   return (
-    <BannerContainer style={{backgroundImage: `url(${props.img})`}}>
+    <BannerContainer consulting={consulting} style={{backgroundImage: `url(${img})`}}>
       <div className='text-wrap'>
         <h2>
-         <strong>{props.strong}</strong>{props.title}
+         <strong>{strong}</strong>{title}
         </h2>
-        <p>{props.subtxt}</p> 
+        <p>{subtxt}</p> 
       </div>
       <Overay />
     </BannerContainer>
@@ -24,7 +25,13 @@ const BannerContainer = styled.section`
   padding-top: 52.09%;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center left;
   
+  ${props => props.consulting && css`
+    background-position: 0 0;
+    background-size: 125%;
+  `}
+
   @media (max-width: 700px) {
     padding-top: 162%;
     background-position: center top;

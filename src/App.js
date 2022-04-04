@@ -13,6 +13,7 @@ import ContactTab from "./components/Contact/ContactTab";
 import PlatForm from "./pages/PlatForm"
 import Invest from "./pages/Invest";
 import Apply from "./pages/Apply";
+import Corporation from './pages/Corporation';
 
 
 function App() {
@@ -23,14 +24,22 @@ function App() {
         <BrowserRouter>
           <ScrollToTop />
           <Route exact path="/" component={Home} />
-          <Route exact path="/summary" component={Summary}/>
-          <Route exact path="/partners" component={Partners} />
-          <Route exact path="/recruit" component={Recruit} />
-          <Route exact path="/contact" component={ContactTab} />
-          <Route exact path="/platform" component={PlatForm} />
-          <Route exact path="/platform/:pagename" component={PlatForm} />
-          <Route exact path="/invest" component={Invest} />
-          <Route exact path="/apply" component={Apply} />
+          <Route exact path="/intro/summary" component={Summary}/>
+          <Route exact path="/intro/partners" component={Partners} />
+          <Route exact path="/intro/recruit" component={Recruit} />
+          <Route exact path="/intro/contact" component={ContactTab} />
+          <Route exact path="/business/platform" component={PlatForm} />
+          <Route exact path="/business/platform/:pagename" component={PlatForm} />
+          <Route exact path="/business/invest" component={Invest} />
+          <Route exact path="/business/apply" component={Apply} />
+          <Route exact path="/business/apply?2" component={Apply} />
+          <Route exact path="/business/apply?3" component={Apply} />
+          <Route exact path="/corporation/apply" component={Apply} />
+          <Route exact path="/inherit/apply" component={Apply} />
+
+          <Route exact path="/corporation" component={Corporation} />
+          <Route exact path="/corporation/:pagename" component={Corporation} />
+          
         </BrowserRouter>
     </ThemeProvider>
   );

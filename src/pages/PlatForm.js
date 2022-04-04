@@ -22,8 +22,8 @@ const PlatForm = () => {
         
       />
       <PlatFormMenu />
-      {location.pathname === '/platform/insuplus' ? (<InsuPlus />)
-      : location.pathname === '/platform/market' ? (<Market />)
+      {location.pathname === '/business/platform/insuplus' ? (<InsuPlus />)
+      : location.pathname === '/business/platform/market' ? (<Market />)
       : (<Personal />)
       }
     </Layout>

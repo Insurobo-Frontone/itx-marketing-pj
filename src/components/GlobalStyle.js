@@ -24,10 +24,16 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    ::-webkit-scrollbar {
+    @media (max-width: 700px) {
+      ::-webkit-scrollbar {
       background-color: transparent;
       width: 0px;
     }
+  }
+    /* ::-webkit-scrollbar {
+      background-color: transparent;
+      width: 0px;
+    } */
   }
   #root {
     position: relative;
@@ -38,7 +44,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'GoyangIlsan';
     color: #444444;
-    font-size: 1rem;    
+    font-size: 1rem;
+  }
+  ::placeholder {
+    font-family: 'GoyangIlsan';
   }
   h1, h2, h3, h4 {
     font-family: 'GoyangDeogyang';

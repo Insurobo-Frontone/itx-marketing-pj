@@ -7,7 +7,6 @@ import EventSection from '../components/Business/EventSection';
 import invest from '../img/sub/invest.png';
 import HashTag from '../components/Business/Invest/HashTag';
 
-
 const Invest = () => {
   return (
     <Layout>
@@ -21,6 +20,7 @@ const Invest = () => {
         strong='3분 '
         title='제테크'
         img={invest}
+        invest
       >
         <div>
           <h2>3분만에 확인할 수 있는 제테크 노하우</h2>
@@ -53,3 +53,4 @@ const HashWrap = styled.div`
     margin-top: 5%;
   }
 `;
+

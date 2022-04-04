@@ -1,7 +1,6 @@
 import React,{ useState } from "react";
 import styled from "styled-components";
 import Highfive from "../../img/sub/Highfive.svg";
-
 import SubBanner from "../SubBanner";
 import TitleBox from "../TitleBox";
 import SubTitle from "./SubTitle";
@@ -9,10 +8,6 @@ import Button from "../Button";
 import MiniBanner from "../MiniBanner";
 import Info from "./Info";
 import FpModal from "../Modal/FpModal";
-import { ReactComponent as CloseBtn } from "../../img/common/CloseBtn.svg";
-import checkIcon from "../../img/common/checkIcon.svg";
-import checkedIcon from "../../img/common/checkedIcon.svg";
-
 
 const Container = styled.section`
  > .sub-banner {
@@ -189,128 +184,20 @@ const BottomWrap = styled.div`
     }
   }
 `;
-const InputBox = styled.div`
-  > h3 {
-    line-height: 2.6rem;
-    color: #1A1A1A;
-    @media(max-width: 700px){
-      font-size: 1rem;
-      line-height: 2.25rem;
-      padding-top: 3.9%;
-    }
-  }
-  input {
-    border: 1px solid #BEBEBE;
-    border-radius: 8px;
-    height: 4.8vh;
-    width: 100%;
-    padding: 0 20px;
-    @media(max-width: 700px){
-      height: 50px;
-      border-radius: 5px;
-    }
-  }
-  input::placeholder,
-  textarea::placeholder {
-    color: #C4C4C4;
-    font-size: 0.8rem;
-    font-family: 'GoyangIlsan';
-    @media(max-width: 700px){
-      font-size: 0.8125rem;
-    }
-  }
-  textarea {
-    height: 19.2vh;
-    width: 100%;
-    border: 1px solid #BEBEBE;
-    border-radius: 8px;
-    padding: 24px 0 0 19px;
-    outline: none;
-    @media(max-width: 700px) {
-      padding: 16px 0 0 16px;
-    }
-  }
-  
-`;
-const CheckBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 3% 0 5% 0;
-  @media(max-width: 700px) {
-    padding: 2% 0 10% 0;
-  }
-  input[type="checkbox"] + label {
-    display: flex;
-    align-items: center;
-    font-size: 0.8rem;
-    color: #1A1A1A;
-    width: 70%;
-    @media(max-width: 700px) {
-      font-size: 0.625rem;
-      line-height: 1.25rem;
-    }
-  }
-  input[type="checkbox"] + label::before{
-    content: '';
-    display: block;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-image: url(${checkIcon});
-    background-repeat: no-repeat;
-    background-size: contain;
-    margin-right: 5%;
-    @media(max-width: 700px) {
-      width: 20px;
-      height: 20px;
-    }
-  }
-  input[type="checkbox"]:checked + label::before{
-    background-image: url(${checkedIcon});
-  }
-  button {
-    width: 60px;
-    height: 30px;
-    color: #FFFFFF;
-    background-color: #B8292D;
-    font-size: 0.8rem;
-    @media(max-width: 700px) {
-      width: 40px;
-      height: 20px;
-      font-size: 0.625rem;
-    }
-  }
- 
-`;
-const SubmitBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  button {
-    width: 250px;
-    height: 50px;
-    color: #FFFFFF;
-    background-color: #B8292D;
-    border-radius: 95px;
-    font-size: 0.8125rem;
-    cursor: pointer;
-  }
-  @media(max-width: 700px) {
-    button {
-      width: 100% ;
-      height: 30px;
-      border-radius: 3px;
-    }
-  }
-`;
+
 
 const Fp = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const openModal = (event) => { setModalOpen(!modalOpen) }
+  const [modalVisible, setModalVisible] = useState(false);
 
+  const openModal = () => { 
+    setModalVisible(true);
+  }
+  const closeModal = () => {
+    setModalVisible(false);
+  }
   return (
-    <Container>
+    <>
+      <Container>
       <div className="sub-banner">
         <SubBanner
           padding="4.3% 16.75643327348893% 3.8% 9.275882704967086%"
@@ -426,91 +313,25 @@ const Fp = () => {
           </Table>
         </Contents3>
       </SupportContainer>
-      {modalOpen ?  
-        <FpModal onClick={(event) =>{event.stopPropagation()}}>
-          <div>
-            <CloseBtn stroke='#1A1A1A' className="close-btn" onClick={openModal}/>
-            <h2>FP 입사 지원하기</h2>
-          </div>
-          <form
-            id="application"
-            style={{
-             
-            }}
-            onSubmit={(event) => {
-              event.preventDefault();
-              console.log(
-                event.target.branch.value,
-                event.target.area.value,
-                event.target.username.value,
-                event.target.phoneNum.value,
-                event.target.free.value,
-                event.target.perInfo.value,
-              )
-              alert('입사지원이 완료 되었습니다');
-            }}
-          >
-            <select name="branch">
-              <option value="0">분야</option>
-              <option value="corporate">법인컨설팅</option>
-              <option value="db">DB영업</option>
-            </select>
-            <InputBox>
-              <h3>지역</h3>
-              <input 
-                type="text"
-                name="area"
-              />
-            </InputBox>
-            <InputBox>
-              <h3>이름</h3>
-              <input 
-                type="text"
-                name="username"
-              />
-            </InputBox>
-            <InputBox>
-              <h3>연락처</h3>
-              <input 
-                type="tel"
-                name="phoneNum"
-                placeholder="‘-’없이 번호만 입력해 주세요."
-              />
-            </InputBox>
-            <InputBox>
-              <h3>자유기술</h3>
-              <textarea 
-                type="text"
-                name="free"
-                placeholder="200자 이내로 적어주세요."
-                maxLength={200}
-              />  
-            </InputBox>
-            <CheckBox>
-              <input type="checkbox" id="agree" name="perInfo" />
-              <label for="agree">개인정보수집 및 이용동의서</label>
-              <button>보기</button>
-            </CheckBox>
-            <SubmitBox>
-              <button type="submit">
-                지원하기
-              </button>
-            </SubmitBox>
-          </form>
-        </FpModal> : null}
-
-        <BottomWrap>
-          <div className="btn-box">
-            <Button size="lg">
-              <p style={{width: '100%'}} onClick={openModal}>
-                입사지원
-              </p>
-            </Button>
-          </div>
-          <MiniBanner desc="FP채용 문의" />
-            <Info email="이메일 : kkang933@wehago.com" keeper="담당자 : 강세훈 부장" />
-        </BottomWrap>
+      <BottomWrap>
+        <div className="btn-box">
+          <Button size="lg" onClick={openModal}>
+            <p style={{width: '100%', lineHeight: '100%'}}>
+              입사지원
+            </p>
+          </Button>
+        </div>
+        <MiniBanner desc="FP채용 문의" />
+          <Info email="이메일 : kkang933@wehago.com" keeper="담당자 : 강세훈 부장" />
+      </BottomWrap>
     </Container>
+    <>
+      {
+        modalVisible && 
+        <FpModal  onClick={closeModal}/>
+      }
+    </>
+  </>
   );
 }
 
